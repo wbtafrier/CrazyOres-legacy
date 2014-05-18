@@ -75,7 +75,6 @@ public class CrazyOres implements IPack
 		this.blockInitialization();
 		this.harvestInitialization();
 		this.addRecipes();
-		Dictionary.registerBlocks(bl);
 		Dictionary.registerItems(il);
 		this.registerEntitiesAndTileEntities();
 		this.miscRegisters();

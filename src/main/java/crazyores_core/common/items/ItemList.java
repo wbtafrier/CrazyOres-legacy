@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 
 public class ItemList 
 {
+	
 	public static Item
 	/** Ore Drop List **/
 	meteorite_coal,
@@ -206,4 +207,64 @@ public class ItemList
 	osmonium_arrow,
 	ender_arrow,
 	starconium_arrow;
+	
+	public static Item[] coPickaxes = new Item[] {
+			meteorite_pickaxe, copper_pickaxe, sapphire_pickaxe, adamite_pickaxe, ruby_pickaxe, zectium_pickaxe, tapazite_pickaxe,
+			crystal_pickaxe, osmonium_pickaxe, starconium_pickaxe, invisium_pickaxe, ender_pickaxe
+	};
+	
+	public static Item[] coAxes = new Item[] {
+		meteorite_axe, copper_axe, sapphire_axe, adamite_axe, ruby_axe, zectium_axe, tapazite_axe,
+		crystal_axe, osmonium_axe, starconium_axe, invisium_axe, ender_axe
+	};
+	
+	public static Item[] coShovels = new Item[] {
+		meteorite_shovel, copper_shovel, sapphire_shovel, adamite_shovel, ruby_shovel, zectium_shovel, tapazite_shovel,
+		crystal_shovel, osmonium_shovel, starconium_shovel, invisium_shovel, ender_shovel
+	};
+	
+	public static Item[] coSwords = new Item[] {
+		meteorite_sword, copper_sword, sapphire_sword, adamite_sword, ruby_sword, zectium_sword, tapazite_sword,
+		crystal_sword, osmonium_sword, starconium_sword, invisium_sword, ender_sword
+	};
+	
+	public static Item[] coHoes = new Item[] {
+		meteorite_hoe, copper_hoe, sapphire_hoe, adamite_hoe, ruby_hoe, zectium_hoe, tapazite_hoe,
+		crystal_hoe, osmonium_hoe, starconium_hoe, invisium_hoe, ender_hoe
+	};
+	
+	public static Item[] coHelmets = new Item[] {
+		copper_helmet, sapphire_helmet, adamite_helmet, meteorite_helmet, ruby_helmet, zectium_helmet, tapazite_helmet,
+		crystal_helmet, osmonium_helmet, starconium_helmet, invisium_helmet, ender_helmet
+	};
+	
+	public static Item[] coChestplates = new Item[] {
+		copper_chestplate, sapphire_chestplate, adamite_chestplate, meteorite_chestplate, ruby_chestplate, zectium_chestplate,
+		tapazite_chestplate, crystal_chestplate, osmonium_chestplate, starconium_chestplate, invisium_chestplate, ender_chestplate
+	};
+	
+	public static Item[] coLeggings = new Item[] {
+		copper_leggings, sapphire_leggings, adamite_leggings, meteorite_leggings, ruby_leggings, zectium_leggings, tapazite_leggings,
+		crystal_leggings, osmonium_leggings, starconium_leggings, invisium_leggings, ender_leggings
+	};
+	
+	public static Item[] coBoots = new Item[] {
+		copper_boots, sapphire_boots, adamite_boots, meteorite_boots, ruby_boots, zectium_boots, tapazite_boots,
+		crystal_boots, osmonium_boots, starconium_boots, invisium_boots, ender_boots
+	};
+	
+	public static Item[] coRods = new Item[] {
+		copper_rod, sapphire_rod, adamite_rod, meteorite_rod, ruby_rod, zectium_rod, tapazite_rod, crystal_rod, osmonium_rod,
+		starconium_rod, invisium_rod, ender_rod
+	};
+	
+	public static Item[] coBows = new Item[] {
+		meteorite_bow, copper_bow, invisium_bow, sapphire_bow, adamite_bow, ruby_bow, zectium_bow, tapazite_bow, crystal_bow,
+		osmonium_bow, ender_bow, starconium_bow
+	};
+	
+	public static Item[] coArrows = new Item[] {
+		meteorite_arrow, copper_arrow, invisium_arrow, sapphire_arrow, adamite_arrow, ruby_arrow, zectium_arrow, tapazite_arrow, crystal_arrow,
+		osmonium_arrow, ender_arrow, starconium_arrow
+	};
 }

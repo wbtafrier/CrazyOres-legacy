@@ -1,0 +1,19 @@
+CRAZYORES CORE V2.0 CHANGELOG
+=====================================================================================================================================================
+
+ADDITIONS:
+* CrazyOres now has support for language files. You can add your own if you would like!
+
+CHANGES:
+* The Fool's Ruby Golem is now built in a much easier way, with two Fool's Ruby Blocks in a column, and a Head on top. No more arms (like a Snow Golem)!
+* The Fool's Ruby Golem is now much faster than other golems, and walks very smoothly now.
+* CrazyOres tab icons have been changed.
+* All textures have been renamed.
+
+REMOVALS:
+
+FIXES:
+* The top and bottom textures of Golem Heads now face the correct direction.
+* The Ore Dictionary entries for gems, ingots, and other drops have been reformatted to match other mods.
+* Golems are should now be named correctly (no more "EntityStarconiumGolem").
+* The animation of the Crystal Bow when drawn back is now in the correct location (in your hand)

@@ -13,6 +13,8 @@ import crazyores_core.common.tabs.TabList;
 public class BasicItem extends Item 
 {
 	
+	private static String oreDictName = null;
+	
 	public BasicItem() 
 	{
 		this(TabList.COMaterials);
@@ -35,4 +37,11 @@ public class BasicItem extends Item
 		return false;
 	}
 	
+	public void setOreDictName(String s) {
+		this.oreDictName = s;
+	}
+	
+	public String getOreDictName() {
+		return this.oreDictName;
+	}
 }
