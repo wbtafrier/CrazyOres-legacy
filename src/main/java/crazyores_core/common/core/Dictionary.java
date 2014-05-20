@@ -8,30 +8,30 @@ public class Dictionary
 {
 	public static void registerItems(ItemList il)
 	{
-		OreDictionary.registerOre("ingotCopper", il.adamite_rod);
-		OreDictionary.registerOre("ingotCopper", il.copper_ingot);
-		OreDictionary.registerOre("gemSapphire", il.sapphire_gem);
-		OreDictionary.registerOre("shardAdamite", il.adamite_shard);
-		OreDictionary.registerOre("coalMeteorite", il.meteorite_coal);
-		OreDictionary.registerOre("gemMeteorite", il.meteorite_gem);
-		OreDictionary.registerOre("gemRuby", il.ruby_gem);
-		OreDictionary.registerOre("gemFoolsRuby", il.fools_ruby_gem);
-		OreDictionary.registerOre("ingotZectium", il.zectium_ingot);
-		OreDictionary.registerOre("gemTapazite", il.tapazite_gem);
-		OreDictionary.registerOre("shardCrystal", il.crystal_shard);
-		OreDictionary.registerOre("ingotOsmonium", il.osmonium_ingot);
-		OreDictionary.registerOre("gemStarconium", il.starconium_gem);
-		OreDictionary.registerOre("orbDemonite", il.demonite_orb);
-		OreDictionary.registerOre("gemEnder", il.ender_gem);
-		OreDictionary.registerOre("ingotInvisium", il.invisium_ingot);
-		OreDictionary.registerOre("ingotDarkstone", il.darkstone_ingot);
-		OreDictionary.registerOre("crystalWhiteLuminite", il.white_luminite_crystal);
-//		OreDictionary.registerOre("crystalRedLuminite", il.red_luminite_crystal);
-//		OreDictionary.registerOre("crystalOrangeLuminite", il.orange_luminite_crystal);
-//		OreDictionary.registerOre("crystalYellowLuminite", il.yellow_luminite_crystal);
-//		OreDictionary.registerOre("crystalGreenLuminite", il.green_luminite_crystal);
-//		OreDictionary.registerOre("crystalBlueLuminite", il.blue_luminite_crystal);
-//		OreDictionary.registerOre("crystalPurpleLuminite", il.purple_luminite_crystal);
+		OreDictionary.registerOre(OreDictNames.ADAMITE_ROD, il.adamite_rod);
+		OreDictionary.registerOre(OreDictNames.COPPER_INGOT, il.copper_ingot);
+		OreDictionary.registerOre(OreDictNames.SAPPHIRE_GEM, il.sapphire_gem);
+		OreDictionary.registerOre(OreDictNames.ADAMITE_SHARD, il.adamite_shard);
+		OreDictionary.registerOre(OreDictNames.METEORITE_COAL, il.meteorite_coal);
+		OreDictionary.registerOre(OreDictNames.METEORITE_GEM, il.meteorite_gem);
+		OreDictionary.registerOre(OreDictNames.RUBY_GEM, il.ruby_gem);
+		OreDictionary.registerOre(OreDictNames.FOOLS_RUBY_GEM, il.fools_ruby_gem);
+		OreDictionary.registerOre(OreDictNames.ZECTIUM_INGOT, il.zectium_ingot);
+		OreDictionary.registerOre(OreDictNames.TAPAZITE_GEM, il.tapazite_gem);
+		OreDictionary.registerOre(OreDictNames.CRYSTAL_SHARD, il.crystal_shard);
+		OreDictionary.registerOre(OreDictNames.OSMONIUM_INGOT, il.osmonium_ingot);
+		OreDictionary.registerOre(OreDictNames.STARCONIUM_GEM, il.starconium_gem);
+		OreDictionary.registerOre(OreDictNames.DEMONITE_ORB, il.demonite_orb);
+		OreDictionary.registerOre(OreDictNames.ENDER_GEM, il.ender_gem);
+		OreDictionary.registerOre(OreDictNames.INVISIUM_INGOT, il.invisium_ingot);
+		OreDictionary.registerOre(OreDictNames.DARKSTONE_INGOT, il.darkstone_ingot);
+		OreDictionary.registerOre(OreDictNames.WHITE_LUMINITE_CRYSTAL, il.white_luminite_crystal);
+//		OreDictionary.registerOre(OreDictNames.RED_LUMINITE_CRYSTAL, il.red_luminite_crystal);
+//		OreDictionary.registerOre(OreDictNames.ORANGE_LUMINITE_CRYSTAL, il.orange_luminite_crystal);
+//		OreDictionary.registerOre(OreDictNames.YELLOW_LUMINITE_CRYSTAL, il.yellow_luminite_crystal);
+//		OreDictionary.registerOre(OreDictNames.GREEN_LUMINITE_CRYSTAL, il.green_luminite_crystal);
+//		OreDictionary.registerOre(OreDictNames.BLUE_LUMINITE_CRYSTAL, il.blue_luminite_crystal);
+//		OreDictionary.registerOre(OreDictNames.PURPLE_LUMINITE_CRYSTAL, il.purple_luminite_crystal);
 
 	}
 }
