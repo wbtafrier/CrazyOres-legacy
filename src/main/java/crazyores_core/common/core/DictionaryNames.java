@@ -7,7 +7,7 @@ import net.minecraftforge.oredict.OreDictionary;
  * @author ISQUISHALL
  *
  */
-public class OreDictNames
+public class DictionaryNames
 {
 	public static final String
 	
