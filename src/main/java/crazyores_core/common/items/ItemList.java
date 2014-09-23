@@ -209,8 +209,8 @@ public class ItemList
 	starconium_arrow;
 	
 	public static Item[] coPickaxes = new Item[] {
-			meteorite_pickaxe, copper_pickaxe, sapphire_pickaxe, adamite_pickaxe, ruby_pickaxe, zectium_pickaxe, tapazite_pickaxe,
-			crystal_pickaxe, osmonium_pickaxe, starconium_pickaxe, invisium_pickaxe, ender_pickaxe
+		meteorite_pickaxe, copper_pickaxe, sapphire_pickaxe, adamite_pickaxe, ruby_pickaxe, zectium_pickaxe, tapazite_pickaxe,
+		crystal_pickaxe, osmonium_pickaxe, starconium_pickaxe, invisium_pickaxe, ender_pickaxe
 	};
 	
 	public static Item[] coAxes = new Item[] {

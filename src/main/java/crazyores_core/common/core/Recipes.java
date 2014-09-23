@@ -2,20 +2,38 @@ package crazyores_core.common.core;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 import crazyores_core.common.blocks.BlockList;
 import crazyores_core.common.items.ItemList;
+import crazyores_core.common.items.Pickaxe;
 
 public class Recipes 
 {
 	private static BlockList bl;
 	private static ItemList il;
 	
+	public static void addPickaxeRecipe(ItemStack result, String ore) {
+		Item i = result.getItem();
+		Pickaxe p = (Pickaxe)i;
+		p.
+		GameRegistry.addRecipe(new ShapedOreRecipe(result, new Object[] {
+				"OOO",
+				" S ",
+				" S ",
+				'O', ore,
+				'S', Items.stick
+		}));
+	}
+	
 	public static void craftingRecipes()
 	{
 		/** Tools **/
-        GameRegistry.addRecipe(new ItemStack(il.copper_pickaxe, 1), new Object[] { "###", " X "," X ", 'X', Items.stick, '#', il.copper_ingot });
+		for (int i = 0; i < ItemList.coPickaxes.length; i++)
+		addPickaxeRecipe(new ItemStack(ItemList.coPickaxes[i], 1), DictionaryNames.COPPER_INGOT);
+//        GameRegistry.addRecipe(new ItemStack(il.copper_pickaxe, 1), new Object[] { "###", " X "," X ", 'X', Items.stick, '#', il.copper_ingot });
         GameRegistry.addRecipe(new ItemStack(il.copper_axe, 1), new Object[] { " ##", " X#"," X ", 'X', Items.stick, '#', il.copper_ingot });
         GameRegistry.addRecipe(new ItemStack(il.copper_axe, 1), new Object[] { "## ", "#X "," X ", 'X', Items.stick, '#', il.copper_ingot });
         GameRegistry.addRecipe(new ItemStack(il.copper_shovel, 1), new Object[] { "#", "X", "X", 'X', Items.stick, '#', il.copper_ingot });

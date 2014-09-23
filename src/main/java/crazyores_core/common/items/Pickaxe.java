@@ -21,29 +21,6 @@ public class Pickaxe extends ItemPickaxe
 		this.setCreativeTab(TabList.COTools);
 	}
 	
-//	@Override
-//	public boolean func_150897_b(Block harvest)
-//	{
-//		return 
-//		harvest == Blocks.obsidian ? this.toolMaterial.getHarvestLevel() == 3 :
-//		(harvest != Blocks.diamond_block && harvest != Blocks.diamond_ore ?
-//		(harvest != Blocks.emerald_ore && harvest != Blocks.emerald_block ?
-//		(harvest != Blocks.gold_block && harvest != Blocks.gold_ore ?
-//		(harvest != Blocks.iron_block && harvest != Blocks.iron_ore ?
-//		(harvest != Blocks.lapis_block && harvest != Blocks.lapis_ore ?
-//		(harvest != Blocks.redstone_ore && harvest != Blocks.lit_redstone_ore ?
-//		(harvest.getMaterial() == Material.rock ? true :
-//		(harvest.getMaterial() == Material.iron ? true :
-//		harvest.getMaterial() == Material.anvil)) :
-//		this.toolMaterial.getHarvestLevel() >= 5) :
-//		this.toolMaterial.getHarvestLevel() >= 1) :
-//		this.toolMaterial.getHarvestLevel() >= 1) :
-//		this.toolMaterial.getHarvestLevel() >= 2) :
-//		this.toolMaterial.getHarvestLevel() >= 2) :
-//		this.toolMaterial.getHarvestLevel() >= 2);
-//	}
-	
-	
 	@Override
 	public boolean hitEntity(ItemStack itemstack, EntityLivingBase entityliving, EntityLivingBase entityliving1)
 	{

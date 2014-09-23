@@ -10,3 +10,4 @@ src_backup/*
 build.gradle
 gradlew
 gradlew.bat
+srcbkp/*
