@@ -1,7 +1,6 @@
 package crazyores_core.common.core;
 
 import org.apache.logging.log4j.Level;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
@@ -36,7 +35,7 @@ public class COCore implements IPack {
 	public static COCore instance = new COCore();
 	
 	/**
-	 * Anything in this method is loaded before minecraft.
+	 * Everything in this method is loaded before Minecraft is loaded.
 	 */
 	@EventHandler
 	private void preInit(FMLPreInitializationEvent fmlPreInitEvent) {
@@ -44,13 +43,13 @@ public class COCore implements IPack {
 	}
 	
 	/**
-	 * Anything in this method is loaded during the loading of minecraft.
+	 * Everything in this method is loaded while Minecraft is loading.
 	 */
     @EventHandler
     public void init(FMLInitializationEvent fmlInitEvent) {}
     
     /**
-     * Anything in this method is loading after everything else is loaded.
+     * Everything in this method is loaded after Minecraft has loaded.
      */
     @EventHandler
     public void postInit(FMLPostInitializationEvent fmlPostInitEvent) {
