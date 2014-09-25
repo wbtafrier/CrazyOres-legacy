@@ -3,12 +3,12 @@ import java.io.File;
 
 /**
  * IProxy is an interface that contains all the methods necessary for serverside and clientside specifics.
- * @author Andy608 and ISQUISHALLs
+ * @author Andy608 and ISQUISHALL
  */
 public interface IProxy {
 	/** 
 	 * Assigns all entity classes to their respective render classes. - clientside 
-	 * @return void.
+	 * @return void
 	 */
 	public abstract void renderEntities();
 	
