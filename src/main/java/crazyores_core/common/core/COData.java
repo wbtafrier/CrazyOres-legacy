@@ -7,9 +7,9 @@ package crazyores_core.common.core;
 
 public class COData {
 	public static final String MOD_ID = "crazyores_core";
-	public static final String MOD_NAME = "CrazyOres Core";
+	public static final String MOD_NAME = "CrazyOres";
+	public static final String MOD_VERSION = "2.0.0";
 	public static final String PACK_NAME = "Core";
-	public static final String VERSION = "2.0.0";
 	public static final String CLIENT_PROXY = "crazyores_core.proxy.ClientProxy";
 	public static final String SERVER_PROXY = "crazyores_core.proxy.ServerProxy";
 }
