@@ -1,0 +1,13 @@
+.project
+.gradle/*
+.settings/*
+bin/*
+build/*
+eclipse/*
+gradle/*
+src_backup/*
+.classpath
+build.gradle
+gradlew
+gradlew.bat
+srcbkp/*
