@@ -8,7 +8,7 @@ import java.io.File;
 public interface IProxy {
 	/** 
 	 * Assigns all entity classes to their respective render classes. - clientside 
-	 * @returns void.
+	 * @return void.
 	 */
 	public abstract void renderEntities();
 	

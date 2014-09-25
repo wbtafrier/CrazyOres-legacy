@@ -1,5 +1,7 @@
 package crazyores_core.common.core;
 
+import org.apache.logging.log4j.Level;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,14 +20,14 @@ import crazyores_core.proxy.IProxy;
  * @author Andy608 and ISQUISHALL
  */
 
-@Mod(modid = COData.MOD_ID, name = COData.MOD_NAME, version = COData.VERSION)
+@Mod(modid = COData.MOD_ID, name = COData.MOD_NAME, version = COData.MOD_VERSION)
 public class COCore implements IPack {
 	
 	/**
 	 * The main way used to call the appropriate proxy files.
 	 */
 	@SidedProxy(clientSide = COData.CLIENT_PROXY, serverSide = COData.SERVER_PROXY)
-	public static IProxy proxy; 
+	public static IProxy proxy;
     
 	/**
 	 * The instance of this file.
@@ -37,7 +39,9 @@ public class COCore implements IPack {
 	 * Anything in this method is loaded before minecraft.
 	 */
 	@EventHandler
-	private void preInit(FMLPreInitializationEvent fmlPreInitEvent) {}
+	private void preInit(FMLPreInitializationEvent fmlPreInitEvent) {
+    	COLogger.write(Level.INFO, COData.MOD_NAME + " recognized. Loading...");
+	}
 	
 	/**
 	 * Anything in this method is loaded during the loading of minecraft.
@@ -49,7 +53,9 @@ public class COCore implements IPack {
      * Anything in this method is loading after everything else is loaded.
      */
     @EventHandler
-    public void postInit(FMLPostInitializationEvent fmlPostInitEvent) {}
+    public void postInit(FMLPostInitializationEvent fmlPostInitEvent) {
+    	COLogger.write(Level.INFO, COData.MOD_NAME + ", Version " + COData.MOD_VERSION + " has loaded!");
+    }
     
 	@Override
 	public String getPackName() {
