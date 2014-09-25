@@ -7,13 +7,20 @@ import java.io.File;
  */
 public interface IProxy {
 	/** 
-	 * Assigns all entity classes to their respective render classes. - clientside 
+	 * Assigns all entity classes to their respective render classes. - clientside
 	 * @return void
 	 */
 	public abstract void renderEntities();
 	
 	/**
-	 * TODO:Finish writing definition
+	 * Retrieves Minecraft main file directory. Used for creating custom mod directories/files.
+	 * @return instance of a File containing the path of the main Minecraft directory
+	 */
+	public abstract File getMinecraftDir();
+	
+	/**
+	 * Registers all Tile Entities into the {@link cpw.mods.fml.client.registry.RenderingRegistry}.
+	 * @return void
 	 */
 	public abstract void registerTileEntites();
 }
