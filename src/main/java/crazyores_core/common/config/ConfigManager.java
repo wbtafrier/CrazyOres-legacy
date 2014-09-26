@@ -9,5 +9,4 @@ public class ConfigManager {
 	public static void writeFiles(FMLPreInitializationEvent event) {
 		Configuration configFile = new Configuration(event.getSuggestedConfigurationFile());
 	}
-	
 }

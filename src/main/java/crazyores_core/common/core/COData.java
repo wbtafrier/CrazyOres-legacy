@@ -4,7 +4,6 @@ package crazyores_core.common.core;
  * COData holds all of the constant data relating to the CrazyOres Core.
  * @author Andy608 and ISQUISHALL
  */
-
 public class COData {
 	public static final String MOD_ID = "crazyores_core";
 	public static final String MOD_NAME = "CrazyOres";

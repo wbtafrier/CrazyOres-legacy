@@ -1,5 +1,4 @@
 package crazyores_core.proxy;
-
 import java.io.File;
 
 import cpw.mods.fml.common.FMLCommonHandler;
