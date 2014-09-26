@@ -11,6 +11,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import crazyores_core.common.config.ConfigManager;
 import crazyores_core.proxy.IProxy;
 
 /**
@@ -40,6 +41,7 @@ public class COCore implements IPack {
 	@EventHandler
 	private void preInit(FMLPreInitializationEvent fmlPreInitEvent) {
     	COLogger.write(Level.INFO, COData.MOD_NAME + " recognized. Loading...");
+    	ConfigManager.writeFiles(fmlPreInitEvent);
 	}
 	
 	/**
