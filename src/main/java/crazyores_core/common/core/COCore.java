@@ -12,6 +12,8 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import crazyores_core.common.config.ConfigManager;
+import crazyores_core.common.block.BlockList;
+import crazyores_core.common.block.BlockNames;
 import crazyores_core.proxy.IProxy;
 
 /**
@@ -35,6 +37,9 @@ public class COCore implements IPack {
 	@Instance(COData.MOD_ID)
 	public static COCore instance = new COCore();
 	
+	//Short hand.
+	private static BlockList bl;
+	
 	/**
 	 * Everything in this method is loaded before Minecraft is loaded.
 	 */
@@ -42,6 +47,7 @@ public class COCore implements IPack {
 	private void preInit(FMLPreInitializationEvent fmlPreInitEvent) {
     	COLogger.write(Level.INFO, COData.MOD_NAME + " recognized. Loading...");
     	ConfigManager.writeFiles(fmlPreInitEvent);
+    	bl.blockInitialization();
 	}
 	
 	/**

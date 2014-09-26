@@ -44,5 +44,4 @@ public class ConfigManager {
 		configFile.save();
 		COLogger.write(Level.INFO, "CrazyOres Core main configuration file successfully loaded!");
 	}
-	
 }

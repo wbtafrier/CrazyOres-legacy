@@ -5,7 +5,6 @@ import net.minecraft.util.EnumChatFormatting;
  * An interface for dealing with the packs for CrazyOres.
  * @author ISQUISHALL and Andy608
  */
-
 public interface IPack {
 	/**
 	 * Retrieves the name of the expansion pack.
