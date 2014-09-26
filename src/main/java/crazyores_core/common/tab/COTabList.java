@@ -1,10 +1,12 @@
 package crazyores_core.common.tab;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import crazyores_core.common.block.BlockList;
 import crazyores_core.common.block.BlockNames;
+import crazyores_core.util.TextureManager;
 
 /**
  * COTabList has a list of all the tabs created in the CO Core.
