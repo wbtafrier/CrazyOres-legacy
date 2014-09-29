@@ -21,7 +21,7 @@ public class CoreSettings {
 		osmoniumGen = true,
 		starconiumGen = true,
 		demoniteGen = true,
-		darkStoneGen = true,
+		darkstoneGen = true,
 		invisiumGen = true,
 		luminiteGen = true,
 		enderGen = true,
