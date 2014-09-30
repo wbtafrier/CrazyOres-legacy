@@ -20,6 +20,28 @@ tile.crazyores_core:ultra_ore.name=Ultra Ore
 tile.crazyores_core:luminite_ore.name=Luminite Ore
 tile.crazyores_core:darkstone.name=Darkstone
 
+# ITEM LOCALIZATION
+item.crazyores_core:meteorite_coal.name=Meteorite Coal
+item.crazyores_core:meteorite_gem.name=Meteorite Gem
+item.crazyores_core:copper_ingot.name=Copper Ingot
+item.crazyores_core:sapphire_gem.name=Sapphire Gem
+item.crazyores_core:adamite_shard.name=Adamite Shard
+item.crazyores_core:ruby_gem.name=Ruby Gem
+item.crazyores_core:fools_ruby_gem.name=Fool's Ruby Gem
+item.crazyores_core:zectium_ingot.name=Zectium Ingot
+item.crazyores_core:tapazite_gem.name=Tapazite Gem
+item.crazyores_core:crystal_shard.name=Crystal Shard
+item.crazyores_core:osmonium_ingot.name=Osmonium Ingot
+item.crazyores_core:starconium_gem.name=Starconium Gem
+item.crazyores_core:fools_ruby_mush.name=Fool's Ruby Mush
+item.crazyores_core:demonite_orb.name=Demonite Orb
+item.crazyores_core:experium_orb.name=Experium Orb
+item.crazyores_core:ender_gem.name=Ender Gem
+item.crazyores_core:darkstone_ingot.name=Darkstone Ingot
+item.crazyores_core:invisium_ingot.name=Invisium Ingot
+item.crazyores_core:ultra_gem.name=Ultra Gem
+item.crazyores_core:white_luminite_crystal.name=White Luminite Crystal
+
 # TAB LOCALIZATION
 itemGroup.blocks=CrazyOres Blocks
 
