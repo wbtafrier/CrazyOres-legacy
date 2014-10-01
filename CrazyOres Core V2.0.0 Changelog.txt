@@ -1,0 +1,18 @@
+========================================================================================================================================================
+============                                         CRAZYORES CORE VERSION 2.0.0 OFFICIAL CHANGELOG                                        ============
+========================================================================================================================================================
+
+Below is a complete list of all of the changes made to CrazyOres Core during the transition from Version 1.0.0, split into several categories. This file is
+not a README, Terms of Use, license, or instructions file.
+
+====| OVERALL |====
+* The mod was completely overhauled from scratch.
+* Every item and block is now correctly registered into the Ore Dictionary.
+* CrazyOres now uses an English language file.
+
+====| CONFIGURATION |====
+* The nodes have been renamed in the configuration file. You CANNOT use an old configuration file.
+* Comments have been added to each node to describe its function and what values are acceptable.
+
+====| ORES: DEMONITE |====
+* Demonite Stone is now Demonite Ore.
