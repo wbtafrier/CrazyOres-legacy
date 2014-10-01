@@ -35,7 +35,7 @@ public class Ore extends BlockOre {
 	 * @return The specific item that should drop for the ore.
 	 */
 	public Item getItemDropped(int metaData, Random rand, int fortuneLevel) {
-		return this.isAssociatedBlock(BlockList.copperOre) ? Item.getItemFromBlock(this) : Item.getItemFromBlock(this);
+		return this.isAssociatedBlock(BlockList.copper_ore) ? Item.getItemFromBlock(this) : Item.getItemFromBlock(this);
 	}
 
 	/**

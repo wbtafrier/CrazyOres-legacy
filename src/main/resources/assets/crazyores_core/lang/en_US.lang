@@ -44,6 +44,7 @@ item.crazyores_core:white_luminite_crystal.name=White Luminite Crystal
 
 # TAB LOCALIZATION
 itemGroup.blocks=CrazyOres Blocks
+itemGroup.materials=CrazyOres Materials
 
 # CONFIG LOCALIZATION
 config.category.worldGeneration=world_generation

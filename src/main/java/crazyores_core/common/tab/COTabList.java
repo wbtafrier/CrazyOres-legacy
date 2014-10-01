@@ -7,6 +7,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import crazyores_core.common.block.BlockList;
 import crazyores_core.common.block.BlockNames;
+import crazyores_core.common.item.ItemList;
 import crazyores_core.util.TextureManager;
 
 /**
@@ -21,6 +22,7 @@ public class COTabList {
 	public static final CreativeTabs CO_BLOCKS = new CreativeTabs(TabNames.CO_BLOCKS) {
 		@Override
 		public Item getTabIconItem() {
+			//TODO: Replace with Ender Block
 			return Item.getItemFromBlock(Blocks.bedrock);
 		}
 	};
@@ -31,7 +33,7 @@ public class COTabList {
 	public static final CreativeTabs CO_MATERIALS = new CreativeTabs(TabNames.CO_MATERIALS) {
 		@Override
 		public Item getTabIconItem() {
-			return Items.iron_ingot;
+			return ItemList.invisium_ingot;
 		}
 	};
 }

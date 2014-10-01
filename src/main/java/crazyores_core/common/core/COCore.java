@@ -1,9 +1,9 @@
 package crazyores_core.common.core;
 
-import org.apache.logging.log4j.Level;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.common.MinecraftForge;
+
+import org.apache.logging.log4j.Level;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -11,10 +11,11 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import crazyores_core.common.config.ConfigManager;
-import crazyores_core.common.item.ItemList;
+import crazyores_core.common.block.BlockDictionary;
 import crazyores_core.common.block.BlockList;
-import crazyores_core.common.block.BlockNames;
+import crazyores_core.common.config.ConfigManager;
+import crazyores_core.common.item.ItemDictionary;
+import crazyores_core.common.item.ItemList;
 import crazyores_core.proxy.IProxy;
 
 /**
@@ -53,7 +54,10 @@ public class COCore implements IPack {
 	 * Everything in this method is loaded while Minecraft is loading.
 	 */
     @EventHandler
-    public void init(FMLInitializationEvent fmlInitEvent) {}
+    public void init(FMLInitializationEvent fmlInitEvent) {
+    	BlockDictionary.registerBlocksToOreDictionary();
+    	ItemDictionary.registerItemsToOreDictionary();
+    }
     
     /**
      * Everything in this method is loaded after Minecraft has loaded.

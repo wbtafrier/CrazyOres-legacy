@@ -32,18 +32,6 @@ public class COItem extends Item {
 		this.setCreativeTab(tab);
 	}
 	
-//THIS WILL BE CHANGED I WANT TO COME UP WITH NEW UNIQUE THINGS BEFORE IMPLEMENTING ALL OF THE OLD SPECIAL ABILITIES. ~Andrew
-//	public boolean hitEntity(ItemStack itemstack, EntityLivingBase entityliving, EntityLivingBase entityliving1)
-//	{
-//		if (this == ItemList.invisium_rod || this == ItemList.invisium_ingot
-//			|| this == ItemList.invisium_arrow)
-//		{
-//			entityliving.addPotionEffect(new PotionEffect(Potion.invisibility.id, 1000, 1));
-//			return true;
-//		}
-//		return false;
-//	}
-	
 	@Override
 	public String getUnlocalizedName() {
 		return String.format("item.%s%s", TextureManager.RESOURCE_PREFIX, this.stripName(super.getUnlocalizedName()));
