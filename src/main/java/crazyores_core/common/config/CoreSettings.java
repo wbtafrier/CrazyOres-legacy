@@ -7,24 +7,21 @@ package crazyores_core.common.config;
 public class CoreSettings {
 	public static boolean 
 		generateOres = true,
-		diamondGen = true,
-		goldGen = true,
+		foolsRubyGen = true,
+		meteoriteGen = true,
 		copperGen = true,
+		experiumGen = true,
 		sapphireGen = true,
 		adamiteGen = true,
-		meteoriteGen = true,
+		invisiumGen = true,
 		rubyGen = true,
-		foolsRubyGen = true,
+		darkstoneGen = true,
 		zectiumGen = true,
+		luminiteGen = true,
 		tapaziteGen = true,
-		crystalGen = true,
+		demoniteGen = true,
 		osmoniumGen = true,
 		starconiumGen = true,
-		demoniteGen = true,
-		darkstoneGen = true,
-		invisiumGen = true,
-		luminiteGen = true,
 		enderGen = true,
-		ultraGen = true,
-		experiumGen = true;
+		ultraGen = true;
 }

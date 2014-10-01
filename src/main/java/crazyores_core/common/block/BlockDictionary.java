@@ -21,7 +21,7 @@ public class BlockDictionary {
 	public static String ORE_OSMONIUM = "oreOsmonium";
 	public static String ORE_STARCONIUM = "oreStarconium";
 	public static String ORE_EXPERIUM = "oreExperium";
-	public static String ORE_XP = "oreExperium";
+	public static String ORE_XP = "oreXP";
 	public static String ORE_EXPERIENCE = "oreExperience";
 	public static String ORE_DEMONITE = "oreDemonite";
 	public static String ORE_INVISIUM = "oreInvisium";

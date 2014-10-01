@@ -7,16 +7,15 @@ package crazyores_core.common.item;
  */
 public class ItemNames {
 	public static final String
+	FOOLS_RUBY_GEM = "fools_ruby_gem",
 	METEORITE_COAL = "meteorite_coal",
 	METEORITE_GEM = "meteorite_gem",
 	COPPER_INGOT = "copper_ingot",
 	SAPPHIRE_GEM = "sapphire_gem",
 	ADAMITE_SHARD = "adamite_shard",
 	RUBY_GEM = "ruby_gem",
-	FOOLS_RUBY_GEM = "fools_ruby_gem",
 	ZECTIUM_INGOT = "zectium_ingot",
 	TAPAZITE_GEM = "tapazite_gem",
-	CRYSTAL_SHARD = "crystal_shard",
 	OSMONIUM_INGOT = "osmonium_ingot",
 	STARCONIUM_GEM = "starconium_gem",
 	FOOLS_RUBY_MUSH = "fools_ruby_mush",
