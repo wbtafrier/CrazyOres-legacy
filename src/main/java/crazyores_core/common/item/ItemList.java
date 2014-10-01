@@ -4,6 +4,10 @@ import net.minecraft.item.Item;
 import cpw.mods.fml.common.registry.GameRegistry;
 import crazyores_core.common.core.COData;
 
+/**
+ * ItemList initializes and registers all of the items in the CrazyOres Core.
+ * @author Andy608 and ISQUISHALL
+ */
 @GameRegistry.ObjectHolder(COData.MOD_ID)
 public class ItemList {
 

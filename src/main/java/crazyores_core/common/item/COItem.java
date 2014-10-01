@@ -32,6 +32,7 @@ public class COItem extends Item {
 		this.setCreativeTab(tab);
 	}
 	
+//THIS WILL BE CHANGED I WANT TO COME UP WITH NEW UNIQUE THINGS BEFORE IMPLEMENTING ALL OF THE OLD SPECIAL ABILITIES. ~Andrew
 //	public boolean hitEntity(ItemStack itemstack, EntityLivingBase entityliving, EntityLivingBase entityliving1)
 //	{
 //		if (this == ItemList.invisium_rod || this == ItemList.invisium_ingot
