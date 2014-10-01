@@ -10,12 +10,20 @@ import net.minecraft.client.renderer.texture.IIconRegister;
  * @author Andy608 and ISQUISHALL
  */
 public class COBlock extends Block {
+	
+	/**
+	 * Constructor: Default Constructor
+	 */
+	public COBlock() {
+		this(Material.rock);
+	}
 	/**
 	 * Constructor: Takes in a material.
 	 * Sets the material for the block and sets the creative tab to DecorationBlock.
 	 */
 	public COBlock(Material m) {
 		super(m);
+		this.setStepSound(Block.soundTypeMetal);
 		this.setCreativeTab(COTabList.CO_BLOCKS);
 	}
 	
