@@ -1,0 +1,52 @@
+  =============== MINEABLITY =============== 
+   13) STARCONIUM PICKAXE
+       - Ender Ore
+       - Ultra Ore
+ 
+   12) OSMONIUM PICKAXE
+       - Starconium Ore
+ 
+   11) TAPAZITE PICKAXE
+       - Osmonium Ore
+ 
+   10) ZECTIUM PICKAXE
+       - Tapazite Ore
+       - Demonite Ore
+ 
+   9) DIAMOND PICKAXE
+       - Zectium Ore
+       - Luminite Ore - White Crystal, Red Crystal, Orange Crystal, Yellow Crystal, Green Crystal, Blue Crystal, Purple Crystal, Black Crystal
+       - Obsidian Ore
+ 
+   8) RUBY PICKAXE
+       - Diamond Ore
+ 
+   7) ADAMITE PICKAXE
+       - Ruby Ore
+       - Darkstone
+ 
+   6) SAPPHIRE PICKAXE
+       - Adamite Ore
+       - Invisium Ore
+ 
+   5) IRON PICKAXE
+       - Sapphire Ore
+       - Gold Ore
+       - Redstone Ore
+       - Emerald Ore
+ 
+   4) COPPER PICKAXE
+       - Experium Ore
+       - Iron Ore
+ 
+   3) METEORITE PICKAXE
+   2) STONE PICKAXE
+       - Copper Ore
+       - Meteorite Ore
+       - Lapis Lazuli
+ 
+   1) WOODEN PICKAXE
+       - Fool's Ruby Ore
+       - Coal Ore
+       - Quartz Ore
+       - Stone

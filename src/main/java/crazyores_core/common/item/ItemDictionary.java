@@ -6,7 +6,6 @@ import net.minecraftforge.oredict.OreDictionary;
 /**
  * ItemDictionary registers all CO Items to the Ore Dictionary in order to enable better compatibility between mods, and stores their Dictionary names.
  * @author ISQUISHALL and Andy608
- *
  */
 public class ItemDictionary {
 	
@@ -15,7 +14,7 @@ public class ItemDictionary {
 	public static String GEM_METEORITE = "gemMeteorite";
 	public static String INGOT_COPPER = "ingotCopper";
 	public static String ORB_EXPERIUM = "orbExperium";
-	public static String ORB_XP = "orbExperium";
+	public static String ORB_XP = "orbXP";
 	public static String ORB_EXPERIENCE = "orbExperience";
 	public static String GEM_SAPPHIRE = "gemSapphire";
 	public static String SHARD_ADAMITE = "shardAdamite";

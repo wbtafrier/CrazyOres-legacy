@@ -12,7 +12,6 @@ import crazyores_core.util.TextureManager;
 /**
  * COItem is the big daddy for most of the Items in the Core.
  * @author ISQUISHALL and Andy608
- *
  */
 public class COItem extends Item {
 
@@ -56,5 +55,4 @@ public class COItem extends Item {
 	public String stripName(String unlocalizedName) {
 		return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
 	}
-	
 }

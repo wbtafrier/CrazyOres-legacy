@@ -27,6 +27,7 @@ public class Ore extends BlockOre {
 	 */
 	public Ore() {
 		super();
+		this.setStepSound(Block.soundTypeStone);
 		this.setCreativeTab(COTabList.CO_BLOCKS);
 	}
     
