@@ -29,7 +29,7 @@ public class BlockDictionary {
 	public static String ORE_STARCONIUM = "oreStarconium";
 	public static String ORE_ENDER = "oreEnder";
 	public static String ORE_ULTRA = "oreUltra";
-	
+
 	public static String BLOCK_STORAGE_FOOLS_RUBY = "blockStorageFoolsRuby";
 	public static String BLOCK_STORAGE_METEORITE = "blockStorageMeteorite";
 	public static String BLOCK_STORAGE_COPPER = "blockStorageCopper";
@@ -49,8 +49,8 @@ public class BlockDictionary {
 	public static String BLOCK_STORAGE_ENDER = "blockStorageEnder";
 	public static String BLOCK_STORAGE_ULTRA = "blockStorageUltra";
 	
-	public static String[] BLOCK_LUMINITE = {"blockWhiteLuminite", "blockRedLuminite", "blockOrangeLuminite", 
-		"blockYellowLuminite", "blockGreenLuminitie", "blockBlueLuminite", "blockPurpleLuminite", "blockBlackLuminite"};
+	public static String[] BLOCKS_LUMINITE = {"blockWhiteLuminite", "blockRedLuminite", "blockOrangeLuminite",  "blockYellowLuminite", 
+		"blockGreenLuminitie", "blockBlueLuminite", "blockPurpleLuminite", "blockBlackLuminite"};
 	
 	/**
 	 * Registers all CO Blocks to the Ore Dictionary using compatible names.
@@ -75,7 +75,7 @@ public class BlockDictionary {
 		OreDictionary.registerOre(ORE_STARCONIUM, BlockList.starconium_ore);
 		OreDictionary.registerOre(ORE_ENDER, BlockList.ender_ore);
 		OreDictionary.registerOre(ORE_ULTRA, BlockList.ultra_ore);
-		
+	
 		OreDictionary.registerOre(BLOCK_STORAGE_FOOLS_RUBY, BlockList.fools_ruby_storage_block);
 		OreDictionary.registerOre(BLOCK_STORAGE_METEORITE, BlockList.meteorite_storage_block);
 		OreDictionary.registerOre(BLOCK_STORAGE_COPPER, BlockList.copper_storage_block);
@@ -94,5 +94,10 @@ public class BlockDictionary {
 		OreDictionary.registerOre(BLOCK_STORAGE_STARCONIUM, BlockList.starconium_storage_block);
 		OreDictionary.registerOre(BLOCK_STORAGE_ENDER, BlockList.ender_storage_block);
 		OreDictionary.registerOre(BLOCK_STORAGE_ULTRA, BlockList.ultra_storage_block);
+
+		for (int metadata = 0; metadata < BLOCKS_LUMINITE.length; metadata++) {
+			metadata = MathHelper.clamp_int(metadata, 0, BLOCKS_LUMINITE.length - 1);
+			OreDictionary.registerOre(BLOCKS_LUMINITE[metadata], new ItemStack(BlockList.luminite_storage_block, 1, metadata));
+		}
 	}
 }

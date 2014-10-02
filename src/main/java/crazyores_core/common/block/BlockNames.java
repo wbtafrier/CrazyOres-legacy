@@ -43,7 +43,6 @@ public class BlockNames {
 	ENDER_STORAGE_BLOCK = "ender_storage_block",
 	ULTRA_STORAGE_BLOCK = "ultra_storage_block",
 	
-	
 	LUMINITE_BLOCK = "luminite_storage_block";
 	
 	public static final String[] LUMINITE_BLOCKS = {"white", "red", "orange", "yellow", "green", "blue", "purple", "black"};

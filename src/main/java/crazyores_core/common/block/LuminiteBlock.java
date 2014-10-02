@@ -15,16 +15,19 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Facing;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 
 /**
  * COBlock is the big daddy for all of the blocks in the Core.
  * @author Andy608 and ISQUISHALL
  */
-public class COLuminiteBlock extends COBlock {
+public class LuminiteBlock extends COBlock {
 	
 	/**
 	 * Private variables.
@@ -35,9 +38,14 @@ public class COLuminiteBlock extends COBlock {
 	/**
 	 * Constructor: Default Constructor
 	 */
-	public COLuminiteBlock() {
+	public LuminiteBlock() {
 		super(Material.glass);
 		this.setStepSound(Block.soundTypeGlass);
+	}
+	
+	@Override
+	public int damageDropped(int metadata) {
+		return metadata;
 	}
 	
 	/**
@@ -62,7 +70,6 @@ public class COLuminiteBlock extends COBlock {
 		
 		for (int i = 0; i < BlockNames.LUMINITE_BLOCKS.length; i++) {
 			this.blockTexture[i] = iconRegister.registerIcon(String.format("%s_%s", stripName(this.getUnlocalizedName()), BlockNames.LUMINITE_BLOCKS[i]));
-			COLogger.write(Level.INFO, this.blockTexture[i] + " lol");
 		}
 	}
 	
@@ -77,14 +84,53 @@ public class COLuminiteBlock extends COBlock {
 		return this.blockTexture[metadata];
 	}
 	
+	
+	
+	 /**
+     * Returns which pass should this block be rendered on. 0 for solids and 1 for alpha
+     */
+    @SideOnly(Side.CLIENT)
+    public int getRenderBlockPass() {
+        return 1;
+    }
+    
+    /**
+     * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
+     * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
+     */
+    public boolean isOpaqueCube() {
+        return false;
+    }
+    
+    /**
+     * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
+     */
+    public boolean renderAsNormalBlock() {
+        return false;
+    }
+	
 	/**
-	 * @return the name of the block for the language file and textures.
-	 */
-	@Override
-	public String getUnlocalizedName() {
-		for (String metadata : BlockNames.LUMINITE_BLOCKS) {
-			return String.format("tile.%s%s_%s", TextureManager.RESOURCE_PREFIX, this.stripName(super.getUnlocalizedName()), metadata);
-		}
-		return super.getUnlocalizedName();
-	}
+     * Returns true if the given side of this block type should be rendered, if the adjacent block is at the given
+     * coordinates.  Args: blockAccess, x, y, z, side
+     */
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int side)
+    {
+        Block block = blockAccess.getBlock(x, y, z);
+
+        if (this == Blocks.glass || this == BlockList.luminite_storage_block)
+        {
+            if (blockAccess.getBlockMetadata(x, y, z) != blockAccess.getBlockMetadata(x - Facing.offsetsXForSide[side], y - Facing.offsetsYForSide[side], z - Facing.offsetsZForSide[side]))
+            {
+                return true;
+            }
+
+            if (block == this)
+            {
+                return false;
+            }
+        }
+        //LOOK OVER THIS RETURN STATEMENT. I REPLACED A PARAMETER FROM BlockBreakable WITH THE PARAM TRUE. IT WORKS BUT I'M NOT SURE IF IT WILL ALWAYS WORK.
+        return true && block == this ? false : super.shouldSideBeRendered(blockAccess, x, y, z, side);
+    }
 }

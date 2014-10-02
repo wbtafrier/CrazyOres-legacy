@@ -36,6 +36,15 @@ tile.crazyores_core:starconium_storage_block.name=Starconium Storage Block
 tile.crazyores_core:ender_storage_block.name=Ender Storage Block
 tile.crazyores_core:ultra_storage_block.name=Ultra Storage Block
 
+tile.crazyores_core:luminite_storage_block_white.name=White Luminite Storage Block
+tile.crazyores_core:luminite_storage_block_red.name=Red Luminite Storage Block
+tile.crazyores_core:luminite_storage_block_orange.name=Orange Luminite Storage Block
+tile.crazyores_core:luminite_storage_block_yellow.name=Yellow Luminite Storage Block
+tile.crazyores_core:luminite_storage_block_green.name=Green Luminite Storage Block
+tile.crazyores_core:luminite_storage_block_purple.name=Purple Luminite Storage Block
+tile.crazyores_core:luminite_storage_block_blue.name=Blue Luminite Storage Block
+tile.crazyores_core:luminite_storage_block_black.name=Black Luminite Storage Block
+
 # ITEM LOCALIZATION
 item.crazyores_core:fools_ruby_mush.name=Fool's Ruby Mush
 item.crazyores_core:fools_ruby_gem.name=Fool's Ruby Gem
