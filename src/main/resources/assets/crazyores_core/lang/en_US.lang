@@ -19,6 +19,23 @@ tile.crazyores_core:starconium_ore.name=Starconium Ore
 tile.crazyores_core:ender_ore.name=Ender Ore
 tile.crazyores_core:ultra_ore.name=Ultra Ore
 
+tile.crazyores_core:fools_ruby_storage_block.name=Fool's Ruby Storage Block
+tile.crazyores_core:meteorite_storage_block.name=Meteorite Storage Block
+tile.crazyores_core:copper_storage_block.name=Copper Storage Block
+tile.crazyores_core:experium_storage_block.name=Experium Storage Block
+tile.crazyores_core:sapphire_storage_block.name=Sapphire Storage Block
+tile.crazyores_core:adamite_storage_block.name=Adamite Storage Block
+tile.crazyores_core:invisium_storage_block.name=Invisium Storage Block
+tile.crazyores_core:ruby_storage_block.name=Ruby Storage Block
+tile.crazyores_core:darkstone_storage_block.name=Darkstone Storage Block
+tile.crazyores_core:zectium_storage_block.name=Zectium Storage Block
+tile.crazyores_core:tapazite_storage_block.name=Tapazite Storage Block
+tile.crazyores_core:demonite_storage_block.name=Demonite Storage Block
+tile.crazyores_core:osmonium_storage_block.name=Osmonium Storage Block
+tile.crazyores_core:starconium_storage_block.name=Starconium Storage Block
+tile.crazyores_core:ender_storage_block.name=Ender Storage Block
+tile.crazyores_core:ultra_storage_block.name=Ultra Storage Block
+
 # ITEM LOCALIZATION
 item.crazyores_core:fools_ruby_mush.name=Fool's Ruby Mush
 item.crazyores_core:fools_ruby_gem.name=Fool's Ruby Gem

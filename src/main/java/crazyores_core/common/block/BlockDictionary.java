@@ -30,6 +30,25 @@ public class BlockDictionary {
 	public static String ORE_ENDER = "oreEnder";
 	public static String ORE_ULTRA = "oreUltra";
 	
+	public static String BLOCK_STORAGE_FOOLS_RUBY = "blockStorageFoolsRuby";
+	public static String BLOCK_STORAGE_METEORITE = "blockStorageMeteorite";
+	public static String BLOCK_STORAGE_COPPER = "blockStorageCopper";
+	public static String BLOCK_STORAGE_EXPERIUM = "blockStorageExperium";
+	public static String BLOCK_STORAGE_XP = "blockStorageXP";
+	public static String BLOCK_STORAGE_EXPERIENCE = "blockStorageExperience";
+	public static String BLOCK_STORAGE_SAPPHIRE = "blockStorageSapphire";
+	public static String BLOCK_STORAGE_ADAMITE = "blockStorageAdamite";
+	public static String BLOCK_STORAGE_INVISIUM = "blockStorageInvisium";
+	public static String BLOCK_STORAGE_RUBY = "blockStorageRuby";
+	public static String BLOCK_STORAGE_DARKSTONE = "blockStorageDarkstone";
+	public static String BLOCK_STORAGE_ZECTIUM = "blockStorageZectium";
+	public static String BLOCK_STORAGE_TAPAZITE = "blockStorageTapazite";
+	public static String BLOCK_STORAGE_DEMONITE = "blockStorageDemonite";
+	public static String BLOCK_STORAGE_OSMONIUM = "blockStorageOsmonium";
+	public static String BLOCK_STORAGE_STARCONIUM = "blockStorageStarconium";
+	public static String BLOCK_STORAGE_ENDER = "blockStorageEnder";
+	public static String BLOCK_STORAGE_ULTRA = "blockStorageUltra";
+	
 	public static String[] BLOCK_LUMINITE = {"blockWhiteLuminite", "blockRedLuminite", "blockOrangeLuminite", 
 		"blockYellowLuminite", "blockGreenLuminitie", "blockBlueLuminite", "blockPurpleLuminite", "blockBlackLuminite"};
 	
@@ -57,9 +76,23 @@ public class BlockDictionary {
 		OreDictionary.registerOre(ORE_ENDER, BlockList.ender_ore);
 		OreDictionary.registerOre(ORE_ULTRA, BlockList.ultra_ore);
 		
-		/*for (int metadata = 0; metadata < BlockNames.LUMINITE_BLOCKS.length; metadata++) {
-			metadata = MathHelper.clamp_int(metadata, 0, BlockNames.LUMINITE_BLOCKS.length - 1);
-			OreDictionary.registerOre(BLOCK_LUMINITE[metadata], new ItemStack(BlockList.luminite_block, 1, metadata));
-		}*/
+		OreDictionary.registerOre(BLOCK_STORAGE_FOOLS_RUBY, BlockList.fools_ruby_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_METEORITE, BlockList.meteorite_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_COPPER, BlockList.copper_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_EXPERIUM, BlockList.experium_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_XP, BlockList.experium_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_EXPERIENCE, BlockList.experium_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_SAPPHIRE, BlockList.sapphire_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_ADAMITE, BlockList.adamite_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_INVISIUM, BlockList.invisium_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_RUBY, BlockList.ruby_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_DARKSTONE, BlockList.darkstone_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_ZECTIUM, BlockList.zectium_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_TAPAZITE, BlockList.tapazite_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_DEMONITE, BlockList.demonite_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_OSMONIUM, BlockList.osmonium_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_STARCONIUM, BlockList.starconium_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_ENDER, BlockList.ender_storage_block);
+		OreDictionary.registerOre(BLOCK_STORAGE_ULTRA, BlockList.ultra_storage_block);
 	}
 }

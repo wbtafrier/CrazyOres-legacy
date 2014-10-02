@@ -32,17 +32,24 @@ public class BlockList {
 	public static final Block ender_ore = new Ore().setHardness(3F).setResistance(5F);
 	public static final Block ultra_ore = new Ore().setHardness(3F).setResistance(5F);
 
-	public static final Block fools_ruby_block = new COBlock().setHardness(3F).setResistance(9F);
-	public static final Block meteorite_block = new COBlock().setHardness(3F).setResistance(9F);
-	public static final Block copper_block = new COBlock().setHardness(3F).setResistance(9F);
-	public static final Block experium_block = new COBlock().setHardness(3F).setResistance(9F);
-	public static final Block sapphire_block = new COBlock().setHardness(3F).setResistance(9F);
-	public static final Block adamite_block = new COBlock().setHardness(3F).setResistance(9F);
-	public static final Block invisium_block = new COBlock().setHardness(3F).setResistance(9F);
-	public static final Block ruby_block = new COBlock().setHardness(3F).setResistance(9F);
-	public static final Block darkstone_block = new COBlock().setHardness(3F).setResistance(9F);
-	public static final Block zectium_block = new COBlock().setHardness(3F).setResistance(9F);
-	public static final Block luminite_block = new COLuminiteBlock().setHardness(3F).setResistance(9F);
+	public static final Block fools_ruby_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block meteorite_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block copper_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block experium_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block sapphire_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block adamite_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block invisium_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block ruby_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block darkstone_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block zectium_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block tapazite_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block demonite_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block osmonium_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block starconium_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block ender_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block ultra_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	
+	public static final Block luminite_storage_block = new COLuminiteBlock().setHardness(3F).setResistance(9F);
 	
 	/**
 	 * Initialization of all CO Core Blocks.
@@ -66,7 +73,24 @@ public class BlockList {
 		registerAndNameBlock(ender_ore, BlockNames.ENDER_ORE);
 		registerAndNameBlock(ultra_ore, BlockNames.ULTRA_ORE);
 		
-		registerAndNameBlock(luminite_block, BlockNames.LUMINITE_BLOCK);
+		registerAndNameBlock(fools_ruby_storage_block, BlockNames.FOOLS_RUBY_STORAGE_BLOCK);
+		registerAndNameBlock(meteorite_storage_block, BlockNames.METEORITE_STORAGE_BLOCK);
+		registerAndNameBlock(copper_storage_block, BlockNames.COPPER_STORAGE_BLOCK);
+		registerAndNameBlock(experium_storage_block, BlockNames.EXPERIUM_STORAGE_BLOCK);
+		registerAndNameBlock(sapphire_storage_block, BlockNames.SAPPHIRE_STORAGE_BLOCK);
+		registerAndNameBlock(adamite_storage_block, BlockNames.ADAMITE_STORAGE_BLOCK);
+		registerAndNameBlock(invisium_storage_block, BlockNames.INVISIUM_STORAGE_BLOCK);
+		registerAndNameBlock(ruby_storage_block, BlockNames.RUBY_STORAGE_BLOCK);
+		registerAndNameBlock(darkstone_storage_block, BlockNames.DARKSTONE_STORAGE_BLOCK);
+		registerAndNameBlock(zectium_storage_block, BlockNames.ZECTIUM_STORAGE_BLOCK);
+		registerAndNameBlock(tapazite_storage_block, BlockNames.TAPAZITE_STORAGE_BLOCK);
+		registerAndNameBlock(demonite_storage_block, BlockNames.DEMONITE_STORAGE_BLOCK);
+		registerAndNameBlock(osmonium_storage_block, BlockNames.OSMONIUM_STORAGE_BLOCK);
+		registerAndNameBlock(starconium_storage_block, BlockNames.STARCONIUM_STORAGE_BLOCK);
+		registerAndNameBlock(ender_storage_block, BlockNames.ENDER_STORAGE_BLOCK);
+		registerAndNameBlock(ultra_storage_block, BlockNames.ULTRA_STORAGE_BLOCK);
+		
+		registerAndNameBlock(luminite_storage_block, BlockNames.LUMINITE_BLOCK);
 	}
 	
 	/**
