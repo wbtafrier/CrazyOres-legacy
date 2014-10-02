@@ -30,7 +30,7 @@ public class BlockDictionary {
 	public static String ORE_ENDER = "oreEnder";
 	public static String ORE_ULTRA = "oreUltra";
 	
-	public static String[] BLOCK_LUMINITE = {"blockWhiteLuminite", "blockRedLuminite", "blockOrangeLuminite", 
+	public static String[] BLOCKS_LUMINITE = {"blockWhiteLuminite", "blockRedLuminite", "blockOrangeLuminite", 
 		"blockYellowLuminite", "blockGreenLuminitie", "blockBlueLuminite", "blockPurpleLuminite", "blockBlackLuminite"};
 	
 	/**
@@ -57,9 +57,9 @@ public class BlockDictionary {
 		OreDictionary.registerOre(ORE_ENDER, BlockList.ender_ore);
 		OreDictionary.registerOre(ORE_ULTRA, BlockList.ultra_ore);
 		
-		/*for (int metadata = 0; metadata < BlockNames.LUMINITE_BLOCKS.length; metadata++) {
-			metadata = MathHelper.clamp_int(metadata, 0, BlockNames.LUMINITE_BLOCKS.length - 1);
-			OreDictionary.registerOre(BLOCK_LUMINITE[metadata], new ItemStack(BlockList.luminite_block, 1, metadata));
-		}*/
+		for (int metadata = 0; metadata < BLOCKS_LUMINITE.length; metadata++) {
+			metadata = MathHelper.clamp_int(metadata, 0, BLOCKS_LUMINITE.length - 1);
+			OreDictionary.registerOre(BLOCKS_LUMINITE[metadata], new ItemStack(BlockList.luminite_block, 1, metadata));
+		}
 	}
 }

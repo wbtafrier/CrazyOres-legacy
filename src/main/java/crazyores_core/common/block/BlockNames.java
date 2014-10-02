@@ -29,5 +29,5 @@ public class BlockNames {
 	LUMINITE_BLOCK = "luminite_block";
 	
 	public static final String[] LUMINITE_BLOCKS = {"white", "red", "orange", 
-		"yellow", "green_luminitie_block", "blue", "purple", "black"};
+		"yellow", "green", "blue", "purple", "black"};
 }

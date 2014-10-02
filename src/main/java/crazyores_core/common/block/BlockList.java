@@ -42,7 +42,7 @@ public class BlockList {
 	public static final Block ruby_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block darkstone_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block zectium_block = new COBlock().setHardness(3F).setResistance(9F);
-	public static final Block luminite_block = new COLuminiteBlock().setHardness(3F).setResistance(9F);
+	public static final Block luminite_block = new LuminiteBlock().setHardness(3F).setResistance(9F);
 	
 	/**
 	 * Initialization of all CO Core Blocks.
@@ -66,7 +66,7 @@ public class BlockList {
 		registerAndNameBlock(ender_ore, BlockNames.ENDER_ORE);
 		registerAndNameBlock(ultra_ore, BlockNames.ULTRA_ORE);
 		
-		registerAndNameBlock(luminite_block, BlockNames.LUMINITE_BLOCK);
+		registerAndNameBlock(luminite_block, ItemLuminiteBlock.class, BlockNames.LUMINITE_BLOCK);
 	}
 	
 	/**
@@ -77,5 +77,16 @@ public class BlockList {
 	public static void registerAndNameBlock(Block block, String blockName) {
 		block.setBlockName(blockName);
 		GameRegistry.registerBlock(block, blockName);
+	}
+	
+	/**
+	 * Registers and sets the unlocalized name of a CO Block.
+	 * @param block: The Block to be registered and named. 
+	 * @param blockClass: The ItemBlock class this CO Block is paired to.
+	 * @param blockName: The name of the Block as a String.
+	 */
+	public static void registerAndNameBlock(Block block, Class blockClass, String blockName) {
+		block.setBlockName(blockName);
+		GameRegistry.registerBlock(block, blockClass, blockName);
 	}
 }

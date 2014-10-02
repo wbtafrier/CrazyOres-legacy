@@ -24,7 +24,7 @@ import net.minecraft.util.MathHelper;
  * COBlock is the big daddy for all of the blocks in the Core.
  * @author Andy608 and ISQUISHALL
  */
-public class COLuminiteBlock extends COBlock {
+public class LuminiteBlock extends COBlock {
 	
 	/**
 	 * Private variables.
@@ -35,9 +35,14 @@ public class COLuminiteBlock extends COBlock {
 	/**
 	 * Constructor: Default Constructor
 	 */
-	public COLuminiteBlock() {
+	public LuminiteBlock() {
 		super(Material.glass);
 		this.setStepSound(Block.soundTypeGlass);
+	}
+	
+	@Override
+	public int damageDropped(int metadata) {
+		return metadata;
 	}
 	
 	/**
@@ -62,7 +67,6 @@ public class COLuminiteBlock extends COBlock {
 		
 		for (int i = 0; i < BlockNames.LUMINITE_BLOCKS.length; i++) {
 			this.blockTexture[i] = iconRegister.registerIcon(String.format("%s_%s", stripName(this.getUnlocalizedName()), BlockNames.LUMINITE_BLOCKS[i]));
-			COLogger.write(Level.INFO, this.blockTexture[i] + " lol");
 		}
 	}
 	
@@ -75,16 +79,5 @@ public class COLuminiteBlock extends COBlock {
 		//clamp_int sends in metadata amount, lowest limit, highest limit, and returns the highest limit if metadata goes over it.
 		metadata = MathHelper.clamp_int(metadata, 0, BlockNames.LUMINITE_BLOCKS.length - 1);
 		return this.blockTexture[metadata];
-	}
-	
-	/**
-	 * @return the name of the block for the language file and textures.
-	 */
-	@Override
-	public String getUnlocalizedName() {
-		for (String metadata : BlockNames.LUMINITE_BLOCKS) {
-			return String.format("tile.%s%s_%s", TextureManager.RESOURCE_PREFIX, this.stripName(super.getUnlocalizedName()), metadata);
-		}
-		return super.getUnlocalizedName();
 	}
 }
