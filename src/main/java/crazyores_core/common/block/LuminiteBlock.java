@@ -118,7 +118,7 @@ public class LuminiteBlock extends COBlock {
     {
         Block block = blockAccess.getBlock(x, y, z);
 
-        if (this == Blocks.glass || this == BlockList.luminite_storage_block)
+        if (this == Blocks.glass || this == BlockList.luminite_storage_blocks)
         {
             if (blockAccess.getBlockMetadata(x, y, z) != blockAccess.getBlockMetadata(x - Facing.offsetsXForSide[side], y - Facing.offsetsYForSide[side], z - Facing.offsetsZForSide[side]))
             {

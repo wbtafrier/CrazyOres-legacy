@@ -97,7 +97,7 @@ public class BlockDictionary {
 
 		for (int metadata = 0; metadata < BLOCKS_LUMINITE.length; metadata++) {
 			metadata = MathHelper.clamp_int(metadata, 0, BLOCKS_LUMINITE.length - 1);
-			OreDictionary.registerOre(BLOCKS_LUMINITE[metadata], new ItemStack(BlockList.luminite_storage_block, 1, metadata));
+			OreDictionary.registerOre(BLOCKS_LUMINITE[metadata], new ItemStack(BlockList.luminite_storage_blocks, 1, metadata));
 		}
 	}
 }

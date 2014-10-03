@@ -13,7 +13,7 @@ public class ItemLuminiteBlock extends ItemBlock {
 	public ItemLuminiteBlock(Block block) {
 		super(block);
 		this.setHasSubtypes(true);
-		this.setUnlocalizedName(BlockList.luminite_storage_block.getUnlocalizedName());
+		this.setUnlocalizedName(BlockList.luminite_storage_blocks.getUnlocalizedName());
 	}
 
 	@Override

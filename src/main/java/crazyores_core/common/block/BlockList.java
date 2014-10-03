@@ -49,7 +49,7 @@ public class BlockList {
 	public static final Block ender_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block ultra_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	
-	public static final Block luminite_storage_block = new LuminiteBlock().setHardness(3F).setResistance(9F);
+	public static final Block luminite_storage_blocks = new LuminiteBlock().setHardness(3F).setResistance(9F);
 	
 	/**
 	 * Initialization of all CO Core Blocks.
@@ -90,7 +90,7 @@ public class BlockList {
 		registerAndNameBlock(ender_storage_block, BlockNames.ENDER_STORAGE_BLOCK);
 		registerAndNameBlock(ultra_storage_block, BlockNames.ULTRA_STORAGE_BLOCK);
 
-		registerAndNameBlock(luminite_storage_block, ItemLuminiteBlock.class, BlockNames.LUMINITE_BLOCK);
+		registerAndNameBlock(luminite_storage_blocks, ItemLuminiteBlock.class, BlockNames.LUMINITE_BLOCK);
 	}
 	
 	/**
