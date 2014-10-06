@@ -1,9 +1,11 @@
 package crazyores_core.common.block;
-import crazyores_core.common.tab.COTabList;
-import crazyores_core.util.TextureManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import crazyores_core.common.tab.COTabList;
+import crazyores_core.util.TextureManager;
 
 /**
  * COBlock is the big daddy for all of the blocks in the Core.
@@ -39,6 +41,7 @@ public class COBlock extends Block {
 	 * Sets the image name for the block.
 	 */
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.blockIcon = iconRegister.registerIcon(String.format("%s", stripName(this.getUnlocalizedName())));
 	}

@@ -29,13 +29,6 @@ tile.crazyores_core:invisium_storage_block.name=Invisium Storage Block
 tile.crazyores_core:ruby_storage_block.name=Ruby Storage Block
 tile.crazyores_core:darkstone_storage_block.name=Darkstone Storage Block
 tile.crazyores_core:zectium_storage_block.name=Zectium Storage Block
-tile.crazyores_core:tapazite_storage_block.name=Tapazite Storage Block
-tile.crazyores_core:demonite_storage_block.name=Demonite Storage Block
-tile.crazyores_core:osmonium_storage_block.name=Osmonium Storage Block
-tile.crazyores_core:starconium_storage_block.name=Starconium Storage Block
-tile.crazyores_core:ender_storage_block.name=Ender Storage Block
-tile.crazyores_core:ultra_storage_block.name=Ultra Storage Block
-
 tile.crazyores_core:luminite_storage_block_white.name=White Luminite Storage Block
 tile.crazyores_core:luminite_storage_block_red.name=Red Luminite Storage Block
 tile.crazyores_core:luminite_storage_block_orange.name=Orange Luminite Storage Block
@@ -44,6 +37,12 @@ tile.crazyores_core:luminite_storage_block_green.name=Green Luminite Storage Blo
 tile.crazyores_core:luminite_storage_block_purple.name=Purple Luminite Storage Block
 tile.crazyores_core:luminite_storage_block_blue.name=Blue Luminite Storage Block
 tile.crazyores_core:luminite_storage_block_black.name=Black Luminite Storage Block
+tile.crazyores_core:tapazite_storage_block.name=Tapazite Storage Block
+tile.crazyores_core:demonite_storage_block.name=Demonite Storage Block
+tile.crazyores_core:osmonium_storage_block.name=Osmonium Storage Block
+tile.crazyores_core:starconium_storage_block.name=Starconium Storage Block
+tile.crazyores_core:ender_storage_block.name=Ender Storage Block
+tile.crazyores_core:ultra_storage_block.name=Ultra Storage Block
 
 # ITEM LOCALIZATION
 item.crazyores_core:fools_ruby_mush.name=Fool's Ruby Mush
@@ -58,7 +57,14 @@ item.crazyores_core:invisium_ingot.name=Invisium Ingot
 item.crazyores_core:ruby_gem.name=Ruby Gem
 item.crazyores_core:darkstone_ingot.name=Darkstone Ingot
 item.crazyores_core:zectium_ingot.name=Zectium Ingot
-item.crazyores_core:white_luminite_crystal.name=White Luminite Crystal
+item.crazyores_core:luminite_crystal_white.name=White Luminite Crystal
+item.crazyores_core:luminite_crystal_red.name=Red Luminite Crystal
+item.crazyores_core:luminite_crystal_orange.name=Orange Luminite Crystal
+item.crazyores_core:luminite_crystal_yellow.name=Yellow Luminite Crystal
+item.crazyores_core:luminite_crystal_green.name=Green Luminite Crystal
+item.crazyores_core:luminite_crystal_blue.name=Blue Luminite Crystal
+item.crazyores_core:luminite_crystal_purple.name=Purple Luminite Crystal
+item.crazyores_core:luminite_crystal_black.name=Black Luminite Crystal
 item.crazyores_core:tapazite_gem.name=Tapazite Gem
 item.crazyores_core:demonite_orb.name=Demonite Orb
 item.crazyores_core:crystal_shard.name=Crystal Shard
@@ -66,6 +72,9 @@ item.crazyores_core:osmonium_ingot.name=Osmonium Ingot
 item.crazyores_core:starconium_gem.name=Starconium Gem
 item.crazyores_core:ender_gem.name=Ender Gem
 item.crazyores_core:ultra_gem.name=Ultra Gem
+
+item.crazyores_core:fools_ruby_mush.name=Fool's Ruby Mush
+item.crazyores_core:starconium_shard.name=Starconium Shard
 
 # TAB LOCALIZATION
 itemGroup.blocks=CrazyOres Blocks

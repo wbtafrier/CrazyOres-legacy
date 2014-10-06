@@ -18,11 +18,18 @@ public class ItemNames {
 	RUBY_GEM = "ruby_gem",
 	DARKSTONE_INGOT = "darkstone_ingot",
 	ZECTIUM_INGOT = "zectium_ingot",
-	WHITE_LUMINITE_CRYSTAL = "white_luminite_crystal",
+	LUMINITE_CRYSTAL = "luminite_crystal",
 	TAPAZITE_GEM = "tapazite_gem",
 	DEMONITE_ORB = "demonite_orb",
 	OSMONIUM_INGOT = "osmonium_ingot",
 	STARCONIUM_GEM = "starconium_gem",
 	ENDER_GEM = "ender_gem",
-	ULTRA_GEM = "ultra_gem";
+	ULTRA_GEM = "ultra_gem",
+	
+	FOOLS_RUBY_MUSH = "fools_ruby_mush",
+	STARCONIUM_SHARD = "starconium_shard";
+	
+	public static final String[] LUMINITE_CRYSTAL_SUBTYPES = new String[] {
+		"white", "red", "orange", "yellow", "green", "blue", "purple", "black"
+	};
 }

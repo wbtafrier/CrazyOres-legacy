@@ -10,46 +10,46 @@ import net.minecraftforge.oredict.OreDictionary;
  */
 public class BlockDictionary {
 	
-	public static String ORE_FOOLS_RUBY = "oreFoolsRuby";
-	public static String ORE_METEORITE = "oreMeteorite";
-	public static String ORE_COPPER = "oreCopper";
-	public static String ORE_EXPERIUM = "oreExperium";
-	public static String ORE_XP = "oreXP";
-	public static String ORE_EXPERIENCE = "oreExperience";
-	public static String ORE_SAPPHIRE = "oreSapphire";
-	public static String ORE_ADAMITE = "oreAdamite";
-	public static String ORE_INVISIUM = "oreInvisium";
-	public static String ORE_RUBY = "oreRuby";
-	public static String ORE_DARKSTONE = "oreDarkstone";
-	public static String ORE_ZECTIUM = "oreZectium";
-	public static String ORE_LUMINITE = "oreLuminite";
-	public static String ORE_TAPAZITE = "oreTapazite";
-	public static String ORE_DEMONITE = "oreDemonite";
-	public static String ORE_OSMONIUM = "oreOsmonium";
-	public static String ORE_STARCONIUM = "oreStarconium";
-	public static String ORE_ENDER = "oreEnder";
-	public static String ORE_ULTRA = "oreUltra";
+	public static final String ORE_FOOLS_RUBY = "oreFoolsRuby";
+	public static final String ORE_METEORITE = "oreMeteorite";
+	public static final String ORE_COPPER = "oreCopper";
+	public static final String ORE_EXPERIUM = "oreExperium";
+	public static final String ORE_XP = "oreXP";
+	public static final String ORE_EXPERIENCE = "oreExperience";
+	public static final String ORE_SAPPHIRE = "oreSapphire";
+	public static final String ORE_ADAMITE = "oreAdamite";
+	public static final String ORE_INVISIUM = "oreInvisium";
+	public static final String ORE_RUBY = "oreRuby";
+	public static final String ORE_DARKSTONE = "oreDarkstone";
+	public static final String ORE_ZECTIUM = "oreZectium";
+	public static final String ORE_LUMINITE = "oreLuminite";
+	public static final String ORE_TAPAZITE = "oreTapazite";
+	public static final String ORE_DEMONITE = "oreDemonite";
+	public static final String ORE_OSMONIUM = "oreOsmonium";
+	public static final String ORE_STARCONIUM = "oreStarconium";
+	public static final String ORE_ENDER = "oreEnder";
+	public static final String ORE_ULTRA = "oreUltra";
 
-	public static String BLOCK_STORAGE_FOOLS_RUBY = "blockStorageFoolsRuby";
-	public static String BLOCK_STORAGE_METEORITE = "blockStorageMeteorite";
-	public static String BLOCK_STORAGE_COPPER = "blockStorageCopper";
-	public static String BLOCK_STORAGE_EXPERIUM = "blockStorageExperium";
-	public static String BLOCK_STORAGE_XP = "blockStorageXP";
-	public static String BLOCK_STORAGE_EXPERIENCE = "blockStorageExperience";
-	public static String BLOCK_STORAGE_SAPPHIRE = "blockStorageSapphire";
-	public static String BLOCK_STORAGE_ADAMITE = "blockStorageAdamite";
-	public static String BLOCK_STORAGE_INVISIUM = "blockStorageInvisium";
-	public static String BLOCK_STORAGE_RUBY = "blockStorageRuby";
-	public static String BLOCK_STORAGE_DARKSTONE = "blockStorageDarkstone";
-	public static String BLOCK_STORAGE_ZECTIUM = "blockStorageZectium";
-	public static String BLOCK_STORAGE_TAPAZITE = "blockStorageTapazite";
-	public static String BLOCK_STORAGE_DEMONITE = "blockStorageDemonite";
-	public static String BLOCK_STORAGE_OSMONIUM = "blockStorageOsmonium";
-	public static String BLOCK_STORAGE_STARCONIUM = "blockStorageStarconium";
-	public static String BLOCK_STORAGE_ENDER = "blockStorageEnder";
-	public static String BLOCK_STORAGE_ULTRA = "blockStorageUltra";
+	public static final String BLOCK_STORAGE_FOOLS_RUBY = "blockStorageFoolsRuby";
+	public static final String BLOCK_STORAGE_METEORITE = "blockStorageMeteorite";
+	public static final String BLOCK_STORAGE_COPPER = "blockStorageCopper";
+	public static final String BLOCK_STORAGE_EXPERIUM = "blockStorageExperium";
+	public static final String BLOCK_STORAGE_XP = "blockStorageXP";
+	public static final String BLOCK_STORAGE_EXPERIENCE = "blockStorageExperience";
+	public static final String BLOCK_STORAGE_SAPPHIRE = "blockStorageSapphire";
+	public static final String BLOCK_STORAGE_ADAMITE = "blockStorageAdamite";
+	public static final String BLOCK_STORAGE_INVISIUM = "blockStorageInvisium";
+	public static final String BLOCK_STORAGE_RUBY = "blockStorageRuby";
+	public static final String BLOCK_STORAGE_DARKSTONE = "blockStorageDarkstone";
+	public static final String BLOCK_STORAGE_ZECTIUM = "blockStorageZectium";
+	public static final String BLOCK_STORAGE_TAPAZITE = "blockStorageTapazite";
+	public static final String BLOCK_STORAGE_DEMONITE = "blockStorageDemonite";
+	public static final String BLOCK_STORAGE_OSMONIUM = "blockStorageOsmonium";
+	public static final String BLOCK_STORAGE_STARCONIUM = "blockStorageStarconium";
+	public static final String BLOCK_STORAGE_ENDER = "blockStorageEnder";
+	public static final String BLOCK_STORAGE_ULTRA = "blockStorageUltra";
 	
-	public static String[] BLOCKS_LUMINITE = {"blockWhiteLuminite", "blockRedLuminite", "blockOrangeLuminite",  "blockYellowLuminite", 
+	public static final String[] BLOCKS_LUMINITE = {"blockWhiteLuminite", "blockRedLuminite", "blockOrangeLuminite",  "blockYellowLuminite", 
 		"blockGreenLuminitie", "blockBlueLuminite", "blockPurpleLuminite", "blockBlackLuminite"};
 	
 	/**
@@ -97,7 +97,7 @@ public class BlockDictionary {
 
 		for (int metadata = 0; metadata < BLOCKS_LUMINITE.length; metadata++) {
 			metadata = MathHelper.clamp_int(metadata, 0, BLOCKS_LUMINITE.length - 1);
-			OreDictionary.registerOre(BLOCKS_LUMINITE[metadata], new ItemStack(BlockList.luminite_storage_blocks, 1, metadata));
+			OreDictionary.registerOre(BLOCKS_LUMINITE[metadata], new ItemStack(BlockList.luminite_storage_block, 1, metadata));
 		}
 	}
 }

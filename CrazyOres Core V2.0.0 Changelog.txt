@@ -16,6 +16,7 @@ not a README, Terms of Use, license, or instructions file.
 
 ====| ORES |====
 * Crystal Ore, Shards, and all tools have been removed and replaced by Luminite Crystals.
+* Ore Blocks are now labelled as Ore Storage Blocks.
 
 ====| ORES: LUMINITE |====
 * Luminite Ore has been retextured and moved to the Overworld. It no longer spawns in the Nether.
@@ -28,6 +29,7 @@ not a README, Terms of Use, license, or instructions file.
   * Blue Luminite Crystal
   * Purple Luminite Crystal
   * Black Luminite Crystal
+* Luminite Crystals can now be used to create Luminite Storage Blocks, which are semi-transparent and make a nice decorative block. They can be made in any of the colors above.
 
 ====| ORES: DEMONITE |====
 * Demonite Stone is now Demonite Ore.

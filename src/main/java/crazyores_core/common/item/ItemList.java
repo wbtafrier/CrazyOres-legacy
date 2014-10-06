@@ -11,6 +11,7 @@ import crazyores_core.common.core.COData;
 @GameRegistry.ObjectHolder(COData.MOD_ID)
 public class ItemList {
 
+	// Materials: Ore Drops
 	public static final Item fools_ruby_gem = new COItem();
 	public static final Item meteorite_coal = new COItem();
 	public static final Item meteorite_gem = new COItem();
@@ -22,13 +23,17 @@ public class ItemList {
 	public static final Item ruby_gem = new COItem();
 	public static final Item darkstone_ingot = new COItem();
 	public static final Item zectium_ingot = new COItem();
-	public static final Item white_luminite_crystal = new COItem();
+	public static final Item luminite_crystal = new LuminiteCrystal();
 	public static final Item tapazite_gem = new COItem();
 	public static final Item demonite_orb = new COItem();
 	public static final Item osmonium_ingot = new COItem();
 	public static final Item starconium_gem = new COItem();
 	public static final Item ender_gem = new COItem();
 	public static final Item ultra_gem = new COItem();
+	
+	// Materials: Craftable or Smeltable
+	public static final Item fools_ruby_mush = new COItem();
+	public static final Item starconium_shard = new COItem();
 	
 	/**
 	 * Initialization of all CO Core Items.
@@ -45,13 +50,17 @@ public class ItemList {
 		registerAndNameItem(ruby_gem, ItemNames.RUBY_GEM);
 		registerAndNameItem(darkstone_ingot, ItemNames.DARKSTONE_INGOT);
 		registerAndNameItem(zectium_ingot, ItemNames.ZECTIUM_INGOT);
-		registerAndNameItem(white_luminite_crystal, ItemNames.WHITE_LUMINITE_CRYSTAL);
+		registerAndNameItem(luminite_crystal, ItemNames.LUMINITE_CRYSTAL);
 		registerAndNameItem(tapazite_gem, ItemNames.TAPAZITE_GEM);
 		registerAndNameItem(demonite_orb, ItemNames.DEMONITE_ORB);
 		registerAndNameItem(osmonium_ingot, ItemNames.OSMONIUM_INGOT);
 		registerAndNameItem(starconium_gem, ItemNames.STARCONIUM_GEM);
 		registerAndNameItem(ender_gem, ItemNames.ENDER_GEM);
 		registerAndNameItem(ultra_gem, ItemNames.ULTRA_GEM);
+		
+		registerAndNameItem(fools_ruby_mush, ItemNames.FOOLS_RUBY_MUSH);
+		registerAndNameItem(starconium_shard, ItemNames.STARCONIUM_SHARD);
+		
 	}
 	
 	/**

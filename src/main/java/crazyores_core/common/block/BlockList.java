@@ -42,14 +42,13 @@ public class BlockList {
 	public static final Block ruby_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block darkstone_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block zectium_storage_block = new COBlock().setHardness(3F).setResistance(9F);
+	public static final Block luminite_storage_block = new LuminiteBlock().setHardness(3F).setResistance(9F);
 	public static final Block tapazite_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block demonite_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block osmonium_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block starconium_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block ender_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block ultra_storage_block = new COBlock().setHardness(3F).setResistance(9F);
-	
-	public static final Block luminite_storage_blocks = new LuminiteBlock().setHardness(3F).setResistance(9F);
 	
 	/**
 	 * Initialization of all CO Core Blocks.
@@ -83,6 +82,7 @@ public class BlockList {
 		registerAndNameBlock(ruby_storage_block, BlockNames.RUBY_STORAGE_BLOCK);
 		registerAndNameBlock(darkstone_storage_block, BlockNames.DARKSTONE_STORAGE_BLOCK);
 		registerAndNameBlock(zectium_storage_block, BlockNames.ZECTIUM_STORAGE_BLOCK);
+		registerAndNameBlock(luminite_storage_block, ItemLuminiteBlock.class, BlockNames.LUMINITE_STORAGE_BLOCK);
 		registerAndNameBlock(tapazite_storage_block, BlockNames.TAPAZITE_STORAGE_BLOCK);
 		registerAndNameBlock(demonite_storage_block, BlockNames.DEMONITE_STORAGE_BLOCK);
 		registerAndNameBlock(osmonium_storage_block, BlockNames.OSMONIUM_STORAGE_BLOCK);
@@ -90,7 +90,6 @@ public class BlockList {
 		registerAndNameBlock(ender_storage_block, BlockNames.ENDER_STORAGE_BLOCK);
 		registerAndNameBlock(ultra_storage_block, BlockNames.ULTRA_STORAGE_BLOCK);
 
-		registerAndNameBlock(luminite_storage_blocks, ItemLuminiteBlock.class, BlockNames.LUMINITE_BLOCK);
 	}
 	
 	/**
