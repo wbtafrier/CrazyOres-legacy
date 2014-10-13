@@ -84,8 +84,6 @@ public class LuminiteBlock extends COBlock {
 		return this.blockTexture[metadata];
 	}
 	
-	
-	
 	 /**
      * Returns which pass should this block be rendered on. 0 for solids and 1 for alpha
      */
@@ -118,15 +116,11 @@ public class LuminiteBlock extends COBlock {
      */
     @Override
     @SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int side)
-    {
+    public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int side) {
         Block block = blockAccess.getBlock(x, y, z);
-
-        if (block == this)
-        {
+        if (block == this) {
             return false;
         }
-
         return super.shouldSideBeRendered(blockAccess, x, y, z, side);
     }
 }
