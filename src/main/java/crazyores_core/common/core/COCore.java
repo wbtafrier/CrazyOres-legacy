@@ -22,6 +22,7 @@ import crazyores_core.common.config.ConfigManager;
 import crazyores_core.common.item.COItem;
 import crazyores_core.common.item.ItemDictionary;
 import crazyores_core.common.item.ItemList;
+import crazyores_core.common.item.ItemNames;
 import crazyores_core.proxy.IProxy;
 
 /**
@@ -65,7 +66,8 @@ public class COCore implements IPack {
     		RenderItem ri = Minecraft.getMinecraft().getRenderItem();
     		for (Item item : ItemList.core_items) {
     			COItem coItem = (COItem)item;
-    			ri.getItemModelMesher().register(item, 0, new ModelResourceLocation(COData.MOD_ID + ":" + coItem.stripName(coItem.getUnlocalizedName()), "inventory"));
+    			COLogger.write(Level.INFO, coItem.getUnlocalizedName());
+    			ri.getItemModelMesher().register(coItem, 0, new ModelResourceLocation(coItem.parsePrefix(coItem.getUnlocalizedName()), "inventory"));
     		}
     	}
     	

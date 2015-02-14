@@ -32,7 +32,7 @@ public class COItem extends Item {
 	
 	@Override
 	public String getUnlocalizedName() {
-		return String.format("item.%s%s", TextureManager.RESOURCE_PREFIX, this.stripName(super.getUnlocalizedName()));
+		return String.format("item.%s%s", TextureManager.RESOURCE_PREFIX, this.parsePrefix(super.getUnlocalizedName()));
 	}
 	
 	@Override
@@ -51,7 +51,7 @@ public class COItem extends Item {
 	 * @param unlocalizedName The default unlocalized name of this Item
 	 * @return a substring of the default unlocalized name
 	 */
-	public String stripName(String unlocalizedName) {
+	public String parsePrefix(String unlocalizedName) {
 		return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
 	}
 }
