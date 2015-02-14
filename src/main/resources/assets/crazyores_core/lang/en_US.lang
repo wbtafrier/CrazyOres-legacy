@@ -1,0 +1,124 @@
+# CRAZYORES CORE ENGLISH LANGUAGE LOCALIZATION FILE (Last update - V2.0.0)
+
+# BLOCK LOCALIZATION
+tile.crazyores_core:fools_ruby_ore.name=Fool's Ruby Ore
+tile.crazyores_core:meteorite_ore.name=Meteorite Ore
+tile.crazyores_core:copper_ore.name=Copper Ore
+tile.crazyores_core:experium_ore.name=Experium Ore
+tile.crazyores_core:sapphire_ore.name=Sapphire Ore
+tile.crazyores_core:adamite_ore.name=Adamite Ore
+tile.crazyores_core:invisium_ore.name=Invisium Ore
+tile.crazyores_core:ruby_ore.name=Ruby Ore
+tile.crazyores_core:darkstone.name=Darkstone
+tile.crazyores_core:zectium_ore.name=Zectium Ore
+tile.crazyores_core:luminite_ore.name=Luminite Ore
+tile.crazyores_core:tapazite_ore.name=Tapazite Ore
+tile.crazyores_core:demonite_ore.name=Demonite Ore
+tile.crazyores_core:osmonium_ore.name=Osmonium Ore
+tile.crazyores_core:starconium_ore.name=Starconium Ore
+tile.crazyores_core:ender_ore.name=Ender Ore
+tile.crazyores_core:ultra_ore.name=Ultra Ore
+
+tile.crazyores_core:fools_ruby_storage_block.name=Fool's Ruby Storage Block
+tile.crazyores_core:meteorite_storage_block.name=Meteorite Storage Block
+tile.crazyores_core:copper_storage_block.name=Copper Storage Block
+tile.crazyores_core:experium_storage_block.name=Experium Storage Block
+tile.crazyores_core:sapphire_storage_block.name=Sapphire Storage Block
+tile.crazyores_core:adamite_storage_block.name=Adamite Storage Block
+tile.crazyores_core:invisium_storage_block.name=Invisium Storage Block
+tile.crazyores_core:ruby_storage_block.name=Ruby Storage Block
+tile.crazyores_core:darkstone_storage_block.name=Darkstone Storage Block
+tile.crazyores_core:zectium_storage_block.name=Zectium Storage Block
+tile.crazyores_core:luminite_storage_block_white.name=White Luminite Storage Block
+tile.crazyores_core:luminite_storage_block_red.name=Red Luminite Storage Block
+tile.crazyores_core:luminite_storage_block_orange.name=Orange Luminite Storage Block
+tile.crazyores_core:luminite_storage_block_yellow.name=Yellow Luminite Storage Block
+tile.crazyores_core:luminite_storage_block_green.name=Green Luminite Storage Block
+tile.crazyores_core:luminite_storage_block_purple.name=Purple Luminite Storage Block
+tile.crazyores_core:luminite_storage_block_blue.name=Blue Luminite Storage Block
+tile.crazyores_core:luminite_storage_block_black.name=Black Luminite Storage Block
+tile.crazyores_core:tapazite_storage_block.name=Tapazite Storage Block
+tile.crazyores_core:demonite_storage_block.name=Demonite Storage Block
+tile.crazyores_core:osmonium_storage_block.name=Osmonium Storage Block
+tile.crazyores_core:starconium_storage_block.name=Starconium Storage Block
+tile.crazyores_core:ender_storage_block.name=Ender Storage Block
+tile.crazyores_core:ultra_storage_block.name=Ultra Storage Block
+
+# ITEM LOCALIZATION
+item.crazyores_core:fools_ruby_mush.name=Fool's Ruby Mush
+item.crazyores_core:fools_ruby_gem.name=Fool's Ruby Gem
+item.crazyores_core:meteorite_coal.name=Meteorite Coal
+item.crazyores_core:meteorite_gem.name=Meteorite Gem
+item.crazyores_core:copper_ingot.name=Copper Ingot
+item.crazyores_core:experium_orb.name=Experium Orb
+item.crazyores_core:sapphire_gem.name=Sapphire Gem
+item.crazyores_core:adamite_shard.name=Adamite Shard
+item.crazyores_core:invisium_ingot.name=Invisium Ingot
+item.crazyores_core:ruby_gem.name=Ruby Gem
+item.crazyores_core:darkstone_ingot.name=Darkstone Ingot
+item.crazyores_core:zectium_ingot.name=Zectium Ingot
+item.crazyores_core:luminite_crystal_white.name=White Luminite Crystal
+item.crazyores_core:luminite_crystal_red.name=Red Luminite Crystal
+item.crazyores_core:luminite_crystal_orange.name=Orange Luminite Crystal
+item.crazyores_core:luminite_crystal_yellow.name=Yellow Luminite Crystal
+item.crazyores_core:luminite_crystal_green.name=Green Luminite Crystal
+item.crazyores_core:luminite_crystal_blue.name=Blue Luminite Crystal
+item.crazyores_core:luminite_crystal_purple.name=Purple Luminite Crystal
+item.crazyores_core:luminite_crystal_black.name=Black Luminite Crystal
+item.crazyores_core:tapazite_gem.name=Tapazite Gem
+item.crazyores_core:demonite_orb.name=Demonite Orb
+item.crazyores_core:crystal_shard.name=Crystal Shard
+item.crazyores_core:osmonium_ingot.name=Osmonium Ingot
+item.crazyores_core:starconium_gem.name=Starconium Gem
+item.crazyores_core:ender_gem.name=Ender Gem
+item.crazyores_core:ultra_gem.name=Ultra Gem
+
+item.crazyores_core:fools_ruby_mush.name=Fool's Ruby Mush
+item.crazyores_core:starconium_shard.name=Starconium Shard
+
+# TAB LOCALIZATION
+itemGroup.blocks=CrazyOres Blocks
+itemGroup.materials=CrazyOres Materials
+
+# CONFIG LOCALIZATION
+config.category.worldGeneration=world_generation
+
+config.node.generateAllOres=Generate_All_Ores
+config.node.generateCopperOre=Generate_Copper_Ore
+config.node.generateSapphireOre=Generate_Sapphire_Ore
+config.node.generateAdamiteOre=Generate_Adamite_Ore
+config.node.generateMeteoriteOre=Generate_Meteorite_Ore
+config.node.generateRubyOre=Generate_Ruby_Ore
+config.node.generateFoolsRubyOre=Generate_Fools_Ruby_Ore
+config.node.generateZectiumOre=Generate_Zectium_Ore
+config.node.generateTapaziteOre=Generate_Tapazite_Ore
+config.node.generateCrystalOre=Generate_Crystal_Ore
+config.node.generateOsmoniumOre=Generate_Osmonium_Ore
+config.node.generateStarconiumOre=Generate_Starconium_Ore
+config.node.generateDemoniteOre=Generate_Demonite_Ore
+config.node.generateExperiumOre=Generate_Experium_Ore
+config.node.generateInvisiumOre=Generate_Invisium_Ore
+config.node.generateDarkstone=Generate_Darkstone
+config.node.generateLuminiteOre=Generate_Luminite_Ore
+config.node.generateEnderOre=Generate_Ender_Ore
+config.node.generateUltraOre=Generate_Ultra_Ore
+
+config.comment.generateAllOres=When set to true, all CO ores will be generated in new chunks. Set to false to stop CO ores from spawning in new chunks.
+config.comment.generateCopperOre=When set to true, Copper Ore will be generated in new chunks. Set to false to stop Copper Ore from spawning in new chunks.
+config.comment.generateSapphireOre=When set to true, Sapphire Ore will be generated in new chunks. Set to false to stop Sapphire Ore from spawning in new chunks.
+config.comment.generateAdamiteOre=When set to true, Adamite Ore will be generated in new chunks. Set to false to stop Adamite Ore from spawning in new chunks.
+config.comment.generateMeteoriteOre=When set to true, Meteorite Ore will be generated in new chunks. Set to false to stop Meteorite Ore from spawning in new chunks.
+config.comment.generateRubyOre=When set to true, Ruby Ore will be generated in new chunks. Set to false to stop Ruby Ore from spawning in new chunks.
+config.comment.generateFoolsRubyOre=When set to true, Fool's Ruby Ore will be generated in new chunks. Set to false to stop Fool's Ruby Ore from spawning in new chunks.
+config.comment.generateZectiumOre=When set to true, Zectium Ore will be generated in new chunks. Set to false to stop Zectium Ore from spawning in new chunks.
+config.comment.generateTapaziteOre=When set to true, Tapazite Ore will be generated in new chunks. Set to false to stop Tapazite Ore from spawning in new chunks.
+config.comment.generateCrystalOre=When set to true, Crystal Ore will be generated in new chunks. Set to false to stop Crystal Ore from spawning in new chunks.
+config.comment.generateOsmoniumOre=When set to true, Osmonium Ore will be generated in new chunks. Set to false to stop Osmonium Ore from spawning in new chunks.
+config.comment.generateStarconiumOre=When set to true, Starconium Ore will be generated in new chunks. Set to false to stop Starconium Ore from spawning in new chunks.
+config.comment.generateDemoniteOre=When set to true, Demonite Ore will be generated in new chunks. Set to false to stop Demonite Ore from spawning in new chunks.
+config.comment.generateExperiumOre=When set to true, Experium Ore will be generated in new chunks. Set to false to stop Experium Ore from spawning in new chunks.
+config.comment.generateInvisiumOre=When set to true, Invisium Ore will be generated in new chunks. Set to false to stop Invisium Ore from spawning in new chunks.
+config.comment.generateDarkstone=When set to true, Darkstone will be generated in new chunks. Set to false to stop Darkstone from spawning in new chunks.
+config.comment.generateLuminiteOre=When set to true, Luminite Ore will be generated in new chunks. Set to false to stop Luminite Ore from spawning in new chunks.
+config.comment.generateEnderOre=When set to true, Ender Ore will be generated in new chunks. Set to false to stop Ender Ore from spawning in new chunks.
+config.comment.generateUltraOre=When set to true, Ultra Ore will be generated in new chunks. Set to false to stop Ultra Ore from spawning in new chunks.
