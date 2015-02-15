@@ -33,23 +33,14 @@ public class COBlock extends Block {
 	 */
 	@Override
 	public String getUnlocalizedName() {
-		return String.format("tile.%s%s", TextureManager.RESOURCE_PREFIX, this.stripName(super.getUnlocalizedName()));
+		return String.format("tile.%s%s", TextureManager.RESOURCE_PREFIX, this.parsePrefix(super.getUnlocalizedName(), '.'));
 	}
 	
-	/**
-	 * Sets the image name for the block.
-	 */
-//	@Override
-//	@SideOnly(Side.CLIENT)
-//	public void registerBlockIcons() {
-//		this.blockIcon = iconRegister.registerIcon(String.format("%s", stripName(this.getUnlocalizedName())));
-//	}
+	public String parsePrefix(String unlocalizedName, char lastPrefixChar) {
+		return unlocalizedName.substring(unlocalizedName.indexOf(lastPrefixChar) + 1);
+	}
 	
-	/**
-	 * Takes in a string (unlocalizedName()).
-	 * @return the name of the block without the 'tile.'
-	 */
-	public String stripName(String name) {
-		return name.substring(name.indexOf(".") + 1);
+	public String getReadableName() {
+		return this.parsePrefix(this.getUnlocalizedName(), ':');
 	}
 }

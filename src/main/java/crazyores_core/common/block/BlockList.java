@@ -91,22 +91,22 @@ public class BlockList {
 	
 	/**
 	 * Registers and sets the unlocalized name of a CO Block.
-	 * @param block: The Block to be registered and named. 
+	 * @param block: The Block to be registered and named.
 	 * @param blockName: The name of the Block as a String.
 	 */
 	public static void registerAndNameBlock(Block block, String blockName) {
-//		block.setBlockName(blockName);
+		block.setUnlocalizedName(blockName);
 		GameRegistry.registerBlock(block, blockName);
 	}
 	
 	/**
 	 * Registers and sets the unlocalized name of a CO Block.
-	 * @param block: The Block to be registered and named. 
+	 * @param block: The Block to be registered and named.
 	 * @param blockClass: The ItemBlock class this CO Block is paired to.
 	 * @param blockName: The name of the Block as a String.
 	 */
 	public static void registerAndNameBlock(Block block, Class blockClass, String blockName) {
-//		block.setBlockName(blockName);
+		block.setUnlocalizedName(blockName);
 		GameRegistry.registerBlock(block, blockClass, blockName);
 	}
 }

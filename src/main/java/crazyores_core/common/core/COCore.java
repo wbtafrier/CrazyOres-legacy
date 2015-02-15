@@ -67,7 +67,7 @@ public class COCore implements IPack {
     		for (Item item : ItemList.core_items) {
     			COItem coItem = (COItem)item;
     			COLogger.write(Level.INFO, coItem.getUnlocalizedName());
-    			ri.getItemModelMesher().register(coItem, 0, new ModelResourceLocation(coItem.parsePrefix(coItem.getUnlocalizedName()), "inventory"));
+    			ri.getItemModelMesher().register(coItem, 0, new ModelResourceLocation(COData.MOD_ID + ":" + coItem.getReadableName(), "inventory"));
     		}
     	}
     	

@@ -32,26 +32,19 @@ public class COItem extends Item {
 	
 	@Override
 	public String getUnlocalizedName() {
-		return String.format("item.%s%s", TextureManager.RESOURCE_PREFIX, this.parsePrefix(super.getUnlocalizedName()));
+		return String.format("item.%s%s", TextureManager.RESOURCE_PREFIX, this.parsePrefix(super.getUnlocalizedName(), '.'));
 	}
 	
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack) {
 		return this.getUnlocalizedName();
 	}
-	
-//	@Override
-//	@SideOnly(Side.CLIENT)
-//	public void registerIcons(IIconRegister register) {
-//		this.itemIcon = register.registerIcon(this.stripName(this.getUnlocalizedName()));
-//	}
 
-	/**
-	 * Removes the prefix of the default unlocalized name of a COItem leaving only its name.
-	 * @param unlocalizedName The default unlocalized name of this Item
-	 * @return a substring of the default unlocalized name
-	 */
-	public String parsePrefix(String unlocalizedName) {
-		return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+	public String parsePrefix(String unlocalizedName, char lastPrefixChar) {
+		return unlocalizedName.substring(unlocalizedName.indexOf(lastPrefixChar) + 1);
+	}
+	
+	public String getReadableName() {
+		return this.parsePrefix(this.getUnlocalizedName(), ':');
 	}
 }
