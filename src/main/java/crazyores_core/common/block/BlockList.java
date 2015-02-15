@@ -3,6 +3,8 @@ package crazyores_core.common.block;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import crazyores_core.common.core.COData;
 
@@ -54,6 +56,7 @@ public class BlockList {
 	 * Initialization of all CO Core Blocks.
 	 */
 	public static void blockInitialization() {
+		
 		registerAndNameBlock(fools_ruby_ore, BlockNames.FOOLS_RUBY_ORE);
 		registerAndNameBlock(meteorite_ore, BlockNames.METEORITE_ORE);
 		registerAndNameBlock(copper_ore, BlockNames.COPPER_ORE);
