@@ -3,8 +3,7 @@ package crazyores_core.common.item;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import crazyores_core.common.core.ICOName;
 import crazyores_core.common.tab.COTabList;
 import crazyores_core.util.TextureManager;
 
@@ -12,7 +11,7 @@ import crazyores_core.util.TextureManager;
  * COItem is the big daddy for most of the Items in the Core.
  * @author ISQUISHALL and Andy608
  */
-public class COItem extends Item {
+public class COItem extends Item implements ICOName {
 
 	/**
 	 * This instance of COItem takes no arguments, but sets the CreativeTabs to COTabList.CO_MATERIALS by default.
@@ -40,10 +39,12 @@ public class COItem extends Item {
 		return this.getUnlocalizedName();
 	}
 
+	@Override
 	public String parsePrefix(String unlocalizedName, char lastPrefixChar) {
 		return unlocalizedName.substring(unlocalizedName.indexOf(lastPrefixChar) + 1);
 	}
 	
+	@Override
 	public String getReadableName() {
 		return this.parsePrefix(this.getUnlocalizedName(), ':');
 	}

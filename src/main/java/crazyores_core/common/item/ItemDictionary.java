@@ -33,11 +33,6 @@ public class ItemDictionary {
 	public static final String MUSH_FOOLS_RUBY = "mushFoolsRuby";
 	public static final String SHARD_STARCONIUM = "shardStarconium";
 	
-	public static final String[] CRYSTALS_LUMINITE = new String[] {
-		"crystalWhiteLuminite", "crystalRedLuminite", "crystalOrangeLuminite", "crystalYellowLuminite", "crystalGreenLuminite",
-		"crystalBlueLuminite", "crystalPurpleLuminite", "crystalBlackLuminite"
-	};
-	
 	/**
 	 * Registers all CO Items to the Ore Dictionary using compatible names.
 	 */
@@ -64,10 +59,5 @@ public class ItemDictionary {
 		
 		OreDictionary.registerOre(MUSH_FOOLS_RUBY, ItemList.fools_ruby_mush);
 		OreDictionary.registerOre(SHARD_STARCONIUM, ItemList.starconium_shard);
-		
-		for (int metadata = 0; metadata < CRYSTALS_LUMINITE.length; metadata++) {
-			metadata = MathHelper.clamp_int(metadata, 0, CRYSTALS_LUMINITE.length - 1);
-			OreDictionary.registerOre(CRYSTALS_LUMINITE[metadata], new ItemStack(ItemList.luminite_crystal, 1, metadata));
-		}
 	}
 }

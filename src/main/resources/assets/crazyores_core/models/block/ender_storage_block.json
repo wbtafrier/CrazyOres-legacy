@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "crazyores_core:blocks/ender_storage_block"
+	}
+}

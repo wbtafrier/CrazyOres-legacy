@@ -22,7 +22,6 @@ public class BlockDictionary {
 	public static final String ORE_RUBY = "oreRuby";
 	public static final String ORE_DARKSTONE = "oreDarkstone";
 	public static final String ORE_ZECTIUM = "oreZectium";
-	public static final String ORE_LUMINITE = "oreLuminite";
 	public static final String ORE_TAPAZITE = "oreTapazite";
 	public static final String ORE_DEMONITE = "oreDemonite";
 	public static final String ORE_OSMONIUM = "oreOsmonium";
@@ -49,9 +48,6 @@ public class BlockDictionary {
 	public static final String BLOCK_STORAGE_ENDER = "blockStorageEnder";
 	public static final String BLOCK_STORAGE_ULTRA = "blockStorageUltra";
 	
-	public static final String[] BLOCKS_LUMINITE = {"blockWhiteLuminite", "blockRedLuminite", "blockOrangeLuminite",  "blockYellowLuminite", 
-		"blockGreenLuminitie", "blockBlueLuminite", "blockPurpleLuminite", "blockBlackLuminite"};
-	
 	/**
 	 * Registers all CO Blocks to the Ore Dictionary using compatible names.
 	 */
@@ -68,7 +64,6 @@ public class BlockDictionary {
 		OreDictionary.registerOre(ORE_RUBY, BlockList.ruby_ore);
 		OreDictionary.registerOre(ORE_DARKSTONE, BlockList.darkstone);
 		OreDictionary.registerOre(ORE_ZECTIUM, BlockList.zectium_ore);
-		OreDictionary.registerOre(ORE_LUMINITE, BlockList.luminite_ore);
 		OreDictionary.registerOre(ORE_TAPAZITE, BlockList.tapazite_ore);
 		OreDictionary.registerOre(ORE_DEMONITE, BlockList.demonite_ore);
 		OreDictionary.registerOre(ORE_OSMONIUM, BlockList.osmonium_ore);
@@ -94,10 +89,5 @@ public class BlockDictionary {
 		OreDictionary.registerOre(BLOCK_STORAGE_STARCONIUM, BlockList.starconium_storage_block);
 		OreDictionary.registerOre(BLOCK_STORAGE_ENDER, BlockList.ender_storage_block);
 		OreDictionary.registerOre(BLOCK_STORAGE_ULTRA, BlockList.ultra_storage_block);
-
-		for (int metadata = 0; metadata < BLOCKS_LUMINITE.length; metadata++) {
-			metadata = MathHelper.clamp_int(metadata, 0, BLOCKS_LUMINITE.length - 1);
-			OreDictionary.registerOre(BLOCKS_LUMINITE[metadata], new ItemStack(BlockList.luminite_storage_block, 1, metadata));
-		}
 	}
 }

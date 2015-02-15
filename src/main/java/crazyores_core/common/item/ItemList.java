@@ -13,7 +13,7 @@ import crazyores_core.common.core.COData;
 @GameRegistry.ObjectHolder(COData.MOD_ID)
 public class ItemList {
 
-	public static ArrayList<Item> core_items = new ArrayList<>();
+	public static ArrayList<Item> item_list = new ArrayList<>();
 	
 	// Materials: Ore Drops
 	public static final Item fools_ruby_gem = new COItem();
@@ -27,7 +27,6 @@ public class ItemList {
 	public static final Item ruby_gem = new COItem();
 	public static final Item darkstone_ingot = new COItem();
 	public static final Item zectium_ingot = new COItem();
-	public static final Item luminite_crystal = new LuminiteCrystal();
 	public static final Item tapazite_gem = new COItem();
 	public static final Item demonite_orb = new COItem();
 	public static final Item osmonium_ingot = new COItem();
@@ -54,7 +53,6 @@ public class ItemList {
 		registerAndNameItem(ruby_gem, ItemNames.RUBY_GEM);
 		registerAndNameItem(darkstone_ingot, ItemNames.DARKSTONE_INGOT);
 		registerAndNameItem(zectium_ingot, ItemNames.ZECTIUM_INGOT);
-		registerAndNameItem(luminite_crystal, ItemNames.LUMINITE_CRYSTAL);
 		registerAndNameItem(tapazite_gem, ItemNames.TAPAZITE_GEM);
 		registerAndNameItem(demonite_orb, ItemNames.DEMONITE_ORB);
 		registerAndNameItem(osmonium_ingot, ItemNames.OSMONIUM_INGOT);
@@ -75,6 +73,6 @@ public class ItemList {
 	public static void registerAndNameItem(Item item, String itemName) {
 		item.setUnlocalizedName(itemName);
 		GameRegistry.registerItem(item, itemName);
-		core_items.add(item);
+		item_list.add(item);
 	}
 }

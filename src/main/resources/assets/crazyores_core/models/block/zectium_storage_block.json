@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "crazyores_core:blocks/zectium_storage_block"
+	}
+}

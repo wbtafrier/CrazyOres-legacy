@@ -1,5 +1,7 @@
 package crazyores_core.common.block;
 
+import java.util.ArrayList;
+
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import crazyores_core.common.core.COData;
@@ -11,6 +13,8 @@ import crazyores_core.common.core.COData;
 @GameRegistry.ObjectHolder(COData.MOD_ID)
 public class BlockList {
 	
+	public static ArrayList<Block> block_list = new ArrayList<>();
+	
 	public static final Block fools_ruby_ore = new Ore().setHardness(3F).setResistance(5F);
 	public static final Block meteorite_ore = new Ore().setHardness(3F).setResistance(5F);
 	public static final Block copper_ore = new Ore().setHardness(3F).setResistance(5F);
@@ -21,7 +25,6 @@ public class BlockList {
 	public static final Block ruby_ore = new Ore().setHardness(3F).setResistance(5F);
 	public static final Block darkstone = new Ore().setHardness(3F).setResistance(5F);
 	public static final Block zectium_ore = new Ore().setHardness(3F).setResistance(5F);
-	public static final Block luminite_ore = new Ore().setHardness(3F).setResistance(5F);
 	public static final Block tapazite_ore = new Ore().setHardness(3F).setResistance(5F);
 	public static final Block demonite_ore = new Ore().setHardness(3F).setResistance(5F);
 	public static final Block osmonium_ore = new Ore().setHardness(3F).setResistance(5F);
@@ -39,7 +42,7 @@ public class BlockList {
 	public static final Block ruby_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block darkstone_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block zectium_storage_block = new COBlock().setHardness(3F).setResistance(9F);
-	public static final Block luminite_storage_block = new LuminiteBlock().setHardness(3F).setResistance(9F);
+	
 	public static final Block tapazite_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block demonite_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block osmonium_storage_block = new COBlock().setHardness(3F).setResistance(9F);
@@ -61,7 +64,6 @@ public class BlockList {
 		registerAndNameBlock(ruby_ore, BlockNames.RUBY_ORE);
 		registerAndNameBlock(darkstone, BlockNames.DARKSTONE);
 		registerAndNameBlock(zectium_ore, BlockNames.ZECTIUM_ORE);
-		registerAndNameBlock(luminite_ore, BlockNames.LUMINITE_ORE);
 		registerAndNameBlock(tapazite_ore, BlockNames.TAPAZITE_ORE);
 		registerAndNameBlock(demonite_ore, BlockNames.DEMONITE_ORE);
 		registerAndNameBlock(osmonium_ore, BlockNames.OSMONIUM_ORE);
@@ -79,7 +81,6 @@ public class BlockList {
 		registerAndNameBlock(ruby_storage_block, BlockNames.RUBY_STORAGE_BLOCK);
 		registerAndNameBlock(darkstone_storage_block, BlockNames.DARKSTONE_STORAGE_BLOCK);
 		registerAndNameBlock(zectium_storage_block, BlockNames.ZECTIUM_STORAGE_BLOCK);
-		registerAndNameBlock(luminite_storage_block, ItemLuminiteBlock.class, BlockNames.LUMINITE_STORAGE_BLOCK);
 		registerAndNameBlock(tapazite_storage_block, BlockNames.TAPAZITE_STORAGE_BLOCK);
 		registerAndNameBlock(demonite_storage_block, BlockNames.DEMONITE_STORAGE_BLOCK);
 		registerAndNameBlock(osmonium_storage_block, BlockNames.OSMONIUM_STORAGE_BLOCK);
@@ -97,16 +98,6 @@ public class BlockList {
 	public static void registerAndNameBlock(Block block, String blockName) {
 		block.setUnlocalizedName(blockName);
 		GameRegistry.registerBlock(block, blockName);
-	}
-	
-	/**
-	 * Registers and sets the unlocalized name of a CO Block.
-	 * @param block: The Block to be registered and named.
-	 * @param blockClass: The ItemBlock class this CO Block is paired to.
-	 * @param blockName: The name of the Block as a String.
-	 */
-	public static void registerAndNameBlock(Block block, Class blockClass, String blockName) {
-		block.setUnlocalizedName(blockName);
-		GameRegistry.registerBlock(block, blockClass, blockName);
+		block_list.add(block);
 	}
 }

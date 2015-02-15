@@ -18,7 +18,6 @@ public class ItemNames {
 	RUBY_GEM = "ruby_gem",
 	DARKSTONE_INGOT = "darkstone_ingot",
 	ZECTIUM_INGOT = "zectium_ingot",
-	LUMINITE_CRYSTAL = "luminite_crystal",
 	TAPAZITE_GEM = "tapazite_gem",
 	DEMONITE_ORB = "demonite_orb",
 	OSMONIUM_INGOT = "osmonium_ingot",
@@ -28,8 +27,4 @@ public class ItemNames {
 	
 	FOOLS_RUBY_MUSH = "fools_ruby_mush",
 	STARCONIUM_SHARD = "starconium_shard";
-	
-	public static final String[] LUMINITE_CRYSTAL_SUBTYPES = new String[] {
-		"white", "red", "orange", "yellow", "green", "blue", "purple", "black"
-	};
 }

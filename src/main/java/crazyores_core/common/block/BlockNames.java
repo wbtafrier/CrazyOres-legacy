@@ -18,7 +18,6 @@ public class BlockNames {
 	RUBY_ORE = "ruby_ore",
 	DARKSTONE = "darkstone",
 	ZECTIUM_ORE = "zectium_ore",
-	LUMINITE_ORE = "luminite_ore",
 	TAPAZITE_ORE = "tapazite_ore",
 	DEMONITE_ORE = "demonite_ore",
 	OSMONIUM_ORE = "osmonium_ore",
@@ -36,13 +35,10 @@ public class BlockNames {
 	RUBY_STORAGE_BLOCK = "ruby_storage_block",
 	DARKSTONE_STORAGE_BLOCK = "darkstone_storage_block",
 	ZECTIUM_STORAGE_BLOCK = "zectium_storage_block",
-	LUMINITE_STORAGE_BLOCK = "luminite_storage_block",
 	TAPAZITE_STORAGE_BLOCK = "tapazite_storage_block",
 	DEMONITE_STORAGE_BLOCK = "demonite_storage_block",
 	OSMONIUM_STORAGE_BLOCK = "osmonium_storage_block",
 	STARCONIUM_STORAGE_BLOCK = "starconium_storage_block",
 	ENDER_STORAGE_BLOCK = "ender_storage_block",
 	ULTRA_STORAGE_BLOCK = "ultra_storage_block";
-	
-	public static final String[] LUMINITE_STORAGE_BLOCK_SUBTYPES = new String[] {"white", "red", "orange", "yellow", "green", "blue", "purple", "black"};
 }

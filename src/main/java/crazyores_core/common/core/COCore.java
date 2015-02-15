@@ -1,7 +1,9 @@
 package crazyores_core.common.core;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumChatFormatting;
@@ -18,11 +20,12 @@ import org.apache.logging.log4j.Level;
 
 import crazyores_core.common.block.BlockDictionary;
 import crazyores_core.common.block.BlockList;
+import crazyores_core.common.block.BlockNames;
+import crazyores_core.common.block.COBlock;
 import crazyores_core.common.config.ConfigManager;
 import crazyores_core.common.item.COItem;
 import crazyores_core.common.item.ItemDictionary;
 import crazyores_core.common.item.ItemList;
-import crazyores_core.common.item.ItemNames;
 import crazyores_core.proxy.IProxy;
 
 /**
@@ -63,11 +66,15 @@ public class COCore implements IPack {
     @EventHandler
     public void init(FMLInitializationEvent fmlInitEvent) {
     	if (fmlInitEvent.getSide() == Side.CLIENT) {
-    		RenderItem ri = Minecraft.getMinecraft().getRenderItem();
-    		for (Item item : ItemList.core_items) {
+    		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+    		for (Item item : ItemList.item_list) {
     			COItem coItem = (COItem)item;
-    			COLogger.write(Level.INFO, coItem.getUnlocalizedName());
-    			ri.getItemModelMesher().register(coItem, 0, new ModelResourceLocation(COData.MOD_ID + ":" + coItem.getReadableName(), "inventory"));
+    			renderItem.getItemModelMesher().register(coItem, 0, new ModelResourceLocation(COData.MOD_ID + ":" + coItem.getReadableName(), "inventory"));
+    		}
+    		
+    		for (Block block : BlockList.block_list) {
+    			ICOName coBlock = (ICOName)block;
+				renderItem.getItemModelMesher().register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(COData.MOD_ID + ":" + coBlock.getReadableName(), "inventory"));
     		}
     	}
     	
