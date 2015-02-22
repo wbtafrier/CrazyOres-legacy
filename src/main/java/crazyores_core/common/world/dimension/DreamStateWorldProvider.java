@@ -14,7 +14,7 @@ import net.minecraftforge.client.IRenderHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores_core.common.world.biome.DreamStateBiomes;
-import crazyores_core.common.world.render.CloudRenderer;
+//import crazyores_core.common.world.render.CloudRenderer;
 import crazyores_core.common.world.render.SkyRenderer;
 
 public class DreamStateWorldProvider extends WorldProvider {
@@ -23,13 +23,13 @@ public class DreamStateWorldProvider extends WorldProvider {
 	private static final long dayLength = 24000;
 	private long cloudColor = 16777215L;
 	private final int[] playerPosition = new int[3];
-	private CloudRenderer cloudRenderer;
+//	private CloudRenderer cloudRenderer;
 	private SkyRenderer skyRenderer;
 	
 	@Override
 	public void registerWorldChunkManager() {
 		this.dimensionId = DimensionList.dreamStateDimID;
-		this.cloudRenderer = new CloudRenderer();
+//		this.cloudRenderer = new CloudRenderer();
 		this.skyRenderer = new SkyRenderer();
 		this.worldChunkMgr = new WorldChunkManagerHell(DreamStateBiomes.dreamHillsBiome, this.dimensionId);
 		this.hasNoSky = false;
@@ -61,8 +61,7 @@ public class DreamStateWorldProvider extends WorldProvider {
 	}
 
 	@Override
-	public boolean isSkyColored()
-	{
+	public boolean isSkyColored() {
 		 return true;
 	}
 	
@@ -87,8 +86,7 @@ public class DreamStateWorldProvider extends WorldProvider {
     }
 	
 	@SideOnly(Side.CLIENT)
-    public Vec3 getSkyColorBody(Entity p_72833_1_, float p_72833_2_)
-    {
+    public Vec3 getSkyColorBody(Entity p_72833_1_, float p_72833_2_) {
         float f1 = this.worldObj.getCelestialAngle(p_72833_2_);
         float f2 = MathHelper.cos(f1 * (float)Math.PI * 2.0F) * 2.0F + 0.5F;
 
@@ -205,8 +203,7 @@ public class DreamStateWorldProvider extends WorldProvider {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-    public Vec3 getFogColor(float p_76562_1_, float p_76562_2_)
-    {
+    public Vec3 getFogColor(float p_76562_1_, float p_76562_2_) {
         float f2 = MathHelper.cos(p_76562_1_ * (float)Math.PI * 2.0F) * 2.0F + 0.5F;
 
         if (f2 < 0.0F)
@@ -236,15 +233,15 @@ public class DreamStateWorldProvider extends WorldProvider {
 		return this.skyRenderer;
 	}
 	
-	@Override
-	public IRenderHandler getCloudRenderer() {
-		return this.cloudRenderer;
-	}
+//	@Override
+//	public IRenderHandler getCloudRenderer() {
+//		return this.cloudRenderer;
+//	}
 	
-	@Override
-	public float getCloudHeight() {
-		return 250.0F;
-	}
+//	@Override
+//	public float getCloudHeight() {
+//		return 275.0F;
+//	}
 	
 	@Override
 	public boolean isSurfaceWorld() {

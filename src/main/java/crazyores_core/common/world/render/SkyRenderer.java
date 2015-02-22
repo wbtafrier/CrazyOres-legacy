@@ -200,8 +200,7 @@ public class SkyRenderer extends IRenderHandler {
             tessellator1.draw();
         }
 
-        if (world.provider.isSkyColored())
-        {
+        if (world.provider.isSkyColored()) {
             GL11.glColor3f(f1 * 0.2F + 0.04F, f2 * 0.2F + 0.04F, f3 * 0.6F + 0.1F);
         }
         else

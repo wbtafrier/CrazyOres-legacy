@@ -99,7 +99,7 @@ public class DreamStateChunkProvider implements IChunkProvider {
 
 	public DreamStateChunkProvider(World world, long seed, boolean mapFeaturesEnabled)
 	{
-		COLogger.write(Level.INFO, "Loading Chunk Provider for dmension.");
+//		COLogger.write(Level.INFO, "Loading Chunk Provider for dmension.");
 		this.worldObj = world;
 		this.mapFeaturesEnabled = mapFeaturesEnabled;
 		this.worldType = world.getWorldInfo().getTerrainType();
@@ -199,7 +199,7 @@ public class DreamStateChunkProvider implements IChunkProvider {
 	}
 
 	public void replaceBlocksForBiome(int par1, int par2, Block[] blocks, byte[] par3ArrayOfByte, BiomeGenBase[] par4ArrayOfBiomeGenBase) {
-		COLogger.write(Level.INFO, "Replacing block for biome.");
+//		COLogger.write(Level.INFO, "Replacing block for biome.");
 		ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent.ReplaceBiomeBlocks(this, par1, par2, blocks, par3ArrayOfByte, par4ArrayOfBiomeGenBase, this.worldObj);
 		MinecraftForge.EVENT_BUS.post(event);
 		if (event.getResult() == Result.DENY) return;
