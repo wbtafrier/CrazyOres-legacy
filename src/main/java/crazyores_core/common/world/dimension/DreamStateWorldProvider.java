@@ -22,11 +22,15 @@ public class DreamStateWorldProvider extends WorldProvider {
 	private static final String dimensionName = "Dream State";
 	private static final long dayLength = 24000;
 	private long cloudColor = 16777215L;
-	private static final int[] playerPosition = new int[3];
+	private final int[] playerPosition = new int[3];
+	private CloudRenderer cloudRenderer;
+	private SkyRenderer skyRenderer;
 	
 	@Override
 	public void registerWorldChunkManager() {
 		this.dimensionId = DimensionList.dreamStateDimID;
+		this.cloudRenderer = new CloudRenderer();
+		this.skyRenderer = new SkyRenderer();
 		this.worldChunkMgr = new WorldChunkManagerHell(DreamStateBiomes.dreamHillsBiome, this.dimensionId);
 		this.hasNoSky = false;
 	}
@@ -229,12 +233,12 @@ public class DreamStateWorldProvider extends WorldProvider {
 	
 	@Override
 	public IRenderHandler getSkyRenderer() {
-		return new SkyRenderer();
+		return this.skyRenderer;
 	}
 	
 	@Override
 	public IRenderHandler getCloudRenderer() {
-		return new CloudRenderer();
+		return this.cloudRenderer;
 	}
 	
 	@Override

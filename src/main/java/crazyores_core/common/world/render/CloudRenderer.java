@@ -1,6 +1,7 @@
 package crazyores_core.common.world.render;
 
 import java.lang.reflect.Field;
+import java.util.Random;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
@@ -11,6 +12,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.common.ForgeHooks;
 
@@ -32,7 +34,6 @@ public class CloudRenderer extends IRenderHandler {
 	
 	public CloudRenderer() {
 		renderGlobal = Minecraft.getMinecraft().renderGlobal;
-		this.cloudSpeed = 10.0F;
 		initCloudProperties();
 	}
 
@@ -45,8 +46,8 @@ public class CloudRenderer extends IRenderHandler {
     }
 		
 	public void renderClouds(float partialTicks, WorldClient world, Minecraft mc) {
-		
 		this.updateCloudCounter();
+
 		if (mc.gameSettings.fancyGraphics) {
             this.renderCloudsFancy(partialTicks, world, mc);
         }
@@ -56,8 +57,10 @@ public class CloudRenderer extends IRenderHandler {
             byte b0 = 32;
             int i = 256 / b0;
             Tessellator tessellator = Tessellator.instance;
+            
             //Cloud Texture
-            mc.renderEngine.getTexture(cloudTexture);
+            mc.renderEngine.bindTexture(cloudTexture);
+            
             GL11.glEnable(GL11.GL_BLEND);
             OpenGlHelper.glBlendFunc(770, 771, 1, 0);
             Vec3 vec3 = world.getCloudColour(partialTicks);
@@ -78,7 +81,7 @@ public class CloudRenderer extends IRenderHandler {
             }
 
             f5 = 4.8828125E-4F;
-            double d2 = (double)((float)this.cloudCounter + partialTicks);
+            double d2 = (double)((float)this.cloudCounter + partialTicks) * this.cloudSpeed;
             double d0 = mc.renderViewEntity.prevPosX + (mc.renderViewEntity.posX - mc.renderViewEntity.prevPosX) * (double)partialTicks + d2 * 0.029999999329447746D;
             double d1 = mc.renderViewEntity.prevPosZ + (mc.renderViewEntity.posZ - mc.renderViewEntity.prevPosZ) * (double)partialTicks;
             int j = MathHelper.floor_double(d0 / 2048.0D);

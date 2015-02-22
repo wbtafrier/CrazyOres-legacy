@@ -12,3 +12,4 @@ gradlew
 gradlew.bat
 srcbkp/*
 /bin/
+.metadata/*
