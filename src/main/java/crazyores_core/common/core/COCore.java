@@ -16,6 +16,8 @@ import crazyores_core.common.block.BlockList;
 import crazyores_core.common.config.ConfigManager;
 import crazyores_core.common.item.ItemDictionary;
 import crazyores_core.common.item.ItemList;
+import crazyores_core.common.world.biome.DreamStateBiomes;
+import crazyores_core.common.world.dimension.DimensionList;
 import crazyores_core.proxy.IProxy;
 
 /**
@@ -46,8 +48,10 @@ public class COCore implements IPack {
 	private void preInit(FMLPreInitializationEvent fmlPreInitEvent) {
     	COLogger.write(Level.INFO, COData.MOD_NAME + " recognized. Loading...");
     	ConfigManager.writeFiles(fmlPreInitEvent);
-    	BlockList.blockInitialization();
-    	ItemList.itemInitialization();
+    	BlockList.initBlock();
+    	ItemList.initItem();
+    	DreamStateBiomes.registerBiomesInDictionary();
+    	DimensionList.initDimension();
 	}
 	
 	/**

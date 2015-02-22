@@ -1,11 +1,8 @@
 package crazyores_core.common.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import cpw.mods.fml.common.registry.GameRegistry;
 import crazyores_core.common.core.COData;
-import crazyores_core.common.tab.COTabList;
 
 /**
  * BlockList initializes and registers all of the blocks in the CrazyOres Core.
@@ -50,10 +47,12 @@ public class BlockList {
 	public static final Block ender_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block ultra_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	
+	public static final Block test_portal = new TestPortalBlock();
+	
 	/**
 	 * Initialization of all CO Core Blocks.
 	 */
-	public static void blockInitialization() {
+	public static void initBlock() {
 		registerAndNameBlock(fools_ruby_ore, BlockNames.FOOLS_RUBY_ORE);
 		registerAndNameBlock(meteorite_ore, BlockNames.METEORITE_ORE);
 		registerAndNameBlock(copper_ore, BlockNames.COPPER_ORE);
@@ -90,6 +89,7 @@ public class BlockList {
 		registerAndNameBlock(ender_storage_block, BlockNames.ENDER_STORAGE_BLOCK);
 		registerAndNameBlock(ultra_storage_block, BlockNames.ULTRA_STORAGE_BLOCK);
 
+		registerAndNameBlock(test_portal, BlockNames.TEST_PORTAL);
 	}
 	
 	/**

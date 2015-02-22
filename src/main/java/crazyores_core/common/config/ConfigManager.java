@@ -19,7 +19,7 @@ public class ConfigManager {
 		COLogger.write(Level.INFO, "Loading CrazyOres Core main configuration file...");
 		configFile.load();
 		
-		/** Ore Generation **/	
+		/** Ore Generation **/
 		CoreSettings.generateOres = configFile.get(WORLD_GEN_CATEGORY, StatCollector.translateToLocal("config.node.generateAllOres"), true, StatCollector.translateToLocal("config.comment.generateAllOres")).getBoolean(true);
 		CoreSettings.foolsRubyGen = configFile.get(WORLD_GEN_CATEGORY, StatCollector.translateToLocal("config.node.generateFoolsRubyOre"), true, StatCollector.translateToLocal("config.comment.generateFoolsRubyOre")).getBoolean(true);
 		CoreSettings.meteoriteGen = configFile.get(WORLD_GEN_CATEGORY, StatCollector.translateToLocal("config.node.generateMeteoriteOre"), true, StatCollector.translateToLocal("config.comment.generateMeteoriteOre")).getBoolean(true);

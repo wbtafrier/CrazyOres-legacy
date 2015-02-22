@@ -42,7 +42,9 @@ public class BlockNames {
 	OSMONIUM_STORAGE_BLOCK = "osmonium_storage_block",
 	STARCONIUM_STORAGE_BLOCK = "starconium_storage_block",
 	ENDER_STORAGE_BLOCK = "ender_storage_block",
-	ULTRA_STORAGE_BLOCK = "ultra_storage_block";
+	ULTRA_STORAGE_BLOCK = "ultra_storage_block",
+	
+	TEST_PORTAL = "test_portal";
 	
 	public static final String[] LUMINITE_STORAGE_BLOCK_SUBTYPES = new String[] {"white", "red", "orange", "yellow", "green", "blue", "purple", "black"};
 }

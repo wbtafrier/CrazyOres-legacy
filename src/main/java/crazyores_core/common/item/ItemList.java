@@ -38,7 +38,7 @@ public class ItemList {
 	/**
 	 * Initialization of all CO Core Items.
 	 */
-	public static void itemInitialization() {
+	public static void initItem() {
 		registerAndNameItem(fools_ruby_gem, ItemNames.FOOLS_RUBY_GEM);
 		registerAndNameItem(meteorite_coal, ItemNames.METEORITE_COAL);
 		registerAndNameItem(meteorite_gem, ItemNames.METEORITE_GEM);
