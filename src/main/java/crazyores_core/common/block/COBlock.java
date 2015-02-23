@@ -1,17 +1,23 @@
 package crazyores_core.common.block;
+import org.apache.logging.log4j.Level;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.util.IIcon;
+import crazyores_core.common.core.COLogger;
 import crazyores_core.common.tab.COTabList;
+import crazyores_core.util.ICOName;
 import crazyores_core.util.TextureManager;
 
 /**
  * COBlock is the big daddy for all of the blocks in the Core.
  * @author Andy608 and ISQUISHALL
  */
-public class COBlock extends Block {
+public class COBlock extends Block implements ICOName {
 	
 	/**
 	 * Constructor: Default Constructor
@@ -19,6 +25,7 @@ public class COBlock extends Block {
 	public COBlock() {
 		this(Material.rock);
 	}
+	
 	/**
 	 * Constructor: Takes in a material.
 	 * Sets the material for the block and sets the creative tab to DecorationBlock.
@@ -29,28 +36,25 @@ public class COBlock extends Block {
 		this.setCreativeTab(COTabList.CO_BLOCKS);
 	}
 	
-	/**
-	 * @return the name of the block for the language file and textures.
-	 */
-	@Override
-	public String getUnlocalizedName() {
-		return String.format("tile.%s%s", TextureManager.RESOURCE_PREFIX, this.stripName(super.getUnlocalizedName()));
-	}
-	
-	/**
-	 * Sets the image name for the block.
-	 */
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		this.blockIcon = iconRegister.registerIcon(String.format("%s", stripName(this.getUnlocalizedName())));
+    public IIcon getIcon(int side, int metadata) {
+        return this.blockIcon;
+    }
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister iconRegister) {
+		this.blockIcon = iconRegister.registerIcon(String.format("%s%s", TextureManager.RESOURCE_PREFIX, this.parsePrefix(this.getReadableName(), '.')));
+    }
+	
+	@Override
+	public String parsePrefix(String unlocalizedName, char lastPrefixChar) {
+		return unlocalizedName.substring(unlocalizedName.indexOf(lastPrefixChar) + 1);
 	}
 	
-	/**
-	 * Takes in a string (unlocalizedName()).
-	 * @return the name of the block without the 'tile.'
-	 */
-	public String stripName(String name) {
-		return name.substring(name.indexOf(".") + 1);
+	@Override
+	public String getReadableName() {
+		return this.parsePrefix(super.getUnlocalizedName(), ':');
 	}
 }

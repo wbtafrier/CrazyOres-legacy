@@ -122,13 +122,12 @@ public class DreamStateWorldGenLakes extends WorldGenLakes {
                     for (j1 = 4; j1 < 8; ++j1)
                     {
                     	//TODO:Change
-                        if (aboolean[(i1 * 16 + j2) * 8 + j1] && worldObj.getBlock(x + i1, y + j1 - 1, z + j2) == BlockList.invisium_storage_block && worldObj.getSavedLightValue(EnumSkyBlock.Sky, x + i1, y + j1, z + j2) > 0)
+                        if (aboolean[(i1 * 16 + j2) * 8 + j1] && worldObj.getBlock(x + i1, y + j1 - 1, z + j2) == BlockList.crazyhills_dirt && worldObj.getSavedLightValue(EnumSkyBlock.Sky, x + i1, y + j1, z + j2) > 0)
                         {
                             BiomeGenBase biomegenbase = worldObj.getBiomeGenForCoords(x + i1, z + j2);
 
-                            if (biomegenbase.topBlock == BlockList.zectium_storage_block)
-                            {
-                                worldObj.setBlock(x + i1, y + j1 - 1, z + j2, BlockList.sapphire_storage_block, 0, 2);
+                            if (biomegenbase.topBlock == BlockList.crazyhills_grass) {
+                                worldObj.setBlock(x + i1, y + j1 - 1, z + j2, BlockList.crazyhills_grass, 0, 2);
                             }
                         }
                     }
@@ -148,7 +147,7 @@ public class DreamStateWorldGenLakes extends WorldGenLakes {
 
                             if (flag && (j1 < 4 || rand.nextInt(2) != 0) && worldObj.getBlock(x + i1, y + j1, z + j2).getMaterial().isSolid())
                             {
-                                worldObj.setBlock(x + i1, y + j1, z + j2, BlockList.adamite_storage_block, 0, 2);
+                                worldObj.setBlock(x + i1, y + j1, z + j2, BlockList.crazyhills_stone, 0, 2);
                             }
                         }
                     }

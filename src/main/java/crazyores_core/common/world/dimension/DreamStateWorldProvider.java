@@ -1,5 +1,7 @@
 package crazyores_core.common.world.dimension;
 
+import org.apache.logging.log4j.Level;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -13,6 +15,7 @@ import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.client.IRenderHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import crazyores_core.common.core.COLogger;
 import crazyores_core.common.world.biome.DreamStateBiomes;
 //import crazyores_core.common.world.render.CloudRenderer;
 import crazyores_core.common.world.render.SkyRenderer;
@@ -25,13 +28,15 @@ public class DreamStateWorldProvider extends WorldProvider {
 	private final int[] playerPosition = new int[3];
 //	private CloudRenderer cloudRenderer;
 	private SkyRenderer skyRenderer;
+	private float[] sunsetSunriseColors;
 	
 	@Override
 	public void registerWorldChunkManager() {
 		this.dimensionId = DimensionList.dreamStateDimID;
 //		this.cloudRenderer = new CloudRenderer();
+		this.sunsetSunriseColors = new float[4];
 		this.skyRenderer = new SkyRenderer();
-		this.worldChunkMgr = new WorldChunkManagerHell(DreamStateBiomes.dreamHillsBiome, this.dimensionId);
+		this.worldChunkMgr = new WorldChunkManagerHell(DreamStateBiomes.crazyHillsBiome, this.dimensionId);
 		this.hasNoSky = false;
 	}
 	
@@ -75,7 +80,7 @@ public class DreamStateWorldProvider extends WorldProvider {
 	public boolean canCoordinateBeSpawn(int x, int z) {
 //		return this.worldObj.getTopBlock(x, z) == BlockList.dream_state_grass;
 		return 
-		(this.worldObj.getTopBlock(x, z) == DreamStateBiomes.dreamHillsBiome.topBlock)
+		(this.worldObj.getTopBlock(x, z) == DreamStateBiomes.crazyHillsBiome.topBlock)
 		/* || (this.worldObj.getTopBlock(x, z) == DreamStateBiomes.anotherBiome.topBlock)*/;
 	}
 	
@@ -86,31 +91,31 @@ public class DreamStateWorldProvider extends WorldProvider {
     }
 	
 	@SideOnly(Side.CLIENT)
-    public Vec3 getSkyColorBody(Entity p_72833_1_, float p_72833_2_) {
-        float f1 = this.worldObj.getCelestialAngle(p_72833_2_);
+    public Vec3 getSkyColorBody(Entity entity, float angle) {
+        float f1 = this.worldObj.getCelestialAngle(angle);
         float f2 = MathHelper.cos(f1 * (float)Math.PI * 2.0F) * 2.0F + 0.5F;
 
-        if (f2 < 0.0F)
-        {
-            f2 = 0.0F;
+        if (f2 < 0.2F) {
+            f2 = 0.2F;
         }
 
-        if (f2 > 1.0F)
-        {
+        if (f2 > 1.0F) {
             f2 = 1.0F;
         }
 
-        int i = MathHelper.floor_double(p_72833_1_.posX);
-        int j = MathHelper.floor_double(p_72833_1_.posY);
-        int k = MathHelper.floor_double(p_72833_1_.posZ);
+        int i = MathHelper.floor_double(entity.posX);
+        int j = MathHelper.floor_double(entity.posY);
+        int k = MathHelper.floor_double(entity.posZ);
         int l = ForgeHooksClient.getSkyBlendColour(this.worldObj, i, j, k);
-        float f4 = (float)(l >> 16 & 0xdd) / 255.0F;
-        float f5 = (float)(l >> 8 & 0xaa) / 255.0F;
-        float f6 = (float)(l & 0x33) / 255.0F;
+        
+        float f4 = (float)(l >> 16 & 0x98) / 255.0F;
+        float f5 = (float)(l >> 8 & 0x18) / 255.0F;
+        float f6 = (float)(l & 0x98) / 255.0F;
+        
         f4 *= f2;
         f5 *= f2;
         f6 *= f2;
-//        float f7 = this.getRainStrength(p_72833_2_);
+//        float f7 = this.getRainStrength(angle);
         float f8;
         float f9;
 
@@ -123,7 +128,7 @@ public class DreamStateWorldProvider extends WorldProvider {
 //            f6 = f6 * f9 + f8 * (1.0F - f9);
 //        }
 
-//        f8 = this.getWeightedThunderStrength(p_72833_2_);
+//        f8 = this.getWeightedThunderStrength(angle);
 //
 //        if (f8 > 0.0F)
 //        {
@@ -136,7 +141,7 @@ public class DreamStateWorldProvider extends WorldProvider {
 //
 //        if (this.lastLightningBolt > 0)
 //        {
-//            f9 = (float)this.lastLightningBolt - p_72833_2_;
+//            f9 = (float)this.lastLightningBolt - angle;
 //
 //            if (f9 > 1.0F)
 //            {
@@ -201,14 +206,56 @@ public class DreamStateWorldProvider extends WorldProvider {
 //        return Vec3.createVectorHelper((double)f3, (double)f4, (double)f5);
 //    }
 	
+	/**
+     * Returns array with sunrise/sunset colors
+     */
+	@Override
+    @SideOnly(Side.CLIENT)
+    public float[] calcSunriseSunsetColors(float angle, float partialTicks)
+    {
+        float f2 = 0.4F;
+        float f3 = MathHelper.cos(angle * (float)Math.PI * 2.0F) - 0.0F;
+        float f4 = -0.0F;
+
+        if (f3 >= f4 - f2 && f3 <= f4 + f2)
+        {
+            float f5 = (f3 - f4) / f2 * 0.5F + 0.5F;
+            float f6 = 1.0F - (1.0F - MathHelper.sin(f5 * (float)Math.PI)) * 0.99F;
+            f6 *= f6;
+            
+            float f7 = 1.0F;
+            float f8 = 0.0F;
+            float f9 = 0.0F;
+            
+            f7 *= f2 * 0.94F + 0.06F;
+            f8 *= f2 * 0.94F + 0.06F;
+            f9 *= f2 * 0.91F + 0.09F;
+            
+            this.sunsetSunriseColors[0] = 0.8F;
+            this.sunsetSunriseColors[1] = 0.2F;
+            this.sunsetSunriseColors[2] = 0.8F;
+            
+//            this.colorsSunriseSunset[0] = f5 * 0.3F + 0.7F;
+//            this.colorsSunriseSunset[1] = f5 * f5 * 0.7F + 0.2F;
+//            this.colorsSunriseSunset[2] = f5 * f5 * 0.0F + 0.2F;
+//            this.colorsSunriseSunset[3] = f6;
+            this.sunsetSunriseColors[3] = f6;
+            return this.sunsetSunriseColors;
+        }
+        else
+        {
+            return null;
+        }
+    }
+	
 	@Override
 	@SideOnly(Side.CLIENT)
     public Vec3 getFogColor(float p_76562_1_, float p_76562_2_) {
         float f2 = MathHelper.cos(p_76562_1_ * (float)Math.PI * 2.0F) * 2.0F + 0.5F;
 
-        if (f2 < 0.0F)
+        if (f2 < 0.2F)
         {
-            f2 = 0.0F;
+            f2 = 0.2F;
         }
 
         if (f2 > 1.0F)
@@ -216,15 +263,15 @@ public class DreamStateWorldProvider extends WorldProvider {
             f2 = 1.0F;
         }
 
-        float f3 = 0.7529412F;
-        float f4 = 0.84705883F;
+        float f3 = 1.0F;
+        float f4 = 0.741176471F;
         float f5 = 1.0F;
-//        f3 *= f2 * 0.867F + 0.133F;
-//        f4 *= f2 * 0.66F + 0.33F;
-//        f5 *= f2 * 0.2F + 0.8F;
+        f3 *= f2 * 0.94F + 0.06F;
+        f4 *= f2 * 0.94F + 0.06F;
+        f5 *= f2 * 0.91F + 0.09F;
         
-//        return Vec3.createVectorHelper((double)f3, (double)f4, (double)f5);
-        return Vec3.createVectorHelper((double)1.0, (double)0, (double)0);
+        return Vec3.createVectorHelper((double)f3, (double)f4, (double)f5);
+//        return Vec3.createVectorHelper((double)1.0, (double)0, (double)0);
 
     }
 	

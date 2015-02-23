@@ -21,8 +21,8 @@ public class DreamStateBiomeDecoratorHelper {
         //GenerateOres
         generateOreInBiome(biome);
 
-        if(biome == DreamStateBiomes.dreamHillsBiome){
-//            DreamStateBiomeDecorator.numTreesPerChunk = BiomeGenDreamHills.treesPerChunk;
+        if(biome == DreamStateBiomes.crazyHillsBiome){
+//            DreamStateBiomeDecorator.numTreesPerChunk = BiomeGencrazyHills.treesPerChunk;
 //            int i = DreamStateBiomeDecorator.numTreesPerChunk;
 //           
 //            /** Chunk Postions **/
@@ -70,7 +70,7 @@ public class DreamStateBiomeDecoratorHelper {
      */
     private static void initOres() {
 //        copperGen = new WorldGenMinable(BlockList.copper_ore, 13, BlockList.dream_state_stone);
-        copperGen = new WorldGenMinable(BlockList.copper_ore, 13, BlockList.adamite_storage_block);
+        copperGen = new WorldGenMinable(BlockList.copper_ore, 13, BlockList.crazyhills_stone);
 
     }
 
@@ -79,7 +79,7 @@ public class DreamStateBiomeDecoratorHelper {
      * @param biome
      */
     private static void generateOreInBiome(BiomeGenBase biome){
-        if(biome == DreamStateBiomes.dreamHillsBiome){
+        if(biome == DreamStateBiomes.crazyHillsBiome){
             genStandardOre(20, copperGen, 0, 96);
         }
     }
@@ -91,10 +91,10 @@ public class DreamStateBiomeDecoratorHelper {
      * @param minSpawnHeight
      * @param maxYSpawnHeight
      */
-    private static void genStandardOre(int spawnWeight, WorldGenerator generatorToSpawn, int minSpawnHeight, int maxYSpawnHeight) {
+    private static void genStandardOre(int spawnWeight, WorldGenerator generatorToSpawn, int minSpawnHeight, int maxSpawnHeight) {
         for (int l = 0; l < spawnWeight; ++l) {
             int i1 = DreamStateBiomeDecorator.xCoordInChunk + DreamStateBiomeDecorator.randomGenerator.nextInt(16);
-            int j1 = DreamStateBiomeDecorator.randomGenerator.nextInt(maxYSpawnHeight - minSpawnHeight) + minSpawnHeight;
+            int j1 = DreamStateBiomeDecorator.randomGenerator.nextInt(maxSpawnHeight - minSpawnHeight) + minSpawnHeight;
             int k1 = DreamStateBiomeDecorator.zCoordInChunk + DreamStateBiomeDecorator.randomGenerator.nextInt(16);
             generatorToSpawn.generate(DreamStateBiomeDecorator.currentWorld, DreamStateBiomeDecorator.randomGenerator, i1, j1, k1);
         }

@@ -176,8 +176,13 @@ public class DreamStateChunkProvider implements IChunkProvider {
 							double d15 = d10 - d16;
 							for (int k3 = 0; k3 < 4; ++k3) {
 								if ((d15 += d16) > 0.0D) {
-//									blocks[j3 += short1] = BlockList.dream_state_stone;//these can be set to custom blocks
-									blocks[j3 += short1] = BlockList.adamite_storage_block;//these can be set to custom blocks
+									if (this.worldObj.getBiomeGenForCoords(par1, par2) == DreamStateBiomes.crazyHillsBiome) {
+										blocks[j3 += short1] = BlockList.crazyhills_stone;
+									}
+									else {
+										blocks[j3 += short1] = Blocks.stone;
+									}
+									
 								} else if (k2 * 8 + l2 < b0) {
 //									blocks[j3 += short1] = BlockList.dream_state_water;//these can be set to custom blocks
 									blocks[j3 += short1] = Blocks.water;//these can be set to custom blocks

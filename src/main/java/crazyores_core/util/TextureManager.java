@@ -8,4 +8,5 @@ import crazyores_core.common.core.COData;
  */
 public class TextureManager {
 	public static final String RESOURCE_PREFIX = COData.MOD_ID.toLowerCase() + ":";
+	public static final String DREAMSTATE_PREFIX = "dream_state/";
 }

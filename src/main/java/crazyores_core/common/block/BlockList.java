@@ -47,7 +47,16 @@ public class BlockList {
 	public static final Block ender_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	public static final Block ultra_storage_block = new COBlock().setHardness(3F).setResistance(9F);
 	
+	/*
+	 * Dream State Blocks
+	 */
+	
 	public static final Block test_portal = new TestPortalBlock();
+	
+	//Crazy Hills Blocks
+	public static final Block crazyhills_grass = new BlockCrazyHillsGrass().setHardness(1.4F);
+	public static final Block crazyhills_dirt = new BlockCrazyHillsDirt().setHardness(1.2F);
+	public static final Block crazyhills_stone = new BlockCrazyHillsStone().setHardness(3.0F).setResistance(20.0F);
 	
 	/**
 	 * Initialization of all CO Core Blocks.
@@ -89,7 +98,16 @@ public class BlockList {
 		registerAndNameBlock(ender_storage_block, BlockNames.ENDER_STORAGE_BLOCK);
 		registerAndNameBlock(ultra_storage_block, BlockNames.ULTRA_STORAGE_BLOCK);
 
+		/*
+		 * Dream State Block Registers
+		 */
+		
 		registerAndNameBlock(test_portal, BlockNames.TEST_PORTAL);
+		
+		//Crazy Hills Blocks
+		registerAndNameBlock(crazyhills_grass, BlockNames.CRAZYHILLS_GRASS);
+		registerAndNameBlock(crazyhills_dirt, BlockNames.CRAZYHILLS_DIRT);
+		registerAndNameBlock(crazyhills_stone, BlockNames.CRAZYHILLS_STONE);
 	}
 	
 	/**

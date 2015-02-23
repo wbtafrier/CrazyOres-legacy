@@ -64,13 +64,13 @@ public class SkyRenderer extends IRenderHandler {
         GL11.glEnable(GL11.GL_BLEND);
         OpenGlHelper.glBlendFunc(770, 771, 1, 0);
         RenderHelper.disableStandardItemLighting();
-        float[] afloat = world.provider.calcSunriseSunsetColors(world.getCelestialAngle(partialTicks), partialTicks);
+        float[] sunsetColors = world.provider.calcSunriseSunsetColors(world.getCelestialAngle(partialTicks), partialTicks);
         float f7;
         float f8;
         float f9;
         float f10;
 
-        if (afloat != null)
+        if (sunsetColors != null)
         {
             GL11.glDisable(GL11.GL_TEXTURE_2D);
             GL11.glShadeModel(GL11.GL_SMOOTH);
@@ -78,9 +78,9 @@ public class SkyRenderer extends IRenderHandler {
             GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
             GL11.glRotatef(MathHelper.sin(world.getCelestialAngleRadians(partialTicks)) < 0.0F ? 180.0F : 0.0F, 0.0F, 0.0F, 1.0F);
             GL11.glRotatef(90.0F, 0.0F, 0.0F, 1.0F);
-            f6 = afloat[0];
-            f7 = afloat[1];
-            f8 = afloat[2];
+            f6 = sunsetColors[0];
+            f7 = sunsetColors[1];
+            f8 = sunsetColors[2];
             float f11;
 
             if (mc.gameSettings.anaglyph)
@@ -94,17 +94,17 @@ public class SkyRenderer extends IRenderHandler {
             }
 
             tessellator1.startDrawing(6);
-            tessellator1.setColorRGBA_F(f6, f7, f8, afloat[3]);
+            tessellator1.setColorRGBA_F(f6, f7, f8, sunsetColors[3]);
             tessellator1.addVertex(0.0D, 100.0D, 0.0D);
             byte b0 = 16;
-            tessellator1.setColorRGBA_F(afloat[0], afloat[1], afloat[2], 0.0F);
+            tessellator1.setColorRGBA_F(sunsetColors[0], sunsetColors[1], sunsetColors[2], 0.0F);
 
             for (int j = 0; j <= b0; ++j)
             {
                 f11 = (float)j * (float)Math.PI * 2.0F / (float)b0;
                 float f12 = MathHelper.sin(f11);
                 float f13 = MathHelper.cos(f11);
-                tessellator1.addVertex((double)(f12 * 120.0F), (double)(f13 * 120.0F), (double)(-f13 * 40.0F * afloat[3]));
+                tessellator1.addVertex((double)(f12 * 120.0F), (double)(f13 * 120.0F), (double)(-f13 * 40.0F * sunsetColors[3]));
             }
 
             tessellator1.draw();

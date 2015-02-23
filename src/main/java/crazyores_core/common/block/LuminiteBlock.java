@@ -1,33 +1,26 @@
 package crazyores_core.common.block;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.logging.log4j.Level;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-import crazyores_core.common.core.COLogger;
-import crazyores_core.common.tab.COTabList;
-import crazyores_core.util.TextureManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Facing;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import crazyores_core.util.ICOName;
+import crazyores_core.util.TextureManager;
 
 /**
  * COBlock is the big daddy for all of the blocks in the Core.
  * @author Andy608 and ISQUISHALL
  */
-public class LuminiteBlock extends COBlock {
+public class LuminiteBlock extends COBlock implements ICOName {
 	
 	/**
 	 * Private variables.
@@ -69,7 +62,7 @@ public class LuminiteBlock extends COBlock {
 		this.blockTexture = new IIcon[BlockNames.LUMINITE_STORAGE_BLOCK_SUBTYPES.length];
 		
 		for (int i = 0; i < BlockNames.LUMINITE_STORAGE_BLOCK_SUBTYPES.length; i++) {
-			this.blockTexture[i] = iconRegister.registerIcon(String.format("%s_%s", stripName(this.getUnlocalizedName()), BlockNames.LUMINITE_STORAGE_BLOCK_SUBTYPES[i]));
+			this.blockTexture[i] = iconRegister.registerIcon((String.format("%s%s_%s", TextureManager.RESOURCE_PREFIX, this.parsePrefix(this.getReadableName(), '.'), BlockNames.LUMINITE_STORAGE_BLOCK_SUBTYPES[i])));
 		}
 	}
 	

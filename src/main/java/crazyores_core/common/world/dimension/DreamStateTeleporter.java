@@ -31,8 +31,6 @@ public class DreamStateTeleporter extends Teleporter
      */
     @SuppressWarnings("rawtypes")
 	private final List destinationCoordinateKeys = new ArrayList();
-    @SuppressWarnings("unused")
-	private static final String __OBFID = "CL_00000153";
 
     public DreamStateTeleporter(WorldServer p_i1963_1_)
     {
