@@ -25,8 +25,6 @@ import crazyores_core.common.world.dimension.DreamStateTeleporter;
 public class TestPortalBlock extends BlockBreakable
 {
 	public static final int[][] field_150001_a = new int[][] {new int[0], {3, 1}, {2, 0}};
-	@SuppressWarnings("unused")
-	private static final String __OBFID = "CL_00000284";
 
 	public TestPortalBlock()
 	{
@@ -308,8 +306,6 @@ public class TestPortalBlock extends BlockBreakable
 		private ChunkCoordinates field_150861_f;
 		private int field_150862_g;
 		private int field_150868_h;
-		@SuppressWarnings("unused")
-		private static final String __OBFID = "CL_00000285";
 
 		public Size(World p_i45415_1_, int p_i45415_2_, int p_i45415_3_, int p_i45415_4_, int p_i45415_5_)
 		{

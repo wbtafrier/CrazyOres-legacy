@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Level;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
@@ -312,9 +313,11 @@ public class DreamStateWorldProvider extends WorldProvider {
 	
 	@Override
 	public int getRespawnDimension(EntityPlayerMP player) {
-		this.playerPosition[0] = player.playerLocation.posX;
-		this.playerPosition[1] = player.playerLocation.posY;
-		this.playerPosition[2] = player.playerLocation.posZ;
+		ChunkCoordinates playerCoords = new ChunkCoordinates(MathHelper.floor_double(player.posX), MathHelper.floor_double(player.posY), MathHelper.floor_double(player.posZ));
+		this.playerPosition[0] = playerCoords.posX;
+		this.playerPosition[1] = playerCoords.posY;
+		this.playerPosition[2] = playerCoords.posZ;
+		COLogger.write(Level.INFO, "Saved player location: (" + this.playerPosition[0] + ", " + this.playerPosition[1] + ", " + this.playerPosition[2] + ")");
 		return 0;
     }
 	

@@ -10,6 +10,8 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import crazyores_core.common.block.BlockNames;
+import crazyores_core.util.TextureManager;
 
 public class LuminiteCrystal extends COItem {
 
@@ -32,7 +34,7 @@ public class LuminiteCrystal extends COItem {
 		icons = new IIcon[ItemNames.LUMINITE_CRYSTAL_SUBTYPES.length];
 		
 		for (int i = 0; i < icons.length; i++) {
-			icons[i] = iconRegister.registerIcon(String.format("%s_%s", super.stripName(super.getUnlocalizedName()), ItemNames.LUMINITE_CRYSTAL_SUBTYPES[MathHelper.clamp_int(i, 0, ItemNames.LUMINITE_CRYSTAL_SUBTYPES.length - 1)]));
+			icons[i] = iconRegister.registerIcon((String.format("%s%s_%s", TextureManager.RESOURCE_PREFIX, this.parsePrefix(this.getReadableName(), '.'), ItemNames.LUMINITE_CRYSTAL_SUBTYPES[MathHelper.clamp_int(i, 0, ItemNames.LUMINITE_CRYSTAL_SUBTYPES.length - 1)])));
 		}
 	}
 	

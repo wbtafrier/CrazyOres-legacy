@@ -522,8 +522,6 @@ public class DreamStateTeleporter extends Teleporter
     {
         /** The worldtime at which this PortalPosition was last verified */
         public long lastUpdateTime;
-        @SuppressWarnings("unused")
-		private static final String __OBFID = "CL_00000154";
 
         public PortalPosition(int p_i1962_2_, int p_i1962_3_, int p_i1962_4_, long p_i1962_5_)
         {

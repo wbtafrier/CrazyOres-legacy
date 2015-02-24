@@ -45,9 +45,9 @@ tile.ender_storage_block.name=Ender Storage Block
 tile.ultra_storage_block.name=Ultra Storage Block
 
 tile.test_portal.name=Test Portal Block
-tile.crazyhills_grass.name=Golden Grass
+tile.crazyhills_grass.name=Golden Arrevia
 tile.crazyhills_dirt.name=Dirt
-tile.crazyhills_stone.name=Dreamstone
+tile.crazyhills_stone.name=Stone
 
 # ITEM LOCALIZATION
 item.fools_ruby_mush.name=Fool's Ruby Mush

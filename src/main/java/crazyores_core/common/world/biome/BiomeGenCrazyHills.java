@@ -2,13 +2,18 @@ package crazyores_core.common.world.biome;
 
 import java.util.Random;
 
+import org.apache.logging.log4j.Level;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import crazyores_core.common.block.BlockList;
+import crazyores_core.common.core.COLogger;
 import crazyores_core.common.world.biome.decorator.DreamStateBiomeDecorator;
 
 public class BiomeGenCrazyHills extends DreamStateBiomes {
@@ -22,9 +27,9 @@ public class BiomeGenCrazyHills extends DreamStateBiomes {
 		BiomeGenCrazyHills.treesPerChunk = rand.nextInt(2);
 		this.topBlock = BlockList.crazyhills_grass;
 		this.fillerBlock = BlockList.crazyhills_dirt;
-		this.rootHeight = 1.0F;
-		this.heightVariation = 2.0F;
-
+		this.rootHeight = 0.0F;
+//		this.heightVariation = 2.0F;
+		this.heightVariation = 0.0F;
 		this.waterColorMultiplier = 0;
 	}
 	
@@ -145,11 +150,11 @@ public class BiomeGenCrazyHills extends DreamStateBiomes {
         }
     }
 	
-	/**
-     * Gets a WorldGen appropriate for this biome.
-     */
-	@Override
-    public WorldGenerator getRandomWorldGenForGrass(Random random){
-    	return random.nextInt(2) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 1) : new WorldGenTallGrass(Blocks.tallgrass, 2);
-    }
+//	/**
+//     * Gets a WorldGen appropriate for this biome.
+//     */
+//	@Override
+//    public WorldGenerator getRandomWorldGenForGrass(Random random){
+//    	return random.nextInt(2) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 1) : new WorldGenTallGrass(Blocks.tallgrass, 2);
+//    }
 }

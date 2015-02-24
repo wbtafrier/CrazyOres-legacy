@@ -17,6 +17,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
@@ -35,6 +36,38 @@ public class BlockCrazyHillsGrass extends COBlock {
 		this.setTickRandomly(true);
         this.setCreativeTab(COTabList.CO_BLOCKS);
 	}
+	
+	/**
+     * Ticks the block if it's been scheduled
+     */
+	@Override
+    public void updateTick(World world, int x, int y, int z, Random random) {
+       
+		if (!world.isRemote)  {
+            if (world.getBlockLightValue(x, y + 1, z) < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2) {
+            	world.setBlock(x, y, z, BlockList.crazyhills_dirt);
+            }
+            else if (world.getBlockLightValue(x, y + 1, z) >= 9) {
+            	
+            	for (int l = 0; l < 4; ++l) {
+                    int newX = x + random.nextInt(3) - 1;
+                    int newZ = z + random.nextInt(3) - 1;
+
+                    if (world.getBlock(newX, y, newZ) == BlockList.crazyhills_dirt && 
+                    	world.getBlockLightValue(newX, y + 1, newZ) >= 3 && 
+                    	world.getBlockLightOpacity(newX, y + 1, newZ) <= 2) {
+                    	
+                    	world.setBlock(newX, y, newZ, BlockList.crazyhills_grass);
+                    }
+                }
+            }
+        }
+    }
+	
+	@Override
+	public Item getItemDropped(int metaData, Random rand, int fortuneLevel) {
+        return BlockList.crazyhills_dirt.getItemDropped(0, rand, fortuneLevel);
+    }
 	
 	@Override
 	@SideOnly(Side.CLIENT)
