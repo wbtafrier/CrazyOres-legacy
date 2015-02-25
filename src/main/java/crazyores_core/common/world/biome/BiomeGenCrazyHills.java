@@ -18,21 +18,22 @@ import crazyores_core.common.world.biome.decorator.DreamStateBiomeDecorator;
 
 public class BiomeGenCrazyHills extends DreamStateBiomes {
 
+	public static final long genSeed = 21157_00223;
 	public static int treesPerChunk;
 	private static Random rand = new Random();
 	protected DreamStateBiomeDecorator decorator;
 	
 	public BiomeGenCrazyHills(int biomeID) {
 		super(biomeID);
-		BiomeGenCrazyHills.treesPerChunk = rand.nextInt(2);
 		this.topBlock = BlockList.crazyhills_grass;
 		this.fillerBlock = BlockList.crazyhills_dirt;
-		this.rootHeight = 0.0F;
-//		this.heightVariation = 2.0F;
-		this.heightVariation = 0.0F;
-		this.waterColorMultiplier = 0;
+		this.waterColorMultiplier = 0x88EAEF;
+		this.spawnableCreatureList.clear();
+		this.spawnableMonsterList.clear();
+		this.spawnableCaveCreatureList.clear();
+		this.spawnableWaterCreatureList.clear();
 	}
-	
+
 	@Override
     public void genTerrainBlocks(World world, Random rand, Block[] replacableBlock, byte[] aByte, int x, int y, double z) {
         this.generateBiomeTerrain(world, rand, replacableBlock, aByte, x, y, z);

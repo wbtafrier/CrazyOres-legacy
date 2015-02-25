@@ -19,7 +19,9 @@ import crazyores_core.common.world.biome.decorator.DreamStateBiomeDecorator;
 
 public abstract class DreamStateBiomes extends BiomeGenBase {
 
-	public static final BiomeGenBase crazyHillsBiome = new BiomeGenCrazyHills(76).setColor(0).setBiomeName("Crazy Hills");
+	protected static final BiomeGenBase.Height height_CrazyHills = new BiomeGenBase.Height(-0.3F, 1.25F);
+	
+	public static final BiomeGenBase crazyHillsBiome = new BiomeGenCrazyHills(76).setColor(0).setHeight(height_CrazyHills).setBiomeName("Crazy Hills");
 	
 	public DreamStateBiomes(int biomeID) {
 		super(biomeID);

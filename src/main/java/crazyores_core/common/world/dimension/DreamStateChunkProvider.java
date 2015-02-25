@@ -3,23 +3,16 @@ package crazyores_core.common.world.dimension;
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE;
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE;
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.SCATTERED_FEATURE;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ANIMALS;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.DUNGEON;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA;
 
 import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFalling;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IProgressUpdate;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkPosition;
-import net.minecraft.world.SpawnerAnimals;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -31,21 +24,13 @@ import net.minecraft.world.gen.MapGenRavine;
 import net.minecraft.world.gen.NoiseGenerator;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
-import net.minecraft.world.gen.feature.WorldGenDungeons;
 import net.minecraft.world.gen.structure.MapGenScatteredFeature;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
-import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
-
-import org.apache.logging.log4j.Level;
-
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import crazyores_core.common.block.BlockList;
-import crazyores_core.common.core.COLogger;
-import crazyores_core.common.world.biome.BiomeGenCrazyHills;
 import crazyores_core.common.world.biome.DreamStateBiomes;
-import crazyores_core.common.world.biome.decorator.DreamStateWorldGenLakes;
 
 public class DreamStateChunkProvider implements IChunkProvider {
 
@@ -90,7 +75,6 @@ public class DreamStateChunkProvider implements IChunkProvider {
 	double[] noise1;
 	double[] noise2;
 	double[] noise5;
-	int[][] field_73219_j = new int[32][32];
 
 	{
 		caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, CAVE);
@@ -136,137 +120,75 @@ public class DreamStateChunkProvider implements IChunkProvider {
 	 * though the water is frozen if the temperature is low enough
 	 */
 	// TODO: generateTerrain
-	public void generateTerrain(int chunkX, int chunkY, Block[] blocksInChunk) {
+	public void generateTerrain(int chunkX, int chunkZ, Block[] blocksInChunk) {
 		
-		if (this.worldObj.getBiomeGenForCoords(chunkX, chunkY) == DreamStateBiomes.crazyHillsBiome) {
+		if (this.worldObj.getBiomeGenForCoords(chunkX, chunkZ) == DreamStateBiomes.crazyHillsBiome) {}
 			
-			byte b0 = 63;
-			this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, chunkX * 4 - 2, chunkY * 4 - 2, 10, 10);
-			this.func_147423_a(chunkX * 4, 0, chunkY * 4);
-			for (int k = 0; k < 4; ++k) {
-				int l = k * 5;
-				int i1 = (k + 1) * 5;
-				for (int j1 = 0; j1 < 4; ++j1) {
-					int k1 = (l + j1) * 33;
-					int l1 = (l + j1 + 1) * 33;
-					int i2 = (i1 + j1) * 33;
-					int j2 = (i1 + j1 + 1) * 33;
-					for (int k2 = 0; k2 < 32; ++k2) {
-						double d0 = 0.125D;
-						double d1 = this.noiseArray[k1 + k2];
-						double d2 = this.noiseArray[l1 + k2];
-						double d3 = this.noiseArray[i2 + k2];
-						double d4 = this.noiseArray[j2 + k2];
-						double d5 = (this.noiseArray[k1 + k2 + 1] - d1) * d0;
-						double d6 = (this.noiseArray[l1 + k2 + 1] - d2) * d0;
-						double d7 = (this.noiseArray[i2 + k2 + 1] - d3) * d0;
-						double d8 = (this.noiseArray[j2 + k2 + 1] - d4) * d0;
-						for (int l2 = 0; l2 < 8; ++l2) {
-							double d9 = 0.25D;
-							double d10 = d1;
-							double d11 = d2;
-							double d12 = (d3 - d1) * d9;
-							double d13 = (d4 - d2) * d9;
-							for (int i3 = 0; i3 < 4; ++i3) {
-								int j3 = i3 + k * 4 << 12 | 0 + j1 * 4 << 8 | k2 * 8 + l2;
-								short short1 = 256;
-								j3 -= short1;
-								double d14 = 0.25D;
-								double d16 = (d11 - d10) * d14;
-								double d15 = d10 - d16;
-								for (int k3 = 0; k3 < 4; ++k3) {
-									if ((d15 += d16) > 0.0D) {
-										if (this.worldObj.getBiomeGenForCoords(chunkX, chunkY) == DreamStateBiomes.crazyHillsBiome) {
-											blocksInChunk[j3 += short1] = BlockList.crazyhills_stone;
-										}
-										else {
-											blocksInChunk[j3 += short1] = Blocks.stone;
-										}
-										
-									} else if (k2 * 8 + l2 < b0) {
-//										blocks[j3 += short1] = BlockList.dream_state_water;//these can be set to custom blocks
-										blocksInChunk[j3 += short1] = Blocks.water;//these can be set to custom blocks
-									} else {
-										blocksInChunk[j3 += short1] = null;//this is the air block i think.
+		//DONT EDIT THS METHOD UNLES YOU KNOW WHAT UR DOING OR MAKE A COPY INCASE U MESS IT UP....
+		//YOU HAVE BE WARNED !!!!!
+
+		byte b0 = 63;
+		this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, chunkX * 4 - 2, chunkZ * 4 - 2, 10, 10);
+		this.generateNoise(chunkX * 4, 0, chunkZ * 4);
+		for (int k = 0; k < 4; ++k) {
+			int l = k * 5;
+			int i1 = (k + 1) * 5;
+			for (int j1 = 0; j1 < 4; ++j1) {
+				int k1 = (l + j1) * 33;
+				int l1 = (l + j1 + 1) * 33;
+				int i2 = (i1 + j1) * 33;
+				int j2 = (i1 + j1 + 1) * 33;
+				for (int k2 = 0; k2 < 32; ++k2) {
+					
+					double d0 = 0.25D;
+					double d1 = this.noiseArray[k1 + k2];
+					double d2 = this.noiseArray[l1 + k2];
+					double d3 = this.noiseArray[i2 + k2];
+					double d4 = this.noiseArray[j2 + k2];
+					double d5 = (this.noiseArray[k1 + k2 + 1] - d1) * d0;
+					double d6 = (this.noiseArray[l1 + k2 + 1] - d2) * d0;
+					double d7 = (this.noiseArray[i2 + k2 + 1] - d3) * d0;
+					double d8 = (this.noiseArray[j2 + k2 + 1] - d4) * d0;
+					for (int l2 = 0; l2 < 8; ++l2) {
+						double d9 = 0.25D;
+						double d10 = d1;
+						double d11 = d2;
+						double d12 = (d3 - d1) * d9;
+						double d13 = (d4 - d2) * d9;
+						for (int i3 = 0; i3 < 4; ++i3) {
+							int j3 = i3 + k * 4 << 12 | 0 + j1 * 4 << 8 | k2 * 8 + l2;
+							short short1 = 256;
+							j3 -= short1;
+							double d14 = 0.25D;
+							double d16 = (d11 - d10) * d14;
+							double d15 = d10 - d16;
+							for (int k3 = 0; k3 < 4; ++k3) {
+								if ((d15 += d16) > 0.0D) {
+									if (this.worldObj.getBiomeGenForCoords(chunkX, chunkZ) == DreamStateBiomes.crazyHillsBiome) {
+										blocksInChunk[j3 += short1] = BlockList.crazyhills_stone;
 									}
+									else {
+										blocksInChunk[j3 += short1] = Blocks.stone;
+									}
+									
+								} else if (k2 * 8 + l2 < b0) {
+//									blocks[j3 += short1] = BlockList.dream_state_water;//these can be set to custom blocks
+									blocksInChunk[j3 += short1] = Blocks.water;//these can be set to custom blocks
+								} else {
+									blocksInChunk[j3 += short1] = null;//this is the air block i think.
 								}
-								d10 += d12;
-								d11 += d13;
 							}
-							d1 += d5;
-							d2 += d6;
-							d3 += d7;
-							d4 += d8;
+							d10 += d12;
+							d11 += d13;
 						}
+						d1 += d5;
+						d2 += d6;
+						d3 += d7;
+						d4 += d8;
 					}
 				}
 			}
 		}
-		
-		//DONT EDIT THS METHOD UNLES YOU KNOW WHAT UR DOING OR MAKE A COPY INCASE U MESS IT UP....
-		//YOU HAVE BE WARNED !!!!!
-
-//		byte b0 = 63;
-//		this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, par1 * 4 - 2, par2 * 4 - 2, 10, 10);
-//		this.func_147423_a(par1 * 4, 0, par2 * 4);
-//		for (int k = 0; k < 4; ++k) {
-//			int l = k * 5;
-//			int i1 = (k + 1) * 5;
-//			for (int j1 = 0; j1 < 4; ++j1) {
-//				int k1 = (l + j1) * 33;
-//				int l1 = (l + j1 + 1) * 33;
-//				int i2 = (i1 + j1) * 33;
-//				int j2 = (i1 + j1 + 1) * 33;
-//				for (int k2 = 0; k2 < 32; ++k2) {
-//					double d0 = 0.125D;
-//					double d1 = this.noiseArray[k1 + k2];
-//					double d2 = this.noiseArray[l1 + k2];
-//					double d3 = this.noiseArray[i2 + k2];
-//					double d4 = this.noiseArray[j2 + k2];
-//					double d5 = (this.noiseArray[k1 + k2 + 1] - d1) * d0;
-//					double d6 = (this.noiseArray[l1 + k2 + 1] - d2) * d0;
-//					double d7 = (this.noiseArray[i2 + k2 + 1] - d3) * d0;
-//					double d8 = (this.noiseArray[j2 + k2 + 1] - d4) * d0;
-//					for (int l2 = 0; l2 < 8; ++l2) {
-//						double d9 = 0.25D;
-//						double d10 = d1;
-//						double d11 = d2;
-//						double d12 = (d3 - d1) * d9;
-//						double d13 = (d4 - d2) * d9;
-//						for (int i3 = 0; i3 < 4; ++i3) {
-//							int j3 = i3 + k * 4 << 12 | 0 + j1 * 4 << 8 | k2 * 8 + l2;
-//							short short1 = 256;
-//							j3 -= short1;
-//							double d14 = 0.25D;
-//							double d16 = (d11 - d10) * d14;
-//							double d15 = d10 - d16;
-//							for (int k3 = 0; k3 < 4; ++k3) {
-//								if ((d15 += d16) > 0.0D) {
-//									if (this.worldObj.getBiomeGenForCoords(par1, par2) == DreamStateBiomes.crazyHillsBiome) {
-//										blocks[j3 += short1] = BlockList.crazyhills_stone;
-//									}
-//									else {
-//										blocks[j3 += short1] = Blocks.stone;
-//									}
-//									
-//								} else if (k2 * 8 + l2 < b0) {
-////									blocks[j3 += short1] = BlockList.dream_state_water;//these can be set to custom blocks
-//									blocks[j3 += short1] = Blocks.water;//these can be set to custom blocks
-//								} else {
-//									blocks[j3 += short1] = null;//this is the air block i think.
-//								}
-//							}
-//							d10 += d12;
-//							d11 += d13;
-//						}
-//						d1 += d5;
-//						d2 += d6;
-//						d3 += d7;
-//						d4 += d8;
-//					}
-//				}
-//			}
-//		}
 	}
 
 	public void replaceBlocksForBiome(int chunkX, int chunkY, Block[] blocksInChunk, byte[] bytesInChunk, BiomeGenBase[] biomes) {
@@ -332,7 +254,7 @@ public class DreamStateChunkProvider implements IChunkProvider {
 	 * [empty] noise array, the position, and the size.
 	 */
 	// TODO: initializeNoiseField?
-	private void func_147423_a(int x, int y, int z) {
+	private void generateNoise(int x, int y, int z) {
 
 		//DONT EDIT THS METHOD UNLES YOU KNOW WHAT UR DOING OR MAKE A COPY INCASE U MESS IT UP....
 		//YOU HAVE BE WARNED !!!!!
