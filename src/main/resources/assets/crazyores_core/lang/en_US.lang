@@ -86,10 +86,10 @@ itemGroup.blocks=CrazyOres Blocks
 itemGroup.materials=CrazyOres Materials
 
 # CONFIG LOCALIZATION
-config.category.crazyOresCore=CO Core Options
-config/category.crazyOresFoods=CO Foods Options
-
+config.category.loadPacks=Load Packs
 config.category.oreGeneration=Ore Generation
+
+config.node.installFoodsPack=Foods Pack
 
 config.node.generateCopper=Generate Copper Ore
 config.node.generateSapphire=Generate_Sapphire_Ore
@@ -110,7 +110,7 @@ config.node.generateLuminite=Generate_Luminite_Ore
 config.node.generateEnder=Generate_Ender_Ore
 config.node.generateUltra=Generate_Ultra_Ore
 
-config.comment.generateCopper=true: generate copper | false: don't generate copper
+config.comment.generateCopper=true: will generate copper | false: won't generate copper
 config.comment.generateSapphire=Set this to true to have Sapphire Crystal generated in your world. Set this to false to stop Sapphire Crystal from generating in your world.
 config.comment.generateAdamite=Set this to true to have Adamite Crystal generated in your world. Set this to false to stop Adamite Crystal from generating in your world.
 config.comment.generateMeteorite=Set this to true to have Meteorite generated in your world. Set this to false to stop Meteorite from generating in your world.

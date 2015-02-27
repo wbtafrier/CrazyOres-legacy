@@ -24,8 +24,8 @@ public class CrazyOresCore {
 	
 	@EventHandler
 	private void preInit(FMLPreInitializationEvent preInitEvent) {
-		COPackManager.loadPackData();
 		COConfigManager.init(preInitEvent);
+		COPackManager.loadPackData();
 	}
 	
 	@EventHandler

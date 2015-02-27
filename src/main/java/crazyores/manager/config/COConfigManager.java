@@ -7,6 +7,7 @@ import net.minecraftforge.common.config.Configuration;
 
 import org.apache.logging.log4j.Level;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import crazyores.manager.util.COPackManager;
 import crazyores.manager.util.CrazyOresData;
@@ -17,29 +18,31 @@ public abstract class COConfigManager {
 
 	public static Configuration config;
 	public static final String fileLocation = File.separator + "crazyores-config" + File.separator;
-	
 	private static final String LOAD_PACK_CATEGORY = StatCollector.translateToLocal("config.category.loadPacks");
 	
 	public static void init(FMLPreInitializationEvent event) {
 		
-		if (COPackManager.isCoreInstalled()) {
+		if (Loader.isModLoaded(CrazyOresData.crazyOresCoreID)) {
 			COCoreConfigLoader.initCore(event);
 		}
 		
-		if (COPackManager.isFoodsInstalled()) {
+		if (Loader.isModLoaded(CrazyOresData.crazyOresFoodsID)) {
 //			COFoodsConfig.initFoods(event);
 		}
 		
 		config = new Configuration(new File(event.getSuggestedConfigurationFile().getParentFile() + fileLocation + "crazyores_main.cfg"));
-		CrazyOresLogger.write(CrazyOresData.COPrefix, Level.INFO, "Loading Base CrazyOres Configuration file.");
-
+		CrazyOresLogger.write(CrazyOresData.COPrefix, Level.INFO, "Loading Main CrazyOres Configuration file.");
 		
-		try {
+		try {	
 			config.load();
+			config.addCustomCategoryComment(LOAD_PACK_CATEGORY, "Will load the pack into your game. | false: Will not load the pack into your game.");
 			
-			/** Things related to CrazyOres overall go here. **/
+			/** Loading packs into the game **/
+			if (Loader.isModLoaded(CrazyOresData.crazyOresFoodsID)) {
+				COConfigSettings.isFoodsInstalled = config.get(LOAD_PACK_CATEGORY, StatCollector.translateToLocal("config.node.installFoodsPack"), true).getBoolean(true);
+			}
 			
-			CrazyOresLogger.write(CrazyOresData.COPrefix, Level.INFO, "CrazyOres config file successfully loaded.");
+			CrazyOresLogger.write(CrazyOresData.COPrefix, Level.INFO, "CrazyOres Main config file loaded successfully.");
 		} 
 		catch(Exception e) {
 			CrazyOresLogger.write(CrazyOresData.COPrefix, Level.WARN, "Uh oh, something went wrong with the config file. Saving any changes...");

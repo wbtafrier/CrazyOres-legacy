@@ -15,21 +15,19 @@ import crazyores.manager.util.CrazyOresLogger;
 
 public class COCoreConfigLoader extends COConfigManager {
 
-	private static final String CO_CORE_CATEGORY = StatCollector.translateToLocal("config.category.crazyOresCore");
 	private static final String LOAD_ORE_GEN_CATEGORY = StatCollector.translateToLocal("config.category.oreGeneration");
 	
 	public static void initCore(FMLPreInitializationEvent event) {
 		
 		config = new Configuration(new File(event.getSuggestedConfigurationFile().getParentFile() + fileLocation + CrazyOresData.crazyOresCoreID + ".cfg"));
-		CrazyOresLogger.write(CrazyOresData.COPrefix, Level.INFO, "Loading CrazyOres Core Configuration file. at: " + event.getSuggestedConfigurationFile().getParentFile() + fileLocation + CrazyOresData.crazyOresCoreID + ".cfg");
 		
 		try {
 			config.load();
 			
-			config.addCustomCategoryComment(LOAD_ORE_GEN_CATEGORY, "true: generate ore | false: don't generate ore");
+			config.addCustomCategoryComment(LOAD_ORE_GEN_CATEGORY, "true: Will generate the ore. | false: Will not generate the ore.");
 			/** Ore generation config **/
 //			COCoreConfigSettings.generateAdamite;
-			COCoreConfigSettings.generateCopper = config.get(LOAD_ORE_GEN_CATEGORY, StatCollector.translateToLocal("config.node.generateCopper"), true, StatCollector.translateToLocal("config.comment.generateCopper")).getBoolean(true);
+			COCoreConfigSettings.generateCopper = config.get(LOAD_ORE_GEN_CATEGORY, StatCollector.translateToLocal("config.node.generateCopper"), true).getBoolean(true);
 //			COCoreConfigSettings.generateExperium;
 //			COCoreConfigSettings.generateFoolsRuby;
 //			COCoreConfigSettings.generateInvisium;
@@ -43,7 +41,7 @@ public class COCoreConfigLoader extends COConfigManager {
 //			COCoreConfigSettings.generateTapazite;
 //			COCoreConfigSettings.generateZectium;
 			
-			
+			CrazyOresLogger.write(CrazyOresData.COPrefix, Level.INFO, "CrazyOres Core config file loaded successfully.");
 		} 
 		catch(Exception e) {
 			CrazyOresLogger.write(CrazyOresData.COPrefix, Level.WARN, "Uh oh, something went wrong with the config file. Saving any changes...");

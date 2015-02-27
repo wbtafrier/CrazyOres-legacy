@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.Loader;
+import crazyores.manager.config.COConfigSettings;
 
 /**
  * In this class we will check to see which packs are installed and if they are, load them into the game.
@@ -16,24 +17,17 @@ public class COPackManager {
 	//List of packs installed that can be iterated through
 	private static List<String> crazyOresPackNames = new ArrayList<>();
 	
-	//Booleans to check if a pack is installed
-	private static boolean isCoreInstalled = false;
-	private static boolean isFoodsInstalled = false;
-	
-
 	/**
 	 * Loads all of the installed packs and their data.
 	 */
 	public static void loadPackData() {
 
-		if (Loader.isModLoaded(CrazyOresData.crazyOresCoreID)) {
+		if (Loader.isModLoaded(CrazyOresData.crazyOresCoreID) && COConfigSettings.isCoreActivated()) {
 			crazyOresPackNames.add(CrazyOresData.crazyOresCoreName);
-			isCoreInstalled = true;
 		}
 
-		if (Loader.isModLoaded(CrazyOresData.crazyOresFoodsID)) {
+		if (Loader.isModLoaded(CrazyOresData.crazyOresFoodsID) && COConfigSettings.isFoodsActivated()) {
 			crazyOresPackNames.add(CrazyOresData.crazyOresFoodsName);
-			isFoodsInstalled = true;
 		}
 		
 		COPackManager.loadLoggers();
@@ -51,13 +45,5 @@ public class COPackManager {
 	 */
 	public static List<String> getActivePacks() {
 		return crazyOresPackNames;
-	}
-	
-	public static boolean isCoreInstalled() {
-		return isCoreInstalled;
-	}
-	
-	public static boolean isFoodsInstalled() {
-		return isFoodsInstalled;
 	}
 }
