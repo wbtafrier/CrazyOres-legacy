@@ -7,10 +7,10 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import crazyores.manager.pack.COPackManager;
+import crazyores.manager.pack.data.CrazyOresData;
 import crazyores.manager.proxy.IProxy;
 import crazyores.manager.start.CrazyOresInit;
-import crazyores.manager.util.COPackManager;
-import crazyores.manager.util.CrazyOresData;
 import crazyores.manager.util.CrazyOresLogger;
 
 @Mod(modid = CrazyOresData.corePackID, name = CrazyOresData.corePackName, version = CrazyOresData.corePackVersion)

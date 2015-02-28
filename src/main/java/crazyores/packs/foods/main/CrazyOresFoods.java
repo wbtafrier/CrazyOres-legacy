@@ -7,8 +7,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import crazyores.manager.pack.data.CrazyOresData;
 import crazyores.manager.proxy.IProxy;
-import crazyores.manager.util.CrazyOresData;
 
 @Mod(modid = CrazyOresData.foodsPackID, name = CrazyOresData.foodsPackName, version = CrazyOresData.foodsPackVersion)
 public class CrazyOresFoods {

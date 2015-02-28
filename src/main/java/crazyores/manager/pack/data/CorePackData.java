@@ -1,7 +1,6 @@
-package crazyores.packs.core.util;
+package crazyores.manager.pack.data;
 
 import net.minecraft.util.EnumChatFormatting;
-import crazyores.manager.util.CrazyOresData;
 import crazyores.manager.util.Pack;
 
 public class CorePackData extends Pack {

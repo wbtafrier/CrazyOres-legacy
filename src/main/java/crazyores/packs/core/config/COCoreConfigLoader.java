@@ -10,7 +10,7 @@ import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import crazyores.manager.config.COConfigManager;
-import crazyores.manager.util.CrazyOresData;
+import crazyores.manager.pack.data.CrazyOresData;
 import crazyores.manager.util.CrazyOresLogger;
 
 public class COCoreConfigLoader extends COConfigManager {

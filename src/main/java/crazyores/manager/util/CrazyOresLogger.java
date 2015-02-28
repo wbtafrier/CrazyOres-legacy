@@ -5,6 +5,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.util.Color;
 
+import crazyores.manager.pack.COPackManager;
+import crazyores.manager.pack.data.CrazyOresData;
+
 
 public abstract class CrazyOresLogger {
 
@@ -13,7 +16,7 @@ public abstract class CrazyOresLogger {
 	/**
 	 * Using this method will write a message using the default CrazyOres logger with this heading: [CrazyOres]
 	 */
-	private static void write(Level level, String message) {
+	public static void write(Level level, String message) {
 		crazyOresLogger = LogManager.getLogger(CrazyOresData.COPrefix);
 		crazyOresLogger.log(level, message);
 	}

@@ -1,4 +1,4 @@
-package crazyores.manager.util;
+package crazyores.manager.pack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +7,10 @@ import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.Loader;
 import crazyores.manager.config.COConfigSettings;
-import crazyores.packs.core.util.CorePackData;
-import crazyores.packs.foods.util.FoodsPackData;
+import crazyores.manager.pack.data.CorePackData;
+import crazyores.manager.pack.data.FoodsPackData;
+import crazyores.manager.util.CrazyOresLogger;
+import crazyores.manager.util.Pack;
 
 /**
  * In this class we will check to see which packs are installed and if they are, load them into the game.
@@ -33,7 +35,13 @@ public class COPackManager {
 		}
 
 		if (Loader.isModLoaded(foodsPack.getPackID()) && COConfigSettings.isFoodsActivated()) {
-			crazyOresPackNames.add(foodsPack);
+			try {
+				crazyOresPackNames.add(foodsPack);
+			}
+			catch (Exception e) {
+				CrazyOresLogger.write(Level.ERROR, "CrazyOres was unable to load the " + foodsPack.getFullPackName() + " addon.");
+				e.printStackTrace();
+			}
 		}
 		
 		COPackManager.loadLoggers();

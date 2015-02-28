@@ -1,4 +1,4 @@
-package crazyores.manager.util;
+package crazyores.manager.pack.data;
 
 import crazyores.manager.proxy.ClientProxy;
 

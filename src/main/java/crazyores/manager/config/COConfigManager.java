@@ -9,8 +9,8 @@ import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import crazyores.manager.util.COPackManager;
-import crazyores.manager.util.CrazyOresData;
+import crazyores.manager.pack.COPackManager;
+import crazyores.manager.pack.data.CrazyOresData;
 import crazyores.manager.util.CrazyOresLogger;
 import crazyores.packs.core.config.COCoreConfigLoader;
 
