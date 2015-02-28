@@ -23,7 +23,7 @@ public abstract class COConfigManager {
 	public static void init(FMLPreInitializationEvent event) {
 		
 		config = new Configuration(new File(event.getSuggestedConfigurationFile().getParentFile() + fileLocation + "crazyores_main.cfg"));
-		CrazyOresLogger.write(CrazyOresData.COPrefix, Level.INFO, "Loading Main CrazyOres Configuration file.");
+		CrazyOresLogger.write(null, Level.INFO, "Loading Main CrazyOres Configuration file.");
 		
 		try {	
 			config.load();
@@ -34,10 +34,10 @@ public abstract class COConfigManager {
 				COConfigSettings.isFoodsInstalled = config.get(LOAD_PACK_CATEGORY, StatCollector.translateToLocal("config.node.installFoodsPack"), true).getBoolean(true);
 			}
 			
-			CrazyOresLogger.write(CrazyOresData.COPrefix, Level.INFO, "CrazyOres Main config file loaded successfully.");
+			CrazyOresLogger.write(null, Level.INFO, "CrazyOres Main config file loaded successfully.");
 		} 
 		catch(Exception e) {
-			CrazyOresLogger.write(CrazyOresData.COPrefix, Level.WARN, "Uh oh, something went wrong with the config file. Saving any changes...");
+			CrazyOresLogger.write(null, Level.WARN, "Uh oh, something went wrong with the config file. Saving any changes...");
 		} 
 		finally {
 			if (config.hasChanged()) {

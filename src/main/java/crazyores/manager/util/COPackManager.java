@@ -7,6 +7,8 @@ import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.Loader;
 import crazyores.manager.config.COConfigSettings;
+import crazyores.packs.core.util.CorePackData;
+import crazyores.packs.foods.util.FoodsPackData;
 
 /**
  * In this class we will check to see which packs are installed and if they are, load them into the game.
@@ -14,28 +16,32 @@ import crazyores.manager.config.COConfigSettings;
  */
 public class COPackManager {
 	
+	//List of all the pack instances
+	public static final Pack corePack = new CorePackData();
+	public static final Pack foodsPack = new FoodsPackData();
+	
 	//List of packs installed that can be iterated through
-	private static List<String> crazyOresPackNames = new ArrayList<>();
+	private static List<Pack> crazyOresPackNames = new ArrayList<>();
 	
 	/**
 	 * Loads all of the installed packs and their data.
 	 */
 	public static void loadPackData() {
 
-		if (Loader.isModLoaded(CrazyOresData.corePackID) && COConfigSettings.isCoreActivated()) {
-			crazyOresPackNames.add(CrazyOresData.coreFullPackName);
+		if (Loader.isModLoaded(corePack.getPackID()) && COConfigSettings.isCoreActivated()) {
+			crazyOresPackNames.add(corePack);
 		}
 
-		if (Loader.isModLoaded(CrazyOresData.foodsPackID) && COConfigSettings.isFoodsActivated()) {
-			crazyOresPackNames.add(CrazyOresData.foodsFullPackName);
+		if (Loader.isModLoaded(foodsPack.getPackID()) && COConfigSettings.isFoodsActivated()) {
+			crazyOresPackNames.add(foodsPack);
 		}
 		
 		COPackManager.loadLoggers();
 	}
 	
 	private static void loadLoggers() {
-		for (String s : crazyOresPackNames) {
-			CrazyOresLogger.write(s, Level.INFO, s + " is recognized! Loading up...");
+		for (Pack pack : crazyOresPackNames) {
+			CrazyOresLogger.write(pack, Level.INFO, pack.getFullPackName() + " is recognized! Loading up...");
 		}
 	}
 	
@@ -43,7 +49,7 @@ public class COPackManager {
 	 * Returns a list of all the packs currently installed in the users game.
 	 * @return crazyOresPackNames : A list of all the loaded packs.
 	 */
-	public static List<String> getActivePacks() {
+	public static List<Pack> getActivePacks() {
 		return crazyOresPackNames;
 	}
 }

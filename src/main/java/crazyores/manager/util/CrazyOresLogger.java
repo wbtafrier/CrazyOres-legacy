@@ -11,12 +11,11 @@ public abstract class CrazyOresLogger {
 	private static Logger crazyOresLogger;
 	
 	/**
-	 * Used if the pack entered is null.
-	 * Writing null is discouraged but, if done, will use the standard logger - [CrazyOres]
+	 * Using this method will write a message using the default CrazyOres logger with this heading: [CrazyOres]
 	 */
-	private static void setDefaultLogger() {
+	private static void write(Level level, String message) {
 		crazyOresLogger = LogManager.getLogger(CrazyOresData.COPrefix);
-		crazyOresLogger.log(Level.WARN, "Setting the Logger to the Default logger! Is this what you wanted?");
+		crazyOresLogger.log(level, message);
 	}
 	
 	/**
@@ -25,33 +24,29 @@ public abstract class CrazyOresLogger {
 	 * @param level is the Level type to use ie: Level.INFO
 	 * @param message is the message that should be displayed in the console.
 	 */
-	public static void write(String pack, Level level, String message) {
+	public static void write(Pack pack, Level level, String message) {
 		
 		if (pack != null) {
-			if (pack.equalsIgnoreCase(CrazyOresData.COPrefix)) {
-				crazyOresLogger = LogManager.getLogger(pack);
-				crazyOresLogger.log(level, message);
-				return;
-			}
 			
-			for (String s : COPackManager.getActivePacks()) {
-				if (pack.equalsIgnoreCase(s)) {
-					crazyOresLogger = LogManager.getLogger(pack);
+			for (Pack p : COPackManager.getActivePacks()) {
+				if (pack.getFullPackName().equalsIgnoreCase(p.getFullPackName())) {
+					crazyOresLogger = LogManager.getLogger(pack.getFullPackName());
 					crazyOresLogger.log(level, message);
 					return;
 				}
 			}
+			crazyOresLogger.log(Level.WARN, "No active packs were found under the name: " + pack.getFullPackName() + " in the active packs list. Using default CrazyOres Logger.");
 		}
-		CrazyOresLogger.setDefaultLogger();
+		CrazyOresLogger.write(level, message);
 	}
 	
 	/**
 	 * Outputs all of the loaded packs in order once they are all loaded.
 	 */
 	public static void outputLoadedPacks() {
-		for (String pack : COPackManager.getActivePacks()) {
-			crazyOresLogger = LogManager.getLogger(pack);
-			crazyOresLogger.log(Level.INFO, pack + " has finished loading. Enjoy!");
+		for (Pack p : COPackManager.getActivePacks()) {
+			crazyOresLogger = LogManager.getLogger(p.getFullPackName());
+			crazyOresLogger.log(Level.INFO, p.getFullPackName() + " has finished loading. Enjoy!");
 		}
 	}
 }

@@ -41,10 +41,10 @@ public class COCoreConfigLoader extends COConfigManager {
 //			COCoreConfigSettings.generateTapazite;
 //			COCoreConfigSettings.generateZectium;
 			
-			CrazyOresLogger.write(CrazyOresData.COPrefix, Level.INFO, "CrazyOres Core config file loaded successfully.");
+			CrazyOresLogger.write(null, Level.INFO, "CrazyOres Core config file loaded successfully.");
 		} 
 		catch(Exception e) {
-			CrazyOresLogger.write(CrazyOresData.COPrefix, Level.WARN, "Uh oh, something went wrong with the config file. Saving any changes...");
+			CrazyOresLogger.write(null, Level.WARN, "Uh oh, something went wrong with the config file. Saving any changes...");
 		} 
 		finally {
 			if (config.hasChanged()) {
