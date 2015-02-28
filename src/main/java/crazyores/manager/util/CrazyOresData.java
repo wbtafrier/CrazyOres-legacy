@@ -22,8 +22,4 @@ public class CrazyOresData {
 	//Pack Versions
 	public static final String corePackVersion = "2.0";
 	public static final String foodsPackVersion = "1.0";
-	
-	//Full Pack Names
-//	public static final String coreFullPackName = COPrefix + " " + corePackName;
-//	public static final String foodsFullPackName = COPrefix + " " + foodsPackName;
 }
