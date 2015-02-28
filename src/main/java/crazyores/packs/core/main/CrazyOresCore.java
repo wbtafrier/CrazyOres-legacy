@@ -9,30 +9,33 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import crazyores.manager.config.COConfigManager;
 import crazyores.manager.proxy.IProxy;
+import crazyores.manager.start.CrazyOresInit;
 import crazyores.manager.util.COPackManager;
 import crazyores.manager.util.CrazyOresData;
 import crazyores.manager.util.CrazyOresLogger;
 
-@Mod(modid = CrazyOresData.crazyOresCoreID, name = CrazyOresData.crazyOresCoreName, version = CrazyOresData.crazyOresCoreVersion)
+@Mod(modid = CrazyOresData.corePackID, name = CrazyOresData.corePackName, version = CrazyOresData.corePackVersion)
 public class CrazyOresCore {
 
 	@SidedProxy(clientSide = CrazyOresData.clientProxy, serverSide = CrazyOresData.serverProxy)
 	public static IProxy proxy;
 	
-	@Instance(CrazyOresData.crazyOresCoreID)
+	@Instance(CrazyOresData.corePackID)
 	public static CrazyOresCore instance;
 	
 	@EventHandler
 	private void preInit(FMLPreInitializationEvent preInitEvent) {
-		COConfigManager.init(preInitEvent);
-		COPackManager.loadPackData();
+		CrazyOresInit.preInit(preInitEvent);
 	}
 	
 	@EventHandler
-	private void init(FMLInitializationEvent initEvent) {}
+	private void init(FMLInitializationEvent initEvent) {
+		CrazyOresInit.init(initEvent);
+	}
 	
 	@EventHandler
 	private void postInit(FMLPostInitializationEvent postInitEvent) {
+		CrazyOresInit.postInit(postInitEvent);
 		CrazyOresLogger.outputLoadedPacks();
 	}
 }

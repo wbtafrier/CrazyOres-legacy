@@ -4,7 +4,7 @@ public class COConfigSettings {
 
 	//Booleans to check if a pack is installed
 	private static final boolean isCoreInstalled = true;
-	protected static boolean isFoodsInstalled = true;
+	protected static boolean isFoodsInstalled = false;
 	
 	public static boolean isCoreActivated() {
 		return isCoreInstalled;

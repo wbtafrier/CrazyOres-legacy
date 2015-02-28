@@ -22,12 +22,12 @@ public class COPackManager {
 	 */
 	public static void loadPackData() {
 
-		if (Loader.isModLoaded(CrazyOresData.crazyOresCoreID) && COConfigSettings.isCoreActivated()) {
-			crazyOresPackNames.add(CrazyOresData.crazyOresCoreName);
+		if (Loader.isModLoaded(CrazyOresData.corePackID) && COConfigSettings.isCoreActivated()) {
+			crazyOresPackNames.add(CrazyOresData.coreFullPackName);
 		}
 
-		if (Loader.isModLoaded(CrazyOresData.crazyOresFoodsID) && COConfigSettings.isFoodsActivated()) {
-			crazyOresPackNames.add(CrazyOresData.crazyOresFoodsName);
+		if (Loader.isModLoaded(CrazyOresData.foodsPackID) && COConfigSettings.isFoodsActivated()) {
+			crazyOresPackNames.add(CrazyOresData.foodsFullPackName);
 		}
 		
 		COPackManager.loadLoggers();

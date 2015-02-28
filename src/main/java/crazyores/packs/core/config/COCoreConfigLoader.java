@@ -19,7 +19,7 @@ public class COCoreConfigLoader extends COConfigManager {
 	
 	public static void initCore(FMLPreInitializationEvent event) {
 		
-		config = new Configuration(new File(event.getSuggestedConfigurationFile().getParentFile() + fileLocation + CrazyOresData.crazyOresCoreID + ".cfg"));
+		config = new Configuration(new File(event.getSuggestedConfigurationFile().getParentFile() + fileLocation + CrazyOresData.corePackID + ".cfg"));
 		
 		try {
 			config.load();

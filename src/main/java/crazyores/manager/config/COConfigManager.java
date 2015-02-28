@@ -22,14 +22,6 @@ public abstract class COConfigManager {
 	
 	public static void init(FMLPreInitializationEvent event) {
 		
-		if (Loader.isModLoaded(CrazyOresData.crazyOresCoreID)) {
-			COCoreConfigLoader.initCore(event);
-		}
-		
-		if (Loader.isModLoaded(CrazyOresData.crazyOresFoodsID)) {
-//			COFoodsConfig.initFoods(event);
-		}
-		
 		config = new Configuration(new File(event.getSuggestedConfigurationFile().getParentFile() + fileLocation + "crazyores_main.cfg"));
 		CrazyOresLogger.write(CrazyOresData.COPrefix, Level.INFO, "Loading Main CrazyOres Configuration file.");
 		
@@ -38,7 +30,7 @@ public abstract class COConfigManager {
 			config.addCustomCategoryComment(LOAD_PACK_CATEGORY, "Will load the pack into your game. | false: Will not load the pack into your game.");
 			
 			/** Loading packs into the game **/
-			if (Loader.isModLoaded(CrazyOresData.crazyOresFoodsID)) {
+			if (Loader.isModLoaded(CrazyOresData.foodsPackID)) {
 				COConfigSettings.isFoodsInstalled = config.get(LOAD_PACK_CATEGORY, StatCollector.translateToLocal("config.node.installFoodsPack"), true).getBoolean(true);
 			}
 			
@@ -52,6 +44,13 @@ public abstract class COConfigManager {
 				config.save();
 			}
 		}
+		
+		if (COConfigSettings.isCoreActivated()) {
+			COCoreConfigLoader.initCore(event);
+		}
+		
+		if (COConfigSettings.isFoodsActivated()) {
+//			COFoodsConfig.initFoods(event);
+		}
 	}
-	
 }

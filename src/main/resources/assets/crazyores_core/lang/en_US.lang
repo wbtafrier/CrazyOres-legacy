@@ -82,8 +82,10 @@ item.fools_ruby_mush.name=Fool's Ruby Mush
 item.starconium_shard.name=Starconium Shard
 
 # TAB LOCALIZATION
-itemGroup.blocks=CrazyOres Blocks
-itemGroup.materials=CrazyOres Materials
+itemGroup.overworldBlocks=CO Overworld Blocks
+itemGroup.overworldItems=CO Overworld Items
+itemGroup.dreamstateTerrain=DreamState Blocks
+itemGroup.dreamstateItems=DreamState Items
 
 # CONFIG LOCALIZATION
 config.category.loadPacks=Load Packs
