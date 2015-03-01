@@ -2,31 +2,22 @@ package crazyores.manager.tabs;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import crazyores.manager.config.COConfigSettings;
-import crazyores.packs.core.tabs.CoreTabs;
 
-public abstract class COTabRegistry {
+public abstract class CrazyOresTabs {
 	
-	private static CreativeTabs defaultBlocksTab;
-	private static CreativeTabs defaultItemsTab;
+	//Generic Tab Names
+	public static final String defaultBlocks = "overworldBlocks";
+	public static final String defaultItems = "overworldItems";
 	
 	public static void initTabs() {
 		
 		createDefaultBlocksTab();
 		createDefaultItemsTab();
-		
-		if (COConfigSettings.isCoreActivated()) {
-			CoreTabs.initCoreTabs();
-		}
-		
-		if (COConfigSettings.isFoodsActivated()) {
-		}
 	}
 	
 	public static void createDefaultBlocksTab() {
-		defaultBlocksTab = new CreativeTabs(COTabNames.defaultBlocks) {
+		COTabList.defaultBlocksTab = new CreativeTabs(defaultBlocks) {
 			
 			@Override
 			public Item getTabIconItem() {
@@ -38,7 +29,7 @@ public abstract class COTabRegistry {
 	}
 	
 	public static void createDefaultItemsTab() {
-		defaultItemsTab = new CreativeTabs(COTabNames.defaultItems) {
+		COTabList.defaultItemsTab = new CreativeTabs(defaultItems) {
 			
 			@Override
 			public Item getTabIconItem() {

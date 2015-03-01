@@ -3,10 +3,10 @@ package crazyores.manager.util;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.lwjgl.util.Color;
 
 import crazyores.manager.pack.COPackManager;
 import crazyores.manager.pack.data.CrazyOresData;
+import crazyores.manager.support.AbstractPack;
 
 
 public abstract class CrazyOresLogger {
@@ -27,11 +27,11 @@ public abstract class CrazyOresLogger {
 	 * @param level is the Level type to use ie: Level.INFO
 	 * @param message is the message that should be displayed in the console.
 	 */
-	public static void write(Pack pack, Level level, String message) {
+	public static void write(AbstractPack pack, Level level, String message) {
 		
 		if (pack != null) {
 			
-			for (Pack p : COPackManager.getActivePacks()) {
+			for (AbstractPack p : COPackManager.getActivePacks()) {
 				if (pack.getFullPackName().equalsIgnoreCase(p.getFullPackName())) {
 					crazyOresLogger = LogManager.getLogger(pack.getFullPackName());
 					crazyOresLogger.log(level, message);
@@ -47,7 +47,7 @@ public abstract class CrazyOresLogger {
 	 * Outputs all of the loaded packs in order once they are all loaded.
 	 */
 	public static void outputLoadedPacks() {
-		for (Pack p : COPackManager.getActivePacks()) {
+		for (AbstractPack p : COPackManager.getActivePacks()) {
 			crazyOresLogger = LogManager.getLogger(p.getFullPackName());
 			crazyOresLogger.log(Level.INFO, p.getFullPackName() + " has finished loading. Enjoy!");
 		}

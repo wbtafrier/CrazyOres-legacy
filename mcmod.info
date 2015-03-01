@@ -4,6 +4,7 @@
   "name": "CrazyOres Core",
   "description": "CrazyOres Core acts as a base mod, that allows you to add different types of packs into your game. This opens up a variety of different gameplay depending on what packs you have installed!",
   "version": "2.0.0",
+  "mcversion": "${mcversion}",
   "url": "http://www.minecraftforum.net/topic/1042056-152-crazyores-v73/",
   "updateUrl": "",
   "authorList": ["Andy608", "ISQUISHALL"],

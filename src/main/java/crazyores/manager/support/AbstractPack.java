@@ -1,7 +1,7 @@
-package crazyores.manager.util;
+package crazyores.manager.support;
 import net.minecraft.util.EnumChatFormatting;
 
-public abstract class Pack {
+public abstract class AbstractPack {
 	
 	private final String fullPackName;
 	private final String packName;
@@ -17,7 +17,7 @@ public abstract class Pack {
 	 * @param ID is the id of the pack. ie: crazyores_core
 	 * @param color is the color of the pack that will be displayed in the chat window.
 	 */
-	public Pack(String fullName, String name, String version, String ID, EnumChatFormatting color) {
+	public AbstractPack(String fullName, String name, String version, String ID, EnumChatFormatting color) {
 		fullPackName = fullName;
 		packName = name;
 		packVersion = version;

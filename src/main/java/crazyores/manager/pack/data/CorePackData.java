@@ -1,9 +1,9 @@
 package crazyores.manager.pack.data;
 
 import net.minecraft.util.EnumChatFormatting;
-import crazyores.manager.util.Pack;
+import crazyores.manager.support.AbstractPack;
 
-public class CorePackData extends Pack {
+public class CorePackData extends AbstractPack {
 	
 	/**
 	 * Pack constructor. Sets all the variables neccessary for a pack.

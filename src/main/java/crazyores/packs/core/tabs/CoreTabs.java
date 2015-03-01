@@ -1,17 +1,16 @@
 package crazyores.packs.core.tabs;
 
-import crazyores.manager.config.COConfigSettings;
-import crazyores.manager.tabs.COTabNames;
-import crazyores.manager.tabs.COTabRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import crazyores.manager.tabs.COTabList;
 
-public class CoreTabs extends COTabRegistry {
+public class CoreTabs {
 
-	private static CreativeTabs dreamStateTerrainTab;
-	private static CreativeTabs dreamStateItemsTab;
+	
+	//Core Tab Names
+	public static final String dreamStateTerrain = "dreamstateTerrain";
+	public static final String dreamStateItems = "dreamstateItems";
 	
 	public static void initCoreTabs() {
 		createDreamStateTerrainTab();
@@ -19,7 +18,7 @@ public class CoreTabs extends COTabRegistry {
 	}
 	
 	public static void createDreamStateTerrainTab() {
-		dreamStateTerrainTab = new CreativeTabs(COTabNames.dreamStateTerrain) {
+		COTabList.dreamStateTerrainTab = new CreativeTabs(dreamStateTerrain) {
 			
 			@Override
 			public Item getTabIconItem() {
@@ -31,7 +30,7 @@ public class CoreTabs extends COTabRegistry {
 	}
 	
 	public static void createDreamStateItemsTab() {
-		dreamStateItemsTab = new CreativeTabs(COTabNames.dreamStateItems) {
+		COTabList.dreamStateItemsTab = new CreativeTabs(dreamStateItems) {
 			
 			@Override
 			public Item getTabIconItem() {

@@ -12,8 +12,8 @@ public class CrazyOresData {
 	/** Should only be used when first creating a new pack for the Mod annotation. **/
 	
 	//Pack Names
-	public static final String corePackName = "Core";
-	public static final String foodsPackName = "Foods";
+	public static final String coreModsListName = "CrazyOres Core";
+	public static final String foodsModsListName = "CrazyOres Foods";
 	
 	//Pack IDs
 	public static final String corePackID = "crazyores_core";

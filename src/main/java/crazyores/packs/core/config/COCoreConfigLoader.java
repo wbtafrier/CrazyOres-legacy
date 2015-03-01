@@ -4,9 +4,9 @@ import java.io.File;
 
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.config.Property;
 
 import org.apache.logging.log4j.Level;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import crazyores.manager.config.COConfigManager;
