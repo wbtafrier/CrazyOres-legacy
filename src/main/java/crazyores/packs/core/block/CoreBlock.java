@@ -67,11 +67,6 @@ public class CoreBlock extends Block implements IBlock, IName {
 	}
 
 	@Override
-	public int getBlockMetadata() {
-		return 0;
-	}
-
-	@Override
 	public Material getBlockMaterial() {
 		return super.getMaterial();
 	}

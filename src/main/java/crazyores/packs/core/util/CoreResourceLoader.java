@@ -10,6 +10,5 @@ public class CoreResourceLoader {
 	private static String s = File.separator;
 
 	public static final ResourceLocation tapaziteCrystalImage = 
-			(new ResourceLocation(COPackManager.corePack.getPackID() + ":textures" + s + "blocks" + s + "fools_ruby_storage_block.png"));
-	
+			(new ResourceLocation(COPackManager.corePack.getPackID() + ":textures" + s + "blocks" + s + "tapazite_crystal.png"));
 }

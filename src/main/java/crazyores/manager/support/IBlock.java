@@ -7,8 +7,6 @@ import net.minecraft.util.IIcon;
 
 public interface IBlock {
 	
-	int getBlockMetadata();
-	
 	Material getBlockMaterial();
 	
 	String getUnlocalizedName();
