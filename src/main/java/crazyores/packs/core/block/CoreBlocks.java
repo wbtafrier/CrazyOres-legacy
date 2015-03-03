@@ -14,7 +14,8 @@ public class CoreBlocks {
 
 	//DreamState Blocks
 	public static Block foolsRubyStorage;
-	public static Block tapaziteCrystal;
+	public static Block tapaziteStalagmite;
+	public static Block tapaziteStalactite;
 	
 	public static void initBlocks() {
 		initOverworldBlocks();
@@ -22,7 +23,8 @@ public class CoreBlocks {
 	}
 	
 	public static void initOverworldBlocks() {
-		tapaziteCrystal = new BlockTapaziteCrystal("Tapazite Crystal", "tapazite_crystal", Material.glass, Block.soundTypeGlass, 4.0F, 2.0F).setCreativeTab(COTabList.defaultBlocksTab); registerBlock(tapaziteCrystal);
+		tapaziteStalagmite = new BlockTapaziteStalagmite("Tapazite Crystal", "tapazite_stalagmite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.defaultBlocksTab); registerBlock(tapaziteStalagmite, ItemBlockTapaziteStalagmite.class);
+		tapaziteStalactite = new BlockTapaziteStalactite("Tapazite Crystal", "tapazite_stalactite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.defaultBlocksTab); registerBlock(tapaziteStalactite, ItemBlockTapaziteStalactite.class);
 	}
 	
 	private static void initDreamStateBlocks() {
@@ -36,5 +38,12 @@ public class CoreBlocks {
 	 */
 	private static void registerBlock(Block block) {
 		GameRegistry.registerBlock(block, block.getUnlocalizedName());
+	}
+	
+	/**
+	 * Registers all core metadata blocks with forge.
+	 */
+	private static void registerBlock(Block block, Class itemBlockClass) {
+		GameRegistry.registerBlock(block, itemBlockClass, block.getUnlocalizedName());
 	}
 }
