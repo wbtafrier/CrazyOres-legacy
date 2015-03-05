@@ -7,7 +7,7 @@ import net.minecraft.util.MathHelper;
 
 public class ItemBlockTapaziteStalagmite extends ItemBlock {
 
-	public static final int maxMetadata = 16;
+	public static final int maxMetadata = 7;
 	
 	public ItemBlockTapaziteStalagmite(Block block) {
 		super(block);

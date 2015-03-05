@@ -11,7 +11,7 @@ public class ModelCrystal extends ModelBase {
 
 	public List<ModelRenderer> obeliskModels;
 
-	public ModelCrystal(List<ModelObelisk> obelisks) {
+	public ModelCrystal(List<ModelObelisk> obelisks, int textureWidth, int textureHeight) {
 
 		this.obeliskModels = new ArrayList<>();
 
@@ -24,8 +24,8 @@ public class ModelCrystal extends ModelBase {
 			o = new ModelRenderer(this, currentObelisk.textureOffsetX, currentObelisk.textureOffsetY);
 			o.addBox(currentObelisk.ballOffset[0], currentObelisk.ballOffset[1], currentObelisk.ballOffset[2],currentObelisk.boxBounds[0], currentObelisk.boxBounds[1], currentObelisk.boxBounds[2]);
 			o.setRotationPoint(currentObelisk.rotationPoint[0], currentObelisk.rotationPoint[1], currentObelisk.rotationPoint[2]);
-			o.setTextureSize(currentObelisk.textureWidth, currentObelisk.textureHeight);
-			o.mirror = currentObelisk.mirror;
+			o.setTextureSize(textureWidth, textureHeight);
+			o.mirror = true;
 			this.setRotation(o, currentObelisk.obeliskRotation[0], currentObelisk.obeliskRotation[1], currentObelisk.obeliskRotation[2]);
 
 			this.obeliskModels.add(o);

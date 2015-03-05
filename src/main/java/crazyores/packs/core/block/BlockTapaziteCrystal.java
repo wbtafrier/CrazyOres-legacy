@@ -26,6 +26,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.event.ForgeEventFactory;
 
 import org.apache.logging.log4j.Level;
 
@@ -48,6 +49,8 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 		
 		this.isBlockContainer = true;
 		this.setTickRandomly(true);
+		this.setLightLevel(0.3F);
+		this.setLightOpacity(0);
 		
 		this.blockName = blockReadableName;
 		this.blockUnlocalizedName = unlocalizedName;
@@ -56,6 +59,90 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
         super.setStepSound(soundType);
         super.setHardness(hardness);
         super.setResistance(resistance);
+	}
+	
+	public boolean correctLightingForGrowth(World world, int x, int y, int z) {
+		
+		if (world.getBlockLightValue(x, y + 1, z) <= 8 && world.getBlockLightValue(x, y - 1, z) <= 8 && world.getBlockLightValue(x + 1, y, z) <= 8 &&
+			world.getBlockLightValue(x - 1, y, z) <= 8 && world.getBlockLightValue(x, y, z + 1) <= 8 &&
+			world.getBlockLightValue(x, y, z - 1) <= 8 && world.getBlockLightValue(x + 1, y, z + 1) <= 8 &&
+			world.getBlockLightValue(x + 1, y, z - 1) <= 8 && world.getBlockLightValue(x - 1, y, z + 1) <= 8 &&
+			world.getBlockLightValue(x - 1, y, z - 1) <= 8) {
+			return true;
+		}
+		return false;
+	}
+	
+	public void spawnRandomCrystal(World world, int x, int y, int z, Random rand, int metadata) {
+		int xDir = rand.nextInt(2);
+		int yDir = rand.nextInt(2);
+		int zDir = rand.nextInt(2);
+
+		int[] randBlockCoord = new int[3];
+		
+		if (xDir == 0 && yDir == 0 && zDir == 0) {
+			randBlockCoord[0] = x + rand.nextInt(3); randBlockCoord[1] = y + rand.nextInt(3); randBlockCoord[2] = z + rand.nextInt(3);
+		}
+		else if (xDir == 1 && yDir == 0 && zDir == 0) {
+			randBlockCoord[0] = x - rand.nextInt(3); randBlockCoord[1] = y + rand.nextInt(3); randBlockCoord[2] = z + rand.nextInt(3);
+		}
+		else if (xDir == 0 && yDir == 1 && zDir == 0) {
+			randBlockCoord[0] = x + rand.nextInt(3); randBlockCoord[1] = y - rand.nextInt(3); randBlockCoord[2] = z + rand.nextInt(3);
+		}
+		else if (xDir == 0 && yDir == 0 && zDir == 1) {
+			randBlockCoord[0] = x + rand.nextInt(3); randBlockCoord[1] = y + rand.nextInt(3); randBlockCoord[2] = z - rand.nextInt(3);
+		}
+		else if (xDir == 1 && yDir == 0 && zDir == 1) {
+			randBlockCoord[0] = x - rand.nextInt(3); randBlockCoord[1] = y + rand.nextInt(3); randBlockCoord[2] = z - rand.nextInt(3);
+		}
+		else if (xDir == 1 && yDir == 1 && zDir == 0) {
+			randBlockCoord[0] = x - rand.nextInt(3); randBlockCoord[1] = y - rand.nextInt(3); randBlockCoord[2] = z + rand.nextInt(3);
+		}
+		else if (xDir == 0 && yDir == 1 && zDir == 1) {
+			randBlockCoord[0] = x + rand.nextInt(3); randBlockCoord[1] = y - rand.nextInt(3); randBlockCoord[2] = z - rand.nextInt(3);
+		}
+		else if (xDir == 1 && yDir == 1 && zDir == 1) {
+			randBlockCoord[0] = x - rand.nextInt(3); randBlockCoord[1] = y - rand.nextInt(3); randBlockCoord[2] = z - rand.nextInt(3);
+		}
+
+		test:
+		for (int xx = 0; xx < 3; xx++) {
+			for (int yy = 0; yy < 3; yy++) {
+				for (int zz = 0; zz < 3; zz++) {
+
+					int testX = randBlockCoord[0] + xx;
+					int testY = randBlockCoord[1] + yy;
+					int testZ = randBlockCoord[2] + zz;
+
+					if (world.getBlock(testX, testY, testZ).isAir(world, testX, testY, testZ) && 
+							world.getBlock(testX, testY - 1, testZ).isAir(world, testX, testY - 1, testZ) &&
+							world.getBlock(testX, testY + 1, testZ).isAssociatedBlock(Blocks.stone)) {
+						
+						metadata = 0;
+						world.setBlock(testX, testY, testZ, CoreBlocks.tapaziteStalactite);
+						world.setBlockMetadataWithNotify(testX, testY, testZ, metadata, 2);
+						CrazyOresLogger.write(Level.INFO, "Omg I randomly spawned! at coords: x: " + x + ", y: " + y + ", z: " + z);
+						break test;
+					}
+					if (world.getBlock(testX, testY, testZ).isAir(world, testX, testY, testZ) &&
+							world.getBlock(testX, testY + 1, testZ).isAir(world, testX, testY + 1, testZ) &&
+							world.getBlock(testX, testY - 1, testZ).isAssociatedBlock(Blocks.stone)) {
+
+						metadata = 0;
+						world.setBlock(testX, testY, testZ, CoreBlocks.tapaziteStalagmite);
+						world.setBlockMetadataWithNotify(testX, testY, testZ, metadata, 2);
+						CrazyOresLogger.write(Level.INFO, "Omg I randomly spawned! at coords: x: " + x + ", y: " + y + ", z: " + z);
+						break test;
+					}
+				}
+			}
+		}
+	}
+	
+	public void growCrystal(World world, int x, int y, int z, int metadata) {
+		CrazyOresLogger.write(Level.INFO, "I'm growing! Tapazite Crystal grew at coords: x: " + x + ", y: " + y + ", z: " + z);
+        metadata++;
+        world.setBlockMetadataWithNotify(x, y, z, metadata, 2);
 	}
 	
 	@Override
@@ -107,25 +194,74 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 	
 	protected abstract float growMultiplier(World world, int x, int y, int z);
 	
-	public Item getItemDropped() {
-//		return CoreItems.crystalObelisk;
+	public Item obeliskDrop() {
+//		return CoreItems.tapaziteObelisk;
 		return Items.apple;
 	}
-
-	@Override
-    public Item getItemDropped(int metadata, Random rand, int fortune) {
-		return this.getItemDropped();
-    }
 	
+	public Item tapaziteDust() {
+//		return CoreItems.tapaziteDust;
+		return Items.baked_potato;
+	}
+
+//	@Override
+//    public Item getItemDropped(int metadata, Random rand, int fortune) {
+//		return metadata < 2 ? this.tapaziteDust() : this.obeliskDrop();
+//    }
+//	
 	@Override
     public int quantityDropped(int metadata, int fortune, Random rand) {
-		return metadata < 3 ? 3 : metadata < 6 ? 4 : metadata < 9 ? 5 : metadata < 12 ? 6 : metadata < 15 ? 7 : 8;
+		return metadata < 2 ? rand.nextInt(3) + 1 : metadata < 7 ? rand.nextInt(4) + 1 : rand.nextInt(5) + 1;
     }
 	
 	@Override
 	@SideOnly(Side.CLIENT)
     public Item getItem(World world, int x, int y, int z) {
-		return this.getItemDropped();
+		return this.tapaziteDust();
+    }
+	
+	@Override
+	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int p_149690_5_, float p_149690_6_, int p_149690_7_) {
+        
+		if (!world.isRemote) {
+            ArrayList<ItemStack> items = this.getDrops(world, x, y, z, p_149690_5_, p_149690_7_);
+            p_149690_6_ = ForgeEventFactory.fireBlockHarvesting(items, world, this, x, y, z, p_149690_5_, p_149690_7_, p_149690_6_, false, harvesters.get());
+
+            for (ItemStack item : items) {
+                if (world.rand.nextFloat() <= p_149690_6_) {
+                    this.dropBlockAsItem(world, x, y, z, item);
+                }
+            }
+        }
+    }
+	
+	@Override
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        Random rand = new Random();
+        
+        if (metadata < 2) {
+            
+        	for (int i = 0; i < this.quantityDropped(metadata, fortune, rand); i++) {
+        		ret.add(new ItemStack(this.tapaziteDust(), 1, 0));
+        	}
+        }
+        else if (metadata < 7) {
+        	for (int i = 0; i < this.quantityDropped(metadata, fortune, rand); i++) {
+        		
+        		int r = rand.nextInt(2);
+        		if (r == 0)
+        			ret.add(new ItemStack(this.tapaziteDust(), 1, 0));
+        		else
+        			ret.add(new ItemStack(this.obeliskDrop(), 1, 0));
+        	}
+        }
+        else {
+        	for (int i = 0; i < this.quantityDropped(metadata, fortune, rand); i++) {
+        		ret.add(new ItemStack(this.obeliskDrop(), 1, 0));
+        	}
+        }
+        return ret;
     }
 	
 	@Override
@@ -141,9 +277,6 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 	@Override
     @SideOnly(Side.CLIENT)
     public abstract void getSubBlocks(Item item, CreativeTabs creativeTabs, List list);
-	
-	@Override
-    public abstract ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune);
 	
 	@Override
 	public boolean isOpaqueCube() {
@@ -196,10 +329,10 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 		return this.blockIcon;
 	}
 	
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_) {
-        return super.getSelectedBoundingBoxFromPool(p_149668_1_, p_149668_2_, p_149668_3_, p_149668_4_);
-    }
+//	@Override
+//	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+//        return super.getSelectedBoundingBoxFromPool(world, x, y, z);
+//    }
 
     /**
      * Called whenever the block is added into the world. Args: world, x, y, z

@@ -12,17 +12,20 @@ import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.manager.util.CrazyOresLogger;
 import net.minecraft.block.Block;
 import net.minecraft.block.Block.SoundType;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockTapaziteStalactite extends BlockTapaziteCrystal {
 	
 	public BlockTapaziteStalactite(String blockReadableName, String unlocalizedName, SoundType soundType, float hardness, float resistance) {
 		super(blockReadableName, unlocalizedName, soundType, hardness, resistance);
-		this.setBlockBounds(0.2F, 0.7F, 0.2F, 0.8F, 1.0F, 0.8F);
+		this.setBlockBounds(0.03F, 0.8F, 0.03F, 0.97F, 1.0F, 0.97F);
+		this.setLightLevel(0.3F);
 	}
 	
 	@Override
@@ -32,76 +35,43 @@ public class BlockTapaziteStalactite extends BlockTapaziteCrystal {
 	
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		return world.getBlock(x, y + 1, z).isAssociatedBlock(Blocks.stone) &&
-				world.getBlock(x, y - 1, z).isAir(world, x, y - 1, z);
-    }
+		return world.getBlock(x, y + 1, z).isAssociatedBlock(Blocks.stone) && world.getBlock(x, y, z).isAir(world, x, y, z);
+	}
 	
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 
-		CrazyOresLogger.write(Level.INFO, "BLOCK LIGHT LEVEL: " + world.getBlockLightValue(x, y - 1, z));
-        if (world.getBlockLightValue(x, y - 1, z) <= 5) {
-        	
-            int metadata = world.getBlockMetadata(x, y, z);
+		CrazyOresLogger.write(Level.INFO, "BLOCK LIGHT LEVEL: " + world.getBlockLightValue(x, y + 1, z));
+		if (super.correctLightingForGrowth(world, x, y, z)) {
 
-            if (metadata < ItemBlockTapaziteStalactite.maxMetadata) {
-                float f = this.growMultiplier(world, x, y, z);
+			int metadata = world.getBlockMetadata(x, y, z);
 
-                if (rand.nextInt((int)(15.0F / f) + 1) == 0) {
-                	
-                	CrazyOresLogger.write(Level.INFO, "I'm growing! Tapazite Crystal grew at coords: x: " + x + ", y: " + y + ", z: " + z);
-                    metadata++;
-                    world.setBlockMetadataWithNotify(x, y, z, metadata, 2);
-                }
-                
-                if (rand.nextInt((int)(10F / f) + 1) == 0) {
-                	
-                	CrazyOresLogger.write(Level.INFO, "TRYING TO GROW: x: " + x + ", y: " + y + ", z: " + z);
-                	
-                	int xDir = rand.nextInt(2);
-                	int zDir = rand.nextInt(2);
-                	
-                	int[] randBlockCoord = new int[3];
-                	randBlockCoord[1] = y;
-                	if (xDir == 0 && zDir == 0) {
-                		randBlockCoord[0] = x + rand.nextInt(3);
-                		randBlockCoord[2] = z + rand.nextInt(3);
-                	}
-                	else if (xDir == 1 && zDir == 0) {
-                		randBlockCoord[0] = x - rand.nextInt(3);
-                		randBlockCoord[2] =	z + rand.nextInt(3);
-                	}
-                	else if (xDir == 0 && zDir == 1) {
-                		randBlockCoord[0] =	x + rand.nextInt(3);
-                		randBlockCoord[2] =	z - rand.nextInt(3);
-            		}
-                	else if (xDir == 1 && zDir == 1) {
-                		randBlockCoord[0] = x - rand.nextInt(3);
-                		randBlockCoord[2] = z - rand.nextInt(3);
-            		}
-                	
-                	test:
-                	for (int xx = 0; xx < 3; xx++) {
-                		for (int zz = 0; zz < 3; zz++) {
-                		
-                			int testX = randBlockCoord[0] + xx;
-                			int testZ = randBlockCoord[2] + zz;
+			if (metadata < ItemBlockTapaziteStalagmite.maxMetadata) {
+				float f = this.growMultiplier(world, x, y, z);
 
-                			if (world.getBlock(testX, randBlockCoord[1], testZ).isAir(world, testX, randBlockCoord[1], testZ) &&
-                					world.getBlock(testX, randBlockCoord[1] + 1, testZ).isAssociatedBlock(Blocks.stone)) {
+				if (rand.nextInt((int)(20.0F / f) + 1) == 0) {
 
-                				metadata = rand.nextInt(5);
-                				world.setBlock(testX, randBlockCoord[1], testZ, this);
-                				world.setBlockMetadataWithNotify(testX, randBlockCoord[1], testZ, metadata, 2);
-                				CrazyOresLogger.write(Level.INFO, "Omg I randomly spawned! at coords: x: " + x + ", y: " + y + ", z: " + z);
-                				break test;
-                			}
-                		}
-                	}
-                }
-            }
-        }
-    }
+					if (metadata < 4) {
+						super.growCrystal(world, x, y, z, metadata);
+					}
+					else if (metadata < 5 && world.getBlock(x, y - 1, z).isAir(world, x, y - 1, z)) {
+						super.growCrystal(world, x, y, z, metadata);
+					}
+					else if (metadata == 5 && world.getBlock(x, y - 1, z).isAir(world, x, y - 1, z) &&
+							world.getBlock(x + 1, y, z).isAir(world, x + 1, y, z) && world.getBlock(x - 1, y, z).isAir(world, x - 1, y, z) &&
+							world.getBlock(x, y, z + 1).isAir(world, x, y, z + 1) && world.getBlock(x, y, z - 1).isAir(world, x, y, z - 1) &&
+							world.getBlock(x + 1, y, z + 1).isAir(world, x + 1, y, z + 1) && world.getBlock(x + 1, y, z - 1).isAir(world, x + 1, y, z - 1) &&
+							world.getBlock(x - 1, y, z + 1).isAir(world, x - 1, y, z + 1) && world.getBlock(x - 1, y, z - 1).isAir(world, x - 1, y, z - 1)) {
+						super.growCrystal(world, x, y, z, metadata);
+					}
+				}
+
+				if (rand.nextInt((int)(30F / f) + 1) == 0) {
+					super.spawnRandomCrystal(world, x, y, z, rand, metadata);
+				}
+			}
+		}
+	}
 	
 	@Override
 	protected float growMultiplier(World world, int x, int y, int z) {
@@ -153,7 +123,6 @@ public class BlockTapaziteStalactite extends BlockTapaziteCrystal {
             f /= 2.0F;
         }
 
-        
         CrazyOresLogger.write(Level.INFO, "THIS IS THE F VARIABLE: " + f);
         return f;
     }
@@ -165,29 +134,4 @@ public class BlockTapaziteStalactite extends BlockTapaziteCrystal {
 			list.add(new ItemStack(item, 1, metadata));
 		}
 	}
-	
-	@Override
-    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-		
-		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-
-        int count = quantityDropped(metadata, fortune, world.rand);
-        for(int i = 0; i < count; i++) {
-            Item item = getItemDropped(metadata, world.rand, fortune);
-            if (item != null) {
-                ret.add(new ItemStack(item, 1, damageDropped(metadata)));
-            }
-        }
-        
-        if (metadata >= ItemBlockTapaziteStalactite.maxMetadata) {
-            
-        	for (int i = 0; i < 3 + fortune; i++) {
-        		
-                if (world.rand.nextInt(15) <= metadata) {
-                    ret.add(new ItemStack(this.getItemDropped(), 1, 0));
-                }
-            }
-        }
-        return ret;
-    }
 }
