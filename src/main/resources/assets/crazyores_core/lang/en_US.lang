@@ -1,54 +1,6 @@
 # CRAZYORES CORE ENGLISH LANGUAGE LOCALIZATION FILE (Last update - V2.0.0)
 
 # BLOCK LOCALIZATION
-fools_ruby_ore.name=Fool's Ruby Ore
-meteorite_ore.name=Meteorite Ore
-copper_ore.name=Copper Ore
-experium_ore.name=Experium Ore
-sapphire_ore.name=Sapphire Ore
-adamite_ore.name=Adamite Ore
-invisium_ore.name=Invisium Ore
-ruby_ore.name=Ruby Ore
-darkstone.name=Darkstone
-zectium_ore.name=Zectium Ore
-luminite_ore.name=Luminite Ore
-tapazite_ore.name=Tapazite Ore
-demonite_ore.name=Demonite Ore
-osmonium_ore.name=Osmonium Ore
-starconium_ore.name=Starconium Ore
-ender_ore.name=Ender Ore
-ultra_ore.name=Ultra Ore
-
-fools_ruby_storage_block.name=Fool's Ruby Storage Block
-meteorite_storage_block.name=Meteorite Storage Block
-copper_storage_block.name=Copper Storage Block
-experium_storage_block.name=Experium Storage Block
-sapphire_storage_block.name=Sapphire Storage Block
-adamite_storage_block.name=Adamite Storage Block
-invisium_storage_block.name=Invisium Storage Block
-ruby_storage_block.name=Ruby Storage Block
-darkstone_storage_block.name=Darkstone Storage Block
-zectium_storage_block.name=Zectium Storage Block
-luminite_storage_block_white.name=White Luminite Storage Block
-luminite_storage_block_red.name=Red Luminite Storage Block
-luminite_storage_block_orange.name=Orange Luminite Storage Block
-luminite_storage_block_yellow.name=Yellow Luminite Storage Block
-luminite_storage_block_green.name=Green Luminite Storage Block
-luminite_storage_block_purple.name=Purple Luminite Storage Block
-luminite_storage_block_blue.name=Blue Luminite Storage Block
-luminite_storage_block_black.name=Black Luminite Storage Block
-tapazite_storage_block.name=Tapazite Storage Block
-demonite_storage_block.name=Demonite Storage Block
-osmonium_storage_block.name=Osmonium Storage Block
-starconium_storage_block.name=Starconium Storage Block
-ender_storage_block.name=Ender Storage Block
-ultra_storage_block.name=Ultra Storage Block
-
-test_portal.name=Test Portal Block
-arrevia_grass.name=Golden Arrevia
-
-crazyhills_dirt.name=Dirt
-crazyhills_stone.name=Stone
 
 # ITEM LOCALIZATION
 tapazite_stalagmite_0.name=Tapazite Stalagmite Phase 1
@@ -68,6 +20,7 @@ tapazite_stalactite_5.name=Tapazite Stalactite Phase 6
 tapazite_stalactite_6.name=Tapazite Stalactite Phase 7
 
 tapazite_obelisk.name=Tapazite Obelisk
+tapazite_dust.name=Tapazite Dust
 
 # TAB LOCALIZATION
 itemGroup.overworldBlocks=CO Overworld Blocks

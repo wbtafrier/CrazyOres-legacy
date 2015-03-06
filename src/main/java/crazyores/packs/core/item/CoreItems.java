@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 public class CoreItems {
 
 	public static Item tapaziteObelisk;
+	public static Item tapaziteDust;
 	
 	public static void initItems() {
 		initOverworldItems();
@@ -14,6 +15,7 @@ public class CoreItems {
 	
 	public static void initOverworldItems() {
 		tapaziteObelisk = new ItemTapaziteObelisk("Tapazite Obelisk", "tapazite_obelisk", COTabList.defaultItemsTab); registerItem(tapaziteObelisk);
+		tapaziteDust = new CoreItem("Tapazite Dust", "tapazite_dust", COTabList.defaultItemsTab); registerItem(tapaziteDust);
 	}
 	
 	private static void registerItem(Item item) {

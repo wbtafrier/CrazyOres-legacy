@@ -34,6 +34,7 @@ import crazyores.manager.support.IName;
 import crazyores.manager.tabs.COTabList;
 import crazyores.manager.util.CrazyOresLogger;
 import crazyores.packs.core.entity.tileentity.TileEntityTapaziteCrystal;
+import crazyores.packs.core.item.CoreItems;
 
 public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEntityProvider, IBlock, IName {
 
@@ -192,13 +193,11 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 	protected abstract float growMultiplier(World world, int x, int y, int z);
 
 	public Item tapaziteObelisk() {
-		//		return CoreItems.tapaziteObelisk;
-		return Items.apple;
+		return CoreItems.tapaziteObelisk;
 	}
 
 	public Item tapaziteDust() {
-		//		return CoreItems.tapaziteDust;
-		return Items.baked_potato;
+		return CoreItems.tapaziteDust;
 	}
 
 	@Override
