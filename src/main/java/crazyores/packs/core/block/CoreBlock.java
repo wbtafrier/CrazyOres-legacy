@@ -35,7 +35,6 @@ public class CoreBlock extends Block implements IBlock, IName {
         super.setResistance(resistance);
 	}
 	
-	
 	/**
 	 * Constructor for the CoreBlock class.
 	 * @param blockReadableName

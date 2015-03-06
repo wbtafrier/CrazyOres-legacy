@@ -7,7 +7,6 @@ import crazyores.manager.tabs.COTabList;
 
 public class CoreTabs {
 
-	
 	//Core Tab Names
 	public static final String dreamStateTerrain = "dreamstateTerrain";
 	public static final String dreamStateItems = "dreamstateItems";

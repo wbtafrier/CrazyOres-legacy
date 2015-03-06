@@ -58,7 +58,7 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 		super.setResistance(resistance);
 	}
 
-	public boolean correctLightingForGrowth(World world, int x, int y, int z) {
+	public static boolean correctLightingForGrowth(World world, int x, int y, int z) {
 
 		if (world.getBlockLightValue(x, y + 1, z) <= 8 && world.getBlockLightValue(x, y - 1, z) <= 8 && world.getBlockLightValue(x + 1, y, z) <= 8 &&
 				world.getBlockLightValue(x - 1, y, z) <= 8 && world.getBlockLightValue(x, y, z + 1) <= 8 &&
@@ -180,11 +180,11 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 	public abstract boolean canBlockStay(World world, int x, int y, int z);
 
 	//Will be used to spawn particles
-//	@Override
-//	@SideOnly(Side.CLIENT)
-//	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-//		
-//	}
+	//	@Override
+	//	@SideOnly(Side.CLIENT)
+	//	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
+	//		
+	//	}
 
 	@Override
 	public abstract void updateTick(World world, int x, int y, int z, Random rand);
@@ -204,7 +204,7 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Item getItem(World world, int x, int y, int z) {
-		return this.tapaziteDust();
+		return Item.getItemFromBlock(this);
 	}
 
 	public void dropObelisks(World world, int x, int y, int z, int p_149690_5_, float p_149690_6_, int p_149690_7_) {
@@ -358,7 +358,7 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.blockIcon = iconRegister.registerIcon(String.format("%s%s%s", COPackManager.corePack.getPackID(), ":", this.textureName));
 	}
-	
+
 	@Override
 	public IIcon getIcon(int side, int metadata) {
 		return this.blockIcon;
@@ -366,27 +366,27 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 
 	//	@Override
 	//	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		//        return super.getSelectedBoundingBoxFromPool(world, x, y, z);
-		//    }
+	//        return super.getSelectedBoundingBoxFromPool(world, x, y, z);
+	//    }
 
 	/**
 	 * Called whenever the block is added into the world. Args: world, x, y, z
 	 */
-	 @Override
-	 public void onBlockAdded(World p_149726_1_, int p_149726_2_, int p_149726_3_, int p_149726_4_) {
-		 super.onBlockAdded(p_149726_1_, p_149726_2_, p_149726_3_, p_149726_4_);
-	 }
+	@Override
+	public void onBlockAdded(World p_149726_1_, int p_149726_2_, int p_149726_3_, int p_149726_4_) {
+		super.onBlockAdded(p_149726_1_, p_149726_2_, p_149726_3_, p_149726_4_);
+	}
 
-	 @Override
-	 public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {
-		 super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);
-		 p_149749_1_.removeTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);
-	 }
+	@Override
+	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {
+		super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);
+		p_149749_1_.removeTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);
+	}
 
-	 @Override
-	 public boolean onBlockEventReceived(World p_149696_1_, int p_149696_2_, int p_149696_3_, int p_149696_4_, int p_149696_5_, int p_149696_6_) {
-		 super.onBlockEventReceived(p_149696_1_, p_149696_2_, p_149696_3_, p_149696_4_, p_149696_5_, p_149696_6_);
-		 TileEntity tileentity = p_149696_1_.getTileEntity(p_149696_2_, p_149696_3_, p_149696_4_);
-		 return tileentity != null ? tileentity.receiveClientEvent(p_149696_5_, p_149696_6_) : false;
-	 }
+	@Override
+	public boolean onBlockEventReceived(World p_149696_1_, int p_149696_2_, int p_149696_3_, int p_149696_4_, int p_149696_5_, int p_149696_6_) {
+		super.onBlockEventReceived(p_149696_1_, p_149696_2_, p_149696_3_, p_149696_4_, p_149696_5_, p_149696_6_);
+		TileEntity tileentity = p_149696_1_.getTileEntity(p_149696_2_, p_149696_3_, p_149696_4_);
+		return tileentity != null ? tileentity.receiveClientEvent(p_149696_5_, p_149696_6_) : false;
+	}
 }
