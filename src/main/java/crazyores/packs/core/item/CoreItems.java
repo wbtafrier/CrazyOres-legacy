@@ -1,8 +1,9 @@
 package crazyores.packs.core.item;
 
+import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
 import cpw.mods.fml.common.registry.GameRegistry;
 import crazyores.manager.tabs.COTabList;
-import net.minecraft.item.Item;
 
 public class CoreItems {
 

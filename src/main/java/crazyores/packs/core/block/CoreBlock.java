@@ -24,15 +24,28 @@ public class CoreBlock extends Block implements IBlock, IName {
 	 * @param hardness
 	 * @param resistance
 	 */
-	protected CoreBlock(String blockReadableName, String unlocalizedName, Material blockMaterial, Block.SoundType soundType, float hardness, float resistance) {
+	protected CoreBlock(String blockReadableName, String unlocalizedName, Material blockMaterial, float hardness, float resistance) {
 		super(blockMaterial);
 		
 		this.blockName = blockReadableName;
 		this.blockUnlocalizedName = unlocalizedName;
 		super.setBlockName(blockName);
-        super.setStepSound(soundType);
         super.setHardness(hardness);
         super.setResistance(resistance);
+	}
+	
+	/**
+	 * Constructor for the CoreBlock class.
+	 * @param blockReadableName
+	 * @param blockUnlocalizedName
+	 * @param blockMaterial
+	 * @param soundType
+	 * @param hardness
+	 * @param resistance
+	 */
+	protected CoreBlock(String blockReadableName, String unlocalizedName, Material blockMaterial, Block.SoundType soundType, float hardness, float resistance) {
+		this(blockReadableName, unlocalizedName, blockMaterial, hardness, resistance);
+        super.setStepSound(soundType);
 	}
 	
 	/**

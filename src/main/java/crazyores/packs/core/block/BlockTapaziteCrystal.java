@@ -40,7 +40,7 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 
 	public final String blockName;
 	public final String blockUnlocalizedName;
-	public final String textureName = "tapazite_crystal";
+	public final String textureName = "tapazite_crystal_placer";
 
 	protected BlockTapaziteCrystal(String blockReadableName, String unlocalizedName, SoundType soundType, float hardness, float resistance) {
 		super(Material.glass);
@@ -141,11 +141,6 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 		CrazyOresLogger.write(Level.INFO, "I'm growing! Tapazite Crystal grew at coords: x: " + x + ", y: " + y + ", z: " + z);
 		metadata++;
 		world.setBlockMetadataWithNotify(x, y, z, metadata, 2);
-	}
-
-	@Override
-	public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int metadata) {
-		return false;
 	}
 
 	@Override
