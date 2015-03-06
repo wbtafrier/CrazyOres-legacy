@@ -7,8 +7,8 @@ import crazyores.manager.pack.COPackManager;
 
 public class CoreResourceLoader {
 	
-	private static String s = File.separator;
+	private static String sep = File.separator;
 	
 	public static final ResourceLocation tapaziteCrystalImage = 
-		(new ResourceLocation(COPackManager.corePack.getPackID() + ":textures" + s + "models" + s + "tapazite_crystal_model.png"));
+		(new ResourceLocation(COPackManager.corePack.getPackID() + ":textures" + sep + "models" + sep + "tapazite_crystal_model.png"));
 }

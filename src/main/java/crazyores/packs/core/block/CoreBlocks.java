@@ -12,8 +12,8 @@ import crazyores.packs.core.tabs.CoreTabs;
 
 public class CoreBlocks {
 
-	//DreamState Blocks
-	public static Block foolsRubyStorage;
+	public static Block lightSource;
+	
 	public static Block tapaziteStalagmite;
 	public static Block tapaziteStalactite;
 	
@@ -30,7 +30,7 @@ public class CoreBlocks {
 	private static void initDreamStateBlocks() {
 		
 		//Steep Hills
-		foolsRubyStorage = new CoreBlock("Fool's Ruby Storage Block", "fools_ruby_storage_block", Material.iron, COTabList.dreamStateTerrainTab, Block.soundTypeStone, 1.2F, 3.0F); registerBlock(foolsRubyStorage);
+		lightSource = new BlockLightSource("Light Source", "light_source", Material.air, 1.2F, 3.0F); registerBlock(lightSource);
 	}
 	
 	/**
