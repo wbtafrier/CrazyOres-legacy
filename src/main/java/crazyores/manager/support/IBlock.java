@@ -9,8 +9,6 @@ public interface IBlock {
 	
 	Material getBlockMaterial();
 	
-	String getUnlocalizedName();
-	
 	IIcon getIcon(int side, int metadata);
 	
 	void registerBlockIcons(IIconRegister iconRegister);

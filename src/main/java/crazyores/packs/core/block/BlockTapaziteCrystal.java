@@ -350,11 +350,6 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 	}
 
 	@Override
-	public String parsePrefix(String unlocalizedName, char lastPrefixChar) {
-		return unlocalizedName.substring(unlocalizedName.indexOf(lastPrefixChar) + 1);
-	}
-
-	@Override
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.blockIcon = iconRegister.registerIcon(String.format("%s%s%s", COPackManager.corePack.getPackID(), ":", this.textureName));
 	}
