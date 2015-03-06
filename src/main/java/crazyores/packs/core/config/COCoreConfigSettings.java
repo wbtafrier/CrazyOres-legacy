@@ -14,9 +14,8 @@ public class COCoreConfigSettings {
 //	public static boolean generateRuby = true;
 //	public static boolean generateSapphire = true;
 //	public static boolean generateStarconium = true;
+//	public static boolean generateZectium = true;
 	
 	public static boolean generateTapaziteStalagmite = true;
 	public static boolean generateTapaziteStalactite = true;
-	
-//	public static boolean generateZectium = true;
 }

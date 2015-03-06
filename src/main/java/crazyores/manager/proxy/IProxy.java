@@ -24,5 +24,4 @@ public interface IProxy {
 	 * @return instance of a File containing the path of the main Minecraft directory
 	 */
 	public abstract File getMinecraftDir();
-	
 }

@@ -8,7 +8,6 @@ public class CrazyOresData {
 	public static final String clientProxy = "crazyores.manager.proxy.ClientProxy";
 	public static final String serverProxy = "crazyores.manager.proxy.ServerProxy";
 	
-	
 	/** Should only be used when first creating a new pack for the Mod annotation. **/
 	
 	//Pack Names

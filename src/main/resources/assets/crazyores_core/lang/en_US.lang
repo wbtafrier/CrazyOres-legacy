@@ -47,8 +47,6 @@ ultra_storage_block.name=Ultra Storage Block
 test_portal.name=Test Portal Block
 arrevia_grass.name=Golden Arrevia
 
-tapazite_crystal=Tapazite Crystal
-
 crazyhills_dirt.name=Dirt
 crazyhills_stone.name=Stone
 
@@ -69,7 +67,7 @@ tapazite_stalactite_4.name=Tapazite Stalactite Phase 5
 tapazite_stalactite_5.name=Tapazite Stalactite Phase 6
 tapazite_stalactite_6.name=Tapazite Stalactite Phase 7
 
-tapaziteObelisk.name=Tapazite Obelisk
+tapazite_obelisk.name=Tapazite Obelisk
 
 # TAB LOCALIZATION
 itemGroup.overworldBlocks=CO Overworld Blocks

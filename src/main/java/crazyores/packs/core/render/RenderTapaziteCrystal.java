@@ -64,8 +64,6 @@ public class RenderTapaziteCrystal extends TileEntitySpecialRenderer {
 		//This rotation part is very important! Without it, your model will render upside-down! And for some reason you DO need PushMatrix again!                       
 		GL11.glPushMatrix();
 		
-		
-		
 		if (Minecraft.getMinecraft().theWorld.getBlock(entity.xCoord, entity.yCoord, entity.zCoord).isAssociatedBlock(CoreBlocks.tapaziteStalagmite)) {
 			GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
 			

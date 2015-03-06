@@ -25,25 +25,10 @@ public class COCoreConfigLoader extends COConfigManager {
 			config.load();
 			
 			config.addCustomCategoryComment(LOAD_ORE_GEN_CATEGORY, "true: Will generate the ore. | false: Will not generate the ore.");
+			
 			/** Ore generation config **/
-//			COCoreConfigSettings.generateAdamite;
-//			COCoreConfigSettings.generateCopper = config.get(LOAD_ORE_GEN_CATEGORY, StatCollector.translateToLocal("config.node.generateCopper"), true).getBoolean(true);
-			
 			COCoreConfigSettings.generateTapaziteStalagmite = config.get(LOAD_ORE_GEN_CATEGORY, StatCollector.translateToLocal("config.node.generateTapaziteStalagmite"), true).getBoolean(true);
-			COCoreConfigSettings.generateTapaziteStalactite = config.get(LOAD_ORE_GEN_CATEGORY, StatCollector.translateToLocal("config.node.generateTapaziteStalactite"), true).getBoolean(true);
-			
-//			COCoreConfigSettings.generateExperium;
-//			COCoreConfigSettings.generateFoolsRuby;
-//			COCoreConfigSettings.generateInvisium;
-//			COCoreConfigSettings.generateLuminite;
-//			COCoreConfigSettings.generateMeteorite;
-//			COCoreConfigSettings.generateOres;
-//			COCoreConfigSettings.generateOsmonium;
-//			COCoreConfigSettings.generateRuby;
-//			COCoreConfigSettings.generateSapphire;
-//			COCoreConfigSettings.generateStarconium;
-//			COCoreConfigSettings.generateTapazite;
-//			COCoreConfigSettings.generateZectium;
+			COCoreConfigSettings.generateTapaziteStalactite = config.get(LOAD_ORE_GEN_CATEGORY, StatCollector.translateToLocal("config.node.generateTapaziteStalactite"), true).getBoolean(true);			
 			
 			CrazyOresLogger.write(null, Level.INFO, "CrazyOres Core config file loaded successfully.");
 		} 
@@ -56,5 +41,4 @@ public class COCoreConfigLoader extends COConfigManager {
 			}
 		}
 	}
-	
 }

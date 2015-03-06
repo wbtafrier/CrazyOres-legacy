@@ -359,11 +359,6 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 		return this.blockIcon;
 	}
 
-	//	@Override
-	//	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-	//        return super.getSelectedBoundingBoxFromPool(world, x, y, z);
-	//    }
-
 	/**
 	 * Called whenever the block is added into the world. Args: world, x, y, z
 	 */
