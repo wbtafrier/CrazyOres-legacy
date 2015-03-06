@@ -27,7 +27,11 @@ public class COCoreConfigLoader extends COConfigManager {
 			config.addCustomCategoryComment(LOAD_ORE_GEN_CATEGORY, "true: Will generate the ore. | false: Will not generate the ore.");
 			/** Ore generation config **/
 //			COCoreConfigSettings.generateAdamite;
-			COCoreConfigSettings.generateCopper = config.get(LOAD_ORE_GEN_CATEGORY, StatCollector.translateToLocal("config.node.generateCopper"), true).getBoolean(true);
+//			COCoreConfigSettings.generateCopper = config.get(LOAD_ORE_GEN_CATEGORY, StatCollector.translateToLocal("config.node.generateCopper"), true).getBoolean(true);
+			
+			COCoreConfigSettings.generateTapaziteStalagmite = config.get(LOAD_ORE_GEN_CATEGORY, StatCollector.translateToLocal("config.node.generateTapaziteStalagmite"), true).getBoolean(true);
+			COCoreConfigSettings.generateTapaziteStalactite = config.get(LOAD_ORE_GEN_CATEGORY, StatCollector.translateToLocal("config.node.generateTapaziteStalactite"), true).getBoolean(true);
+			
 //			COCoreConfigSettings.generateExperium;
 //			COCoreConfigSettings.generateFoolsRuby;
 //			COCoreConfigSettings.generateInvisium;

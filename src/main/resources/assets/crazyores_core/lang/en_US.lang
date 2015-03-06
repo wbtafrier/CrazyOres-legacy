@@ -53,36 +53,21 @@ crazyhills_dirt.name=Dirt
 crazyhills_stone.name=Stone
 
 # ITEM LOCALIZATION
-item.fools_ruby_mush.name=Fool's Ruby Mush
-item.fools_ruby_gem.name=Fool's Ruby Gem
-item.meteorite_coal.name=Meteorite Coal
-item.meteorite_gem.name=Meteorite Gem
-item.copper_ingot.name=Copper Ingot
-item.experium_orb.name=Experium Orb
-item.sapphire_gem.name=Sapphire Gem
-item.adamite_shard.name=Adamite Shard
-item.invisium_ingot.name=Invisium Ingot
-item.ruby_gem.name=Ruby Gem
-item.darkstone_ingot.name=Darkstone Ingot
-item.zectium_ingot.name=Zectium Ingot
-item.luminite_crystal_white.name=White Luminite Crystal
-item.luminite_crystal_red.name=Red Luminite Crystal
-item.luminite_crystal_orange.name=Orange Luminite Crystal
-item.luminite_crystal_yellow.name=Yellow Luminite Crystal
-item.luminite_crystal_green.name=Green Luminite Crystal
-item.luminite_crystal_blue.name=Blue Luminite Crystal
-item.luminite_crystal_purple.name=Purple Luminite Crystal
-item.luminite_crystal_black.name=Black Luminite Crystal
-item.tapazite_gem.name=Tapazite Gem
-item.demonite_orb.name=Demonite Orb
-item.crystal_shard.name=Crystal Shard
-item.osmonium_ingot.name=Osmonium Ingot
-item.starconium_gem.name=Starconium Gem
-item.ender_gem.name=Ender Gem
-item.ultra_gem.name=Ultra Gem
+tapazite_stalagmite_0.name=Tapazite Stalagmite Phase 1
+tapazite_stalagmite_1.name=Tapazite Stalagmite Phase 2
+tapazite_stalagmite_2.name=Tapazite Stalagmite Phase 3
+tapazite_stalagmite_3.name=Tapazite Stalagmite Phase 4
+tapazite_stalagmite_4.name=Tapazite Stalagmite Phase 5
+tapazite_stalagmite_5.name=Tapazite Stalagmite Phase 6
+tapazite_stalagmite_6.name=Tapazite Stalagmite Phase 7
 
-item.fools_ruby_mush.name=Fool's Ruby Mush
-item.starconium_shard.name=Starconium Shard
+tapazite_stalactite_0.name=Tapazite Stalactite Phase 1
+tapazite_stalactite_1.name=Tapazite Stalactite Phase 2
+tapazite_stalactite_2.name=Tapazite Stalactite Phase 3
+tapazite_stalactite_3.name=Tapazite Stalactite Phase 4
+tapazite_stalactite_4.name=Tapazite Stalactite Phase 5
+tapazite_stalactite_5.name=Tapazite Stalactite Phase 6
+tapazite_stalactite_6.name=Tapazite Stalactite Phase 7
 
 # TAB LOCALIZATION
 itemGroup.overworldBlocks=CO Overworld Blocks
@@ -103,7 +88,12 @@ config.node.generateMeteorite=Generate_Meteorite_Ore
 config.node.generateRuby=Generate_Ruby_Ore
 config.node.generateFoolsRuby=Generate_Fools_Ruby_Ore
 config.node.generateZectium=Generate_Zectium_Ore
+
 config.node.generateTapazite=Generate_Tapazite_Ore
+
+config.node.generateTapaziteStalagmite=Generate Tapazite Stalagmite
+config.node.generateTapaziteStalactite=Generate Tapazite Stalactite
+
 config.node.generateCrystal=Generate_Crystal_Ore
 config.node.generateOsmonium=Generate_Osmonium_Ore
 config.node.generateStarconium=Generate_Starconium_Ore

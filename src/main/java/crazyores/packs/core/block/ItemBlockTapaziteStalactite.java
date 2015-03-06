@@ -23,6 +23,6 @@ public class ItemBlockTapaziteStalactite extends ItemBlock {
 	
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack) {
-		return super.getUnlocalizedName() + " " + itemStack.getItemDamage();
+		return super.getUnlocalizedName() + "_" + itemStack.getItemDamage();
 	}
 }
