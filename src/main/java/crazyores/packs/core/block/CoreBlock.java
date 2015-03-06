@@ -54,11 +54,6 @@ public class CoreBlock extends Block implements IBlock, IName {
 	public String getUnlocalizedName() {
 		return blockUnlocalizedName;
 	}
-	
-	@Override
-	public String parsePrefix(String unlocalizedName, char lastPrefixChar) {
-		return unlocalizedName.substring(unlocalizedName.indexOf(lastPrefixChar) + 1);
-	}
 
 	@Override
 	public String getReadableName() {
