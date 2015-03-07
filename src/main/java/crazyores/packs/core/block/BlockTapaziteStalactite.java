@@ -22,8 +22,8 @@ import net.minecraft.world.World;
 
 public class BlockTapaziteStalactite extends BlockTapaziteCrystal {
 	
-	public BlockTapaziteStalactite(String blockReadableName, String unlocalizedName, SoundType soundType, float hardness, float resistance) {
-		super(blockReadableName, unlocalizedName, soundType, hardness, resistance);
+	public BlockTapaziteStalactite(String unlocalizedName, SoundType soundType, float hardness, float resistance) {
+		super(unlocalizedName, soundType, hardness, resistance);
 		this.setBlockBounds(0.03F, 0.8F, 0.03F, 0.97F, 1.0F, 0.97F);
 		this.setLightLevel(0.3F);
 	}

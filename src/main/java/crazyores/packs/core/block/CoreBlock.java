@@ -12,24 +12,20 @@ import crazyores.manager.support.IName;
 
 public class CoreBlock extends Block implements IBlock, IName {
 
-	public final String blockName;
 	public final String blockUnlocalizedName;
 	
 	/**
 	 * Constructor for the CoreBlock class.
-	 * @param blockReadableName
 	 * @param blockUnlocalizedName
 	 * @param blockMaterial
 	 * @param soundType
 	 * @param hardness
 	 * @param resistance
 	 */
-	protected CoreBlock(String blockReadableName, String unlocalizedName, Material blockMaterial, float hardness, float resistance) {
+	protected CoreBlock(String unlocalizedName, Material blockMaterial, float hardness, float resistance) {
 		super(blockMaterial);
 		
-		this.blockName = blockReadableName;
 		this.blockUnlocalizedName = unlocalizedName;
-		super.setBlockName(blockName);
         super.setHardness(hardness);
         super.setResistance(resistance);
 	}
@@ -43,14 +39,13 @@ public class CoreBlock extends Block implements IBlock, IName {
 	 * @param hardness
 	 * @param resistance
 	 */
-	protected CoreBlock(String blockReadableName, String unlocalizedName, Material blockMaterial, Block.SoundType soundType, float hardness, float resistance) {
-		this(blockReadableName, unlocalizedName, blockMaterial, hardness, resistance);
+	protected CoreBlock(String unlocalizedName, Material blockMaterial, Block.SoundType soundType, float hardness, float resistance) {
+		this(unlocalizedName, blockMaterial, hardness, resistance);
         super.setStepSound(soundType);
 	}
 	
 	/**
 	 * Constructor for the CoreBlock class.
-	 * @param blockReadableName
 	 * @param blockUnlocalizedName
 	 * @param blockMaterial
 	 * @param tab
@@ -58,19 +53,14 @@ public class CoreBlock extends Block implements IBlock, IName {
 	 * @param hardness
 	 * @param resistance
 	 */
-	protected CoreBlock(String blockReadableName, String unlocalizedName, Material blockMaterial, CreativeTabs tab, Block.SoundType soundType, float hardness, float resistance) {
-		this(blockReadableName, unlocalizedName, blockMaterial, soundType, hardness, resistance);
+	protected CoreBlock(String unlocalizedName, Material blockMaterial, CreativeTabs tab, Block.SoundType soundType, float hardness, float resistance) {
+		this(unlocalizedName, blockMaterial, soundType, hardness, resistance);
 		super.setCreativeTab(tab);
 	}
 	
 	@Override
 	public String getUnlocalizedName() {
 		return blockUnlocalizedName;
-	}
-
-	@Override
-	public String getReadableName() {
-		return blockName;
 	}
 
 	@Override

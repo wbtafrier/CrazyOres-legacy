@@ -20,21 +20,19 @@ public class ItemTapaziteObelisk extends CoreItem {
 	
 	/**
 	 * Constructor for the CoreItem class.
-	 * @param itemReadableName
 	 * @param unlocalizedName
 	 */
-	protected ItemTapaziteObelisk(String itemReadableName, String unlocalizedName) {
-		super(itemReadableName, unlocalizedName);
+	protected ItemTapaziteObelisk(String unlocalizedName) {
+		super(unlocalizedName);
 	}
 	
 	/**
 	 * Constructor for the CoreItem class.
-	 * @param itemReadableName
 	 * @param unlocalizedName
 	 * @param tab
 	 */
-	protected ItemTapaziteObelisk(String itemReadableName, String unlocalizedName, CreativeTabs tab) {
-		super(itemReadableName, unlocalizedName, tab);
+	protected ItemTapaziteObelisk(String unlocalizedName, CreativeTabs tab) {
+		super(unlocalizedName, tab);
 	}
 	
 	@Override
@@ -46,7 +44,7 @@ public class ItemTapaziteObelisk extends CoreItem {
 				
 				if (lightX != entity.posX || lightY != entity.posY || lightZ != entity.posZ) {
 					
-					if (world.getBlock((int)lightX, (int)lightY, (int)lightZ).isAssociatedBlock(CoreBlocks.lightSource)) {
+					if (world.getBlock((int)lightX, (int)lightY, (int)lightZ).isAssociatedBlock(CoreBlocks.tapaziteLightSource)) {
 						world.setBlock((int)lightX, (int)lightY, (int)lightZ, Blocks.air);
 					}
 					
@@ -62,7 +60,7 @@ public class ItemTapaziteObelisk extends CoreItem {
 					}
 				}
 			}
-			else if (world.getBlock((int)lightX, (int)lightY, (int)lightZ).isAssociatedBlock(CoreBlocks.lightSource)){
+			else if (world.getBlock((int)lightX, (int)lightY, (int)lightZ).isAssociatedBlock(CoreBlocks.tapaziteLightSource)){
 				world.setBlock((int)lightX, (int)lightY, (int)lightZ, Blocks.air);
 			}
 		}
@@ -75,6 +73,6 @@ public class ItemTapaziteObelisk extends CoreItem {
 	}
 	
 	public void setLightBlock(World world) {
-		world.setBlock((int)lightX, (int)lightY, (int)lightZ, CoreBlocks.lightSource);
+		world.setBlock((int)lightX, (int)lightY, (int)lightZ, CoreBlocks.tapaziteLightSource);
 	}
 }

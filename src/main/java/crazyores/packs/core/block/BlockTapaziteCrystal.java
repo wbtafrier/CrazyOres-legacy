@@ -37,11 +37,17 @@ import crazyores.packs.core.entity.tileentity.TileEntityTapaziteCrystal;
 
 public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEntityProvider, IBlock, IName {
 
-	public final String blockName;
 	public final String blockUnlocalizedName;
 	public final String textureName = "tapazite_crystal_placer";
 
-	protected BlockTapaziteCrystal(String blockReadableName, String unlocalizedName, SoundType soundType, float hardness, float resistance) {
+	/**
+	 * Constructor for BlockTapaziteCrystal
+	 * @param unlocalizedName
+	 * @param soundType
+	 * @param hardness
+	 * @param resistance
+	 */
+	protected BlockTapaziteCrystal(String unlocalizedName, SoundType soundType, float hardness, float resistance) {
 		super(Material.glass);
 
 		this.isBlockContainer = true;
@@ -49,10 +55,8 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 		this.setLightLevel(0.3F);
 		this.setLightOpacity(0);
 
-		this.blockName = blockReadableName;
 		this.blockUnlocalizedName = unlocalizedName;
 		this.setCreativeTab(COTabList.defaultBlocksTab);
-		super.setBlockName(blockName);
 		super.setStepSound(soundType);
 		super.setHardness(hardness);
 		super.setResistance(resistance);
@@ -332,11 +336,6 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 	@Override
 	public String getUnlocalizedName() {
 		return blockUnlocalizedName;
-	}
-
-	@Override
-	public String getReadableName() {
-		return blockName;
 	}
 
 	@Override

@@ -18,8 +18,8 @@ import crazyores.manager.util.CrazyOresLogger;
 
 public class BlockTapaziteStalagmite extends BlockTapaziteCrystal {
 
-	public BlockTapaziteStalagmite(String blockReadableName, String unlocalizedName, SoundType soundType, float hardness, float resistance) {
-		super(blockReadableName, unlocalizedName, soundType, hardness, resistance);
+	public BlockTapaziteStalagmite(String unlocalizedName, SoundType soundType, float hardness, float resistance) {
+		super(unlocalizedName, soundType, hardness, resistance);
 		this.setBlockBounds(0.03F, 0.0F, 0.03F, 0.97F, 0.2F, 0.97F);
 	}
 

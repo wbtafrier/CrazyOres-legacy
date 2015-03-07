@@ -7,9 +7,9 @@ import net.minecraft.world.World;
 
 public class BlockLightSource extends CoreBlock {
 
-	protected BlockLightSource(String blockReadableName, String unlocalizedName, Material blockMaterial, float hardness, float resistance) {
-		super(blockReadableName, unlocalizedName, blockMaterial, hardness, resistance);
-		super.setLightLevel(1.0F);
+	protected BlockLightSource(String unlocalizedName, Material blockMaterial, float lightLevel, float hardness, float resistance) {
+		super(unlocalizedName, blockMaterial, hardness, resistance);
+		super.setLightLevel(lightLevel);
 		super.setLightOpacity(0);
 	}
 	

@@ -12,39 +12,34 @@ import crazyores.manager.support.IName;
 
 public class CoreItem extends Item implements IName {
 
-	public final String itemName;
 	public String itemUnlocalizedName;
 	
 	/**
 	 * Constructor for the CoreItem class.
-	 * @param itemReadableName
 	 * @param unlocalizedName
 	 */
-	protected CoreItem(String itemReadableName, String unlocalizedName) {
-		this.itemName = itemReadableName;
+	protected CoreItem(String unlocalizedName) {
 		this.setUnlocalizedName(unlocalizedName);
 	}
 	
 	/**
 	 * Constructor for the CoreItem class.
-	 * @param itemReadableName
 	 * @param unlocalizedName
 	 * @param tab
 	 */
-	protected CoreItem(String itemReadableName, String unlocalizedName, CreativeTabs tab) {
-		this(itemReadableName, unlocalizedName);
+	protected CoreItem(String unlocalizedName, CreativeTabs tab) {
+		this(unlocalizedName);
 		super.setCreativeTab(tab);
 	}
 	
 	/**
 	 * Constructor for the CoreItem class.
-	 * @param itemReadableName
 	 * @param unlocalizedName
 	 * @param tab
 	 * @param maxStackSize
 	 */
-	protected CoreItem(String itemReadableName, String unlocalizedName, CreativeTabs tab, int maxStackSize) {
-		this(itemReadableName, unlocalizedName, tab);
+	protected CoreItem(String unlocalizedName, CreativeTabs tab, int maxStackSize) {
+		this(unlocalizedName, tab);
 		super.setMaxStackSize(maxStackSize);
 	}
 
@@ -63,11 +58,6 @@ public class CoreItem extends Item implements IName {
 	public String getUnlocalizedName(ItemStack itemStack) {
         return itemUnlocalizedName;
     }
-	
-	@Override
-	public String getReadableName() {
-		return itemName;
-	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)

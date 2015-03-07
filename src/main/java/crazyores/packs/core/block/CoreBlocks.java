@@ -12,7 +12,7 @@ import crazyores.packs.core.tabs.CoreTabs;
 
 public class CoreBlocks {
 
-	public static Block lightSource;
+	public static Block tapaziteLightSource;
 	
 	public static Block tapaziteStalagmite;
 	public static Block tapaziteStalactite;
@@ -23,14 +23,14 @@ public class CoreBlocks {
 	}
 	
 	public static void initOverworldBlocks() {
-		tapaziteStalagmite = new BlockTapaziteStalagmite("Tapazite Crystal", "tapazite_stalagmite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.defaultBlocksTab); registerBlock(tapaziteStalagmite, ItemBlockTapaziteStalagmite.class);
-		tapaziteStalactite = new BlockTapaziteStalactite("Tapazite Crystal", "tapazite_stalactite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.defaultBlocksTab); registerBlock(tapaziteStalactite, ItemBlockTapaziteStalactite.class);
+		tapaziteLightSource = new BlockLightSource("tapazite_light_source", Material.air, 0.35F, 1.2F, 3.0F); registerBlock(tapaziteLightSource);
+		tapaziteStalagmite = new BlockTapaziteStalagmite("tapazite_stalagmite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.defaultBlocksTab); registerBlock(tapaziteStalagmite, ItemBlockTapaziteStalagmite.class);
+		tapaziteStalactite = new BlockTapaziteStalactite("tapazite_stalactite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.defaultBlocksTab); registerBlock(tapaziteStalactite, ItemBlockTapaziteStalactite.class);
 	}
 	
 	private static void initDreamStateBlocks() {
 		
 		//Steep Hills
-		lightSource = new BlockLightSource("Light Source", "light_source", Material.air, 1.2F, 3.0F); registerBlock(lightSource);
 	}
 	
 	/**

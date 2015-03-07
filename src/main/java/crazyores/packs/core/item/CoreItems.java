@@ -14,7 +14,7 @@ public class CoreItems {
 	}
 	
 	public static void initOverworldItems() {
-		tapaziteObelisk = new ItemTapaziteObelisk("Tapazite Obelisk", "tapazite_obelisk", COTabList.defaultItemsTab); registerItem(tapaziteObelisk);
+		tapaziteObelisk = new ItemTapaziteObelisk("tapazite_obelisk", COTabList.defaultItemsTab); registerItem(tapaziteObelisk);
 	}
 	
 	private static void registerItem(Item item) {
