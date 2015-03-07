@@ -8,6 +8,7 @@ import crazyores.manager.tabs.COTabList;
 public class CoreItems {
 
 	public static Item tapaziteObelisk;
+	public static Item tapaziteDust;
 	
 	public static void initItems() {
 		initOverworldItems();
@@ -15,6 +16,7 @@ public class CoreItems {
 	
 	public static void initOverworldItems() {
 		tapaziteObelisk = new ItemTapaziteObelisk("tapazite_obelisk", COTabList.defaultItemsTab); registerItem(tapaziteObelisk);
+		tapaziteDust = new CoreItem("tapazite_dust", COTabList.defaultItemsTab); registerItem(tapaziteDust);
 	}
 	
 	private static void registerItem(Item item) {
