@@ -153,14 +153,4 @@ public class Generate implements IWorldGenerator {
 //			}
 //		}
 //	}
-	
-	private void generateMeteorite(World world, Random rand, int chunkX, int chunkZ, int x, int y, int z) {
-		
-		for (int i = 0; i < 256; i++) {
-			
-			x = chunkX + rand.nextInt(16);
-			y = rand.nextInt(21) + 40;
-			z = chunkZ + rand.nextInt(16);
-		}
-	}
 }
