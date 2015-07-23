@@ -2,13 +2,8 @@ package crazyores.packs.core.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-
-import org.apache.logging.log4j.Level;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import crazyores.manager.tabs.COTabList;
-import crazyores.manager.util.CrazyOresLogger;
-import crazyores.packs.core.tabs.CoreTabs;
 
 public class CoreBlocks {
 
@@ -16,6 +11,15 @@ public class CoreBlocks {
 	
 	public static Block tapaziteStalagmite;
 	public static Block tapaziteStalactite;
+	
+	public static Block meteoriteOre;
+	public static Block copperOre;
+	public static Block sapphireOre;
+	public static Block adamiteOre;
+	public static Block rubyOre;
+	public static Block zectiumOre;
+	public static Block osmoniumOre;
+	public static Block starconiumOre;
 	
 	public static void initBlocks() {
 		initOverworldBlocks();
@@ -26,8 +30,9 @@ public class CoreBlocks {
 		tapaziteStalagmite = new BlockTapaziteStalagmite("tapazite_stalagmite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.crazyOresBlocksTab); registerBlock(tapaziteStalagmite, ItemBlockTapaziteStalagmite.class);
 		tapaziteStalactite = new BlockTapaziteStalactite("tapazite_stalactite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.crazyOresItemsTab); registerBlock(tapaziteStalactite, ItemBlockTapaziteStalactite.class);
 		
+//		String unlocalizedName, Material blockMaterial, CreativeTabs tab, SoundType soundType, float hardness, float resistance
 		
-	
+		meteoriteOre = new BlockOre("meteorite_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(meteoriteOre);
 	}
 	
 	/**

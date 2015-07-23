@@ -41,6 +41,10 @@ public class Generate implements IWorldGenerator {
 //			CrazyOresLogger.write(Level.INFO, "GENERATING STALACTITE!");
 			generateTapazite(world, rand, chunkX, chunkZ, x, y, z, 1);
 		}
+		
+		if (COCoreConfigSettings.generateMeteoriteOre) {
+			generateMeteorite(world, rand, chunkX, chunkZ, x, y, z);
+		}
 	}
 	
 	private void generateTapazite(World world, Random rand, int chunkX, int chunkZ, int x, int y, int z, int type) {
@@ -59,6 +63,25 @@ public class Generate implements IWorldGenerator {
 				else if (type == 1 && world.getBlock(x, y, z).isAir(world, x, y, z) && world.getBlock(x, y + 1, z).isAssociatedBlock(Blocks.stone) && world.getBlock(x, y - 1, z).isAir(world, x, y - 1, z)) {
 					world.setBlock(x, y, z, CoreBlocks.tapaziteStalactite);
 					break;
+				}
+			}
+		}
+	}
+	
+	private void generateMeteorite(World world, Random rand, int chunkX, int chunkZ, int x, int y, int z) {
+		
+		for (int i = 0; i < 256; i++) {
+			for (int j = 256; j > 0; j--) {
+				
+				if (j > 40 && world.getBlock(x, j, z).equals(Blocks.air) && !world.getBlock(x, j - 1, z).equals(Blocks.air) && !world.getBlock(x, j - 2, z).equals(Blocks.air) && !world.getBlock(x, j - 3, z).equals(Blocks.air)) {
+					
+					x = chunkX + rand.nextInt(16);
+					y = j - rand.nextInt(3) - 1;
+					z = chunkZ + rand.nextInt(16);
+					
+					world.setBlock(x, y, z, CoreBlocks.meteoriteOre);
+					
+					CrazyOresLogger.write(Level.INFO, "GENERATING METEORITE AT: (" + x + ", " + y + ", " + z + ")");
 				}
 			}
 		}
