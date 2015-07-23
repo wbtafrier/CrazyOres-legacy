@@ -15,5 +15,5 @@ public class COCoreConfigSettings {
 	public static boolean generateOsmoniumOre = true;
 	public static boolean generateStarconiumOre = true;
 	
-	
+	public static boolean zectiumCoreExplodes = true;
 }
