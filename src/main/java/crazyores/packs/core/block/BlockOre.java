@@ -2,6 +2,9 @@ package crazyores.packs.core.block;
 
 import java.util.Random;
 
+import cpw.mods.fml.common.Loader;
+import crazyores.manager.pack.COPackManager;
+import crazyores.packs.core.item.CoreItems;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -27,14 +30,54 @@ public class BlockOre extends CoreBlock {
 		super(unlocalizedName, blockMaterial, tab, soundType, hardness, resistance);
 	}
 	
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
-    {
-        return this == Blocks.coal_ore ? Items.coal : (this == Blocks.diamond_ore ? Items.diamond : (this == Blocks.lapis_ore ? Items.dye : (this == Blocks.emerald_ore ? Items.emerald : (this == Blocks.quartz_ore ? Items.quartz : Item.getItemFromBlock(this)))));
+	@Override
+	public Item getItemDropped(int metadata, Random rand, int fortune) {
+		
+		if (Loader.isModLoaded(COPackManager.corePack.getPackID())) {
+			if (this == CoreBlocks.meteoriteOre) {
+				int r = rand.nextInt(10) + 1;
+				if (r <= 2) return CoreItems.meteoriteGem;
+				else return CoreItems.meteoriteCoal;
+			}
+			else if (this == CoreBlocks.sapphireOre) {
+				return CoreItems.sapphireGem;
+			}
+			else if (this == CoreBlocks.adamiteOre) {
+				return CoreItems.adamiteShard;
+			}
+			else if (this == CoreBlocks.rubyOre) {
+				return CoreItems.rubyGem;
+			}
+			else if (this == CoreBlocks.foolsRubyOre) {
+				return CoreItems.foolsRubyGem;
+			}
+			else if (this == CoreBlocks.starconiumOre) {
+				return CoreItems.starconiumShard;
+			}
+			else if (this == CoreBlocks.experiumOre) {
+				return CoreItems.experiumOrb;
+			}
+			else if (this == CoreBlocks.demoniteOre) {
+				return CoreItems.demoniteOrb;
+			}
+		}
+		return Item.getItemFromBlock(this);
     }
 
 	@Override
     public int quantityDropped(Random rand) {
-        return this == Blocks.lapis_ore ? 4 + rand.nextInt(5) : 1;
+		if (Loader.isModLoaded(COPackManager.corePack.getPackID())) {
+			if (this == CoreBlocks.foolsRubyOre) {
+				return rand.nextInt(4) + 1;
+			}
+			else if (this == CoreBlocks.experiumOre) {
+				return rand.nextInt(6);
+			}
+			else if (this == CoreBlocks.demoniteOre) {
+				return rand.nextInt(3) + 1;
+			}
+		}
+		return 1;
     }
 
     @Override
@@ -70,6 +113,17 @@ public class BlockOre extends CoreBlock {
 //            else if (this == Blocks.quartz_ore) {
 //            	exp = MathHelper.getRandomIntegerInRange(rand, 2, 5);
 //            }
+            
+            if (Loader.isModLoaded(COPackManager.corePack.getPackID())) {
+            	if (this == CoreBlocks.meteoriteOre) 		exp = MathHelper.getRandomIntegerInRange(rand, 1, 3);
+            	else if (this == CoreBlocks.sapphireOre)	exp = MathHelper.getRandomIntegerInRange(rand, 0, 0);
+            	else if (this == CoreBlocks.adamiteOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 0, 0);
+            	else if (this == CoreBlocks.rubyOre) 		exp = MathHelper.getRandomIntegerInRange(rand, 0, 0);
+            	else if (this == CoreBlocks.foolsRubyOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 0, 0);
+            	else if (this == CoreBlocks.starconiumOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 0, 0);
+            	else if (this == CoreBlocks.experiumOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 0, 0);
+            	else if (this == CoreBlocks.demoniteOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 0, 0);
+            }
             return exp;
         }
         return 0;

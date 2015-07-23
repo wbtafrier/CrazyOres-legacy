@@ -43,7 +43,7 @@ public class ItemTapaziteObelisk extends CoreItem {
 				
 				if (playerMoved(entity)) {
 					
-					System.out.println("ENTITY: " + entity.posX + ", " + entity.posY + ", " + entity.posZ + "  |  LIGHT: " + lightX + ", " + lightY + "," + lightZ);
+//					System.out.println("ENTITY: " + entity.posX + ", " + entity.posY + ", " + entity.posZ + "  |  LIGHT: " + lightX + ", " + lightY + "," + lightZ);
 					
 					if (world.getBlock((int)lightX, (int)lightY, (int)lightZ).isAssociatedBlock(CoreBlocks.tapaziteLightSource)) {
 						world.setBlock((int)lightX, (int)lightY, (int)lightZ, Blocks.air);

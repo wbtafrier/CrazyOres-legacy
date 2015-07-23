@@ -9,6 +9,7 @@ public class CoreBlocks {
 
 	public static Block tapaziteLightSource;
 	
+	//Overworld Ores
 	public static Block tapaziteStalagmite;
 	public static Block tapaziteStalactite;
 	
@@ -17,9 +18,18 @@ public class CoreBlocks {
 	public static Block sapphireOre;
 	public static Block adamiteOre;
 	public static Block rubyOre;
+	public static Block foolsRubyOre;
 	public static Block zectiumOre;
 	public static Block osmoniumOre;
 	public static Block starconiumOre;
+	public static Block experiumOre;
+	
+	//Nether Ores
+	public static Block demoniteOre;
+	public static Block invisiumOre;
+	
+	public static Block darkstoneOre;
+	public static Block luminiteOre;
 	
 	public static void initBlocks() {
 		initOverworldBlocks();
@@ -30,9 +40,23 @@ public class CoreBlocks {
 		tapaziteStalagmite = new BlockTapaziteStalagmite("tapazite_stalagmite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.crazyOresBlocksTab); registerBlock(tapaziteStalagmite, ItemBlockTapaziteStalagmite.class);
 		tapaziteStalactite = new BlockTapaziteStalactite("tapazite_stalactite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.crazyOresBlocksTab); registerBlock(tapaziteStalactite, ItemBlockTapaziteStalactite.class);
 		
-//		String unlocalizedName, Material blockMaterial, CreativeTabs tab, SoundType soundType, float hardness, float resistance
-		
 		meteoriteOre = new BlockOre("meteorite_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(meteoriteOre);
+		copperOre = new BlockOre("copper_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(copperOre);
+		sapphireOre = new BlockOre("sapphire_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(sapphireOre);
+		adamiteOre = new BlockOre("adamite_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(adamiteOre);
+		rubyOre = new BlockOre("ruby_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(rubyOre);
+		foolsRubyOre = new BlockOre("fools_ruby_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(foolsRubyOre);
+		zectiumOre = new BlockOre("zectium_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(zectiumOre);
+		osmoniumOre = new BlockOre("osmonium_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(osmoniumOre);
+		starconiumOre = new BlockOre("starconium_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(starconiumOre);
+		experiumOre = new BlockOre("experium_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(experiumOre);
+		
+		demoniteOre = new BlockOre("demonite_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(demoniteOre);
+		invisiumOre = new BlockOre("invisium_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(invisiumOre);
+		
+		//Should be in the decorations pack
+		darkstoneOre = new BlockOre("darkstone", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(darkstoneOre);
+		luminiteOre = new BlockOre("luminite_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(luminiteOre);
 	}
 	
 	/**

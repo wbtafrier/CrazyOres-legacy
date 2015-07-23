@@ -10,7 +10,7 @@ import crazyores.manager.pack.COPackManager;
 import crazyores.manager.support.IBlock;
 import crazyores.manager.support.IName;
 
-public class CoreBlock extends Block implements IBlock, IName {
+public abstract class CoreBlock extends Block implements IBlock, IName {
 
 	public final String blockUnlocalizedName;
 	
@@ -66,5 +66,15 @@ public class CoreBlock extends Block implements IBlock, IName {
 	@Override
 	public Material getBlockMaterial() {
 		return super.getMaterial();
+	}
+	
+	@Override
+	public void registerBlockIcons(IIconRegister iconRegister) {
+		this.blockIcon = iconRegister.registerIcon(String.format("%s%s%s", COPackManager.corePack.getPackID(), ":", this.blockUnlocalizedName));
+	}
+
+	@Override
+	public IIcon getIcon(int side, int metadata) {
+		return this.blockIcon;
 	}
 }

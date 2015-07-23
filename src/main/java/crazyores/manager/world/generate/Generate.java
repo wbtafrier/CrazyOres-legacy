@@ -35,20 +35,6 @@ public class Generate implements IWorldGenerator {
 		case 0: generateCoreSurfaceOres(world, rand, x, z); break;
 		case 1: generateCoreEndOres(world, rand, x, z); break;
 		}
-		
-//		if (COCoreConfigSettings.generateTapaziteStalagmite) {
-////			CrazyOresLogger.write(Level.INFO, "GENERATING STALAGMITE!");
-//			generateTapazite(world, rand, chunkX, chunkZ, x, y, z, 0);
-//		}
-//		
-//		if (COCoreConfigSettings.generateTapaziteStalactite) {
-////			CrazyOresLogger.write(Level.INFO, "GENERATING STALACTITE!");
-//			generateTapazite(world, rand, chunkX, chunkZ, x, y, z, 1);
-//		}
-//		
-//		if (COCoreConfigSettings.generateMeteoriteOre) {
-//			generateMeteorite(world, rand, chunkX, chunkZ, x, y, z);
-//		}
 	}
 	
 	private void generateCoreNetherOres(World world, Random rand, int x, int z) {}
@@ -60,6 +46,10 @@ public class Generate implements IWorldGenerator {
 		
 		if (COCoreConfigSettings.generateTapaziteStalactite)
 			generateTapazite(CoreBlocks.tapaziteStalactite, world, rand, x, z);
+		
+//		if (COCoreConfigSettings.generateMeteoriteOre) {
+//			generateOre(CoreBlocks.meteoriteOre, world, rand, x, z, 6, 5, 40, 60);
+//		}
 	}
 	
 	private void generateCoreEndOres(World world, Random rand, int x, int z) {
@@ -94,21 +84,6 @@ public class Generate implements IWorldGenerator {
 	
 	private void generateTapazite(Block block, World world, Random rand, int blockXPos, int blockZPos) {
 		
-//		int diffMinMax = maxY - minY;
-//		for (int x = 0; x < chancesToSpawn; x++) {
-//			int posX = blockXPos + rand.nextInt(maxX);
-//			int posY = minY + rand.nextInt(diffMinMax);
-//			int posZ = blockZPos + rand.nextInt(maxZ);
-//			
-//			if (block.equals(CoreBlocks.tapaziteStalagmite) && world.getBlock(posX, posY, posZ).isAir(world, posX, posY, posZ) && world.getBlock(posX, posY - 1, posZ).isAssociatedBlock(Blocks.stone) && world.getBlock(posX, posY + 1, posZ).isAir(world, posX, posY + 1, posZ)) {
-//				CrazyOresLogger.write(Level.DEBUG, "SPAWNED AT: " + posX + ", " + posY + ", " + posZ);
-//				world.setBlock(posX, posY, posZ, block);
-//			}
-//			
-//			if (block.equals(CoreBlocks.tapaziteStalactite) && world.getBlock(posX, posY, posZ).isAir(world, posX, posY, posZ) && world.getBlock(posX, posY + 1, posZ).isAssociatedBlock(Blocks.stone) && world.getBlock(posX, posY - 1, posZ).isAir(world, posX, posY - 1, posZ))
-//				world.setBlock(posX, posY, posZ, block);
-//		}
-		
 		for (int i = 0; i < 256; i++) {
 			
 			int posX = blockXPos + rand.nextInt(16);
@@ -118,39 +93,15 @@ public class Generate implements IWorldGenerator {
 			if (rand.nextInt(3) == 0) {
 				if (block.equals(CoreBlocks.tapaziteStalagmite) && world.getBlock(posX, posY, posZ).isAir(world, posX, posY, posZ) && world.getBlock(posX, posY - 1, posZ).isAssociatedBlock(Blocks.stone) && world.getBlock(posX, posY + 1, posZ).isAir(world, posX, posY + 1, posZ)) {
 					world.setBlock(posX, posY, posZ, CoreBlocks.tapaziteStalagmite);
-					System.out.println("SPAWNED: " + posX + " ," +  posY + " ," + posZ);
+//					System.out.println("SPAWNED: " + posX + " ," +  posY + " ," + posZ);
 					break;
 				}
 				else if (block.equals(CoreBlocks.tapaziteStalactite) && world.getBlock(posX, posY, posZ).isAir(world, posX, posY, posZ) && world.getBlock(posX, posY + 1, posZ).isAssociatedBlock(Blocks.stone) && world.getBlock(posX, posY - 1, posZ).isAir(world, posX, posY - 1, posZ)) {
 					world.setBlock(posX, posY, posZ, CoreBlocks.tapaziteStalactite);
-					System.out.println("SPAWNED: " + posX + " ," +  posY + " ," + posZ);
+//					System.out.println("SPAWNED: " + posX + " ," +  posY + " ," + posZ);
 					break;
 				}
 			}
 		}
 	}
-	
-//	private void generateTapazite(World world, Random rand, int x, int z, int type) {
-//		
-//		int y = 0;
-//		for (int i = 0; i < 256; i++) {
-//			
-//			x = x + rand.nextInt(16);
-//			y = rand.nextInt(35);
-//			z = z + rand.nextInt(16);
-//			
-//			if (rand.nextInt(3) == 0) {
-//				if (type == 0 && world.getBlock(x, y, z).isAir(world, x, y, z) && world.getBlock(x, y - 1, z).isAssociatedBlock(Blocks.stone) && world.getBlock(x, y + 1, z).isAir(world, x, y + 1, z)) {
-//					world.setBlock(x, y, z, CoreBlocks.tapaziteStalagmite);
-//					System.out.println("HELLO");
-//					break;
-//				}
-//				else if (type == 1 && world.getBlock(x, y, z).isAir(world, x, y, z) && world.getBlock(x, y + 1, z).isAssociatedBlock(Blocks.stone) && world.getBlock(x, y - 1, z).isAir(world, x, y - 1, z)) {
-//					world.setBlock(x, y, z, CoreBlocks.tapaziteStalactite);
-//					System.out.println("HELLO");
-//					break;
-//				}
-//			}
-//		}
-//	}
 }
