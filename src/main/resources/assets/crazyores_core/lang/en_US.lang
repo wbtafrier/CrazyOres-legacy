@@ -20,8 +20,195 @@ tapazite_stalactite_4.name=Tapazite Stalactite Phase 5
 tapazite_stalactite_5.name=Tapazite Stalactite Phase 6
 tapazite_stalactite_6.name=Tapazite Stalactite Phase 7
 
+# ORE DROPS 
+meteorite_coal.name=Meteorite Coal
+meteorite_gem.name=Meteorite Gem
+copper_ingot.name=Copper Ingot
+sapphire_gem.name=Sapphire Gem
+adamite_shard.name=Adamite Shard
+ruby_gem.name=Ruby Gem
+fools_ruby_gem.name=Fool's Ruby Gem
+zectium_ingot.name=Zectium Ingot
 tapazite_obelisk.name=Tapazite Obelisk
 tapazite_dust.name=Tapazite Dust
+osmonium_ingot.name=Osmonium Ingot
+starconium_gem.name=Starconium Gem
+fools_ruby_mush.name=Fool's Ruby Mush
+demonite_orb.name=Demonite Orb
+experium_orb.name=Experium Orb
+ender_gem.name=Ender Gem
+darkstone_ingot.name=Darkstone Ingot
+invisium_ingot.name=Invisium Ingot
+ultra_gem.name=Ultra Gem
+white_luminite_crystal.name=White Luminite Crystal
+
+
+# PICKAXE LIST 
+meteorite_pickaxe.name=Meteorite Pickaxe
+copper_pickaxe.name=Copper Pickaxe
+sapphire_pickaxe.name=Sapphire Pickaxe
+adamite_pickaxe.name=Adamite Pickaxe
+ruby_pickaxe.name=Ruby Pickaxe
+zectium_pickaxe.name=Zectium Pickaxe
+tapazite_pickaxe.name=Tapazite Pickaxe
+osmonium_pickaxe.name=Osmonium Pickaxe
+starconium_pickaxe.name=Starconium Pickaxe
+invisium_pickaxe.name=Invisium Pickaxe
+ender_pickaxe.name=Ender Pickaxe
+
+# AXE LIST 
+meteorite_axe.name=Meteorite Axe
+copper_axe.name=Copper Axe
+sapphire_axe.name=Sapphire Axe
+adamite_axe.name=Adamite Axe
+ruby_axe.name=Ruby Axe
+zectium_axe.name=Zectium Axe
+tapazite_axe.name=Tapazite Axe
+osmonium_axe.name=Osmonium Axe
+starconium_axe.name=Starconium Axe
+invisium_axe.name=Invisium Axe
+ender_axe.name=Ender Axe
+
+# SHOVEL LIST 
+meteorite_shovel.name=Meteorite Shovel
+copper_shovel.name=Copper Shovel
+sapphire_shovel.name=Sapphire Shovel
+adamite_shovel.name=Adamite Shovel
+ruby_shovel.name=Ruby Shovel
+zectium_shovel.name=Zectium Shovel
+tapazite_shovel.name=Tapazite Shovel
+osmonium_shovel.name=Osmonium Shovel
+starconium_shovel.name=Starconium Shovel
+invisium_shovel.name=Invisium Shovel
+ender_shovel.name=Ender Shovel
+
+# SWORD LIST 
+meteorite_sword.name=Meteorite Sword
+copper_sword.name=Copper Sword
+sapphire_sword.name=Sapphire Sword
+adamite_sword.name=Adamite Sword
+ruby_sword.name=Ruby Sword
+zectium_sword.name=Zectium Sword
+tapazite_sword.name=Tapazite Sword
+osmonium_sword.name=Osmonium Sword
+starconium_sword.name=Starconium Sword
+invisium_sword.name=Invisium Sword
+ender_sword.name=Ender Sword
+
+# HOE LIST 
+meteorite_hoe.name=Meteorite Hoe
+copper_hoe.name=Copper Hoe
+sapphire_hoe.name=Sapphire Hoe
+adamite_hoe.name=Adamite Hoe
+ruby_hoe.name=Ruby Hoe
+zectium_hoe.name=Zectium Hoe
+tapazite_hoe.name=Tapazite Hoe
+osmonium_hoe.name=Osmonium Hoe
+starconium_hoe.name=Starconium Hoe
+invisium_hoe.name=Invisium Hoe
+ender_hoe.name=Ender Hoe
+
+# HAMMER LIST 
+starconium_sledgehammer.name=Starconium Sledgehammer
+
+# HELMET LIST 
+copper_helmet.name=Copper Helmet
+sapphire_helmet.name=Sapphire Helmet
+adamite_helmet.name=Adamite Helmet
+meteorite_helmet.name=Meteorite Helmet
+ruby_helmet.name=Ruby Helmet
+zectium_helmet.name=Zectium Helmet
+tapazite_helmet.name=Tapazite Helmet
+osmonium_helmet.name=Osmonium Helmet
+starconium_helmet.name=Starconium Helmet
+invisium_helmet.name=Invisium Helmet
+ender_helmet.name=Ender Helmet
+
+# CHESTPLATE LIST 
+copper_chestplate.name=Copper Chestplate
+sapphire_chestplate.name=Sapphire Chestplate
+adamite_chestplate.name=Adamite Chestplate
+meteorite_chestplate.name=Meteorite Chestplate
+ruby_chestplate.name=Ruby Chestplate
+zectium_chestplate.name=Zectium Chestplate
+tapazite_chestplate.name=Tapazite Chestplate
+osmonium_chestplate.name=Osmonium Chestplate
+starconium_chestplate.name=Starconium Chestplate
+invisium_chestplate.name=Invisium Chestplate
+ender_chestplate.name=Ender Chestplate
+
+# LEGGING LIST 
+copper_leggings.name=Copper Leggings
+sapphire_leggings.name=Sapphire Leggings
+adamite_leggings.name=Adamite Leggings
+meteorite_leggings.name=Meteorite Leggings
+ruby_leggings.name=Ruby Leggings
+zectium_leggings.name=Zectium Leggings
+tapazite_leggings.name=Tapazite Leggings
+osmonium_leggings.name=Osmonium Leggings
+starconium_leggings.name=Starconium Leggings
+invisium_leggings.name=Invisium Leggings
+ender_leggings.name=Ender Leggings
+
+# BOOT LIST 
+copper_boots.name=Copper Boots
+sapphire_boots.name=Sapphire Boots
+adamite_boots.name=Adamite Boots
+meteorite_boots.name=Meteorite Boots
+ruby_boots.name=Ruby Boots
+zectium_boots.name=Zectium Boots
+tapazite_boots.name=Tapazite Boots
+osmonium_boots.name=Osmonium Boots
+starconium_boots.name=Starconium Boots
+invisium_boots.name=Invisium Boots
+ender_boots.name=Ender Boots
+
+# BUCKET LIST 
+copper_bucket_empty.name=Copper Bucket
+copper_bucket_water.name=Water Bucket
+copper_bucket_lava.name=Lava Bucket
+
+# ITEMS LIST 
+starconium_shard.name=Starconium Shard
+
+# ROD LIST 
+copper_rod.name=Copper Rod
+sapphire_rod.name=Sapphire Rod
+adamite_rod.name=Adamite Rod
+meteorite_rod.name=Meteorite Rod
+ruby_rod.name=Ruby Rod
+zectium_rod.name=Zectium Rod
+tapazite_rod.name=Tapazite Rod
+osmonium_rod.name=Osmonium Rod
+starconium_rod.name=Starconium Rod
+invisium_rod.name=Invisium Rod
+ender_rod.name=Ender Rod
+
+# BOW LIST 
+meteorite_bow.name=Meteorite Bow
+copper_bow.name=Copper Bow
+invisium_bow.name=Invisium Bow
+sapphire_bow.name=Sapphire Bow
+adamite_bow.name=Adamite Bow
+ruby_bow.name=Ruby Bow
+zectium_bow.name=Zectium Bow
+tapazite_bow.name=Tapazite Bow
+osmonium_bow.name=Osmonium Bow
+ender_bow.name=Ender Bow
+starconium_bow.name=Starconium Bow
+
+# ARROW LIST 
+meteorite_arrow.name=Meteorite Arrow
+copper_arrow.name=Copper Arrow
+invisium_arrow.name=Invisium Arrow
+sapphire_arrow.name=Sapphire Arrow
+adamite_arrow.name=Adamite Arrow
+ruby_arrow.name=Ruby Arrow
+zectium_arrow.name=Zectium Arrow
+tapazite_arrow.name=Tapazite Arrow
+osmonium_arrow.name=Osmonium Arrow
+ender_arrow.name=Ender Arrow
+starconium_arrow.name=Starconium Arrow
 
 # TAB LOCALIZATION
 itemGroup.crazyOresBlocks=CrazyOres Blocks
