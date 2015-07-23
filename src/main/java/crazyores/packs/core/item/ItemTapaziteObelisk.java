@@ -37,19 +37,18 @@ public class ItemTapaziteObelisk extends CoreItem {
 	
 	@Override
 	public void onUpdate(ItemStack item, World world, Entity entity, int par4, boolean isHolding) {
-	   
+		
 		if (entity instanceof EntityPlayerMP) {
-			
 			if (isHolding && ((EntityPlayerMP)entity).getCurrentEquippedItem() == item) {
 				
-				if (lightX != entity.posX || lightY != entity.posY || lightZ != entity.posZ) {
+				if (playerMoved(entity)) {
+					
+					System.out.println("ENTITY: " + entity.posX + ", " + entity.posY + ", " + entity.posZ + "  |  LIGHT: " + lightX + ", " + lightY + "," + lightZ);
 					
 					if (world.getBlock((int)lightX, (int)lightY, (int)lightZ).isAssociatedBlock(CoreBlocks.tapaziteLightSource)) {
 						world.setBlock((int)lightX, (int)lightY, (int)lightZ, Blocks.air);
 					}
-					
-					this.updateLightPosition(entity, entity.posX, entity.posY, entity.posZ);
-					
+					updateLightPosition(entity);
 					
 					for (int y = 0; y < 3; y++) {
 						if (world.getBlock((int)lightX, (int)lightY + y, (int)lightZ).isAir(world, (int)lightX, (int)lightY + y, (int)lightZ)) {
@@ -66,10 +65,17 @@ public class ItemTapaziteObelisk extends CoreItem {
 		}
 	}
 	
-	public void updateLightPosition(Entity entity, double x, double y, double z) {
+	private void updateLightPosition(Entity entity) {
 		lightX = entity.posX;
 		lightY = entity.posY;
 		lightZ = entity.posZ;
+	}
+	
+	private boolean playerMoved(Entity entity) {
+		if (Math.abs(lightX - entity.posX) > 0.01 || Math.abs(lightY - entity.posY) > 0.01 || Math.abs(lightZ - entity.posZ) > 0.01) {
+			return true;
+		}
+		return false;
 	}
 	
 	public void setLightBlock(World world) {

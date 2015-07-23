@@ -67,14 +67,4 @@ public class CoreBlock extends Block implements IBlock, IName {
 	public Material getBlockMaterial() {
 		return super.getMaterial();
 	}
-
-	@Override
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		this.blockIcon = iconRegister.registerIcon(String.format("%s%s%s", COPackManager.corePack.getPackID(), ":", this.getUnlocalizedName()));
-	}
-
-	@Override
-	public IIcon getIcon(int side, int metadata) {
-		return this.blockIcon;
-	}
 }
