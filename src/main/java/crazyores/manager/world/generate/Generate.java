@@ -73,10 +73,10 @@ public class Generate implements IWorldGenerator {
 		for (int i = 0; i < 256; i++) {
 			for (int j = 256; j > 0; j--) {
 				
-				if (j > 40 && world.getBlock(x, j, z).equals(Blocks.air) && !world.getBlock(x, j - 1, z).equals(Blocks.air) && !world.getBlock(x, j - 2, z).equals(Blocks.air) && !world.getBlock(x, j - 3, z).equals(Blocks.air)) {
+				if (j > 40 && world.getBlock(x, i, z).equals(Blocks.air) && !world.getBlock(x, i - 1, z).equals(Blocks.air) && !world.getBlock(x, i - 2, z).equals(Blocks.air) && !world.getBlock(x, i - 3, z).equals(Blocks.air)) {
 					
 					x = chunkX + rand.nextInt(16);
-					y = j - rand.nextInt(3) - 1;
+					y = i - rand.nextInt(3) - 1;
 					z = chunkZ + rand.nextInt(16);
 					
 					world.setBlock(x, y, z, CoreBlocks.meteoriteOre);
