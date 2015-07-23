@@ -82,7 +82,4 @@ public class BlockOre extends CoreBlock {
     public int damageDropped(int damage) {
         return this == Blocks.lapis_ore ? 4 : 0;
     }
-	
-	
-
 }
