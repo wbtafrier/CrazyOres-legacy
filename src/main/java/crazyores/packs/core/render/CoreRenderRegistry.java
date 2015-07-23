@@ -1,15 +1,17 @@
 package crazyores.packs.core.render;
 
-import org.apache.logging.log4j.Level;
-
+import net.minecraft.client.renderer.entity.RenderSnowball;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import crazyores.manager.pack.COPackManager;
-import crazyores.manager.util.CrazyOresLogger;
+import crazyores.packs.core.entity.EntityZectiumCore;
 import crazyores.packs.core.entity.tileentity.TileEntityTapaziteCrystal;
+import crazyores.packs.core.item.CoreItems;
 
 public class CoreRenderRegistry {
 
 	public static void renderCoreEntities() {
+		RenderingRegistry.registerEntityRenderingHandler(EntityZectiumCore.class, new RenderSnowball(CoreItems.zectiumCore));
+		
 		GameRegistry.registerTileEntity(TileEntityTapaziteCrystal.class, "tileEntityTapaziteCrystal");
 	}
 }

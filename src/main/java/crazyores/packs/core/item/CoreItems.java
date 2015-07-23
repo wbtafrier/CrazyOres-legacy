@@ -29,6 +29,7 @@ public class CoreItems {
 	public static Item ultraGem;
 	public static Item whiteLuminiteCrystal;
 	
+	public static Item zectiumCore;
 	
 	/** Pickaxe List **/
 	public static Item meteoritePickaxe;
@@ -218,6 +219,8 @@ public class CoreItems {
 		invisiumIngot = new CoreItem("invisium_ingot", COTabList.crazyOresItemsTab); registerItem(invisiumIngot);
 		ultraGem = new CoreItem("ultra_gem", COTabList.crazyOresItemsTab); registerItem(ultraGem);
 		whiteLuminiteCrystal = new CoreItem("white_luminite_crystal", COTabList.crazyOresItemsTab); registerItem(whiteLuminiteCrystal);
+		
+		zectiumCore = new ItemZectiumCore("zectium_core", COTabList.crazyOresItemsTab, 16); registerItem(zectiumCore);
 	}
 	
 	private static void registerItem(Item item) {
