@@ -1,293 +1,79 @@
-# CRAZYORES CORE ENGLISH LANGUAGE LOCALIZATION FILE (Last update - V2.0)
+# CRAZYORES CORE ENGLISH LANGUAGE LOCALIZATION FILE (Last update - V2.0.0)
 
 # BLOCK LOCALIZATION
-tile.crazyores_core:meteorite_ore.name=Meteorite Ore
-tile.crazyores_core:copper_ore.name=Copper Ore
-tile.crazyores_core:sapphire_ore.name=Sapphire Ore
-tile.crazyores_core:adamite_ore.name=Adamite Ore
-tile.crazyores_core:ruby_ore.name=Ruby Ore
-tile.crazyores_core:fools_ruby_ore.name=Fool's Ruby Ore
-tile.crazyores_core:zectium_ore.name=Zectium Ore
-tile.crazyores_core:tapazite_ore.name=Tapazite Ore
-tile.crazyores_core:crystal_ore.name=Crystal Ore
-tile.crazyores_core:osmonium_ore.name=Osmonium Ore
-tile.crazyores_core:starconium_ore.name=Starconium Ore
-tile.crazyores_core:experium_ore.name=Experium Ore
-tile.crazyores_core:demonite_stone.name=Demonite Stone
-tile.crazyores_core:invisium_ore.name=Invisium Ore
-tile.crazyores_core:darkstone.name=Darkstone
-tile.crazyores_core:luminite_ore.name=Luminite Ore
-tile.crazyores_core:ender_ore.name=Ender Ore
-tile.crazyores_core:ultra_ore.name=Ultra Ore
-
-tile.crazyores_core:meteorite_block.name=Meteorite Block
-tile.crazyores_core:glowing_meteorite_block.name=Glowing Meteorite Block
-tile.crazyores_core:copper_block.name=Copper Block
-tile.crazyores_core:sapphire_block.name=Sapphire Block
-tile.crazyores_core:adamite_block.name=Adamite Block
-tile.crazyores_core:ruby_block.name=Ruby Block
-tile.crazyores_core:fools_ruby_block.name=Fool's Ruby Block
-tile.crazyores_core:zectium_block.name=Zectium Block
-tile.crazyores_core:tapazite_block.name=Tapazite Block
-tile.crazyores_core:crystal_block.name=Crystal Block
-tile.crazyores_core:osmonium_block.name=Osmonium Block
-tile.crazyores_core:starconium_block.name=Starconium Block
-tile.crazyores_core:demonite_block.name=Demonite Block
-tile.crazyores_core:refined_demonite_block.name=Refined Demonite Block
-tile.crazyores_core:invisium_block.name=Invisium Block
-tile.crazyores_core:ender_block.name=Ender Block
-tile.crazyores_core:experium_block.name=Experium Block
-tile.crazyores_core:ultra_block.name=Ultra Block
-
-tile.crazyores_core:copper_golem_head.name=Copper Golem Head
-tile.crazyores_core:sapphire_golem_head.name=Sapphire Golem Head
-tile.crazyores_core:adamite_golem_head.name=Adamite Golem Head
-tile.crazyores_core:ruby_golem_head.name=Ruby Golem Head
-tile.crazyores_core:fools_ruby_golem_head.name=Fool's Ruby Golem Head
-tile.crazyores_core:zectium_golem_head.name=Zectium Golem Head
-tile.crazyores_core:tapazite_golem_head.name=Tapazite Golem Head
-tile.crazyores_core:crystal_golem_head.name=Crystal Golem Head
-tile.crazyores_core:osmonium_golem_head.name=Osmonium Golem Head
-tile.crazyores_core:starconium_golem_head.name=Starconium Golem Head
-tile.crazyores_core:demonite_golem_head.name=Demonite Golem Head
-
-tile.crazyores_core:demonite_furnace.name=Demonite Furnace
-tile.crazyores_core:lit_demonite_furnace.name=Demonite Furnace
 
 # ITEM LOCALIZATION
-item.crazyores_core:meteorite_coal.name=Meteorite Coal
-item.crazyores_core:meteorite_gem.name=Meteorite Gem
-item.crazyores_core:copper_ingot.name=Copper Ingot
-item.crazyores_core:sapphire_gem.name=Sapphire Gem
-item.crazyores_core:adamite_shard.name=Adamite Shard
-item.crazyores_core:ruby_gem.name=Ruby Gem
-item.crazyores_core:fools_ruby_gem.name=Fool's Ruby Gem
-item.crazyores_core:zectium_ingot.name=Zectium Ingot
-item.crazyores_core:tapazite_gem.name=Tapazite Gem
-item.crazyores_core:crystal_shard.name=Crystal Shard
-item.crazyores_core:osmonium_ingot.name=Osmonium Ingot
-item.crazyores_core:starconium_gem.name=Starconium Gem
-item.crazyores_core:fools_ruby_mush.name=Fool's Ruby Mush
-item.crazyores_core:demonite_orb.name=Demonite Orb
-item.crazyores_core:experium_orb.name=Experium Orb
-item.crazyores_core:ender_gem.name=Ender Gem
-item.crazyores_core:darkstone_ingot.name=Darkstone Ingot
-item.crazyores_core:invisium_ingot.name=Invisium Ingot
-item.crazyores_core:ultra_gem.name=Ultra Gem
-item.crazyores_core:white_luminite_crystal.name=White Luminite Crystal
+tapazite_stalagmite_0.name=Tapazite Stalagmite Phase 1
+tapazite_stalagmite_1.name=Tapazite Stalagmite Phase 2
+tapazite_stalagmite_2.name=Tapazite Stalagmite Phase 3
+tapazite_stalagmite_3.name=Tapazite Stalagmite Phase 4
+tapazite_stalagmite_4.name=Tapazite Stalagmite Phase 5
+tapazite_stalagmite_5.name=Tapazite Stalagmite Phase 6
+tapazite_stalagmite_6.name=Tapazite Stalagmite Phase 7
 
-item.crazyores_core:meteorite_pickaxe.name=Meteorite Pickaxe
-item.crazyores_core:copper_pickaxe.name=Copper Pickaxe
-item.crazyores_core:sapphire_pickaxe.name=Sapphire Pickaxe
-item.crazyores_core:adamite_pickaxe.name=Adamite Pickaxe
-item.crazyores_core:ruby_pickaxe.name=Ruby Pickaxe
-item.crazyores_core:zectium_pickaxe.name=Zectium Pickaxe
-item.crazyores_core:tapazite_pickaxe.name=Tapazite Pickaxe
-item.crazyores_core:crystal_pickaxe.name=Crystal Pickaxe
-item.crazyores_core:osmonium_pickaxe.name=Osmonium Pickaxe
-item.crazyores_core:starconium_pickaxe.name=Starconium Pickaxe
-item.crazyores_core:invisium_pickaxe.name=Invisium Pickaxe
-item.crazyores_core:ender_pickaxe.name=Ender Pickaxe
+tapazite_stalactite_0.name=Tapazite Stalactite Phase 1
+tapazite_stalactite_1.name=Tapazite Stalactite Phase 2
+tapazite_stalactite_2.name=Tapazite Stalactite Phase 3
+tapazite_stalactite_3.name=Tapazite Stalactite Phase 4
+tapazite_stalactite_4.name=Tapazite Stalactite Phase 5
+tapazite_stalactite_5.name=Tapazite Stalactite Phase 6
+tapazite_stalactite_6.name=Tapazite Stalactite Phase 7
 
-item.crazyores_core:meteorite_axe.name=Meteorite Axe
-item.crazyores_core:copper_axe.name=Copper Axe
-item.crazyores_core:sapphire_axe.name=Sapphire Axe
-item.crazyores_core:adamite_axe.name=Adamite Axe
-item.crazyores_core:ruby_axe.name=Ruby Axe
-item.crazyores_core:zectium_axe.name=Zectium Axe
-item.crazyores_core:tapazite_axe.name=Tapazite Axe
-item.crazyores_core:crystal_axe.name=Crystal Axe
-item.crazyores_core:osmonium_axe.name=Osmonium Axe
-item.crazyores_core:starconium_axe.name=Starconium Axe
-item.crazyores_core:invisium_axe.name=Invisium Axe
-item.crazyores_core:ender_axe.name=Ender Axe
-
-item.crazyores_core:meteorite_shovel.name=Meteorite Shovel
-item.crazyores_core:copper_shovel.name=Copper Shovel
-item.crazyores_core:sapphire_shovel.name=Sapphire Shovel
-item.crazyores_core:adamite_shovel.name=Adamite Shovel
-item.crazyores_core:ruby_shovel.name=Ruby Shovel
-item.crazyores_core:zectium_shovel.name=Zectium Shovel
-item.crazyores_core:tapazite_shovel.name=Tapazite Shovel
-item.crazyores_core:crystal_shovel.name=Crystal Shovel
-item.crazyores_core:osmonium_shovel.name=Osmonium Shovel
-item.crazyores_core:starconium_shovel.name=Starconium Shovel
-item.crazyores_core:invisium_shovel.name=Invisium Shovel
-item.crazyores_core:ender_shovel.name=Ender Shovel
-
-item.crazyores_core:meteorite_sword.name=Meteorite Sword
-item.crazyores_core:copper_sword.name=Copper Sword
-item.crazyores_core:sapphire_sword.name=Sapphire Sword
-item.crazyores_core:adamite_sword.name=Adamite Sword
-item.crazyores_core:ruby_sword.name=Ruby Sword
-item.crazyores_core:zectium_sword.name=Zectium Sword
-item.crazyores_core:tapazite_sword.name=Tapazite Sword
-item.crazyores_core:crystal_sword.name=Crystal Sword
-item.crazyores_core:osmonium_sword.name=Osmonium Sword
-item.crazyores_core:starconium_sword.name=Starconium Sword
-item.crazyores_core:invisium_sword.name=Invisium Sword
-item.crazyores_core:ender_sword.name=Ender Sword
-
-item.crazyores_core:meteorite_hoe.name=Meteorite Hoe
-item.crazyores_core:copper_hoe.name=Copper Hoe
-item.crazyores_core:sapphire_hoe.name=Sapphire Hoe
-item.crazyores_core:adamite_hoe.name=Adamite Hoe
-item.crazyores_core:ruby_hoe.name=Ruby Hoe
-item.crazyores_core:zectium_hoe.name=Zectium Hoe
-item.crazyores_core:tapazite_hoe.name=Tapazite Hoe
-item.crazyores_core:crystal_hoe.name=Crystal Hoe
-item.crazyores_core:osmonium_hoe.name=Osmonium Hoe
-item.crazyores_core:starconium_hoe.name=Starconium Hoe
-item.crazyores_core:invisium_hoe.name=Invisium Hoe
-item.crazyores_core:ender_hoe.name=Ender Hoe
-
-item.crazyores_core:starconium_sledgehammer.name=Starconium Sledgehammer
-
-item.crazyores_core:copper_helmet.name=Copper Helmet
-item.crazyores_core:sapphire_helmet.name=Sapphire Helmet
-item.crazyores_core:adamite_helmet.name=Adamite Helmet
-item.crazyores_core:meteorite_helmet.name=Meteorite Helmet
-item.crazyores_core:ruby_helmet.name=Ruby Helmet
-item.crazyores_core:zectium_helmet.name=Zectium Helmet
-item.crazyores_core:tapazite_helmet.name=Tapazite Helmet
-item.crazyores_core:crystal_helmet.name=Crystal Helmet
-item.crazyores_core:osmonium_helmet.name=Osmonium Helmet
-item.crazyores_core:starconium_helmet.name=Starconium Helmet
-item.crazyores_core:invisium_helmet.name=Invisium Helmet
-item.crazyores_core:ender_helmet.name=Ender Helmet
-
-item.crazyores_core:copper_chestplate.name=Copper Chestplate
-item.crazyores_core:sapphire_chestplate.name=Sapphire Chestplate
-item.crazyores_core:adamite_chestplate.name=Adamite Chestplate
-item.crazyores_core:meteorite_chestplate.name=Meteorite Chestplate
-item.crazyores_core:ruby_chestplate.name=Ruby Chestplate
-item.crazyores_core:zectium_chestplate.name=Zectium Chestplate
-item.crazyores_core:tapazite_chestplate.name=Tapazite Chestplate
-item.crazyores_core:crystal_chestplate.name=Crystal Chestplate
-item.crazyores_core:osmonium_chestplate.name=Osmonium Chestplate
-item.crazyores_core:starconium_chestplate.name=Starconium Chestplate
-item.crazyores_core:invisium_chestplate.name=Invisium Chestplate
-item.crazyores_core:ender_chestplate.name=Ender Chestplate
-
-item.crazyores_core:copper_leggings.name=Copper Leggings
-item.crazyores_core:sapphire_leggings.name=Sapphire Leggings
-item.crazyores_core:adamite_leggings.name=Adamite Leggings
-item.crazyores_core:meteorite_leggings.name=Meteorite Leggings
-item.crazyores_core:ruby_leggings.name=Ruby Leggings
-item.crazyores_core:zectium_leggings.name=Zectium Leggings
-item.crazyores_core:tapazite_leggings.name=Tapazite Leggings
-item.crazyores_core:crystal_leggings.name=Crystal Leggings
-item.crazyores_core:osmonium_leggings.name=Osmonium Leggings
-item.crazyores_core:starconium_leggings.name=Starconium Leggings
-item.crazyores_core:invisium_leggings.name=Invisium Leggings
-item.crazyores_core:ender_leggings.name=Ender Leggings
-
-item.crazyores_core:copper_boots.name=Copper Boots
-item.crazyores_core:sapphire_boots.name=Sapphire Boots
-item.crazyores_core:adamite_boots.name=Adamite Boots
-item.crazyores_core:meteorite_boots.name=Meteorite Boots
-item.crazyores_core:ruby_boots.name=Ruby Boots
-item.crazyores_core:zectium_boots.name=Zectium Boots
-item.crazyores_core:tapazite_boots.name=Tapazite Boots
-item.crazyores_core:crystal_boots.name=Crystal Boots
-item.crazyores_core:osmonium_boots.name=Osmonium Boots
-item.crazyores_core:starconium_boots.name=Starconium Boots
-item.crazyores_core:invisium_boots.name=Invisium Boots
-item.crazyores_core:ender_boots.name=Ender Boots
-
-item.crazyores_core:copper_bucket_empty.name=Copper Bucket
-item.crazyores_core:copper_bucket_water.name=Water Bucket
-item.crazyores_core:copper_bucket_lava.name=Lava Bucket
-
-item.crazyores_core:starconium_shard.name=Starconium Shard
-
-item.crazyores_core:copper_rod.name=Copper Rod
-item.crazyores_core:sapphire_rod.name=Sapphire Rod
-item.crazyores_core:adamite_rod.name=Adamite Rod
-item.crazyores_core:meteorite_rod.name=Meteorite Rod
-item.crazyores_core:ruby_rod.name=Ruby Rod
-item.crazyores_core:zectium_rod.name=Zectium Rod
-item.crazyores_core:tapazite_rod.name=Tapazite Rod
-item.crazyores_core:crystal_rod.name=Crystal Rod
-item.crazyores_core:osmonium_rod.name=Osmonium Rod
-item.crazyores_core:starconium_rod.name=Starconium Rod
-item.crazyores_core:invisium_rod.name=Invisium Rod
-item.crazyores_core:ender_rod.name=Ender Rod
-
-item.crazyores_core:meteorite_bow.name=Meteorite Bow
-item.crazyores_core:copper_bow.name=Copper Bow
-item.crazyores_core:invisium_bow.name=Invisium Bow
-item.crazyores_core:sapphire_bow.name=Sapphire Bow
-item.crazyores_core:adamite_bow.name=Adamite Bow
-item.crazyores_core:ruby_bow.name=Ruby Bow
-item.crazyores_core:zectium_bow.name=Zectium Bow
-item.crazyores_core:tapazite_bow.name=Tapazite Bow
-item.crazyores_core:crystal_bow.name=Crystal Bow
-item.crazyores_core:osmonium_bow.name=Osmonium Bow
-item.crazyores_core:ender_bow.name=Ender Bow
-item.crazyores_core:starconium_bow.name=Starconium Bow
-
-item.crazyores_core:meteorite_arrow.name=Meteorite Arrow
-item.crazyores_core:copper_arrow.name=Copper Arrow
-item.crazyores_core:invisium_arrow.name=Invisium Arrow
-item.crazyores_core:sapphire_arrow.name=Sapphire Arrow
-item.crazyores_core:adamite_arrow.name=Adamite Arrow
-item.crazyores_core:ruby_arrow.name=Ruby Arrow
-item.crazyores_core:zectium_arrow.name=Zectium Arrow
-item.crazyores_core:tapazite_arrow.name=Tapazite Arrow
-item.crazyores_core:crystal_arrow.name=Crystal Arrow
-item.crazyores_core:osmonium_arrow.name=Osmonium Arrow
-item.crazyores_core:ender_arrow.name=Ender Arrow
-item.crazyores_core:starconium_arrow.name=Starconium Arrow
-
-# GUI LOZALIZATION
-container.crazyores_core_demonite_furnace=Demonite Furnace
+tapazite_obelisk.name=Tapazite Obelisk
+tapazite_dust.name=Tapazite Dust
 
 # TAB LOCALIZATION
+itemGroup.crazyOresBlocks=CrazyOres Blocks
+itemGroup.crazyOresItems=CrazyOres Items
+itemGroup.crazyOresTools=CrazyOres Tools
+itemGroup.crazyOresWeapons=CrazyOres Weapons
+itemGroup.crazyOresArmo=CrazyOres Armor
 
-itemGroup.crazyores_core_blocks=CrazyOres Blocks
-itemGroup.crazyores_core_materials=CrazyOres Materials
-itemGroup.crazyores_core_combat=CrazyOres Combat
-itemGroup.crazyores_core_armor=CrazyOres Armor
-itemGroup.crazyores_core_tools=CrazyOres Tools
-itemGroup.crazyores_core_misc=CrazyOres Miscellaneous
+# CONFIG LOCALIZATION
+config.category.loadPacks=Load Packs
+config.category.oreGeneration=Ore Generation
 
-# ENTITY LOCALIZATION
-entity.copper_golem.name=Copper Golem
-entity.sapphire_golem.name=Sapphire Golem
-entity.adamite_golem.name=Adamite Golem
-entity.ruby_golem.name=Ruby Golem
-entity.zectium_golem.name=Zectium Golem
-entity.tapazite_golem.name=Tapazite Golem
-entity.fools_ruby_golem.name=Fool's Ruby Golem
-entity.crystal_golem.name=Crystal Golem
-entity.osmonium_golem.name=Osmonium Golem
-entity.demonite_golem.name=Demonite Golem
-entity.starconium_golem.name=Starconium Golem
+config.node.installFoodsPack=Foods Pack
 
-entity.meteorite_arrow.name=Meteorite Arrow
-entity.copper_arrow.name=Copper Arrow
-entity.invisium_arrow.name=Invisium Arrow
-entity.sapphire_arrow.name=Sapphire Arrow
-entity.adamite_arrow.name=Adamite Arrow
-entity.ruby_arrow.name=Ruby Arrow
-entity.zectium_arrow.name=Zectium Arrow
-entity.tapazite_arrow.name=Tapazite Arrow
-entity.crystal_arrow.name=Crystal Arrow
-entity.osmonium_arrow.name=Osmonium Arrow
-entity.ender_arrow.name=Ender Arrow
-entity.starconium_arrow.name=Starconium Arrow
+config.node.generateCopper=Generate Copper Ore
+config.node.generateSapphire=Generate_Sapphire_Ore
+config.node.generateAdamite=Generate_Adamite_Ore
+config.node.generateMeteorite=Generate_Meteorite_Ore
+config.node.generateRuby=Generate_Ruby_Ore
+config.node.generateFoolsRuby=Generate_Fools_Ruby_Ore
+config.node.generateZectium=Generate_Zectium_Ore
 
-# DEATH MESSAGE LOCALIZATION
-death.attack.copper_arrow=%1$s was shot by %2$s with a Copper Arrow
-death.attack.meteorite_arrow=%1$s was shot by %2$s with a Meteorite Arrow
-death.attack.invisium_arrow=%1$s was shot by %2$s with an Invisium Arrow
-death.attack.sapphire_arrow=%1$s was shot by %2$s with a Sapphire Arrow
-death.attack.adamite_arrow=%1$s was shot by %2$s with an Adamite Arrow
-death.attack.ruby_arrow=%1$s was shot by %2$s with a Ruby Arrow
-death.attack.zectium_arrow=%1$s was shot by %2$s with a Zectium Arrow
-death.attack.tapazite_arrow=%1$s was shot by %2$s with a Tapazite Arrow
-death.attack.crystal_arrow=%1$s was shot by %2$s with a Crystal Arrow
-death.attack.osmonium_arrow=%1$s was shot by %2$s with an Osmonium Arrow
-death.attack.ender_arrow=%1$s was shot by %2$s with an Ender Arrow
-death.attack.starconium_arrow=%1$s was shot by %2$s with a Starconium Arrow
+config.node.generateTapazite=Generate_Tapazite_Ore
+
+config.node.generateTapaziteStalagmite=Generate Tapazite Stalagmite
+config.node.generateTapaziteStalactite=Generate Tapazite Stalactite
+
+config.node.generateCrystal=Generate_Crystal_Ore
+config.node.generateOsmonium=Generate_Osmonium_Ore
+config.node.generateStarconium=Generate_Starconium_Ore
+config.node.generateDemonite=Generate_Demonite_Ore
+config.node.generateExperium=Generate_Experium_Ore
+config.node.generateInvisium=Generate_Invisium_Ore
+config.node.generateDarkstone=Generate_Darkstone
+config.node.generateLuminite=Generate_Luminite_Ore
+config.node.generateEnder=Generate_Ender_Ore
+config.node.generateUltra=Generate_Ultra_Ore
+
+config.comment.generateCopper=true: will generate copper | false: won't generate copper
+config.comment.generateSapphire=Set this to true to have Sapphire Crystal generated in your world. Set this to false to stop Sapphire Crystal from generating in your world.
+config.comment.generateAdamite=Set this to true to have Adamite Crystal generated in your world. Set this to false to stop Adamite Crystal from generating in your world.
+config.comment.generateMeteorite=Set this to true to have Meteorite generated in your world. Set this to false to stop Meteorite from generating in your world.
+config.comment.generateRuby=Set this to true to have Ruby Ore generated in your world. Set this to false to stop Ruby Ore from generating in your world.
+config.comment.generateFoolsRuby=Set this to true to have Fool's Ruby Ore generated in your world. Set this to false to stop Fool's Ruby Ore from generating in your world.
+config.comment.generateZectium=When set to true, Zectium Ore will be generated in new chunks. Set to false to stop Zectium Ore from spawning in new chunks.
+config.comment.generateTapazite=When set to true, Tapazite Ore will be generated in new chunks. Set to false to stop Tapazite Ore from spawning in new chunks.
+config.comment.generateCrystal=When set to true, Crystal Ore will be generated in new chunks. Set to false to stop Crystal Ore from spawning in new chunks.
+config.comment.generateOsmonium=When set to true, Osmonium Ore will be generated in new chunks. Set to false to stop Osmonium Ore from spawning in new chunks.
+config.comment.generateStarconium=When set to true, Starconium Ore will be generated in new chunks. Set to false to stop Starconium Ore from spawning in new chunks.
+config.comment.generateDemonite=When set to true, Demonite Ore will be generated in new chunks. Set to false to stop Demonite Ore from spawning in new chunks.
+config.comment.generateExperium=When set to true, Experium Ore will be generated in new chunks. Set to false to stop Experium Ore from spawning in new chunks.
+config.comment.generateInvisium=When set to true, Invisium Ore will be generated in new chunks. Set to false to stop Invisium Ore from spawning in new chunks.
+config.comment.generateDarkstone=When set to true, Darkstone will be generated in new chunks. Set to false to stop Darkstone from spawning in new chunks.
+config.comment.generateLuminite=When set to true, Luminite Ore will be generated in new chunks. Set to false to stop Luminite Ore from spawning in new chunks.
+config.comment.generateEnder=When set to true, Ender Ore will be generated in new chunks. Set to false to stop Ender Ore from spawning in new chunks.
+config.comment.generateUltra=When set to true, Ultra Ore will be generated in new chunks. Set to false to stop Ultra Ore from spawning in new chunks.
