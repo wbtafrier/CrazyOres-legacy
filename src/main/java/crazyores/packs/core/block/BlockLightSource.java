@@ -36,23 +36,23 @@ public class BlockLightSource extends CoreBlock {
 //        return false;
 //    }
 	
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
-		
-		EntityPlayer player = world.getClosestPlayer(x, y, z, 1);
-		
-		if (player == null) {
-			world.setBlock(x, y, z, Blocks.air);
-		}
-		else {
-			for (ObeliskPlayerData d : TapaziteObeliskEvent.obeliskData) {
-				if (d.getPlayer().equals(player)) {
-					return;
-				}
-			}
-			world.setBlock(x, y, z, Blocks.air);
-		}
-	}
+//	@Override
+//	public void updateTick(World world, int x, int y, int z, Random rand) {
+//		
+//		EntityPlayer player = world.getClosestPlayer(x, y, z, 1);
+//		
+//		if (player == null) {
+//			world.setBlock(x, y, z, Blocks.air);
+//		}
+//		else {
+//			for (ObeliskPlayerData d : TapaziteObeliskEvent.obeliskData) {
+//				if (d.getPlayer().equals(player)) {
+//					return;
+//				}
+//			}
+//			world.setBlock(x, y, z, Blocks.air);
+//		}
+//	}
 	
 	@Override
     public boolean canCollideCheck(int p_149678_1_, boolean p_149678_2_) {

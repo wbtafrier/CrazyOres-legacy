@@ -13,12 +13,11 @@ public class TapaziteObeliskEvent {
 	public static ArrayList<ObeliskPlayerData> obeliskData = new ArrayList<ObeliskPlayerData>();
 	
 	@SubscribeEvent
-	public void onObeliskHeld(PlayerEvent e) {
+	public synchronized void onObeliskHeld(PlayerEvent e) {
 		if (e.entityPlayer != null) {
 			if (e.entityPlayer.getCurrentEquippedItem() != null && e.entityPlayer.getCurrentEquippedItem().getItem().equals(CoreItems.tapaziteObelisk)) {
 				if (obeliskData.size() == 0) {
-					System.out.println("Hi " + e.entityPlayer.getCommandSenderName());
-					obeliskData.add(new ObeliskPlayerData(e.entityPlayer));
+					addPlayer(e);
 				}
 				else {
 					for (int i = 0; i < obeliskData.size(); i++) {
@@ -26,18 +25,19 @@ public class TapaziteObeliskEvent {
 							break;
 						}
 						if (i == (obeliskData.size() - 1)) {
-							ObeliskPlayerData opd = new ObeliskPlayerData(e.entityPlayer);
-							System.out.println("Hi " + e.entityPlayer.getCommandSenderName());
-							obeliskData.add(opd);
+							addPlayer(e);
 						}
 					}
 				}
 				
-				for (ObeliskPlayerData opd : obeliskData) {
-					opd.updatePlayerPosition();
-					opd.updateBlock();
-					opd.updateLightPosition();
-					opd.updateYPos();
+				for (int i = 0; i < obeliskData.size(); i++) {
+					if (obeliskData.get(i).needsUpdate()) {
+						System.out.println("UPDATE");
+						obeliskData.get(i).updatePlayerPosition();
+						obeliskData.get(i).updateBlock();
+						obeliskData.get(i).updateLightPosition();
+						obeliskData.get(i).updateYPos();
+					}
 				}
 			}
 			else {
@@ -50,5 +50,11 @@ public class TapaziteObeliskEvent {
 				}
 			}
 		}
+	}
+	
+	private synchronized void addPlayer(PlayerEvent e) {
+		ObeliskPlayerData opd = new ObeliskPlayerData(e.entityPlayer);
+		System.out.println("Hi " + e.entityPlayer.getCommandSenderName());
+		obeliskData.add(opd);
 	}
 }
