@@ -32,7 +32,7 @@ public class TapaziteObeliskEvent {
 				
 				for (int i = 0; i < obeliskData.size(); i++) {
 					if (obeliskData.get(i).needsUpdate()) {
-						System.out.println("UPDATE");
+//						System.out.println("UPDATE");
 						obeliskData.get(i).updatePlayerPosition();
 						obeliskData.get(i).updateBlock();
 						obeliskData.get(i).updateLightPosition();
@@ -45,7 +45,7 @@ public class TapaziteObeliskEvent {
 					if (obeliskData.get(i).player.equals(e.entityPlayer)) {
 						obeliskData.get(i).updateBlock();
 						obeliskData.remove(i);
-						System.out.println("Bye " + e.entityPlayer.getCommandSenderName());
+//						System.out.println("Bye " + e.entityPlayer.getCommandSenderName());
 					}
 				}
 			}
@@ -54,7 +54,7 @@ public class TapaziteObeliskEvent {
 	
 	private synchronized void addPlayer(PlayerEvent e) {
 		ObeliskPlayerData opd = new ObeliskPlayerData(e.entityPlayer);
-		System.out.println("Hi " + e.entityPlayer.getCommandSenderName());
+//		System.out.println("Hi " + e.entityPlayer.getCommandSenderName());
 		obeliskData.add(opd);
 	}
 }
