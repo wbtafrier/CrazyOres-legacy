@@ -2,6 +2,21 @@
 
 # BLOCK LOCALIZATION
 meteorite_ore.name=Meteorite Ore
+copper_ore.name=Copper Ore
+sapphire_ore.name=Sapphire Ore
+adamite_ore.name=Adamite Ore
+ruby_ore.name=Ruby Ore
+fools_ruby_ore.name=Fool's Ruby Ore
+zectium_ore.name=Zectium Ore
+osmonium_ore.name=Osmonium Ore
+starconium_ore.name=Starconium Ore
+experium_ore.name=Experium Ore
+
+demonite_ore.name=Demonite Ore
+invisium_ore.name=Invisium Ore
+darkstone_ore.name=Darkstone Ore
+luminite_ore.name=Luminite Ore
+
 
 # ITEM LOCALIZATION
 tapazite_stalagmite_0.name=Tapazite Stalagmite Phase 1
@@ -225,47 +240,21 @@ config.category.miscSettings=Miscellaneous Settings
 
 config.node.installFoodsPack=Foods Pack
 
-config.node.generateCopper=Generate Copper Ore
-config.node.generateSapphire=Generate_Sapphire_Ore
-config.node.generateAdamite=Generate_Adamite_Ore
-config.node.generateMeteorite=Generate_Meteorite_Ore
-config.node.generateRuby=Generate_Ruby_Ore
-config.node.generateFoolsRuby=Generate_Fools_Ruby_Ore
-config.node.generateZectium=Generate_Zectium_Ore
+config.node.generateCopperOre=Generate_Copper_Ore
+config.node.generateSapphireOre=Generate_Sapphire_Ore
+config.node.generateAdamiteOre=Generate_Adamite_Ore
+config.node.generateMeteoriteOre=Generate_Meteorite_Ore
+config.node.generateRubyOre=Generate_Ruby_Ore
+config.node.generateFoolsRubyOre=Generate_Fools_Ruby_Ore
+config.node.generateZectiumOre=Generate_Zectium_Ore
+config.node.generateTapaziteOre=Generate_Tapazite_Ore
+config.node.generateOsmoniumOre=Generate_Osmonium_Ore
+config.node.generateStarconiumOre=Generate_Starconium_Ore
+config.node.generateExperiumOre=Generate_Experium_Ore
 
-config.node.generateTapazite=Generate_Tapazite_Ore
-
-config.node.generateTapaziteStalagmite=Generate Tapazite Stalagmite
-config.node.generateTapaziteStalactite=Generate Tapazite Stalactite
-
-config.node.generateCrystal=Generate_Crystal_Ore
-config.node.generateOsmonium=Generate_Osmonium_Ore
-config.node.generateStarconium=Generate_Starconium_Ore
-config.node.generateDemonite=Generate_Demonite_Ore
-config.node.generateExperium=Generate_Experium_Ore
-config.node.generateInvisium=Generate_Invisium_Ore
-config.node.generateDarkstone=Generate_Darkstone
-config.node.generateLuminite=Generate_Luminite_Ore
-config.node.generateEnder=Generate_Ender_Ore
-config.node.generateUltra=Generate_Ultra_Ore
+config.node.generateDemoniteOre=Generate_Demonite_Ore
+config.node.generateInvisiumOre=Generate_Invisium_Ore
+config.node.generateDarkstoneOre=Generate_Darkstone_Ore
+config.node.generateLuminiteOre=Generate_Luminite_Ore
 
 config.node.zectiumCoreExplodes=Zectium Core Explodes When Thrown
-
-config.comment.generateCopper=true: will generate copper | false: won't generate copper
-config.comment.generateSapphire=Set this to true to have Sapphire Crystal generated in your world. Set this to false to stop Sapphire Crystal from generating in your world.
-config.comment.generateAdamite=Set this to true to have Adamite Crystal generated in your world. Set this to false to stop Adamite Crystal from generating in your world.
-config.comment.generateMeteorite=Set this to true to have Meteorite generated in your world. Set this to false to stop Meteorite from generating in your world.
-config.comment.generateRuby=Set this to true to have Ruby Ore generated in your world. Set this to false to stop Ruby Ore from generating in your world.
-config.comment.generateFoolsRuby=Set this to true to have Fool's Ruby Ore generated in your world. Set this to false to stop Fool's Ruby Ore from generating in your world.
-config.comment.generateZectium=When set to true, Zectium Ore will be generated in new chunks. Set to false to stop Zectium Ore from spawning in new chunks.
-config.comment.generateTapazite=When set to true, Tapazite Ore will be generated in new chunks. Set to false to stop Tapazite Ore from spawning in new chunks.
-config.comment.generateCrystal=When set to true, Crystal Ore will be generated in new chunks. Set to false to stop Crystal Ore from spawning in new chunks.
-config.comment.generateOsmonium=When set to true, Osmonium Ore will be generated in new chunks. Set to false to stop Osmonium Ore from spawning in new chunks.
-config.comment.generateStarconium=When set to true, Starconium Ore will be generated in new chunks. Set to false to stop Starconium Ore from spawning in new chunks.
-config.comment.generateDemonite=When set to true, Demonite Ore will be generated in new chunks. Set to false to stop Demonite Ore from spawning in new chunks.
-config.comment.generateExperium=When set to true, Experium Ore will be generated in new chunks. Set to false to stop Experium Ore from spawning in new chunks.
-config.comment.generateInvisium=When set to true, Invisium Ore will be generated in new chunks. Set to false to stop Invisium Ore from spawning in new chunks.
-config.comment.generateDarkstone=When set to true, Darkstone will be generated in new chunks. Set to false to stop Darkstone from spawning in new chunks.
-config.comment.generateLuminite=When set to true, Luminite Ore will be generated in new chunks. Set to false to stop Luminite Ore from spawning in new chunks.
-config.comment.generateEnder=When set to true, Ender Ore will be generated in new chunks. Set to false to stop Ender Ore from spawning in new chunks.
-config.comment.generateUltra=When set to true, Ultra Ore will be generated in new chunks. Set to false to stop Ultra Ore from spawning in new chunks.

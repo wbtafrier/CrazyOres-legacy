@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 public class EntityZectiumCore extends EntityThrowable {
 
-	private float explosionStrength = 20.0F;
+	private float explosionStrength = 20.0f;
 	
 	public EntityZectiumCore(World world) {
 		super(world);

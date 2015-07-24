@@ -30,6 +30,10 @@ public class BlockOre extends CoreBlock {
 		super(unlocalizedName, blockMaterial, tab, soundType, hardness, resistance);
 	}
 	
+	protected BlockOre(String unlocalizedName, Material blockMaterial, CreativeTabs tab, SoundType soundType, float hardness, float resistance, float lightLevel) {
+		super(unlocalizedName, blockMaterial, tab, soundType, hardness, resistance, lightLevel);
+	}
+	
 	@Override
 	public Item getItemDropped(int metadata, Random rand, int fortune) {
 		

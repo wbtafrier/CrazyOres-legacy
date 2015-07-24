@@ -12,8 +12,8 @@ public class BlockLightSource extends CoreBlock {
 
 	protected BlockLightSource(String unlocalizedName, Material blockMaterial, float lightLevel, float hardness, float resistance) {
 		super(unlocalizedName, blockMaterial, hardness, resistance);
-		super.setLightLevel(lightLevel);
 		super.setLightOpacity(0);
+		super.setLightLevel(lightLevel);
 	}
 	
 	@Override
@@ -39,13 +39,13 @@ public class BlockLightSource extends CoreBlock {
 	@Override
     public void dropBlockAsItemWithChance(World p_149690_1_, int p_149690_2_, int p_149690_3_, int p_149690_4_, int p_149690_5_, float p_149690_6_, int p_149690_7_) {}
 	
-	@Override
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		this.blockIcon = iconRegister.registerIcon(String.format("%s%s%s", COPackManager.corePack.getPackID(), ":", this.getUnlocalizedName()));
-	}
-
-	@Override
-	public IIcon getIcon(int side, int metadata) {
-		return this.blockIcon;
-	}
+//	@Override
+//	public void registerBlockIcons(IIconRegister iconRegister) {
+//		this.blockIcon = iconRegister.registerIcon(String.format("%s%s%s", COPackManager.corePack.getPackID(), ":", this.getUnlocalizedName()));
+//	}
+//
+//	@Override
+//	public IIcon getIcon(int side, int metadata) {
+//		return this.blockIcon;
+//	}
 }

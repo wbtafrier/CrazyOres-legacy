@@ -14,9 +14,13 @@ import crazyores.packs.core.block.CoreBlocks;
 
 public class ItemTapaziteObelisk extends CoreItem {
 
-	public double lightX;
-	public double lightY;
-	public double lightZ;
+	private int lightX;
+	private int lightY;
+	private int lightZ;
+	
+	private int playerPosX;
+	private int playerPosY;
+	private int playerPosZ;
 	
 	/**
 	 * Constructor for the CoreItem class.
@@ -39,43 +43,43 @@ public class ItemTapaziteObelisk extends CoreItem {
 	public void onUpdate(ItemStack item, World world, Entity entity, int par4, boolean isHolding) {
 		
 		if (entity instanceof EntityPlayerMP) {
-			if (isHolding && ((EntityPlayerMP)entity).getCurrentEquippedItem() == item) {
+			if (((EntityPlayerMP)entity).getCurrentEquippedItem() == item) {
 				
-				if (playerMoved(entity)) {
+				playerPosX = (int)entity.posX;
+				playerPosY = (int)entity.posY;
+				playerPosZ = (int)entity.posZ;
+				
+				
+//				System.out.println("ENTITY: " + entity.posX + ", " + entity.posY + ", " + entity.posZ);
+//				System.out.println("ENTITY: " + playerPosX  + ", " + playerPosY  + ", " + playerPosZ);
+//				System.out.println("LIGHT: "  + lightX      + ", " + lightY      + ", " + lightZ);
 					
-//					System.out.println("ENTITY: " + entity.posX + ", " + entity.posY + ", " + entity.posZ + "  |  LIGHT: " + lightX + ", " + lightY + "," + lightZ);
-					
-					if (world.getBlock((int)lightX, (int)lightY, (int)lightZ).isAssociatedBlock(CoreBlocks.tapaziteLightSource)) {
-						world.setBlock((int)lightX, (int)lightY, (int)lightZ, Blocks.air);
-					}
-					updateLightPosition(entity);
-					
-					for (int y = 0; y < 3; y++) {
-						if (world.getBlock((int)lightX, (int)lightY + y, (int)lightZ).isAir(world, (int)lightX, (int)lightY + y, (int)lightZ)) {
-							this.lightY += y;
-							this.setLightBlock(world);
-							break;
-						}
+				
+				if (world.getBlock((int)lightX, (int)lightY, (int)lightZ).isAssociatedBlock(CoreBlocks.tapaziteLightSource)) {
+					world.setBlock((int)lightX, (int)lightY, (int)lightZ, Blocks.air);
+				}
+				updateLightPosition(entity);
+				
+				for (int y = 0; y < 3; y++) {
+					if (world.getBlock((int)lightX, (int)lightY + y, (int)lightZ).isAir(world, (int)lightX, (int)lightY + y, (int)lightZ)) {
+						this.lightY += y;
+						this.setLightBlock(world);
+						break;
 					}
 				}
 			}
-			else if (world.getBlock((int)lightX, (int)lightY, (int)lightZ).isAssociatedBlock(CoreBlocks.tapaziteLightSource)){
+			else {
 				world.setBlock((int)lightX, (int)lightY, (int)lightZ, Blocks.air);
 			}
 		}
 	}
 	
 	private void updateLightPosition(Entity entity) {
-		lightX = entity.posX;
-		lightY = entity.posY;
-		lightZ = entity.posZ;
-	}
-	
-	private boolean playerMoved(Entity entity) {
-		if (Math.abs(lightX - entity.posX) > 0.01 || Math.abs(lightY - entity.posY) > 0.01 || Math.abs(lightZ - entity.posZ) > 0.01) {
-			return true;
-		}
-		return false;
+		if (playerPosX < 0) lightX = playerPosX - 1;
+		else lightX = playerPosX;
+		lightY = playerPosY;
+		if (playerPosZ < 0) lightZ = playerPosZ - 1;
+		else lightZ = playerPosZ;
 	}
 	
 	public void setLightBlock(World world) {

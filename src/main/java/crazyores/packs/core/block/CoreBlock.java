@@ -58,6 +58,12 @@ public abstract class CoreBlock extends Block implements IBlock, IName {
 		super.setCreativeTab(tab);
 	}
 	
+	protected CoreBlock(String unlocalizedName, Material blockMaterial, CreativeTabs tab, Block.SoundType soundType, float hardness, float resistance, float lightLevel) {
+		this(unlocalizedName, blockMaterial, tab, soundType, hardness, resistance);
+		super.setLightLevel(lightLevel);
+	}
+	
+	
 	@Override
 	public String getUnlocalizedName() {
 		return blockUnlocalizedName;

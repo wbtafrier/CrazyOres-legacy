@@ -14,6 +14,7 @@ import crazyores.manager.util.CrazyOresLogger;
 import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.item.CoreItems;
 import crazyores.packs.core.tabs.CoreTabs;
+import crazyores.packs.core.world.generate.CoreLootHandler;
 
 /**
  * In this class we will check to see which packs are installed and if they are, load them into the game.
@@ -40,6 +41,7 @@ public class COPackManager {
 			CoreTabs.initCoreTabs();
 			CoreBlocks.initBlocks();
 			CoreItems.initItems();
+			CoreLootHandler.initLoot();
 		}
 
 		if (Loader.isModLoaded(foodsPack.getPackID())) {
