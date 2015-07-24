@@ -3,6 +3,8 @@ package crazyores.manager.pack;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraftforge.common.MinecraftForge;
+
 import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.Loader;
@@ -12,6 +14,7 @@ import crazyores.manager.support.AbstractPack;
 import crazyores.manager.tabs.CrazyOresTabs;
 import crazyores.manager.util.CrazyOresLogger;
 import crazyores.packs.core.block.CoreBlocks;
+import crazyores.packs.core.event.TapaziteObeliskEvent;
 import crazyores.packs.core.item.CoreItems;
 import crazyores.packs.core.tabs.CoreTabs;
 import crazyores.packs.core.world.generate.CoreLootHandler;
@@ -42,6 +45,7 @@ public class COPackManager {
 			CoreBlocks.initBlocks();
 			CoreItems.initItems();
 			CoreLootHandler.initLoot();
+			MinecraftForge.EVENT_BUS.register(new TapaziteObeliskEvent());
 		}
 
 		if (Loader.isModLoaded(foodsPack.getPackID())) {

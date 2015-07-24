@@ -1,5 +1,7 @@
 package crazyores.manager.start;
 
+import net.minecraftforge.common.MinecraftForge;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -8,6 +10,7 @@ import crazyores.manager.config.COConfigManager;
 import crazyores.manager.pack.COPackManager;
 import crazyores.manager.proxy.ClientProxy;
 import crazyores.manager.world.generate.Generate;
+import crazyores.packs.core.event.TapaziteObeliskEvent;
 
 public class CrazyOresInit {
 	
