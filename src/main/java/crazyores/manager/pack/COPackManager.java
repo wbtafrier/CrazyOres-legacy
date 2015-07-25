@@ -14,6 +14,7 @@ import crazyores.manager.support.AbstractPack;
 import crazyores.manager.tabs.CrazyOresTabs;
 import crazyores.manager.util.CrazyOresLogger;
 import crazyores.packs.core.block.CoreBlocks;
+import crazyores.packs.core.entity.CoreEntityRegistry;
 import crazyores.packs.core.event.TapaziteObeliskEvent;
 import crazyores.packs.core.item.CoreItems;
 import crazyores.packs.core.tabs.CoreTabs;
@@ -44,6 +45,7 @@ public class COPackManager {
 			CoreTabs.initCoreTabs();
 			CoreBlocks.initBlocks();
 			CoreItems.initItems();
+			CoreEntityRegistry.initEntities();
 			CoreLootHandler.initLoot();
 			MinecraftForge.EVENT_BUS.register(new TapaziteObeliskEvent());
 		}

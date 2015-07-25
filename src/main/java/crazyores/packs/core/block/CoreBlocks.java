@@ -36,7 +36,7 @@ public class CoreBlocks {
 	}
 	
 	public static void initOverworldBlocks() {
-		tapaziteLightSource = new BlockLightSource("tapazite_light_source", Material.rock, 0.75F, 1.2F, 3.0F); registerBlock(tapaziteLightSource);
+		tapaziteLightSource = new BlockLightSource("tapazite_light_source", Material.air, 0.75F, 1.2F, 3.0F); registerBlock(tapaziteLightSource);
 		tapaziteStalagmite = new BlockTapaziteStalagmite("tapazite_stalagmite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.crazyOresBlocksTab); registerBlock(tapaziteStalagmite, ItemBlockTapaziteStalagmite.class);
 		tapaziteStalactite = new BlockTapaziteStalactite("tapazite_stalactite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.crazyOresBlocksTab); registerBlock(tapaziteStalactite, ItemBlockTapaziteStalactite.class);
 		
