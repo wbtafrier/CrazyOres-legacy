@@ -20,7 +20,6 @@ public class ItemZectiumCore extends CoreItem {
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		
-		if (COCoreConfigSettings.zectiumCoreExplodes) {
 			if (!player.capabilities.isCreativeMode) {
 				--stack.stackSize;
 			}
@@ -30,7 +29,6 @@ public class ItemZectiumCore extends CoreItem {
 			if (!world.isRemote) {
 				world.spawnEntityInWorld(new EntityZectiumCore(world, player));
 			}
-		}
 		return stack;
 	}
 }

@@ -15,9 +15,11 @@ import crazyores.manager.tabs.CrazyOresTabs;
 import crazyores.manager.util.CrazyOresLogger;
 import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.entity.CoreEntityRegistry;
+import crazyores.packs.core.event.CoreEventManager;
 import crazyores.packs.core.event.TapaziteObeliskEvent;
 import crazyores.packs.core.item.CoreItems;
 import crazyores.packs.core.tabs.CoreTabs;
+import crazyores.packs.core.util.HarvestLevels;
 import crazyores.packs.core.world.generate.CoreLootHandler;
 
 /**
@@ -36,7 +38,7 @@ public class COPackManager {
 	/**
 	 * Loads all of the installed packs and their data.
 	 */
-	public static void loadPackData() {
+	public static void preInit() {
 
 		CrazyOresTabs.initTabs();
 		
@@ -47,7 +49,8 @@ public class COPackManager {
 			CoreItems.initItems();
 			CoreEntityRegistry.initEntities();
 			CoreLootHandler.initLoot();
-			MinecraftForge.EVENT_BUS.register(new TapaziteObeliskEvent());
+			HarvestLevels.setHarvestLevels();
+			CoreEventManager.registerEvents();
 		}
 
 		if (Loader.isModLoaded(foodsPack.getPackID())) {
@@ -62,6 +65,11 @@ public class COPackManager {
 		}
 		
 		COPackManager.loadLoggers();
+	}
+	
+	public static void postInit() {
+		if (Loader.isModLoaded(corePack.getPackID())) {
+		}
 	}
 	
 	private static void loadLoggers() {

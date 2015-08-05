@@ -4,5 +4,5 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class CoreTabList {
 
-	public static CreativeTabs crazyOresArmorTab;
+	public static CreativeTabs crazyOresToolsTab;
 }

@@ -8,12 +8,13 @@ import crazyores.manager.config.COConfigManager;
 import crazyores.manager.pack.COPackManager;
 import crazyores.manager.proxy.IProxy;
 import crazyores.manager.world.generate.Generate;
+import crazyores.packs.core.util.HarvestLevels;
 
 public class CrazyOresInit {
 	
 	public static void preInit(FMLPreInitializationEvent preInitEvent) {
 		COConfigManager.init(preInitEvent);
-		COPackManager.loadPackData();
+		COPackManager.preInit();
 	}
 	
 	public static void init(FMLInitializationEvent initEvent, IProxy proxy) {
@@ -23,5 +24,6 @@ public class CrazyOresInit {
 	}
 	
 	public static void postInit(FMLPostInitializationEvent postInitEvent) {
+		COPackManager.postInit();
 	}
 }

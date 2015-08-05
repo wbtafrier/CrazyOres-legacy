@@ -10,7 +10,7 @@ import crazyores.manager.pack.COPackManager;
 import crazyores.manager.support.IBlock;
 import crazyores.manager.support.IName;
 
-public abstract class CoreBlock extends Block implements IBlock, IName {
+public class CoreBlock extends Block implements IBlock, IName {
 
 	public final String blockUnlocalizedName;
 	

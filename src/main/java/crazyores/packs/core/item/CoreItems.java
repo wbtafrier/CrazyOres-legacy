@@ -1,44 +1,53 @@
 package crazyores.packs.core.item;
 
-import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.WeightedRandomChestContent;
-import net.minecraftforge.common.ChestGenHooks;
+import net.minecraft.item.Item.ToolMaterial;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 import crazyores.manager.tabs.COTabList;
+import crazyores.packs.core.util.HarvestLevels;
 
 public class CoreItems {
-
-	/** ORE DROPS **/
+	
+	//Overworld ore drops
+	public static Item copperIngot;
+	
 	public static Item meteoriteCoal;
 	public static Item meteoriteGem;
-	public static Item copperIngot;
-	public static Item sapphireGem;
+	
 	public static Item adamiteShard;
+	public static Item sapphireGem;
 	public static Item rubyGem;
+	
 	public static Item foolsRubyGem;
+	public static Item foolsRubyMush;
+	
 	public static Item zectiumIngot;
 	public static Item tapaziteObelisk;
 	public static Item tapaziteDust;
 	public static Item osmoniumIngot;
-	public static Item starconiumGem;
-	public static Item foolsRubyMush;
-	public static Item demoniteOrb;
+	public static Item starconiumShard;
 	public static Item experiumOrb;
-	public static Item enderGem;
-	public static Item darkstoneIngot;
+	
+	//Nether ore drops
+	public static Item demoniteOrb;
 	public static Item invisiumIngot;
-	public static Item ultraGem;
+	//TODO: Should be in the decorations pack
+	public static Item darkstoneIngot;
 	public static Item whiteLuminiteCrystal;
 	
+	//Ender ore drops
+	public static Item enderGem;
+	public static Item ultraGem;
+	
+	//Items
 	public static Item zectiumCore;
 	
-	/** Pickaxe List **/
-	public static Item meteoritePickaxe;
+	//Pickaxes
 	public static Item copperPickaxe;
-	public static Item sapphirePickaxe;
+	public static Item meteoritePickaxe;
 	public static Item adamitePickaxe;
+	public static Item sapphirePickaxe;
 	public static Item rubyPickaxe;
 	public static Item zectiumPickaxe;
 	public static Item tapazitePickaxe;
@@ -48,6 +57,7 @@ public class CoreItems {
 	public static Item enderPickaxe;
 	
 	/** Axe List **/
+/*	
 	public static Item meteoriteAxe;
 	public static Item copperAxe;
 	public static Item sapphireAxe;
@@ -59,8 +69,10 @@ public class CoreItems {
 	public static Item starconiumAxe;
 	public static Item invisiumAxe;
 	public static Item enderAxe;
-	
+*/
+
 	/** Shovel List **/
+/*
 	public static Item meteoriteShovel;
 	public static Item copperShovel;
 	public static Item sapphireShovel;
@@ -72,8 +84,10 @@ public class CoreItems {
 	public static Item starconiumShovel;
 	public static Item invisiumShovel;
 	public static Item enderShovel;
-	
+*/
+
 	/** Sword List **/
+/*
 	public static Item meteoriteSword;
 	public static Item copperSword;
 	public static Item sapphireSword;
@@ -85,8 +99,10 @@ public class CoreItems {
 	public static Item starconiumSword;
 	public static Item invisiumSword;
 	public static Item enderSword;
+*/
 	
 	/** Hoe List **/
+/*	
 	public static Item meteoriteHoe;
 	public static Item copperHoe;
 	public static Item sapphireHoe;
@@ -98,11 +114,15 @@ public class CoreItems {
 	public static Item starconiumHoe;
 	public static Item invisiumHoe;
 	public static Item enderHoe;
+*/
 	
 	/** Hammer List **/
+/*
 	public static Item starconiumSledgehammer;
+*/
 	
 	/** Helmet List **/
+/*
 	public static Item copperHelmet;
 	public static Item sapphireHelmet;
 	public static Item adamiteHelmet;
@@ -114,8 +134,10 @@ public class CoreItems {
 	public static Item starconiumHelmet;
 	public static Item invisiumHelmet;
 	public static Item enderHelmet;
+*/	
 	
 	/** Chestplate List **/
+/*
 	public static Item copperChestplate;
 	public static Item sapphireChestplate;
 	public static Item adamiteChestplate;
@@ -127,8 +149,10 @@ public class CoreItems {
 	public static Item starconiumChestplate;
 	public static Item invisiumChestplate;
 	public static Item enderChestplate;
+*/
 	
 	/** Legging List **/
+/*
 	public static Item copperLeggings;
 	public static Item sapphireLeggings;
 	public static Item adamiteLeggings;
@@ -140,8 +164,10 @@ public class CoreItems {
 	public static Item starconiumLeggings;
 	public static Item invisiumLeggings;
 	public static Item enderLeggings;
+*/
 	
 	/** Boot List **/
+/*	
 	public static Item copperBoots;	
 	public static Item sapphireBoots;
 	public static Item adamiteBoots;
@@ -153,16 +179,22 @@ public class CoreItems {
 	public static Item starconiumBoots;
 	public static Item invisiumBoots;
 	public static Item enderBoots;
+*/
 	
 	/** Bucket List **/
+/*
 	public static Item copperBucketEmpty;
 	public static Item copperBucketWater;
 	public static Item copperBucketLava;
+*/
 	
 	/** Items List **/
+/*
 	public static Item starconiumShard;
+*/	
 	
 	/** Rod List **/
+/*
 	public static Item copperRod;
 	public static Item sapphireRod;
 	public static Item adamiteRod;
@@ -174,8 +206,10 @@ public class CoreItems {
 	public static Item starconiumRod;
 	public static Item invisiumRod;
 	public static Item enderRod;
+*/
 	
 	/** Bow List **/
+/*
 	public static Item meteoriteBow;
 	public static Item copperBow;
 	public static Item invisiumBow;
@@ -187,8 +221,10 @@ public class CoreItems {
 	public static Item osmoniumBow;
 	public static Item enderBow;
 	public static Item starconiumBow;
+*/	
 	
 	/** Arrow List **/
+/*
 	public static Item meteoriteArrow;
 	public static Item copperArrow;
 	public static Item invisiumArrow;
@@ -200,30 +236,59 @@ public class CoreItems {
 	public static Item osmoniumArrow;
 	public static Item enderArrow;
 	public static Item starconiumArrow;
-	
+*/
+
 	public static void initItems() {
+		initOreDrops();
+		initTools();
+		
+		//Items
+		zectiumCore = new ItemZectiumCore("zectium_core", COTabList.crazyOresItemsTab, 16); registerItem(zectiumCore);
+	}
+	
+	private static void initOreDrops() {
+		//Overworld ore drops
+		copperIngot = new CoreItem("copper_ingot", COTabList.crazyOresItemsTab); registerItem(copperIngot);
 		meteoriteCoal = new CoreItem("meteorite_coal", COTabList.crazyOresItemsTab); registerItem(meteoriteCoal);
 		meteoriteGem = new CoreItem("meteorite_gem", COTabList.crazyOresItemsTab); registerItem(meteoriteGem);
-		copperIngot = new CoreItem("copper_ingot", COTabList.crazyOresItemsTab); registerItem(copperIngot);
-		sapphireGem = new CoreItem("sapphire_gem", COTabList.crazyOresItemsTab); registerItem(sapphireGem);
 		adamiteShard = new CoreItem("adamite_shard", COTabList.crazyOresItemsTab); registerItem(adamiteShard);
+		sapphireGem = new CoreItem("sapphire_gem", COTabList.crazyOresItemsTab); registerItem(sapphireGem);
 		rubyGem = new CoreItem("ruby_gem", COTabList.crazyOresItemsTab); registerItem(rubyGem);
 		foolsRubyGem = new CoreItem("fools_ruby_gem", COTabList.crazyOresItemsTab); registerItem(foolsRubyGem);
+		foolsRubyMush = new CoreItem("fools_ruby_mush", COTabList.crazyOresItemsTab); registerItem(foolsRubyMush);
 		zectiumIngot = new CoreItem("zectium_ingot", COTabList.crazyOresItemsTab); registerItem(zectiumIngot);
 		tapaziteObelisk = new ItemTapaziteObelisk("tapazite_obelisk", COTabList.crazyOresItemsTab); registerItem(tapaziteObelisk);
 		/** TODO: ADD TEXTURE **/ tapaziteDust = new CoreItem("tapazite_dust", COTabList.crazyOresItemsTab); registerItem(tapaziteDust);
 		osmoniumIngot = new CoreItem("osmonium_ingot", COTabList.crazyOresItemsTab); registerItem(osmoniumIngot);
-		starconiumGem = new CoreItem("starconium_gem", COTabList.crazyOresItemsTab); registerItem(starconiumGem);
-		foolsRubyMush = new CoreItem("fools_ruby_mush", COTabList.crazyOresItemsTab); registerItem(foolsRubyMush);
-		demoniteOrb = new CoreItem("demonite_orb", COTabList.crazyOresItemsTab); registerItem(demoniteOrb);
+		starconiumShard = new CoreItem("starconium_gem", COTabList.crazyOresItemsTab); registerItem(starconiumShard);
 		experiumOrb = new CoreItem("experium_orb", COTabList.crazyOresItemsTab); registerItem(experiumOrb);
-		enderGem = new CoreItem("ender_gem", COTabList.crazyOresItemsTab); registerItem(enderGem);
-		darkstoneIngot = new CoreItem("darkstone_ingot", COTabList.crazyOresItemsTab); registerItem(darkstoneIngot);
+		
+		//Nether ore drops
+		demoniteOrb = new CoreItem("demonite_orb", COTabList.crazyOresItemsTab); registerItem(demoniteOrb);
 		invisiumIngot = new CoreItem("invisium_ingot", COTabList.crazyOresItemsTab); registerItem(invisiumIngot);
-		ultraGem = new CoreItem("ultra_gem", COTabList.crazyOresItemsTab); registerItem(ultraGem);
+		
+		//Should be in the decorations pack
+		darkstoneIngot = new CoreItem("darkstone_ingot", COTabList.crazyOresItemsTab); registerItem(darkstoneIngot);
 		whiteLuminiteCrystal = new CoreItem("white_luminite_crystal", COTabList.crazyOresItemsTab); registerItem(whiteLuminiteCrystal);
 		
-		zectiumCore = new ItemZectiumCore("zectium_core", COTabList.crazyOresItemsTab, 16); registerItem(zectiumCore);
+		//Ender ore drops
+		enderGem = new CoreItem("ender_gem", COTabList.crazyOresItemsTab); registerItem(enderGem);
+		ultraGem = new CoreItem("ultra_gem", COTabList.crazyOresItemsTab); registerItem(ultraGem);
+	}
+	
+	private static void initTools() {
+		
+		copperPickaxe = new CorePickaxe("copper_pickaxe", HarvestLevels.COPPER); registerItem(copperPickaxe);
+		meteoritePickaxe = new CorePickaxe("meteorite_pickaxe", HarvestLevels.METEORITE); registerItem(meteoritePickaxe);
+		adamitePickaxe = new CorePickaxe("adamite_pickaxe", HarvestLevels.ADAMITE); registerItem(adamitePickaxe);
+		sapphirePickaxe = new CorePickaxe("sapphire_pickaxe", HarvestLevels.SAPPHIRE); registerItem(sapphirePickaxe);
+		rubyPickaxe = new CorePickaxe("ruby_pickaxe", HarvestLevels.RUBY); registerItem(rubyPickaxe);
+		zectiumPickaxe = new CorePickaxe("zectium_pickaxe", HarvestLevels.ZECTIUM); registerItem(zectiumPickaxe);
+		tapazitePickaxe = new CorePickaxe("tapazite_pickaxe", HarvestLevels.TAPAZITE); registerItem(tapazitePickaxe);
+		osmoniumPickaxe = new CorePickaxe("osmonium_pickaxe", HarvestLevels.OSMONIUM); registerItem(osmoniumPickaxe);
+		starconiumPickaxe = new CorePickaxe("starconium_pickaxe", HarvestLevels.STARCONIUM); registerItem(starconiumPickaxe);
+		invisiumPickaxe = new CorePickaxe("invisium_pickaxe", HarvestLevels.INVISIUM); registerItem(invisiumPickaxe);
+		enderPickaxe = new CorePickaxe("ender_pickaxe", HarvestLevels.ENDER); registerItem(enderPickaxe);
 	}
 	
 	private static void registerItem(Item item) {

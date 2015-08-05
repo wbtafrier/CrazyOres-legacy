@@ -33,10 +33,7 @@ public class TapaziteObeliskEvent {
 				for (int i = 0; i < obeliskData.size(); i++) {
 					if (obeliskData.get(i).needsUpdate()) {
 //						System.out.println("UPDATE");
-						obeliskData.get(i).updatePlayerPosition();
-						obeliskData.get(i).updateBlock();
-						obeliskData.get(i).updateLightPosition();
-						obeliskData.get(i).updateYPos();
+						update(i);
 					}
 				}
 			}
@@ -56,5 +53,13 @@ public class TapaziteObeliskEvent {
 		ObeliskPlayerData opd = new ObeliskPlayerData(e.entityPlayer);
 //		System.out.println("Hi " + e.entityPlayer.getCommandSenderName());
 		obeliskData.add(opd);
+		update(obeliskData.size() - 1);
+	}
+	
+	private synchronized void update(int index) {
+		obeliskData.get(index).updatePlayerPosition();
+		obeliskData.get(index).updateBlock();
+		obeliskData.get(index).updateLightPosition();
+		obeliskData.get(index).updateYPos();
 	}
 }

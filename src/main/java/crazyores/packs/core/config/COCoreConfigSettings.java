@@ -19,5 +19,7 @@ public class COCoreConfigSettings {
 	public static boolean generateDarkstoneOre = true;
 	public static boolean generateLuminiteOre = true;
 	
+	public static boolean generateEnderOre = true;
+	
 	public static boolean zectiumCoreExplodes = true;
 }

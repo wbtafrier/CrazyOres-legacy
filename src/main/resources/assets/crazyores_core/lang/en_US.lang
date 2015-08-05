@@ -17,6 +17,25 @@ invisium_ore.name=Invisium Ore
 darkstone_ore.name=Darkstone Ore
 luminite_ore.name=Luminite Ore
 
+ender_ore.name=Ender Ore
+
+meteorite_block.name=Meteorite Block
+copper_block.name=Copper Block
+sapphire_block.name=Sapphire Block
+adamite_block.name=Adamite Block
+ruby_block.name=Ruby Block
+fools_ruby_block.name=Fool's Ruby Block
+zectium_block.name=Zectium Block
+tapazite_block.name=Tapazite Block
+osmonium_block.name=Osmonium Block
+starconium_block.name=Starconium Block
+experium_block.name=Experium Block
+demonite_block.name=Demonite Block
+invisium_block.name=Invisium Block
+darkstone_block.name=Darkstone Block
+
+ender_block.name=Ender Block
+
 
 # ITEM LOCALIZATION
 tapazite_stalagmite_0.name=Tapazite Stalagmite Phase 1
@@ -62,8 +81,8 @@ zectium_core.name=Zectium Core
 # PICKAXE LIST 
 meteorite_pickaxe.name=Meteorite Pickaxe
 copper_pickaxe.name=Copper Pickaxe
-sapphire_pickaxe.name=Sapphire Pickaxe
 adamite_pickaxe.name=Adamite Pickaxe
+sapphire_pickaxe.name=Sapphire Pickaxe
 ruby_pickaxe.name=Ruby Pickaxe
 zectium_pickaxe.name=Zectium Pickaxe
 tapazite_pickaxe.name=Tapazite Pickaxe
@@ -75,8 +94,8 @@ ender_pickaxe.name=Ender Pickaxe
 # AXE LIST 
 meteorite_axe.name=Meteorite Axe
 copper_axe.name=Copper Axe
-sapphire_axe.name=Sapphire Axe
 adamite_axe.name=Adamite Axe
+sapphire_axe.name=Sapphire Axe
 ruby_axe.name=Ruby Axe
 zectium_axe.name=Zectium Axe
 tapazite_axe.name=Tapazite Axe
@@ -88,8 +107,8 @@ ender_axe.name=Ender Axe
 # SHOVEL LIST 
 meteorite_shovel.name=Meteorite Shovel
 copper_shovel.name=Copper Shovel
-sapphire_shovel.name=Sapphire Shovel
 adamite_shovel.name=Adamite Shovel
+sapphire_shovel.name=Sapphire Shovel
 ruby_shovel.name=Ruby Shovel
 zectium_shovel.name=Zectium Shovel
 tapazite_shovel.name=Tapazite Shovel
@@ -101,8 +120,8 @@ ender_shovel.name=Ender Shovel
 # SWORD LIST 
 meteorite_sword.name=Meteorite Sword
 copper_sword.name=Copper Sword
-sapphire_sword.name=Sapphire Sword
 adamite_sword.name=Adamite Sword
+sapphire_sword.name=Sapphire Sword
 ruby_sword.name=Ruby Sword
 zectium_sword.name=Zectium Sword
 tapazite_sword.name=Tapazite Sword
@@ -114,8 +133,8 @@ ender_sword.name=Ender Sword
 # HOE LIST 
 meteorite_hoe.name=Meteorite Hoe
 copper_hoe.name=Copper Hoe
-sapphire_hoe.name=Sapphire Hoe
 adamite_hoe.name=Adamite Hoe
+sapphire_hoe.name=Sapphire Hoe
 ruby_hoe.name=Ruby Hoe
 zectium_hoe.name=Zectium Hoe
 tapazite_hoe.name=Tapazite Hoe
@@ -124,7 +143,7 @@ starconium_hoe.name=Starconium Hoe
 invisium_hoe.name=Invisium Hoe
 ender_hoe.name=Ender Hoe
 
-# HAMMER LIST 
+# HAMMER LIST
 starconium_sledgehammer.name=Starconium Sledgehammer
 
 # HELMET LIST 
@@ -240,21 +259,23 @@ config.category.miscSettings=Miscellaneous Settings
 
 config.node.installFoodsPack=Foods Pack
 
-config.node.generateCopperOre=Generate_Copper_Ore
-config.node.generateSapphireOre=Generate_Sapphire_Ore
-config.node.generateAdamiteOre=Generate_Adamite_Ore
-config.node.generateMeteoriteOre=Generate_Meteorite_Ore
-config.node.generateRubyOre=Generate_Ruby_Ore
-config.node.generateFoolsRubyOre=Generate_Fools_Ruby_Ore
-config.node.generateZectiumOre=Generate_Zectium_Ore
-config.node.generateTapaziteOre=Generate_Tapazite_Ore
-config.node.generateOsmoniumOre=Generate_Osmonium_Ore
-config.node.generateStarconiumOre=Generate_Starconium_Ore
-config.node.generateExperiumOre=Generate_Experium_Ore
+config.node.generateCopperOre=Generate Copper Ore
+config.node.generateMeteoriteOre=Generate Meteorite Ore
+config.node.generateAdamiteOre=Generate Adamite Ore
+config.node.generateSapphireOre=Generate Sapphire Ore
+config.node.generateRubyOre=Generate Ruby Ore
+config.node.generateFoolsRubyOre=Generate Fools Ruby Ore
+config.node.generateZectiumOre=Generate Zectium Ore
+config.node.generateTapaziteOre=Generate Tapazite Ore
+config.node.generateOsmoniumOre=Generate Osmonium Ore
+config.node.generateStarconiumOre=Generate Starconium Ore
+config.node.generateExperiumOre=Generate Experium Ore
 
-config.node.generateDemoniteOre=Generate_Demonite_Ore
-config.node.generateInvisiumOre=Generate_Invisium_Ore
-config.node.generateDarkstoneOre=Generate_Darkstone_Ore
-config.node.generateLuminiteOre=Generate_Luminite_Ore
+config.node.generateDemoniteOre=Generate Demonite Ore
+config.node.generateInvisiumOre=Generate Invisium Ore
+config.node.generateDarkstoneOre=Generate Darkstone Ore
+config.node.generateLuminiteOre=Generate Luminite Ore
+
+config.node.generateEnderOre=Generate Ender Ore
 
 config.node.zectiumCoreExplodes=Zectium Core Explodes When Thrown
