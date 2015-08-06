@@ -17,7 +17,7 @@ public class CoreAxe extends ItemAxe implements IName {
 	protected CoreAxe(String unlocalizedName, ToolMaterial toolMaterial) {
 		super(toolMaterial);
 		this.setUnlocalizedName(unlocalizedName);
-		setCreativeTab(CoreTabList.crazyOresToolsTab);
+		setCreativeTab(CoreTabList.coreToolsTab);
 	}
 	
 	@Override

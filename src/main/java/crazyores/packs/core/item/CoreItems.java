@@ -116,7 +116,7 @@ public class CoreItems {
 */
 	
 	/** Helmet List **/
-/*
+
 	public static Item copperHelmet;
 	public static Item sapphireHelmet;
 	public static Item adamiteHelmet;
@@ -128,10 +128,10 @@ public class CoreItems {
 	public static Item starconiumHelmet;
 	public static Item invisiumHelmet;
 	public static Item enderHelmet;
-*/	
+
 	
 	/** Chestplate List **/
-/*
+
 	public static Item copperChestplate;
 	public static Item sapphireChestplate;
 	public static Item adamiteChestplate;
@@ -143,10 +143,10 @@ public class CoreItems {
 	public static Item starconiumChestplate;
 	public static Item invisiumChestplate;
 	public static Item enderChestplate;
-*/
+
 	
 	/** Legging List **/
-/*
+
 	public static Item copperLeggings;
 	public static Item sapphireLeggings;
 	public static Item adamiteLeggings;
@@ -158,10 +158,10 @@ public class CoreItems {
 	public static Item starconiumLeggings;
 	public static Item invisiumLeggings;
 	public static Item enderLeggings;
-*/
+
 	
 	/** Boot List **/
-/*	
+
 	public static Item copperBoots;	
 	public static Item sapphireBoots;
 	public static Item adamiteBoots;
@@ -173,7 +173,7 @@ public class CoreItems {
 	public static Item starconiumBoots;
 	public static Item invisiumBoots;
 	public static Item enderBoots;
-*/
+
 	
 	/** Bucket List **/
 /*
@@ -235,6 +235,7 @@ public class CoreItems {
 	public static void initItems() {
 		initOreDrops();
 		initTools();
+		initArmor();
 		
 		//Items
 		zectiumCore = new ItemZectiumCore("zectium_core", COTabList.crazyOresItemsTab, 16); registerItem(zectiumCore);
@@ -339,6 +340,64 @@ public class CoreItems {
 		enderShovel = new CoreShovel("ender_shovel", CoreHarvestLevels.ENDER); registerItem(enderShovel);
 		enderSword = new CoreSword("ender_sword", CoreHarvestLevels.ENDER); registerItem(enderSword);
 		enderHoe = new CoreHoe("ender_hoe", CoreHarvestLevels.ENDER); registerItem(enderHoe);
+	}
+	
+	private static void initArmor() {
+		
+		copperHelmet = new CoreArmor("copper_helmet", CoreHarvestLevels.COPPER_ARMOR, 4, 0); registerItem(copperHelmet);
+		copperChestplate = new CoreArmor("copper_chestplate", CoreHarvestLevels.COPPER_ARMOR, 4, 1); registerItem(copperChestplate);
+		copperLeggings = new CoreArmor("copper_leggings", CoreHarvestLevels.COPPER_ARMOR, 4, 2); registerItem(copperLeggings);
+		copperBoots = new CoreArmor("copper_boots", CoreHarvestLevels.COPPER_ARMOR, 4, 3); registerItem(copperBoots);
+		
+		meteoriteHelmet = new CoreArmor("meteorite_helmet", CoreHarvestLevels.METEORITE_ARMOR, 4, 0); registerItem(meteoriteHelmet);
+		meteoriteChestplate = new CoreArmor("meteorite_chestplate", CoreHarvestLevels.METEORITE_ARMOR, 4, 1); registerItem(meteoriteChestplate);
+		meteoriteLeggings = new CoreArmor("meteorite_leggings", CoreHarvestLevels.METEORITE_ARMOR, 4, 2); registerItem(meteoriteLeggings);
+		meteoriteBoots = new CoreArmor("meteorite_boots", CoreHarvestLevels.METEORITE_ARMOR, 4, 3); registerItem(meteoriteBoots);
+		
+		adamiteHelmet = new CoreArmor("adamite_helmet", CoreHarvestLevels.ADAMITE_ARMOR, 4, 0); registerItem(adamiteHelmet);
+		adamiteChestplate = new CoreArmor("adamite_chestplate", CoreHarvestLevels.ADAMITE_ARMOR, 4, 1); registerItem(adamiteChestplate);
+		adamiteLeggings = new CoreArmor("adamite_leggings", CoreHarvestLevels.ADAMITE_ARMOR, 4, 2); registerItem(adamiteLeggings);
+		adamiteBoots = new CoreArmor("adamite_boots", CoreHarvestLevels.ADAMITE_ARMOR, 4, 3); registerItem(adamiteBoots);
+		
+		sapphireHelmet = new CoreArmor("sapphire_helmet", CoreHarvestLevels.ADAMITE_ARMOR, 4, 0); registerItem(sapphireHelmet);
+		sapphireChestplate = new CoreArmor("sapphire_chestplate", CoreHarvestLevels.ADAMITE_ARMOR, 4, 1); registerItem(sapphireChestplate);
+		sapphireLeggings = new CoreArmor("sapphire_leggings", CoreHarvestLevels.ADAMITE_ARMOR, 4, 2); registerItem(sapphireLeggings);
+		sapphireBoots = new CoreArmor("sapphire_boots", CoreHarvestLevels.ADAMITE_ARMOR, 4, 3); registerItem(sapphireBoots);
+		
+		rubyHelmet = new CoreArmor("ruby_helmet", CoreHarvestLevels.ADAMITE_ARMOR, 4, 0); registerItem(rubyHelmet);
+		rubyChestplate = new CoreArmor("ruby_chestplate", CoreHarvestLevels.ADAMITE_ARMOR, 4, 1); registerItem(rubyChestplate);
+		rubyLeggings = new CoreArmor("ruby_leggings", CoreHarvestLevels.ADAMITE_ARMOR, 4, 2); registerItem(rubyLeggings);
+		rubyBoots = new CoreArmor("ruby_boots", CoreHarvestLevels.ADAMITE_ARMOR, 4, 3); registerItem(rubyBoots);
+		
+		zectiumHelmet = new CoreArmor("zectium_helmet", CoreHarvestLevels.ADAMITE_ARMOR, 4, 0); registerItem(zectiumHelmet);
+		zectiumChestplate = new CoreArmor("zectium_chestplate", CoreHarvestLevels.ADAMITE_ARMOR, 4, 1); registerItem(zectiumChestplate);
+		zectiumLeggings = new CoreArmor("zectium_leggings", CoreHarvestLevels.ADAMITE_ARMOR, 4, 2); registerItem(zectiumLeggings);
+		zectiumBoots = new CoreArmor("zectium_boots", CoreHarvestLevels.ADAMITE_ARMOR, 4, 3); registerItem(zectiumBoots);
+		
+		tapaziteHelmet = new CoreArmor("tapazite_helmet", CoreHarvestLevels.ADAMITE_ARMOR, 4, 0); registerItem(tapaziteHelmet);
+		tapaziteChestplate = new CoreArmor("tapazite_chestplate", CoreHarvestLevels.ADAMITE_ARMOR, 4, 1); registerItem(tapaziteChestplate);
+		tapaziteLeggings = new CoreArmor("tapazite_leggings", CoreHarvestLevels.ADAMITE_ARMOR, 4, 2); registerItem(tapaziteLeggings);
+		tapaziteBoots = new CoreArmor("tapazite_boots", CoreHarvestLevels.ADAMITE_ARMOR, 4, 3); registerItem(tapaziteBoots);
+		
+		osmoniumHelmet = new CoreArmor("osmonium_helmet", CoreHarvestLevels.ADAMITE_ARMOR, 4, 0); registerItem(osmoniumHelmet);
+		osmoniumChestplate = new CoreArmor("osmonium_chestplate", CoreHarvestLevels.ADAMITE_ARMOR, 4, 1); registerItem(osmoniumChestplate);
+		osmoniumLeggings = new CoreArmor("osmonium_leggings", CoreHarvestLevels.ADAMITE_ARMOR, 4, 2); registerItem(osmoniumLeggings);
+		osmoniumBoots = new CoreArmor("osmonium_boots", CoreHarvestLevels.ADAMITE_ARMOR, 4, 3); registerItem(osmoniumBoots);
+		
+		starconiumHelmet = new CoreArmor("starconium_helmet", CoreHarvestLevels.ADAMITE_ARMOR, 4, 0); registerItem(starconiumHelmet);
+		starconiumChestplate = new CoreArmor("starconium_chestplate", CoreHarvestLevels.ADAMITE_ARMOR, 4, 1); registerItem(starconiumChestplate);
+		starconiumLeggings = new CoreArmor("starconium_leggings", CoreHarvestLevels.ADAMITE_ARMOR, 4, 2); registerItem(starconiumLeggings);
+		starconiumBoots = new CoreArmor("starconium_boots", CoreHarvestLevels.ADAMITE_ARMOR, 4, 3); registerItem(starconiumBoots);
+		
+		invisiumHelmet = new CoreArmor("invisium_helmet", CoreHarvestLevels.ADAMITE_ARMOR, 4, 0); registerItem(invisiumHelmet);
+		invisiumChestplate = new CoreArmor("invisium_chestplate", CoreHarvestLevels.ADAMITE_ARMOR, 4, 1); registerItem(invisiumChestplate);
+		invisiumLeggings = new CoreArmor("invisium_leggings", CoreHarvestLevels.ADAMITE_ARMOR, 4, 2); registerItem(invisiumLeggings);
+		invisiumBoots = new CoreArmor("invisium_boots", CoreHarvestLevels.ADAMITE_ARMOR, 4, 3); registerItem(invisiumBoots);
+		
+		enderHelmet = new CoreArmor("ender_helmet", CoreHarvestLevels.ADAMITE_ARMOR, 4, 0); registerItem(enderHelmet);
+		enderChestplate = new CoreArmor("ender_chestplate", CoreHarvestLevels.ADAMITE_ARMOR, 4, 1); registerItem(enderChestplate);
+		enderLeggings = new CoreArmor("ender_leggings", CoreHarvestLevels.ADAMITE_ARMOR, 4, 2); registerItem(enderLeggings);
+		enderBoots = new CoreArmor("ender_boots", CoreHarvestLevels.ADAMITE_ARMOR, 4, 3); registerItem(enderBoots);
 	}
 	
 	private static void registerItem(Item item) {

@@ -47,7 +47,6 @@ public class COPackManager {
 			CoreTabs.initCoreTabs();
 			CoreBlocks.initBlocks();
 			CoreItems.initItems();
-//			CoreEntityRegistry.initEntities();
 			CoreLootHandler.initLoot();
 			CoreHarvestLevels.setHarvestLevels();
 			CoreEventManager.registerEvents();
