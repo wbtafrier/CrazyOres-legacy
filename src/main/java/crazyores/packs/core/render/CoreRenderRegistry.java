@@ -12,6 +12,6 @@ public class CoreRenderRegistry {
 	public static void renderCoreEntities() {
 		RenderingRegistry.registerEntityRenderingHandler(EntityZectiumCore.class, new RenderSnowball(CoreItems.zectiumCore));
 		
-		GameRegistry.registerTileEntity(TileEntityTapaziteCrystal.class, "tileEntityTapaziteCrystal");
+//		GameRegistry.registerTileEntity(TileEntityTapaziteCrystal.class, "tileEntityTapaziteCrystal");
 	}
 }

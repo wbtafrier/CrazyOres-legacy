@@ -1,7 +1,5 @@
 package crazyores.packs.core.render;
 
-import java.util.Random;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
@@ -10,11 +8,14 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.model.ModelCrystal;
 import crazyores.packs.core.model.data.TapaziteObeliskData;
 import crazyores.packs.core.util.CoreResourceLoader;
 
+@SideOnly(Side.CLIENT)
 public class RenderTapaziteCrystal extends TileEntitySpecialRenderer {
 
 	public static ModelCrystal[] stalagmiteModels = new ModelCrystal[] {

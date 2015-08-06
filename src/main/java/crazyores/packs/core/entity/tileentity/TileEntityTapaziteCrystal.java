@@ -4,6 +4,8 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityTapaziteCrystal extends TileEntity {
 	
-	
+	public TileEntityTapaziteCrystal() {
+		super();
+	}
 	
 }
