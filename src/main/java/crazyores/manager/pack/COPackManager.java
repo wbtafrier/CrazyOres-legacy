@@ -19,7 +19,7 @@ import crazyores.packs.core.event.CoreEventManager;
 import crazyores.packs.core.event.TapaziteObeliskEvent;
 import crazyores.packs.core.item.CoreItems;
 import crazyores.packs.core.tabs.CoreTabs;
-import crazyores.packs.core.util.HarvestLevels;
+import crazyores.packs.core.util.CoreHarvestLevels;
 import crazyores.packs.core.world.generate.CoreLootHandler;
 
 /**
@@ -49,7 +49,7 @@ public class COPackManager {
 			CoreItems.initItems();
 			CoreEntityRegistry.initEntities();
 			CoreLootHandler.initLoot();
-			HarvestLevels.setHarvestLevels();
+			CoreHarvestLevels.setHarvestLevels();
 			CoreEventManager.registerEvents();
 		}
 

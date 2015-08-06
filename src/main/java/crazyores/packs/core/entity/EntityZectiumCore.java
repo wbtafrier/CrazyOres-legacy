@@ -57,23 +57,4 @@ public class EntityZectiumCore extends EntityThrowable {
             this.setDead();
         }
 	}
-	
-	private void checkBlocks(Explosion e) {
-		Iterator iterator = e.affectedBlockPositions.iterator();
-		ChunkPosition chunkposition;
-		int i, j, k;
-		Block block;
-		
-        while (iterator.hasNext()) {
-            chunkposition = (ChunkPosition)iterator.next();
-            i = chunkposition.chunkPosX;
-            j = chunkposition.chunkPosY;
-            k = chunkposition.chunkPosZ;
-            block = this.worldObj.getBlock(i, j, k);
-
-            if (block.getMaterial() != Material.air) {
-                this.worldObj.setBlock(i, j, k, Blocks.air);
-            }
-        }
-	}
 }

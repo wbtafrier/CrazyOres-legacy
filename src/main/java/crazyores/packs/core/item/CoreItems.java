@@ -5,7 +5,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import crazyores.manager.tabs.COTabList;
-import crazyores.packs.core.util.HarvestLevels;
+import crazyores.packs.core.util.CoreHarvestLevels;
 
 public class CoreItems {
 	
@@ -32,6 +32,7 @@ public class CoreItems {
 	//Nether ore drops
 	public static Item demoniteOrb;
 	public static Item invisiumIngot;
+	
 	//TODO: Should be in the decorations pack
 	public static Item darkstoneIngot;
 	public static Item whiteLuminiteCrystal;
@@ -42,6 +43,7 @@ public class CoreItems {
 	
 	//Items
 	public static Item zectiumCore;
+	public static Item invisiumWand;
 	
 	//Pickaxes
 	public static Item copperPickaxe;
@@ -57,11 +59,10 @@ public class CoreItems {
 	public static Item enderPickaxe;
 	
 	/** Axe List **/
-/*	
-	public static Item meteoriteAxe;
 	public static Item copperAxe;
-	public static Item sapphireAxe;
+	public static Item meteoriteAxe;
 	public static Item adamiteAxe;
+	public static Item sapphireAxe;
 	public static Item rubyAxe;
 	public static Item zectiumAxe;
 	public static Item tapaziteAxe;
@@ -69,14 +70,12 @@ public class CoreItems {
 	public static Item starconiumAxe;
 	public static Item invisiumAxe;
 	public static Item enderAxe;
-*/
 
 	/** Shovel List **/
-/*
+ 	public static Item copperShovel;
 	public static Item meteoriteShovel;
-	public static Item copperShovel;
-	public static Item sapphireShovel;
 	public static Item adamiteShovel;
+	public static Item sapphireShovel;
 	public static Item rubyShovel;
 	public static Item zectiumShovel;
 	public static Item tapaziteShovel;
@@ -84,10 +83,8 @@ public class CoreItems {
 	public static Item starconiumShovel;
 	public static Item invisiumShovel;
 	public static Item enderShovel;
-*/
 
 	/** Sword List **/
-/*
 	public static Item meteoriteSword;
 	public static Item copperSword;
 	public static Item sapphireSword;
@@ -99,10 +96,8 @@ public class CoreItems {
 	public static Item starconiumSword;
 	public static Item invisiumSword;
 	public static Item enderSword;
-*/
 	
 	/** Hoe List **/
-/*	
 	public static Item meteoriteHoe;
 	public static Item copperHoe;
 	public static Item sapphireHoe;
@@ -114,7 +109,6 @@ public class CoreItems {
 	public static Item starconiumHoe;
 	public static Item invisiumHoe;
 	public static Item enderHoe;
-*/
 	
 	/** Hammer List **/
 /*
@@ -244,6 +238,8 @@ public class CoreItems {
 		
 		//Items
 		zectiumCore = new ItemZectiumCore("zectium_core", COTabList.crazyOresItemsTab, 16); registerItem(zectiumCore);
+		
+		invisiumWand = new CoreWand("invisium_wand", CoreHarvestLevels.INVISIUM); registerItem(invisiumWand);
 	}
 	
 	private static void initOreDrops() {
@@ -278,17 +274,71 @@ public class CoreItems {
 	
 	private static void initTools() {
 		
-		copperPickaxe = new CorePickaxe("copper_pickaxe", HarvestLevels.COPPER); registerItem(copperPickaxe);
-		meteoritePickaxe = new CorePickaxe("meteorite_pickaxe", HarvestLevels.METEORITE); registerItem(meteoritePickaxe);
-		adamitePickaxe = new CorePickaxe("adamite_pickaxe", HarvestLevels.ADAMITE); registerItem(adamitePickaxe);
-		sapphirePickaxe = new CorePickaxe("sapphire_pickaxe", HarvestLevels.SAPPHIRE); registerItem(sapphirePickaxe);
-		rubyPickaxe = new CorePickaxe("ruby_pickaxe", HarvestLevels.RUBY); registerItem(rubyPickaxe);
-		zectiumPickaxe = new CorePickaxe("zectium_pickaxe", HarvestLevels.ZECTIUM); registerItem(zectiumPickaxe);
-		tapazitePickaxe = new CorePickaxe("tapazite_pickaxe", HarvestLevels.TAPAZITE); registerItem(tapazitePickaxe);
-		osmoniumPickaxe = new CorePickaxe("osmonium_pickaxe", HarvestLevels.OSMONIUM); registerItem(osmoniumPickaxe);
-		starconiumPickaxe = new CorePickaxe("starconium_pickaxe", HarvestLevels.STARCONIUM); registerItem(starconiumPickaxe);
-		invisiumPickaxe = new CorePickaxe("invisium_pickaxe", HarvestLevels.INVISIUM); registerItem(invisiumPickaxe);
-		enderPickaxe = new CorePickaxe("ender_pickaxe", HarvestLevels.ENDER); registerItem(enderPickaxe);
+		copperPickaxe = new CorePickaxe("copper_pickaxe", CoreHarvestLevels.COPPER); registerItem(copperPickaxe);
+		copperAxe = new CoreAxe("copper_axe", CoreHarvestLevels.COPPER); registerItem(copperAxe);
+		copperShovel = new CoreShovel("copper_shovel", CoreHarvestLevels.COPPER); registerItem(copperShovel);
+		copperSword = new CoreSword("copper_sword", CoreHarvestLevels.COPPER); registerItem(copperSword);
+		copperHoe = new CoreHoe("copper_hoe", CoreHarvestLevels.COPPER); registerItem(copperHoe);
+		
+		meteoritePickaxe = new CorePickaxe("meteorite_pickaxe", CoreHarvestLevels.METEORITE); registerItem(meteoritePickaxe);
+		meteoriteAxe = new CoreAxe("meteorite_axe", CoreHarvestLevels.METEORITE); registerItem(meteoriteAxe);
+		meteoriteShovel = new CoreShovel("meteorite_shovel", CoreHarvestLevels.METEORITE); registerItem(meteoriteShovel);
+		meteoriteSword = new CoreSword("meteorite_sword", CoreHarvestLevels.METEORITE); registerItem(meteoriteSword);
+		meteoriteHoe = new CoreHoe("meteorite_hoe", CoreHarvestLevels.METEORITE); registerItem(meteoriteHoe);
+		
+		adamitePickaxe = new CorePickaxe("adamite_pickaxe", CoreHarvestLevels.ADAMITE); registerItem(adamitePickaxe);
+		adamiteAxe = new CoreAxe("adamite_axe", CoreHarvestLevels.ADAMITE); registerItem(adamiteAxe);
+		adamiteShovel = new CoreShovel("adamite_shovel", CoreHarvestLevels.ADAMITE); registerItem(adamiteShovel);
+		adamiteSword = new CoreSword("adamite_sword", CoreHarvestLevels.ADAMITE); registerItem(adamiteSword);
+		adamiteHoe = new CoreHoe("adamite_hoe", CoreHarvestLevels.ADAMITE); registerItem(adamiteHoe);
+		
+		sapphirePickaxe = new CorePickaxe("sapphire_pickaxe", CoreHarvestLevels.SAPPHIRE); registerItem(sapphirePickaxe);
+		sapphireAxe = new CoreAxe("sapphire_axe", CoreHarvestLevels.SAPPHIRE); registerItem(sapphireAxe);
+		sapphireShovel = new CoreShovel("sapphire_shovel", CoreHarvestLevels.SAPPHIRE); registerItem(sapphireShovel);
+		sapphireSword = new CoreSword("sapphire_sword", CoreHarvestLevels.SAPPHIRE); registerItem(sapphireSword);
+		sapphireHoe = new CoreHoe("sapphire_hoe", CoreHarvestLevels.SAPPHIRE); registerItem(sapphireHoe);
+		
+		rubyPickaxe = new CorePickaxe("ruby_pickaxe", CoreHarvestLevels.RUBY); registerItem(rubyPickaxe);
+		rubyAxe = new CoreAxe("ruby_axe", CoreHarvestLevels.RUBY); registerItem(rubyAxe);
+		rubyShovel = new CoreShovel("ruby_shovel", CoreHarvestLevels.RUBY); registerItem(rubyShovel);
+		rubySword = new CoreSword("ruby_sword", CoreHarvestLevels.RUBY); registerItem(rubySword);
+		rubyHoe = new CoreHoe("ruby_hoe", CoreHarvestLevels.RUBY); registerItem(rubyHoe);
+		
+		zectiumPickaxe = new CorePickaxe("zectium_pickaxe", CoreHarvestLevels.ZECTIUM); registerItem(zectiumPickaxe);
+		zectiumAxe = new CoreAxe("zectium_axe", CoreHarvestLevels.ZECTIUM); registerItem(zectiumAxe);
+		zectiumShovel = new CoreShovel("zectium_shovel", CoreHarvestLevels.ZECTIUM); registerItem(zectiumShovel);
+		zectiumSword = new CoreSword("zectium_sword", CoreHarvestLevels.ZECTIUM); registerItem(zectiumSword);
+		zectiumHoe = new CoreHoe("zectium_hoe", CoreHarvestLevels.ZECTIUM); registerItem(zectiumHoe);
+		
+		tapazitePickaxe = new CorePickaxe("tapazite_pickaxe", CoreHarvestLevels.TAPAZITE); registerItem(tapazitePickaxe);
+		tapaziteAxe = new CoreAxe("tapazite_axe", CoreHarvestLevels.TAPAZITE); registerItem(tapaziteAxe);
+		tapaziteShovel = new CoreShovel("tapazite_shovel", CoreHarvestLevels.TAPAZITE); registerItem(tapaziteShovel);
+		tapaziteSword = new CoreSword("tapazite_sword", CoreHarvestLevels.TAPAZITE); registerItem(tapaziteSword);
+		tapaziteHoe = new CoreHoe("tapazite_hoe", CoreHarvestLevels.TAPAZITE); registerItem(tapaziteHoe);
+		
+		osmoniumPickaxe = new CorePickaxe("osmonium_pickaxe", CoreHarvestLevels.OSMONIUM); registerItem(osmoniumPickaxe);
+		osmoniumAxe = new CoreAxe("osmonium_axe", CoreHarvestLevels.OSMONIUM); registerItem(osmoniumAxe);
+		osmoniumShovel = new CoreShovel("osmonium_shovel", CoreHarvestLevels.OSMONIUM); registerItem(osmoniumShovel);
+		osmoniumSword = new CoreSword("osmonium_sword", CoreHarvestLevels.OSMONIUM); registerItem(osmoniumSword);
+		osmoniumHoe = new CoreHoe("osmonium_hoe", CoreHarvestLevels.OSMONIUM); registerItem(osmoniumHoe);
+		
+		starconiumPickaxe = new CorePickaxe("starconium_pickaxe", CoreHarvestLevels.STARCONIUM); registerItem(starconiumPickaxe);
+		starconiumAxe = new CoreAxe("starconium_axe", CoreHarvestLevels.STARCONIUM); registerItem(starconiumAxe);
+		starconiumShovel = new CoreShovel("starconium_shovel", CoreHarvestLevels.STARCONIUM); registerItem(starconiumShovel);
+		starconiumSword = new CoreSword("starconium_sword", CoreHarvestLevels.STARCONIUM); registerItem(starconiumSword);
+		starconiumHoe = new CoreHoe("starconium_hoe", CoreHarvestLevels.STARCONIUM); registerItem(starconiumHoe);
+		
+		invisiumPickaxe = new CorePickaxe("invisium_pickaxe", CoreHarvestLevels.INVISIUM); registerItem(invisiumPickaxe);
+		invisiumAxe = new CoreAxe("invisium_axe", CoreHarvestLevels.INVISIUM); registerItem(invisiumAxe);
+		invisiumShovel = new CoreShovel("invisium_shovel", CoreHarvestLevels.INVISIUM); registerItem(invisiumShovel);
+		invisiumSword = new CoreSword("invisium_sword", CoreHarvestLevels.INVISIUM); registerItem(invisiumSword);
+		invisiumHoe = new CoreHoe("invisium_hoe", CoreHarvestLevels.INVISIUM); registerItem(invisiumHoe);
+		
+		enderPickaxe = new CorePickaxe("ender_pickaxe", CoreHarvestLevels.ENDER); registerItem(enderPickaxe);
+		enderAxe = new CoreAxe("ender_axe", CoreHarvestLevels.ENDER); registerItem(enderAxe);
+		enderShovel = new CoreShovel("ender_shovel", CoreHarvestLevels.ENDER); registerItem(enderShovel);
+		enderSword = new CoreSword("ender_sword", CoreHarvestLevels.ENDER); registerItem(enderSword);
+		enderHoe = new CoreHoe("ender_hoe", CoreHarvestLevels.ENDER); registerItem(enderHoe);
 	}
 	
 	private static void registerItem(Item item) {

@@ -26,7 +26,7 @@ public class CorePickaxe extends ItemPickaxe implements IName {
 
 	protected CorePickaxe(String unlocalizedName, ToolMaterial toolMaterial) {
 		super(toolMaterial);
-		itemUnlocalizedName = unlocalizedName;
+		this.setUnlocalizedName(unlocalizedName);
 		setCreativeTab(CoreTabList.crazyOresToolsTab);
 //		ReflectionHelper.setPrivateValue(ItemTool.class, this, "hammer", 5);
 	}

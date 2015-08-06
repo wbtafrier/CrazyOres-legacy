@@ -10,7 +10,7 @@ import cpw.mods.fml.relauncher.ReflectionHelper;
 import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.item.CoreItems;
 
-public class HarvestLevels {
+public class CoreHarvestLevels {
 
 	private static final String PICKAXE = "pickaxe";
 	
@@ -27,9 +27,9 @@ public class HarvestLevels {
 	public static final ItemTool.ToolMaterial SAPPHIRE = 			EnumHelper.addToolMaterial("SAPPHIRE", 		 5,  601,  7.0f, 2.0f, 13);
 	public static final ItemTool.ToolMaterial RUBY = 				EnumHelper.addToolMaterial("RUBY", 			 6, 1011,  8.5f, 3.0f, 12);
 	/*public static final ItemTool.ToolMaterial diamondEnum = 		EnumHelper.addToolMaterial("EMERALD", 		 7, 1561,  8.0f, 3.0f, 10);*/
-	public static final ItemTool.ToolMaterial INVISIUM = 			EnumHelper.addToolMaterial("INVISIUM", 		 8,  538,  6.0f, 1.0f, 12);
+	public static final ItemTool.ToolMaterial INVISIUM = 			EnumHelper.addToolMaterial("INVISIUM", 		 8,  538,  6.0f, 0.0f, 12);
 	public static final ItemTool.ToolMaterial ZECTIUM = 			EnumHelper.addToolMaterial("ZECTIUM", 		 8, 1701, 10.0f, 4.0f,  9);
-	public static final ItemTool.ToolMaterial TAPAZITE = 			EnumHelper.addToolMaterial("TAPAZITE", 		 9,  612,  5.0f, 9.0f, 10);
+	public static final ItemTool.ToolMaterial TAPAZITE = 			EnumHelper.addToolMaterial("TAPAZITE", 		 9,  612,  5.0f, 3.0f, 10);
 	public static final ItemTool.ToolMaterial OSMONIUM = 			EnumHelper.addToolMaterial("OSMONIUM", 		10, 2581, 10.0f, 4.0f,  7);
 	
 	public static final ItemTool.ToolMaterial STARCONIUM = 			EnumHelper.addToolMaterial("STARCONIUM", 	11, 3001, 16.0f, 8.0f,  6);
@@ -81,26 +81,38 @@ public class HarvestLevels {
 		
 //		//CrazyOres Harvest Levels
 		CoreBlocks.copperOre.setHarvestLevel(PICKAXE, 1);
+		CoreBlocks.copperBlock.setHarvestLevel(PICKAXE, 1);
 		
 		CoreBlocks.meteoriteOre.setHarvestLevel(PICKAXE, 2);
+		CoreBlocks.meteoriteBlock.setHarvestLevel(PICKAXE, 2);
 		
 		CoreBlocks.adamiteOre.setHarvestLevel(PICKAXE, 3);
+		CoreBlocks.adamiteBlock.setHarvestLevel(PICKAXE, 3);
 		
 		CoreBlocks.sapphireOre.setHarvestLevel(PICKAXE, 4);
+		CoreBlocks.sapphireBlock.setHarvestLevel(PICKAXE, 4);
 		
 		CoreBlocks.rubyOre.setHarvestLevel(PICKAXE, 5);
+		CoreBlocks.rubyBlock.setHarvestLevel(PICKAXE, 5);
 		
 		CoreBlocks.invisiumOre.setHarvestLevel(PICKAXE, 7);
+		CoreBlocks.invisiumBlock.setHarvestLevel(PICKAXE, 7);
 		
 		CoreBlocks.zectiumOre.setHarvestLevel(PICKAXE, 7);
+		CoreBlocks.zectiumBlock.setHarvestLevel(PICKAXE, 7);
 		
 		CoreBlocks.osmoniumOre.setHarvestLevel(PICKAXE, 9);
+		CoreBlocks.osmoniumBlock.setHarvestLevel(PICKAXE, 9);
 		
 		CoreBlocks.starconiumOre.setHarvestLevel(PICKAXE, 10);
+		CoreBlocks.starconiumBlock.setHarvestLevel(PICKAXE, 10);
 		
 		CoreBlocks.enderOre.setHarvestLevel(PICKAXE, 12);
+		CoreBlocks.enderBlock.setHarvestLevel(PICKAXE, 12);
 		
 		CoreBlocks.demoniteOre.setHarvestLevel(PICKAXE, 9);
+		CoreBlocks.demoniteBlock.setHarvestLevel(PICKAXE, 9);
+		
 		CoreBlocks.luminiteOre.setHarvestLevel(PICKAXE, 6);
 		CoreBlocks.darkstoneOre.setHarvestLevel(PICKAXE, 6);
 	}
