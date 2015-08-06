@@ -33,8 +33,6 @@ public class CoreEffectUtil {
 		default:
 			break;
 		}
-		
-		System.out.println(multiplier);
 		return (int)(multiplier * 100);
 	}
 	
