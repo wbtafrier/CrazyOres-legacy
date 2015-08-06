@@ -23,6 +23,7 @@ public class ClientProxy implements IProxy {
 	public void registerTileEntites() {
 		if (Loader.isModLoaded(COPackManager.corePack.getPackID())) {
 			CoreEntityRegistry.registryCoreEntities();
+			CoreEntityRegistry.initEntities();
 		}
 	}
 
