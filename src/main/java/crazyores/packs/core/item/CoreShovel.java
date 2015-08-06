@@ -17,7 +17,7 @@ public String itemUnlocalizedName;
 	protected CoreShovel(String unlocalizedName, ToolMaterial toolMaterial) {
 		super(toolMaterial);
 		this.setUnlocalizedName(unlocalizedName);
-		setCreativeTab(CoreTabList.crazyOresToolsTab);
+		setCreativeTab(CoreTabList.coreToolsTab);
 	}
 	
 	@Override

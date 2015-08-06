@@ -17,7 +17,7 @@ public String itemUnlocalizedName;
 	protected CoreHoe(String unlocalizedName, ToolMaterial toolMaterial) {
 		super(toolMaterial);
 		this.setUnlocalizedName(unlocalizedName);
-		setCreativeTab(CoreTabList.crazyOresToolsTab);
+		setCreativeTab(CoreTabList.coreToolsTab);
 	}
 	
 	@Override

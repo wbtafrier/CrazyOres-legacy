@@ -38,7 +38,7 @@ public class COPackManager {
 	/**
 	 * Loads all of the installed packs and their data.
 	 */
-	public static void init() {
+	public static void preInit() {
 
 		CrazyOresTabs.initTabs();
 		
@@ -47,6 +47,7 @@ public class COPackManager {
 			CoreTabs.initCoreTabs();
 			CoreBlocks.initBlocks();
 			CoreItems.initItems();
+			CoreEntityRegistry.initEntities();
 			CoreLootHandler.initLoot();
 			CoreHarvestLevels.setHarvestLevels();
 			CoreEventManager.registerEvents();

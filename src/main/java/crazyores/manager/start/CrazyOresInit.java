@@ -14,13 +14,13 @@ public class CrazyOresInit {
 	
 	public static void preInit(FMLPreInitializationEvent preInitEvent) {
 		COConfigManager.init(preInitEvent);
+		COPackManager.preInit();
 	}
 	
 	public static void init(FMLInitializationEvent initEvent, IProxy proxy) {
 		proxy.registerTileEntites();
 		proxy.renderEntities();
 		GameRegistry.registerWorldGenerator(new Generate(), 1);
-		COPackManager.init();
 	}
 	
 	public static void postInit(FMLPostInitializationEvent postInitEvent) {

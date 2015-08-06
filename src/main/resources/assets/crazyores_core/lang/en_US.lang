@@ -250,8 +250,7 @@ starconium_arrow.name=Starconium Arrow
 itemGroup.crazyOresBlocks=CrazyOres Blocks
 itemGroup.crazyOresItems=CrazyOres Items
 itemGroup.crazyOresTools=CrazyOres Tools
-itemGroup.crazyOresWeapons=CrazyOres Weapons
-itemGroup.crazyOresArmo=CrazyOres Armor
+itemGroup.crazyOresArmor=CrazyOres Armor
 
 # CONFIG LOCALIZATION
 config.category.loadPacks=Load Packs

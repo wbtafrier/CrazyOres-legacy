@@ -2,13 +2,12 @@ package crazyores.packs.core.util;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemTool;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.util.EnumHelper;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import crazyores.packs.core.block.CoreBlocks;
-import crazyores.packs.core.item.CoreItems;
 
 public class CoreHarvestLevels {
 
@@ -36,6 +35,19 @@ public class CoreHarvestLevels {
 	public static final ItemTool.ToolMaterial STARCONIUM_HAMMER =	EnumHelper.addToolMaterial("STARHAMMER", 	12, 1066, 65.0f, 8.0f,  6);
 	
 	public static final ItemTool.ToolMaterial ENDER = 				EnumHelper.addToolMaterial("ENDER", 		13, 2239, 15.0f, 7.0f,  6);
+	
+	/** Armor Strength**/
+	public static ItemArmor.ArmorMaterial COPPER_ARMOR = 			EnumHelper.addArmorMaterial("COPPER", 			14, new int[]	{1,  5,  3, 1}, 	14);
+	public static ItemArmor.ArmorMaterial METEORITE_ARMOR = 		EnumHelper.addArmorMaterial("METEORITE", 		 5, new int[]	{1,  3,  2, 1}, 	20);//Immune to lava and fire
+	public static ItemArmor.ArmorMaterial SAPPHIRE_ARMOR = 			EnumHelper.addArmorMaterial("SAPPHIRE", 		17, new int[]	{2,  6,  4, 2}, 	13);
+	public static ItemArmor.ArmorMaterial INVISIUM_ARMOR = 			EnumHelper.addArmorMaterial("INVISIUM", 		10, new int[]	{1,  4,  3, 1}, 	10);//Gives the player the Invisium Effect
+	public static ItemArmor.ArmorMaterial ADAMITE_ARMOR = 			EnumHelper.addArmorMaterial("ADAMITE", 			21, new int[]	{2,  5,  4, 2}, 	13);//Can stay underwater longer
+	public static ItemArmor.ArmorMaterial RUBY_ARMOR = 				EnumHelper.addArmorMaterial("RUBY", 			25, new int[]	{3,  7,  5, 3}, 	12);
+	public static ItemArmor.ArmorMaterial ZECTIUM_ARMOR = 			EnumHelper.addArmorMaterial("ZECTIUM", 			38, new int[]	{4,  9,  7, 4}, 	 9);
+	public static ItemArmor.ArmorMaterial TAPAZITE_ARMOR = 			EnumHelper.addArmorMaterial("TAPAZITE", 		42, new int[]	{5, 10,  8, 5}, 	 8);//Is Blast resistant, but makes you walk slower
+	public static ItemArmor.ArmorMaterial OSMONIUM_ARMOR = 			EnumHelper.addArmorMaterial("OSMONIUM", 		48, new int[]	{3,  6,  5, 3}, 	 7);//Makes you faster, but is not as protective
+	public static ItemArmor.ArmorMaterial ENDER_ARMOR = 			EnumHelper.addArmorMaterial("ENDER", 			43, new int[]	{2,  4,  3, 2}, 	 6);//Is fall damage proof
+	public static ItemArmor.ArmorMaterial STARCONIUM_ARMOR = 		EnumHelper.addArmorMaterial("STARCONIUM", 		53, new int[]	{8, 13, 11, 8}, 	 6);
 	
 	public static void setHarvestLevels() {
 		
