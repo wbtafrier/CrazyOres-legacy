@@ -21,17 +21,14 @@ public class EntityZectiumCore extends EntityThrowable {
 
 	private float explosionStrength = 4.0f;
 	
-	@SideOnly(Side.CLIENT)
 	public EntityZectiumCore(World world) {
 		super(world);
 	}
 	
-	@SideOnly(Side.CLIENT)
 	public EntityZectiumCore(World world, EntityLivingBase entity) {
 		super(world, entity);
 	}
 	
-	@SideOnly(Side.CLIENT)
 	public EntityZectiumCore(World world, double x, double y, double z) {
 		super(world, x, y, z);
 	}

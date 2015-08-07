@@ -10,9 +10,6 @@ public class ServerProxy implements IProxy {
 	public void renderEntities() {}
 
 	@Override
-	public void registerTileEntites() {}
-
-	@Override
 	public File getMinecraftDir() {
 		return FMLCommonHandler.instance().getMinecraftServerInstance().getFile("");
 	}

@@ -20,13 +20,6 @@ public class ClientProxy implements IProxy {
 	}
 	
 	@Override
-	public void registerTileEntites() {
-		if (Loader.isModLoaded(COPackManager.corePack.getPackID())) {
-			CoreEntityRegistry.registryCoreEntities();
-		}
-	}
-
-	@Override
 	public File getMinecraftDir() {
 		return null;
 	}

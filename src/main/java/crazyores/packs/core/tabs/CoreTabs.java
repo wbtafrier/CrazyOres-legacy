@@ -22,7 +22,7 @@ public class CoreTabs {
 			public Item getTabIconItem() {
 				
 				//TODO: Replace with a cool block from the core pack
-				return CoreItems.copperIngot;
+				return CoreItems.starconiumPickaxe;
 			}
 		};
 	}
@@ -34,7 +34,7 @@ public class CoreTabs {
 			public Item getTabIconItem() {
 				
 				//TODO: Replace with a cool block from the core pack
-				return CoreItems.adamiteAxe;
+				return CoreItems.enderChestplate;
 			}
 		};
 	}

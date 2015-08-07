@@ -14,11 +14,6 @@ public interface IProxy {
 	 */
 	public abstract void renderEntities();
 	
-	/**	 
-	 * Registers all Tile Entities into the {@link cpw.mods.fml.client.registry.RenderingRegistry}.
-	 */
-	public abstract void registerTileEntites();
-	
 	/**
 	 * Retrieves Minecraft main file directory. Used for creating custom mod directories/files.
 	 * @return instance of a File containing the path of the main Minecraft directory

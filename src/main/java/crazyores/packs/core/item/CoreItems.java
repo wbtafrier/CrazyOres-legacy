@@ -111,9 +111,9 @@ public class CoreItems {
 	public static Item enderHoe;
 	
 	/** Hammer List **/
-/*
+
 	public static Item starconiumSledgehammer;
-*/
+
 	
 	/** Helmet List **/
 
@@ -328,6 +328,8 @@ public class CoreItems {
 		starconiumShovel = new CoreShovel("starconium_shovel", CoreHarvestLevels.STARCONIUM); registerItem(starconiumShovel);
 		starconiumSword = new CoreSword("starconium_sword", CoreHarvestLevels.STARCONIUM); registerItem(starconiumSword);
 		starconiumHoe = new CoreHoe("starconium_hoe", CoreHarvestLevels.STARCONIUM); registerItem(starconiumHoe);
+		
+		starconiumSledgehammer = new CoreSledgehammer("starconium_sledgehammer", CoreHarvestLevels.STARCONIUM_HAMMER); registerItem(starconiumSledgehammer);
 		
 		invisiumPickaxe = new CorePickaxe("invisium_pickaxe", CoreHarvestLevels.INVISIUM); registerItem(invisiumPickaxe);
 		invisiumAxe = new CoreAxe("invisium_axe", CoreHarvestLevels.INVISIUM); registerItem(invisiumAxe);

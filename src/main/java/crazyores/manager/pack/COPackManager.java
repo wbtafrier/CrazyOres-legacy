@@ -8,16 +8,22 @@ import net.minecraftforge.common.MinecraftForge;
 import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import crazyores.manager.pack.data.CorePackData;
 import crazyores.manager.pack.data.FoodsPackData;
 import crazyores.manager.support.AbstractPack;
 import crazyores.manager.tabs.CrazyOresTabs;
 import crazyores.manager.util.CrazyOresLogger;
+import crazyores.manager.world.generate.Generate;
 import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.entity.CoreEntityRegistry;
+import crazyores.packs.core.entity.EntityZectiumCore;
+import crazyores.packs.core.entity.tileentity.TileEntityTapaziteCrystal;
 import crazyores.packs.core.event.CoreEventManager;
 import crazyores.packs.core.event.TapaziteObeliskEvent;
 import crazyores.packs.core.item.CoreItems;
+import crazyores.packs.core.main.CrazyOresCore;
 import crazyores.packs.core.tabs.CoreTabs;
 import crazyores.packs.core.util.CoreHarvestLevels;
 import crazyores.packs.core.world.generate.CoreLootHandler;
@@ -64,6 +70,11 @@ public class COPackManager {
 		}
 		
 		COPackManager.loadLoggers();
+	}
+	
+	public static void init() {
+		CoreEntityRegistry.registerCoreEntities();
+		GameRegistry.registerWorldGenerator(new Generate(), 1);
 	}
 	
 	public static void postInit() {
