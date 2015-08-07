@@ -3,7 +3,6 @@ package crazyores.packs.core.event;
 import java.util.Random;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
@@ -12,7 +11,6 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import crazyores.packs.core.item.CoreArmor;
 import crazyores.packs.core.item.CoreItems;
@@ -28,35 +26,56 @@ public class CoreActionsEvent {
 			EntityPlayer player = (EntityPlayer)event.entity;
 			ItemStack[] armor = player.inventory.armorInventory;
 			
-			
 			boolean isFullArmorSet = true;
 			for (int slot = 0; slot < armor.length; slot++) {
-				if (armor[slot] == null) {
+				if (armor[slot] == null || !(armor[slot].getItem() instanceof CoreArmor)) {
 					isFullArmorSet = false;
 					break;
 				}
 			}
 			
 			if (isFullArmorSet) {
+				
+				for (int i = 0; i < armor.length; i++) {
+					((CoreArmor)armor[i].getItem()).updateCounter();
+				}
+				
 				if (armor[0].getItem().equals(CoreItems.invisiumBoots) && armor[1].getItem().equals(CoreItems.invisiumLeggings) && armor[2].getItem().equals(CoreItems.invisiumChestplate) && armor[3].getItem().equals(CoreItems.invisiumHelmet)) {
+					int counter = 0;
 					
 					if (event instanceof PlayerInteractEvent) {
-						PlayerInteractEvent interactEvent = (PlayerInteractEvent)event;
+						PlayerInteractEvent e = (PlayerInteractEvent)event;
 					
-						if (!interactEvent.action.equals(PlayerInteractEvent.Action.RIGHT_CLICK_AIR) && !interactEvent.action.equals(PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK))
-							return;
-						
-						for (int i = 0; i < armor.length; i++) {
-							CoreArmor slot = (CoreArmor)armor[i].getItem();
-							
-							if (!slot.getInvisiumEffect()) {
-								slot.setInvisiumEffect(true, player);
+						if (e.action == PlayerInteractEvent.Action.RIGHT_CLICK_AIR || e.action == PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK) {
+							for (int i = 0; i < armor.length; i++) {
+								CoreArmor slot = (CoreArmor)armor[i].getItem();
+								if (!slot.getInvisiumEffect()) {
+									counter++;
+								}
 							}
-							else if (slot.getInvisiumEffect()) {
-								slot.setInvisiumEffect(false, player);
+							
+							for (int i = 0; i < armor.length; i++) {
+								CoreArmor slot = (CoreArmor)armor[i].getItem();
+								if (counter >= 3) {
+									slot.setInvisiumEffect(true);
+								}
+								else {
+									slot.setInvisiumEffect(false);
+								}
 							}
 						}
 					}
+					
+					boolean invisiumEffect = true;
+					for (int i = 0; i < armor.length; i++) {
+						CoreArmor slot = (CoreArmor)armor[i].getItem();
+						if (!slot.getInvisiumEffect()) {
+							invisiumEffect = false;
+							break;
+						}
+					}
+					
+					player.setInvisible(invisiumEffect);
 				}
 				else if (armor[0].getItem().equals(CoreItems.adamiteBoots) && armor[1].getItem().equals(CoreItems.adamiteLeggings) && armor[2].getItem().equals(CoreItems.adamiteChestplate) && armor[3].getItem().equals(CoreItems.adamiteHelmet)) {
 					if (player.isInWater()) {
@@ -143,30 +162,14 @@ public class CoreActionsEvent {
 			}
 			else {
 				player.capabilities.setPlayerWalkSpeed(0.1f);
-			}
-		}
-	}
-	
-	@SubscribeEvent
-	public void playerInteracted(Event event) {
-		
-		if (event instanceof PlayerInteractEvent) {
-			PlayerInteractEvent playerEvent = (PlayerInteractEvent)event;
-			
-			EntityPlayer player = playerEvent.entityPlayer;
-			
-			if (player.getCurrentEquippedItem() != null) {
-				Item item = player.getCurrentEquippedItem().getItem();
 				
-				if (item != null && item.equals(CoreItems.meteoriteAxe)) {
-					
-					if (playerEvent.action == PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK) {
-						System.out.println("HELLO!");
-					}
+				for (int i = 0; i < armor.length; i++) {
+					if (armor[i] == null) continue;
+					CoreArmor slot = (CoreArmor)armor[i].getItem();
+					slot.setInvisiumEffect(false);
 				}
+				player.setInvisible(player.isPotionActive(Potion.invisibility));
 			}
-			
 		}
-		
 	}
 }

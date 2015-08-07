@@ -1,5 +1,9 @@
 package crazyores.packs.core.item;
 
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL20;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -9,6 +13,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.MathHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.manager.pack.COPackManager;
@@ -125,9 +130,21 @@ public class CoreArmor extends ItemArmor {
         this.itemIcon = iconRegister.registerIcon(String.format("%s%s%s", COPackManager.corePack.getPackID(), ":", this.getUnlocalizedName()));
     }
 	
-	public void setInvisiumEffect(boolean effect, EntityPlayer player) {
-		this.invisium = effect;
-		player.setInvisible(effect);
+	private int counter = 0;
+	public void updateCounter() {
+		System.out.println("INCREMENTING TO: " + counter);
+		counter = counter == 60 ? 60 : counter + 1;
+	}
+	
+	public void setInvisiumEffect(boolean effect) {
+		
+		if (counter != 60) {
+			return;
+		}
+		else {
+			invisium = effect;
+			counter = 0;
+		}
 	}
 
 	public boolean getInvisiumEffect() {
