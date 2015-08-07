@@ -40,12 +40,6 @@ public class CorePickaxe extends ItemPickaxe implements IName {
 			itemstack.damageItem(2, entityliving1);
 			return true;
 		}
-//		else if(this == CoreItems.invisium_pickaxe)
-//		{
-//			entityliving.addPotionEffect(new PotionEffect(Potion.invisibility.id, 1000, 1));
-//			itemstack.damageItem(2, entityliving1);
-//			return true;
-//		}
 		return super.hitEntity(itemstack, entityliving, entityliving1);
 	}
 	

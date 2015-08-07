@@ -1,9 +1,13 @@
 package crazyores.packs.core.item;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.manager.pack.COPackManager;
@@ -18,6 +22,18 @@ public String itemUnlocalizedName;
 		super(toolMaterial);
 		this.setUnlocalizedName(unlocalizedName);
 		setCreativeTab(CoreTabList.coreToolsTab);
+	}
+	
+	@Override
+	public boolean hitEntity(ItemStack itemstack, EntityLivingBase entityliving, EntityLivingBase entityliving1)
+	{
+		if (this == CoreItems.meteoriteHoe)
+		{
+			entityliving.setFire(8);
+			itemstack.damageItem(2, entityliving1);
+			return true;
+		}
+		return super.hitEntity(itemstack, entityliving, entityliving1);
 	}
 	
 	@Override

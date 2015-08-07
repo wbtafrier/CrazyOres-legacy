@@ -16,12 +16,9 @@ public class CoreChatEvent {
 	public void onBadMineEvent(BreakEvent e) {
 		
 		EntityPlayer player = e.getPlayer();
-		System.out.println("1");
 		if (player != null && player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() != null) {
 			Item item = player.getCurrentEquippedItem().getItem();
-			System.out.println("2");
 			if (item instanceof ItemPickaxe) {
-				System.out.println("3");
 				if (item.getHarvestLevel(player.getCurrentEquippedItem(), "pickaxe") < e.block.getHarvestLevel(0)) {
 					
 					String pickaxe = player.getCurrentEquippedItem().getDisplayName();
