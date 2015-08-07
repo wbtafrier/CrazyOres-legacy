@@ -24,6 +24,7 @@ import crazyores.packs.core.event.CoreEventManager;
 import crazyores.packs.core.event.TapaziteObeliskEvent;
 import crazyores.packs.core.item.CoreItems;
 import crazyores.packs.core.main.CrazyOresCore;
+import crazyores.packs.core.recipe.CoreRecipes;
 import crazyores.packs.core.tabs.CoreTabs;
 import crazyores.packs.core.util.CoreHarvestLevels;
 import crazyores.packs.core.world.generate.CoreLootHandler;
@@ -75,6 +76,7 @@ public class COPackManager {
 	public static void init() {
 		CoreEntityRegistry.registerCoreEntities();
 		GameRegistry.registerWorldGenerator(new Generate(), 1);
+		CoreRecipes.initCraftingRecipes();
 	}
 	
 	public static void postInit() {

@@ -1,9 +1,9 @@
 package crazyores.packs.core.item;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.ReflectionHelper;
 import crazyores.manager.tabs.COTabList;
 import crazyores.packs.core.util.CoreHarvestLevels;
 
@@ -26,6 +26,7 @@ public class CoreItems {
 	public static Item tapaziteObelisk;
 	public static Item tapaziteDust;
 	public static Item osmoniumIngot;
+	public static Item starconiumGem;
 	public static Item starconiumShard;
 	public static Item experiumOrb;
 	
@@ -245,32 +246,33 @@ public class CoreItems {
 	
 	private static void initOreDrops() {
 		//Overworld ore drops
-		copperIngot = new CoreItem("copper_ingot", COTabList.crazyOresItemsTab); registerItem(copperIngot);
-		meteoriteCoal = new CoreItem("meteorite_coal", COTabList.crazyOresItemsTab); registerItem(meteoriteCoal);
-		meteoriteGem = new CoreItem("meteorite_gem", COTabList.crazyOresItemsTab); registerItem(meteoriteGem);
-		adamiteShard = new CoreItem("adamite_shard", COTabList.crazyOresItemsTab); registerItem(adamiteShard);
-		sapphireGem = new CoreItem("sapphire_gem", COTabList.crazyOresItemsTab); registerItem(sapphireGem);
-		rubyGem = new CoreItem("ruby_gem", COTabList.crazyOresItemsTab); registerItem(rubyGem);
-		foolsRubyGem = new CoreItem("fools_ruby_gem", COTabList.crazyOresItemsTab); registerItem(foolsRubyGem);
-		foolsRubyMush = new CoreItem("fools_ruby_mush", COTabList.crazyOresItemsTab); registerItem(foolsRubyMush);
-		zectiumIngot = new CoreItem("zectium_ingot", COTabList.crazyOresItemsTab); registerItem(zectiumIngot);
-		tapaziteObelisk = new ItemTapaziteObelisk("tapazite_obelisk", COTabList.crazyOresItemsTab); registerItem(tapaziteObelisk);
-		/** TODO: ADD TEXTURE **/ tapaziteDust = new CoreItem("tapazite_dust", COTabList.crazyOresItemsTab); registerItem(tapaziteDust);
-		osmoniumIngot = new CoreItem("osmonium_ingot", COTabList.crazyOresItemsTab); registerItem(osmoniumIngot);
-		starconiumShard = new CoreItem("starconium_gem", COTabList.crazyOresItemsTab); registerItem(starconiumShard);
-		experiumOrb = new CoreItem("experium_orb", COTabList.crazyOresItemsTab); registerItem(experiumOrb);
+		copperIngot = new CoreOre("copper_ingot", "ingotCopper"); registerItem(copperIngot);
+		meteoriteCoal = new CoreOre("meteorite_coal", "coalMeteorite"); registerItem(meteoriteCoal);
+		meteoriteGem = new CoreOre("meteorite_gem", "gemMeteorite"); registerItem(meteoriteGem);
+		adamiteShard = new CoreOre("adamite_shard", "shardAdamite"); registerItem(adamiteShard);
+		sapphireGem = new CoreOre("sapphire_gem", "gemSapphire"); registerItem(sapphireGem);
+		rubyGem = new CoreOre("ruby_gem", "gemRuby"); registerItem(rubyGem);
+		foolsRubyGem = new CoreOre("fools_ruby_gem", "gemFoolsRuby"); registerItem(foolsRubyGem);
+		foolsRubyMush = new CoreOre("fools_ruby_mush", "mushFoolsRuby"); registerItem(foolsRubyMush);
+		zectiumIngot = new CoreOre("zectium_ingot", "ingotZectium"); registerItem(zectiumIngot);
+		tapaziteObelisk = new CoreOre("tapazite_obelisk", "obeliskTapazite"); registerItem(tapaziteObelisk);
+		/** TODO: ADD TEXTURE **/ tapaziteDust = new CoreOre("tapazite_dust", "dustTapazite"); registerItem(tapaziteDust);
+		osmoniumIngot = new CoreOre("osmonium_ingot", "ingotOsmonium"); registerItem(osmoniumIngot);
+		starconiumGem = new CoreOre("starconium_gem", "gemStarconium"); registerItem(starconiumGem);
+		starconiumShard = new CoreOre("starconium_shard", "shardStarconium"); registerItem(starconiumShard);
+		experiumOrb = new CoreOre("experium_orb", "orbExperium"); registerItem(experiumOrb);
 		
 		//Nether ore drops
-		demoniteOrb = new CoreItem("demonite_orb", COTabList.crazyOresItemsTab); registerItem(demoniteOrb);
-		invisiumIngot = new CoreItem("invisium_ingot", COTabList.crazyOresItemsTab); registerItem(invisiumIngot);
+		demoniteOrb = new CoreOre("demonite_orb", "orbDemonite"); registerItem(demoniteOrb);
+		invisiumIngot = new CoreOre("invisium_ingot", "ingotInvisium"); registerItem(invisiumIngot);
 		
 		//Should be in the decorations pack
-		darkstoneIngot = new CoreItem("darkstone_ingot", COTabList.crazyOresItemsTab); registerItem(darkstoneIngot);
-		whiteLuminiteCrystal = new CoreItem("white_luminite_crystal", COTabList.crazyOresItemsTab); registerItem(whiteLuminiteCrystal);
+		darkstoneIngot = new CoreOre("darkstone_ingot", "ingotDarkstone"); registerItem(darkstoneIngot);
+		whiteLuminiteCrystal = new CoreOre("white_luminite_crystal", "crystalWhiteLuminite"); registerItem(whiteLuminiteCrystal);
 		
 		//Ender ore drops
-		enderGem = new CoreItem("ender_gem", COTabList.crazyOresItemsTab); registerItem(enderGem);
-		ultraGem = new CoreItem("ultra_gem", COTabList.crazyOresItemsTab); registerItem(ultraGem);
+		enderGem = new CoreOre("ender_gem", "gemEnder"); registerItem(enderGem);
+		ultraGem = new CoreOre("ultra_gem", "gemUltra"); registerItem(ultraGem);
 	}
 	
 	private static void initTools() {
@@ -404,5 +406,9 @@ public class CoreItems {
 	
 	private static void registerItem(Item item) {
 		GameRegistry.registerItem(item, item.getUnlocalizedName());
+		if (item instanceof CoreOre) {
+			CoreOre ore = (CoreOre)item;
+			OreDictionary.registerOre(ore.getOreDictionaryName(), new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
+		}
 	}
 }

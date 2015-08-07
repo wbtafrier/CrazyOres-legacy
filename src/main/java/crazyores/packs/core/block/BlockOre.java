@@ -56,7 +56,7 @@ public class BlockOre extends CoreBlock {
 				return CoreItems.foolsRubyGem;
 			}
 			else if (this == CoreBlocks.starconiumOre) {
-				return CoreItems.starconiumShard;
+				return CoreItems.starconiumGem;
 			}
 			else if (this == CoreBlocks.experiumOre) {
 				return CoreItems.experiumOrb;

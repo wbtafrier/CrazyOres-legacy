@@ -13,6 +13,7 @@ import crazyores.manager.support.IName;
 public class CoreBlock extends Block implements IBlock, IName {
 
 	public final String blockUnlocalizedName;
+	private String oreDictionaryName;
 	
 	/**
 	 * Constructor for the CoreBlock class.
@@ -63,6 +64,16 @@ public class CoreBlock extends Block implements IBlock, IName {
 		super.setLightLevel(lightLevel);
 	}
 	
+	protected CoreBlock setOreDictionaryName(String oreDictName) {
+		if (this.oreDictionaryName == null) {
+			this.oreDictionaryName = oreDictName;
+		}
+		return this;
+	}
+	
+	public String getOreDictionaryName() {
+		return oreDictionaryName;
+	}
 	
 	@Override
 	public String getUnlocalizedName() {

@@ -2,6 +2,8 @@ package crazyores.packs.core.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
 import crazyores.manager.tabs.COTabList;
 
@@ -92,26 +94,26 @@ public class CoreBlocks {
 		
 		
 		//Storage Blocks
-		copperBlock = new CoreBlock("copper_block", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(copperBlock);
-		meteoriteBlock = new CoreBlock("meteorite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f, 0.8f); registerBlock(meteoriteBlock);
-		adamiteBlock = new CoreBlock("adamite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f, 0.7f); registerBlock(adamiteBlock);
-		sapphireBlock = new CoreBlock("sapphire_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(sapphireBlock);
-		rubyBlock = new CoreBlock("ruby_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(rubyBlock);
-		foolsRubyBlock = new CoreBlock("fools_ruby_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(foolsRubyBlock);
-		zectiumBlock = new CoreBlock("zectium_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(zectiumBlock);
-		tapaziteBlock = new CoreBlock("tapazite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(tapaziteBlock);
-		osmoniumBlock = new CoreBlock("osmonium_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(osmoniumBlock);
-		starconiumBlock = new CoreBlock("starconium_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(starconiumBlock);
-		experiumBlock = new CoreBlock("experium_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(experiumBlock);
+		copperBlock = (new CoreBlock("copper_block", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockCopper"); registerBlock(copperBlock);
+		meteoriteBlock = (new CoreBlock("meteorite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f, 0.8f)).setOreDictionaryName("blockMeteorite"); registerBlock(meteoriteBlock);
+		adamiteBlock = (new CoreBlock("adamite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f, 0.7f)).setOreDictionaryName("blockAdamite"); registerBlock(adamiteBlock);
+		sapphireBlock = (new CoreBlock("sapphire_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockSapphire"); registerBlock(sapphireBlock);
+		rubyBlock = (new CoreBlock("ruby_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockRuby"); registerBlock(rubyBlock);
+		foolsRubyBlock = (new CoreBlock("fools_ruby_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockFoolsRuby"); registerBlock(foolsRubyBlock);
+		zectiumBlock = (new CoreBlock("zectium_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockZectium"); registerBlock(zectiumBlock);
+		tapaziteBlock = (new CoreBlock("tapazite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockTapazite"); registerBlock(tapaziteBlock);
+		osmoniumBlock = (new CoreBlock("osmonium_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockOsmonium"); registerBlock(osmoniumBlock);
+		starconiumBlock = (new CoreBlock("starconium_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockStarconium"); registerBlock(starconiumBlock);
+		experiumBlock = (new CoreBlock("experium_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockExperium"); registerBlock(experiumBlock);
 		
-		demoniteBlock = new CoreBlock("demonite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(demoniteBlock);
-		invisiumBlock = new CoreBlock("invisium_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(invisiumBlock);
+		demoniteBlock = (new CoreBlock("demonite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockDemonite"); registerBlock(demoniteBlock);
+		invisiumBlock = (new CoreBlock("invisium_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockInvisium"); registerBlock(invisiumBlock);
 		
 		//Should be in the decorations pack
-//		darkstoneBlock = new CoreBlock("darkstone_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(darkstoneBlock);
-//		luminiteBlock = new CoreBlock("luminite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(luminiteBlock);
+//		darkstoneBlock = (new CoreBlock("darkstone_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockDarkstone"); registerBlock(darkstoneBlock);
+//		luminiteBlock = (new CoreBlock("luminite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockLuminite"); registerBlock(luminiteBlock);
 		
-		enderBlock = new CoreBlock("ender_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(enderBlock);
+		enderBlock = (new CoreBlock("ender_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockEnder"); registerBlock(enderBlock);
 	}
 	
 	/**
@@ -119,6 +121,12 @@ public class CoreBlocks {
 	 */
 	private static void registerBlock(Block block) {
 		GameRegistry.registerBlock(block, block.getUnlocalizedName());
+		if (block instanceof CoreBlock) {
+			CoreBlock coreBlock = (CoreBlock)block;
+			if (coreBlock.getOreDictionaryName() != null && !coreBlock.getOreDictionaryName().isEmpty()) {
+				OreDictionary.registerOre(coreBlock.getOreDictionaryName(), new ItemStack(block, 1, OreDictionary.WILDCARD_VALUE));
+			}
+		}
 	}
 	
 	/**
@@ -126,5 +134,11 @@ public class CoreBlocks {
 	 */
 	private static void registerBlock(Block block, Class itemBlockClass) {
 		GameRegistry.registerBlock(block, itemBlockClass, block.getUnlocalizedName());
+		if (block instanceof CoreBlock) {
+			CoreBlock coreBlock = (CoreBlock)block;
+			if (coreBlock.getOreDictionaryName() != null && !coreBlock.getOreDictionaryName().isEmpty()) {
+				OreDictionary.registerOre(coreBlock.getOreDictionaryName(), new ItemStack(block, 1, OreDictionary.WILDCARD_VALUE));
+			}
+		}
 	}
 }
