@@ -1,9 +1,12 @@
 package crazyores.packs.core.recipe;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
+import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.item.CoreItems;
 
 public class CoreRecipes {
@@ -18,6 +21,11 @@ public class CoreRecipes {
 		initChestplateRecipes();
 		initLeggingsRecipes();
 		initBootsRecipes();
+		initBlockRecipes();
+		initRodRecipes();
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Items.experience_bottle, 1), new Object[] {"orbExperium", Items.glass_bottle}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.torch, 16), new Object[] {"#", "S", '#', "coalMeteorite", 'S', Items.stick}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.torch, 32), new Object[] {"#", "S", '#', "gemMeteorite", 'S', Items.stick}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.starconiumShard, 1), new Object[] {"###", "#C#", "###", '#', "gemStarconium", 'C', "crystalWhiteLuminite"}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.starconiumSledgehammer, 1), new Object[] {"###", "###", " S ", '#', "shardStarconium", 'S', Items.stick}));
 	}
@@ -146,5 +154,51 @@ public class CoreRecipes {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.starconiumBoots, 1), new Object[] {"# #", "# #", '#', "gemStarconium"}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.invisiumBoots, 1), new Object[] {"# #", "# #", '#', "ingotInvisium"}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.enderBoots, 1), new Object[] {"# #", "# #", '#', "gemEnder"}));
+	}
+	
+	private static void initBlockRecipes() {
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.copperBlock, 1), new Object[] {"###", "###", "###", '#', "ingotCopper"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.meteoriteBlock, 1), new Object[] {"###", "###", "###", '#', "gemMeteorite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.adamiteBlock, 1), new Object[] {"###", "###", "###", '#', "shardAdamite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.sapphireBlock, 1), new Object[] {"###", "###", "###", '#', "gemSapphire"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.rubyBlock, 1), new Object[] {"###", "###", "###", '#', "gemRuby"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.foolsRubyBlock, 1), new Object[] {"###", "###", "###", '#', "gemFoolsRuby"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.zectiumBlock, 1), new Object[] {"###", "###", "###", '#', "ingotZectium"}));
+//		TODO: Add Tapazite recipes GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.tapaziteBlock, 1), new Object[] {"###", "###", "###", '#', "obeliskTapazite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.osmoniumBlock, 1), new Object[] {"###", "###", "###", '#', "ingotOsmonium"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.starconiumBlock, 1), new Object[] {"###", "###", "###", '#', "gemStarconium"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.experiumBlock, 1), new Object[] {"###", "###", "###", '#', "orbExperium"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.demoniteBlock, 1), new Object[] {"###", "###", "###", '#', "orbDemonite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.invisiumBlock, 1), new Object[] {"###", "###", "###", '#', "ingotInvisium"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.enderBlock, 1), new Object[] {"###", "###", "###", '#', "gemEnder"}));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.copperIngot, 9), new Object[] {"#", '#', "blockCopper"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.meteoriteGem, 9), new Object[] {"#", '#', "blockMeteorite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.adamiteShard, 9), new Object[] {"#", '#', "blockAdamite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.sapphireGem, 9), new Object[] {"#", '#', "blockSapphire"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.rubyGem, 9), new Object[] {"#", '#', "blockRuby"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.foolsRubyGem, 9), new Object[] {"#", '#', "blockFoolsRuby"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.zectiumIngot, 9), new Object[] {"#", '#', "blockZectium"}));
+//		TODO: Add Tapazite recipes GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.tapaziteObelisk, 9), new Object[] {"#", '#', "blockTapazite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.osmoniumIngot, 9), new Object[] {"#", '#', "blockOsmonium"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.starconiumGem, 9), new Object[] {"#", '#', "blockStarconium"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.experiumOrb, 9), new Object[] {"#", '#', "blockExperium"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.demoniteOrb, 9), new Object[] {"#", '#', "blockDemonite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.invisiumIngot, 9), new Object[] {"#", '#', "blockInvisium"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.enderGem, 9), new Object[] {"#", '#', "blockEnder"}));
+	}
+	
+	private static void initRodRecipes() {
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.copperRod, 4), new Object[] {"#", "#", '#', "ingotCopper"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.meteoriteRod, 4), new Object[] {"#", "#", '#', "gemMeteorite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.adamiteRod, 4), new Object[] {"#", "#", '#', "shardAdamite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.sapphireRod, 4), new Object[] {"#", "#", '#', "gemSapphire"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.rubyRod, 4), new Object[] {"#", "#", '#', "gemRuby"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.zectiumRod, 4), new Object[] {"#", "#", '#', "ingotZectium"}));
+//		TODO: Add Tapazite recipes GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.tapaziteRod, 4), new Object[] {"#", "#", '#', "obeliskTapazite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.osmoniumRod, 4), new Object[] {"#", "#", '#', "ingotOsmonium"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.starconiumRod, 4), new Object[] {"#", "#", '#', "gemStarconium"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.invisiumRod, 4), new Object[] {"#", "#", '#', "ingotInvisium"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.enderRod, 4), new Object[] {"#", "#", '#', "gemEnder"}));
 	}
 }

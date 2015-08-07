@@ -183,13 +183,7 @@ public class CoreItems {
 	public static Item copperBucketLava;
 */
 	
-	/** Items List **/
-/*
-	public static Item starconiumShard;
-*/	
-	
 	/** Rod List **/
-/*
 	public static Item copperRod;
 	public static Item sapphireRod;
 	public static Item adamiteRod;
@@ -201,7 +195,6 @@ public class CoreItems {
 	public static Item starconiumRod;
 	public static Item invisiumRod;
 	public static Item enderRod;
-*/
 	
 	/** Bow List **/
 /*
@@ -235,6 +228,7 @@ public class CoreItems {
 
 	public static void initItems() {
 		initOreDrops();
+		initRods();
 		initTools();
 		initArmor();
 		
@@ -273,6 +267,20 @@ public class CoreItems {
 		//Ender ore drops
 		enderGem = new CoreOre("ender_gem", "gemEnder"); registerItem(enderGem);
 		ultraGem = new CoreOre("ultra_gem", "gemUltra"); registerItem(ultraGem);
+	}
+	
+	private static void initRods() {
+		copperRod = new CoreItem("copper_rod", COTabList.crazyOresItemsTab); registerItem(copperRod);
+		sapphireRod = new CoreItem("sapphire_rod", COTabList.crazyOresItemsTab); registerItem(sapphireRod);
+		adamiteRod = new CoreItem("adamite_rod", COTabList.crazyOresItemsTab); registerItem(adamiteRod);
+		meteoriteRod = new CoreItem("meteorite_rod", COTabList.crazyOresItemsTab); registerItem(meteoriteRod);
+		rubyRod = new CoreItem("ruby_rod", COTabList.crazyOresItemsTab); registerItem(rubyRod);
+		zectiumRod = new CoreItem("zectium_rod", COTabList.crazyOresItemsTab); registerItem(zectiumRod);
+		tapaziteRod = new CoreItem("tapazite_rod", COTabList.crazyOresItemsTab); registerItem(tapaziteRod);
+		osmoniumRod = new CoreItem("osmonium_rod", COTabList.crazyOresItemsTab); registerItem(osmoniumRod);
+		starconiumRod = new CoreItem("starconium_rod", COTabList.crazyOresItemsTab); registerItem(starconiumRod);
+		invisiumRod = new CoreItem("invisium_rod", COTabList.crazyOresItemsTab); registerItem(invisiumRod);
+		enderRod = new CoreItem("ender_rod", COTabList.crazyOresItemsTab); registerItem(enderRod);
 	}
 	
 	private static void initTools() {

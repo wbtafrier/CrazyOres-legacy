@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.manager.pack.COPackManager;
@@ -30,6 +31,21 @@ public class CoreArmor extends ItemArmor {
 		this.setUnlocalizedName(unlocalizedName);
 		this.setCreativeTab(CoreTabList.coreArmorTab);
 	}
+	
+	/**
+     * Called to tick armor in the armor slot. Override to do something
+     *
+     * @param world
+     * @param player
+     * @param itemStack
+     */
+	@Override
+    public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
+    {
+		if ((itemStack.getItem() == CoreItems.invisiumHelmet || itemStack.getItem() == CoreItems.invisiumChestplate || itemStack.getItem() == CoreItems.invisiumLeggings || itemStack.getItem() == CoreItems.invisiumBoots) && !player.isInvisible() && this.getInvisiumEffect()) {
+			this.setInvisiumEffect(false);
+		}
+    }
 	
 	@Override
 	public String getArmorTexture(ItemStack itemstack, Entity entity, int slot, String type) {
