@@ -1,6 +1,7 @@
 package crazyores.packs.core.render;
 
 import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraftforge.client.MinecraftForgeClient;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;

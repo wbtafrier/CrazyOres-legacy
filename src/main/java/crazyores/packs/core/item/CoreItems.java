@@ -184,6 +184,7 @@ public class CoreItems {
 */
 	
 	/** Rod List **/
+/*
 	public static Item copperRod;
 	public static Item sapphireRod;
 	public static Item adamiteRod;
@@ -195,42 +196,37 @@ public class CoreItems {
 	public static Item starconiumRod;
 	public static Item invisiumRod;
 	public static Item enderRod;
+*/
 	
 	/** Bow List **/
-/*
-	public static Item meteoriteBow;
-	public static Item copperBow;
-	public static Item invisiumBow;
-	public static Item sapphireBow;
-	public static Item adamiteBow;
-	public static Item rubyBow;
-	public static Item zectiumBow;
-	public static Item tapaziteBow;
-	public static Item osmoniumBow;
-	public static Item enderBow;
-	public static Item starconiumBow;
-*/	
+
+	public static Item swiftBow;
+	public static Item hellBow;
+	public static Item dualShotBow;
+	public static Item boosterBow;
 	
 	/** Arrow List **/
-/*
-	public static Item meteoriteArrow;
-	public static Item copperArrow;
-	public static Item invisiumArrow;
-	public static Item sapphireArrow;
-	public static Item adamiteArrow;
-	public static Item rubyArrow;
-	public static Item zectiumArrow;
-	public static Item tapaziteArrow;
-	public static Item osmoniumArrow;
-	public static Item enderArrow;
-	public static Item starconiumArrow;
-*/
+	
+	public static Item flamingArrow;
+	public static Item explosiveArrow;
+	public static Item freezingArrow;
+	public static Item electricArrow;
+	
+	public static Item quiver;
+	
+	/** Arrowhead List **/
+	
+	public static Item flamingArrowhead;
+	public static Item explosiveArrowhead;
+	public static Item freezingArrowhead;
+	public static Item electricArrowhead;
 
 	public static void initItems() {
 		initOreDrops();
-		initRods();
+//		initRods();
 		initTools();
 		initArmor();
+		initBowsArrows();
 		
 		//Items
 		zectiumCore = new ItemZectiumCore("zectium_core", COTabList.crazyOresItemsTab, 16); registerItem(zectiumCore);
@@ -269,18 +265,36 @@ public class CoreItems {
 		ultraGem = new CoreOre("ultra_gem", "gemUltra"); registerItem(ultraGem);
 	}
 	
-	private static void initRods() {
-		copperRod = new CoreItem("copper_rod", COTabList.crazyOresItemsTab); registerItem(copperRod);
-		sapphireRod = new CoreItem("sapphire_rod", COTabList.crazyOresItemsTab); registerItem(sapphireRod);
-		adamiteRod = new CoreItem("adamite_rod", COTabList.crazyOresItemsTab); registerItem(adamiteRod);
-		meteoriteRod = new CoreItem("meteorite_rod", COTabList.crazyOresItemsTab); registerItem(meteoriteRod);
-		rubyRod = new CoreItem("ruby_rod", COTabList.crazyOresItemsTab); registerItem(rubyRod);
-		zectiumRod = new CoreItem("zectium_rod", COTabList.crazyOresItemsTab); registerItem(zectiumRod);
-		tapaziteRod = new CoreItem("tapazite_rod", COTabList.crazyOresItemsTab); registerItem(tapaziteRod);
-		osmoniumRod = new CoreItem("osmonium_rod", COTabList.crazyOresItemsTab); registerItem(osmoniumRod);
-		starconiumRod = new CoreItem("starconium_rod", COTabList.crazyOresItemsTab); registerItem(starconiumRod);
-		invisiumRod = new CoreItem("invisium_rod", COTabList.crazyOresItemsTab); registerItem(invisiumRod);
-		enderRod = new CoreItem("ender_rod", COTabList.crazyOresItemsTab); registerItem(enderRod);
+//	private static void initRods() {
+//		copperRod = new CoreItem("copper_rod", COTabList.crazyOresItemsTab); registerItem(copperRod);
+//		meteoriteRod = new CoreItem("meteorite_rod", COTabList.crazyOresItemsTab); registerItem(meteoriteRod);
+//		adamiteRod = new CoreItem("adamite_rod", COTabList.crazyOresItemsTab); registerItem(adamiteRod);
+//		sapphireRod = new CoreItem("sapphire_rod", COTabList.crazyOresItemsTab); registerItem(sapphireRod);
+//		rubyRod = new CoreItem("ruby_rod", COTabList.crazyOresItemsTab); registerItem(rubyRod);
+//		zectiumRod = new CoreItem("zectium_rod", COTabList.crazyOresItemsTab); registerItem(zectiumRod);
+//		tapaziteRod = new CoreItem("tapazite_rod", COTabList.crazyOresItemsTab); registerItem(tapaziteRod);
+//		osmoniumRod = new CoreItem("osmonium_rod", COTabList.crazyOresItemsTab); registerItem(osmoniumRod);
+//		starconiumRod = new CoreItem("starconium_rod", COTabList.crazyOresItemsTab); registerItem(starconiumRod);
+//		invisiumRod = new CoreItem("invisium_rod", COTabList.crazyOresItemsTab); registerItem(invisiumRod);
+//		enderRod = new CoreItem("ender_rod", COTabList.crazyOresItemsTab); registerItem(enderRod);
+//	}
+	
+	private static void initBowsArrows() {
+		swiftBow = new SwiftBow("osmonium_bow"); registerItem(swiftBow);
+//		hellBow;
+//		dualShotBow;
+//		boosterBow;
+		
+		//TODO: MAKE TEXTURES!!!!!1
+		flamingArrow = new CoreItem("meteorite_arrow", COTabList.crazyOresItemsTab); registerItem(flamingArrow);
+		explosiveArrow = new CoreItem("zectium_arrow", COTabList.crazyOresItemsTab); registerItem(explosiveArrow);
+		freezingArrow = new CoreItem("sapphire_arrow", COTabList.crazyOresItemsTab); registerItem(freezingArrow);
+		electricArrow = new CoreItem("copper_arrow", COTabList.crazyOresItemsTab); registerItem(electricArrow);
+		
+//		flamingArrowhead;
+//		explosiveArrowhead;
+//		freezingArrowhead;
+//		electricArrowhead;
 	}
 	
 	private static void initTools() {

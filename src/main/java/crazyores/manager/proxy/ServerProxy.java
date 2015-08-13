@@ -13,4 +13,7 @@ public class ServerProxy implements IProxy {
 	public File getMinecraftDir() {
 		return FMLCommonHandler.instance().getMinecraftServerInstance().getFile("");
 	}
+
+	@Override
+	public void registerProxyEvents() {}
 }
