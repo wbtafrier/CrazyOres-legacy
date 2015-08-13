@@ -280,7 +280,7 @@ public class CoreItems {
 //	}
 	
 	private static void initBowsArrows() {
-//		swiftBow;
+		swiftBow = new SwiftBow("osmonium_bow"); registerItem(swiftBow);
 //		hellBow;
 //		dualShotBow;
 //		boosterBow;

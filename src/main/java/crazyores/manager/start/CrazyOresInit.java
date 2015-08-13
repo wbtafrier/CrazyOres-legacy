@@ -17,9 +17,10 @@ import crazyores.packs.core.util.CoreHarvestLevels;
 
 public class CrazyOresInit {
 	
-	public static void preInit(FMLPreInitializationEvent preInitEvent) {
+	public static void preInit(FMLPreInitializationEvent preInitEvent, IProxy proxy) {
 		COConfigManager.init(preInitEvent);
 		COPackManager.preInit();
+		proxy.registerProxyEvents();
 	}
 	
 	public static void init(FMLInitializationEvent initEvent, IProxy proxy) {

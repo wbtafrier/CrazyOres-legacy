@@ -24,7 +24,7 @@ public class CrazyOresCore {
 	
 	@EventHandler
 	private void preInit(FMLPreInitializationEvent preInitEvent) {
-		CrazyOresInit.preInit(preInitEvent);
+		CrazyOresInit.preInit(preInitEvent, proxy);
 	}
 	
 	@EventHandler

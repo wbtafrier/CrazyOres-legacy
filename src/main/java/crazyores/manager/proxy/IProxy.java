@@ -8,6 +8,8 @@ import java.io.File;
  */
 public interface IProxy {
 
+	public abstract void registerProxyEvents();
+	
 	/** 
 	 * @clientside
 	 * Assigns all entity classes to their respective render classes.
