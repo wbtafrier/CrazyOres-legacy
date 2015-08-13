@@ -55,6 +55,9 @@ public class CoreBlocks {
 	public static Block demoniteBlock;
 	public static Block invisiumBlock;
 	
+	public static Block demoniteFurnace;
+	public static Block demoniteFurnaceLit;
+	
 	//Ender Blocks
 	//TODO: Add the Ender Blocks.
 	public static Block enderBlock;
@@ -64,10 +67,6 @@ public class CoreBlocks {
 //	public static Block luminiteBlock;
 	
 	public static void initBlocks() {
-		initOverworldBlocks();
-	}
-	
-	public static void initOverworldBlocks() {
 		tapaziteLightSource = new BlockLightSource("tapazite_light_source", Material.air, 0.75F, 1.2F, 3.0F); registerBlock(tapaziteLightSource);
 		tapaziteStalagmite = new BlockTapaziteStalagmite("tapazite_stalagmite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.crazyOresBlocksTab); registerBlock(tapaziteStalagmite, ItemBlockTapaziteStalagmite.class);
 		tapaziteStalactite = new BlockTapaziteStalactite("tapazite_stalactite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.crazyOresBlocksTab); registerBlock(tapaziteStalactite, ItemBlockTapaziteStalactite.class);
@@ -114,6 +113,9 @@ public class CoreBlocks {
 //		luminiteBlock = (new CoreBlock("luminite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockLuminite"); registerBlock(luminiteBlock);
 		
 		enderBlock = (new CoreBlock("ender_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockEnder"); registerBlock(enderBlock);
+		
+		demoniteFurnace = new BlockDemoniteFurnace("demonite_furnace", false, 3.0f, 6.0f); registerBlock(demoniteFurnace);
+		demoniteFurnaceLit = new BlockDemoniteFurnace("demonite_furnace_lit", true, 3.0f, 6.0f); registerBlock(demoniteFurnaceLit);
 	}
 	
 	/**

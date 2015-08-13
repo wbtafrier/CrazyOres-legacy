@@ -7,5 +7,4 @@ public class TileEntityTapaziteCrystal extends TileEntity {
 	public TileEntityTapaziteCrystal() {
 		super();
 	}
-	
 }

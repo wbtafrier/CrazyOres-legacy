@@ -3,12 +3,10 @@ package crazyores.manager.pack;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraftforge.common.MinecraftForge;
-
 import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import crazyores.manager.pack.data.CorePackData;
 import crazyores.manager.pack.data.FoodsPackData;
@@ -18,12 +16,9 @@ import crazyores.manager.util.CrazyOresLogger;
 import crazyores.manager.world.generate.Generate;
 import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.entity.CoreEntityRegistry;
-import crazyores.packs.core.entity.EntityZectiumCore;
-import crazyores.packs.core.entity.tileentity.TileEntityTapaziteCrystal;
 import crazyores.packs.core.event.CoreEventManager;
-import crazyores.packs.core.event.TapaziteObeliskEvent;
+import crazyores.packs.core.gui.CoreGuiRegistry;
 import crazyores.packs.core.item.CoreItems;
-import crazyores.packs.core.main.CrazyOresCore;
 import crazyores.packs.core.recipe.CoreRecipes;
 import crazyores.packs.core.tabs.CoreTabs;
 import crazyores.packs.core.util.CoreHarvestLevels;
@@ -57,6 +52,7 @@ public class COPackManager {
 			CoreLootHandler.initLoot();
 			CoreHarvestLevels.setHarvestLevels();
 			CoreEventManager.registerEvents();
+			NetworkRegistry.INSTANCE.registerGuiHandler(corePack.getPackID(), new CoreGuiRegistry());
 		}
 
 		if (Loader.isModLoaded(foodsPack.getPackID())) {

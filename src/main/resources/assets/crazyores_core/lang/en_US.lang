@@ -36,6 +36,11 @@ darkstone_block.name=Darkstone Block
 
 ender_block.name=Ender Block
 
+demonite_furnace.name=Demonite Furnace
+demonite_furnace_lit.name=Demonite Furnace
+
+# GUI LOCALIZATION
+container.demonite_furnace=Demonite Furnace
 
 # ITEM LOCALIZATION
 tapazite_stalagmite_0.name=Tapazite Stalagmite Phase 1

@@ -31,20 +31,17 @@ public class CoreBow extends ItemBow implements IName {
      * Return the enchantability factor of the item, most of the time is based on material.
      */
 	@Override
-    public int getItemEnchantability()
-    {
+    public int getItemEnchantability() {
         return toolMaterial.getEnchantability();
     }
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister registry)
-    {
+    public void registerIcons(IIconRegister registry) {
         this.itemIcon = registry.registerIcon(this.getIconString() + "_0");
         this.iconArray = new IIcon[bowPullIconNameArray.length];
 
-        for (int i = 0; i < this.iconArray.length; ++i)
-        {
+        for (int i = 0; i < this.iconArray.length; ++i) {
             this.iconArray[i] = registry.registerIcon(this.getIconString() + "_" + bowPullIconNameArray[i]);
         }
     }
@@ -54,8 +51,7 @@ public class CoreBow extends ItemBow implements IName {
      */
 	@Override
     @SideOnly(Side.CLIENT)
-    public IIcon getItemIconForUseDuration(int stage)
-    {
+    public IIcon getItemIconForUseDuration(int stage) {
         return this.iconArray[stage];
     }
 	
