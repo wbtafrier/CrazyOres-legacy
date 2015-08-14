@@ -99,14 +99,12 @@ public class BlockDemoniteFurnace extends BlockContainer implements IName {
             if (demoniteFurnace != null) {
             	player.openGui(COPackManager.corePack.getPackID(), 0, world, x, y, z);
             }
-            
             return true;
         }
     }
 
-	//TODO: CALL IN ENTITY CLASS
 	public static void updateBlockState(boolean stillBurning, World world, int x, int y, int z) {
-		int l = world.getBlockMetadata(x, y, z);
+		int metadata = world.getBlockMetadata(x, y, z);
 		TileEntity tileentity = world.getTileEntity(x, y, z);
 		
 		isFurnaceUpdating = true;
@@ -114,7 +112,7 @@ public class BlockDemoniteFurnace extends BlockContainer implements IName {
 		else world.setBlock(x, y, z, CoreBlocks.demoniteFurnace);
 		isFurnaceUpdating = false;
 		
-		world.setBlockMetadataWithNotify(x, y, z, l, 2);
+		world.setBlockMetadataWithNotify(x, y, z, metadata, 2);
 
 		if (tileentity != null) {
 			tileentity.validate();
@@ -156,7 +154,12 @@ public class BlockDemoniteFurnace extends BlockContainer implements IName {
 	public void breakBlock(World world, int x, int y, int z, Block block, int metadata) {
         if (!isFurnaceUpdating) {
             TileEntityDemoniteFurnace demoniteFurnace = (TileEntityDemoniteFurnace)world.getTileEntity(x, y, z);
-
+            
+            if (demoniteFurnace.overHeat > demoniteFurnace.NO_RETURN) {
+            	System.out.println("CREATE EXPLOSION!");
+            	return;
+            }
+            
             if (demoniteFurnace != null) {
                 for (int i1 = 0; i1 < demoniteFurnace.getSizeInventory(); ++i1) {
                     ItemStack itemstack = demoniteFurnace.getStackInSlot(i1);
@@ -252,8 +255,10 @@ public class BlockDemoniteFurnace extends BlockContainer implements IName {
 	@SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int metadata) {
 		
-		if (metadata == 0 && side == 3) return frontIcon;
-		else return side == 1 ? topIcon : (side == 0 ? frontIcon : (side != metadata ? this.blockIcon : frontIcon));
+//		if (metadata == 0 && side == 3) return frontIcon;
+//		else return side == 1 ? topIcon : (side == 0 ? frontIcon : (side != metadata ? this.blockIcon : topIcon));
+		
+		return metadata == 0 && side == 3 ? frontIcon : (side == 1 ? topIcon : (side == 0 ? topIcon : (side != metadata ? this.blockIcon : frontIcon)));
     }
 	
 	@Override

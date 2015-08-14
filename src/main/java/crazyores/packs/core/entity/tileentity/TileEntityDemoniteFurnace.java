@@ -1,5 +1,7 @@
 package crazyores.packs.core.entity.tileentity;
 
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,7 +16,12 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -23,14 +30,22 @@ import crazyores.packs.core.recipe.DemoniteFurnaceRecipes;
 
 public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInventory {
 
+	private Random rand = new Random();
 	private static final int[] slotsTop = new int[] {0};
     private static final int[] slotsBottom = new int[] {2, 1};
     private static final int[] slotsSides = new int[] {1};
     
-    //slot 0 = cook slot
-	//slot 1 = fuel slot
-	//slot 2 = result slot
-	
+    public int overHeat = 0;
+    public int heatUpAmount = 50;
+    public int timeAlive = 0;
+    
+    public static final int MAX_HEAT = 10000;
+    public static final int NO_RETURN = MAX_HEAT - 2000;
+    
+    public static final int MAX_TIME_ALIVE = 100000;
+    
+    public static final Block[] coolingBlocks = new Block[] { Blocks.lava, Blocks.flowing_lava, Blocks.water, Blocks.flowing_water, Blocks.ice, Blocks.packed_ice };
+    
 	//slot 0 = cook1 slot
 	//slot 1 = cook2 slot
 	//slot 2 = fuel slot
@@ -149,6 +164,11 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
 
         this.furnaceBurnTime = nbt.getShort("BurnTime");
         this.furnaceCookTime = nbt.getShort("CookTime");
+        this.overHeat = nbt.getShort("OverHeat");
+        
+        this.heatUpAmount = nbt.getShort("HeatUpAmount");
+        this.timeAlive = nbt.getInteger("TimeAlive");
+        
         this.currentItemBurnTime = getItemBurnTime(this.furnaceItemStacks[1]);
 
         if (nbt.hasKey("CustomName", 8)) {
@@ -160,6 +180,11 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
         super.writeToNBT(nbt);
         nbt.setShort("BurnTime", (short)this.furnaceBurnTime);
         nbt.setShort("CookTime", (short)this.furnaceCookTime);
+        nbt.setShort("OverHeat", (short)this.overHeat);
+        
+        nbt.setShort("HeatUpAmount", (short)this.heatUpAmount);
+        nbt.setInteger("TimeAlive", this.timeAlive);
+        
         NBTTagList nbttaglist = new NBTTagList();
 
         for (int i = 0; i < this.furnaceItemStacks.length; ++i) {
@@ -214,55 +239,328 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     }
 
     public void updateEntity() {
+    	if (worldObj.isRemote) {
+    		this.spawnSmokeParticles(worldObj, xCoord, yCoord, zCoord);
+            return;
+    	}
+    	
         boolean flag = this.furnaceBurnTime > 0;
-        boolean flag1 = false;
-
-        if (this.furnaceBurnTime > 0) {
-            --this.furnaceBurnTime;
-        }
+        boolean update = false;
         
-        if (!this.worldObj.isRemote) {
-            if (this.furnaceBurnTime != 0 || this.furnaceItemStacks[2] != null && this.furnaceItemStacks[0] != null && this.furnaceItemStacks[1] != null) {
-            		if (this.furnaceBurnTime == 0 && this.canSmelt()) {
-            			
-                    this.currentItemBurnTime = this.furnaceBurnTime = getItemBurnTime(this.furnaceItemStacks[2]);
+    	int coolingAmount = getCoolingAmount(this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+    	
+    	if (this.furnaceBurnTime > 0) {
+            --this.furnaceBurnTime;
+            
+//            if (rand.nextInt(5) == 0) {
+            	timeAlive++;
+            	
+            	if (timeAlive % 2000 == 0) {
+            		heatUpAmount++;
+            	}
+//            }
+            
+            overHeat = MathHelper.clamp_int((overHeat + heatUpAmount) - coolingAmount, 0, MAX_HEAT);
+        }
+    	else {
+            overHeat = MathHelper.clamp_int(overHeat - coolingAmount, 0, MAX_HEAT);
+    	}
+    	
+    	if (overHeat >= MAX_HEAT || timeAlive >= MAX_TIME_ALIVE) {
+    		//TODO: EXPLODE!!!
+    	}
+    	
+//    	System.out.println("OVERHEAT: " + overHeat);
+    	System.out.println("TIME ALIVE: " + timeAlive);
+    	System.out.println("HEATUP AMOUNT: " + heatUpAmount);
+    	
+    	update = overHeat > 0;
+    		
+        if (this.furnaceBurnTime != 0 || this.furnaceItemStacks[2] != null && this.furnaceItemStacks[0] != null && this.furnaceItemStacks[1] != null) {
+        		if (this.furnaceBurnTime == 0 && this.canSmelt()) {
+        			
+                this.currentItemBurnTime = this.furnaceBurnTime = getItemBurnTime(this.furnaceItemStacks[2]);
 
-                    if (this.furnaceBurnTime > 0) {
-                        flag1 = true;
+                if (this.furnaceBurnTime > 0) {
+                    update = true;
 
-                        if (this.furnaceItemStacks[2] != null) {
-                            --this.furnaceItemStacks[2].stackSize;
+                    if (this.furnaceItemStacks[2] != null) {
+                        --this.furnaceItemStacks[2].stackSize;
 
-                            if (this.furnaceItemStacks[2].stackSize == 0) {
-                                this.furnaceItemStacks[2] = furnaceItemStacks[2].getItem().getContainerItem(furnaceItemStacks[2]);
-                            }
+                        if (this.furnaceItemStacks[2].stackSize == 0) {
+                            this.furnaceItemStacks[2] = furnaceItemStacks[2].getItem().getContainerItem(furnaceItemStacks[2]);
                         }
                     }
                 }
+            }
 
-                if (this.isBurning() && this.canSmelt()) {
-                    ++this.furnaceCookTime;
+            if (this.isBurning() && this.canSmelt()) {
+                ++this.furnaceCookTime;
 
-                    if (this.furnaceCookTime == 200) {
-                        this.furnaceCookTime = 0;
-                        this.smeltItem();
-                        flag1 = true;
-                    }
-                }
-                else {
+                if (this.furnaceCookTime == 200) {
                     this.furnaceCookTime = 0;
+                    this.smeltItem();
+                    update = true;
                 }
             }
-
-            if (flag != this.furnaceBurnTime > 0) {
-                flag1 = true;
-                BlockDemoniteFurnace.updateBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+            else {
+                this.furnaceCookTime = 0;
             }
         }
 
-        if (flag1) {
-            this.markDirty();
+        if (flag != this.furnaceBurnTime > 0) {
+            update = true;
+            BlockDemoniteFurnace.updateBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
         }
+
+        if (update) {
+        	worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+        	this.markDirty();
+        }
+    }
+    
+    private int getCoolingAmount(World world, int x, int y, int z) {
+    	Block block;
+    	int amount = 0;
+    	
+    	for (int xOffset = -1; xOffset < 2; xOffset++) {
+    		for (int yOffset = -1; yOffset < 2; yOffset++) {
+    			for (int zOffset = -1; zOffset < 2; zOffset++) {
+    				block = world.getBlock(x + xOffset, y + yOffset, z + zOffset);
+    				Block b = testBlock(block, coolingBlocks);
+    				amount += getAmount(b);
+    			}
+    		}
+    	}
+    	return amount;
+    }
+    
+    private Block testBlock(Block block, Block... targetBlocks) {
+    	
+    	for (Block b : targetBlocks) {
+    		if (block.isAssociatedBlock(b)) {
+    			return b;
+    		}
+    	}
+    	return null;
+    }
+    
+    private int getAmount(Block b) {
+    	
+    	if (b == coolingBlocks[0] || b == coolingBlocks[1]) return -20;
+    	else if (b == coolingBlocks[2] || b == coolingBlocks[3]) return 2;
+    	else if (b == coolingBlocks[4]) return 3;
+    	else if (b == coolingBlocks[5]) return 5;
+    	return 0;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    private void spawnSmokeParticles(World world, int x, int y, int z) {
+		
+    	int metadata = world.getBlockMetadata(x, y, z);
+    	
+    	float xOffset = x;
+    	float yOffset = y;
+    	float zOffset = z;
+    	int particleAmount = (overHeat / 400);
+    	
+    	final int HELL_FIRE = 5;
+    	
+    	//Facing towards the negative z axis
+    	if (metadata == 2) {
+    		
+    		if (overHeat > NO_RETURN) {
+    			for (int i = 0; i < particleAmount; i++) {
+        			xOffset = x + (rand.nextFloat() * 0.5f);
+            		zOffset = z + rand.nextFloat();
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, -0.02D, 0.2D, 0.0D);
+            		
+            		if (rand.nextInt(HELL_FIRE) == 0) {
+            			xOffset = x + (rand.nextFloat() * 0.5f);
+                		zOffset = z + rand.nextFloat();
+            			world.spawnParticle("flame", (float)xOffset, (float)yOffset, (float)zOffset, -0.02D, 0.2D, 0.0D);
+            		}
+            		
+            		xOffset = x + rand.nextFloat();
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.2D, 0.02D);
+            		
+            		if (rand.nextInt(HELL_FIRE) == 0) {
+            			xOffset = x + rand.nextFloat();
+            			world.spawnParticle("flame", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.2D, 0.02D);
+            		}
+            		
+            		xOffset = x + (1 - (rand.nextFloat() * 0.5f));
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.02D, 0.2D, 0.0D);
+        		
+            		if (rand.nextInt(HELL_FIRE) == 0) {
+            			xOffset = x + (1 - (rand.nextFloat() * 0.5f));
+                		world.spawnParticle("flame", (float)xOffset, (float)yOffset, (float)zOffset, 0.02D, 0.2D, 0.0D);
+            		}
+            		
+        		}
+    		}
+    		else {
+    			for (int i = 0; i < particleAmount; i++) {
+        			xOffset = x + (rand.nextFloat() * 0.5f);
+            		zOffset = z + rand.nextFloat();
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, -0.05D - (overHeat / (MAX_HEAT * 2)), 0.0D, 0.0D);
+            		
+            		xOffset = x + rand.nextFloat();
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.0D, 0.05D + (overHeat / (MAX_HEAT * 2)));
+            		
+            		xOffset = x + (1 - (rand.nextFloat() * 0.5f));
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.05D + (overHeat / (MAX_HEAT * 2)), 0.0D, 0.0D);
+        		}
+    		}
+    	}
+    	//Facing towards the positive z axis
+    	else if (metadata == 3) {
+    		
+			if (overHeat > NO_RETURN) {
+    			for (int i = 0; i < particleAmount; i++) {
+        			xOffset = x + (rand.nextFloat() * 0.5f);
+            		zOffset = z + rand.nextFloat();
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, -0.02D, 0.2D, 0.0D);
+            		
+            		if (rand.nextInt(HELL_FIRE) == 0) {
+            			xOffset = x + (rand.nextFloat() * 0.5f);
+                		zOffset = z + rand.nextFloat();
+            			world.spawnParticle("flame", (float)xOffset, (float)yOffset, (float)zOffset, -0.02D, 0.2D, 0.0D);
+            		}
+            		
+            		xOffset = x + rand.nextFloat();
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.2D, -0.02D);
+            		
+            		if (rand.nextInt(HELL_FIRE) == 0) {
+            			xOffset = x + rand.nextFloat();
+            			world.spawnParticle("flame", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.2D, -0.02D);
+            		}
+            		
+            		xOffset = x + (1 - (rand.nextFloat() * 0.5f));
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.02D, 0.2D, 0.0D);
+        		
+            		if (rand.nextInt(HELL_FIRE) == 0) {
+            			xOffset = x + (1 - (rand.nextFloat() * 0.5f));
+                		world.spawnParticle("flame", (float)xOffset, (float)yOffset, (float)zOffset, 0.02D, 0.2D, 0.0D);
+            		}
+        		}
+    		}
+    		else {
+    			for (int i = 0; i < particleAmount; i++) {
+    				
+    				xOffset = x + (rand.nextFloat() * 0.5f);
+            		zOffset = z + rand.nextFloat();
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, -0.05D - (overHeat / (MAX_HEAT * 2)), 0.0D, 0.0D);
+    				
+    				xOffset = x + rand.nextFloat();
+    				world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.0D, -0.05D - (overHeat / (MAX_HEAT * 2)));
+    				
+    				xOffset = x + (1 - (rand.nextFloat() * 0.5f));
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.05D + (overHeat / (MAX_HEAT * 2)), 0.0D, 0.0D);
+        		}
+    		}
+    	}
+    	//Facing towards the negative x axis       
+    	else if (metadata == 4) {
+    		if (overHeat > NO_RETURN) {
+    			for (int i = 0; i < particleAmount; i++) {
+    				
+    				xOffset = x + rand.nextFloat();
+            		zOffset = z + (rand.nextFloat() * 0.5f);
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.2D, -0.02D);
+            		
+            		if (rand.nextInt(HELL_FIRE) == 0) {
+            			xOffset = x + rand.nextFloat();
+                		zOffset = z + (rand.nextFloat() * 0.5f);
+                		world.spawnParticle("flame", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.2D, -0.02D);
+            		}
+            		
+            		zOffset = z + rand.nextFloat();
+    				world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.02D, 0.2D, 0.0D);
+            		
+    				if (rand.nextInt(HELL_FIRE) == 0) {
+    					zOffset = z + rand.nextFloat();
+        				world.spawnParticle("flame", (float)xOffset, (float)yOffset, (float)zOffset, 0.02D, 0.2D, 0.0D);
+            		}
+    				
+            		xOffset = x + rand.nextFloat();
+            		zOffset = z + (1 - (rand.nextFloat() * 0.5f));
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.2D, 0.02D);
+            		
+            		if (rand.nextInt(HELL_FIRE) == 0) {
+            			xOffset = x + rand.nextFloat();
+                		zOffset = z + (1 - (rand.nextFloat() * 0.5f));
+                		world.spawnParticle("flame", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.2D, 0.02D);
+            		}
+        		}
+    		}
+    		else {
+    			for (int i = 0; i < particleAmount; i++) {
+    				
+    				xOffset = x + rand.nextFloat();
+            		zOffset = z + (rand.nextFloat() * 0.5f);
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.0D, -0.05D - (overHeat / (MAX_HEAT * 2)));
+            		
+            		zOffset = z + rand.nextFloat();
+    				world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.05D + (overHeat / (MAX_HEAT * 2)), 0.0D, 0.0D);
+            		
+            		xOffset = x + rand.nextFloat();
+            		zOffset = z + (1 - (rand.nextFloat() * 0.5f));
+            		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.0D, 0.05D + (overHeat / (MAX_HEAT * 2)));
+        		}
+    		}
+    	}
+    	//Facing towards the positive x axis
+    	else if (metadata == 5) {
+    		if (overHeat > NO_RETURN) {
+    			
+				for (int i = 0; i < particleAmount; i++) {
+					
+					xOffset = x + rand.nextFloat();
+	        		zOffset = z + (rand.nextFloat() * 0.5f);
+	        		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.2D, -0.02D);
+	        		
+	        		if (rand.nextInt(HELL_FIRE) == 0) {
+	        			xOffset = x + rand.nextFloat();
+	            		zOffset = z + (rand.nextFloat() * 0.5f);
+	            		world.spawnParticle("flame", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.2D, -0.02D);
+	        		}
+	        		
+	        		zOffset = z + rand.nextFloat();
+					world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, -0.02D, 0.2D, 0.0D);
+	        		
+					if (rand.nextInt(HELL_FIRE) == 0) {
+						zOffset = z + rand.nextFloat();
+	    				world.spawnParticle("flame", (float)xOffset, (float)yOffset, (float)zOffset, -0.02D, 0.2D, 0.0D);
+	        		}
+					
+	        		xOffset = x + rand.nextFloat();
+	        		zOffset = z + (1 - (rand.nextFloat() * 0.5f));
+	        		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.2D, 0.02D);
+	        		
+	        		if (rand.nextInt(HELL_FIRE) == 0) {
+	        			xOffset = x + rand.nextFloat();
+	            		zOffset = z + (1 - (rand.nextFloat() * 0.5f));
+	            		world.spawnParticle("flame", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.2D, 0.02D);
+	        		}
+	    		}
+			}
+			else {
+				for (int i = 0; i < particleAmount; i++) {
+					
+					xOffset = x + rand.nextFloat();
+	        		zOffset = z + (rand.nextFloat() * 0.5f);
+	        		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.0D, -0.05D - (overHeat / (MAX_HEAT * 2)));
+	        		
+	        		zOffset = z + rand.nextFloat();
+					world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, -0.05D - (overHeat / (MAX_HEAT * 2)), 0.0D, 0.0D);
+	        		
+	        		xOffset = x + rand.nextFloat();
+	        		zOffset = z + (1 - (rand.nextFloat() * 0.5f));
+	        		world.spawnParticle("smoke", (float)xOffset, (float)yOffset, (float)zOffset, 0.0D, 0.0D, 0.05D + (overHeat / (MAX_HEAT * 2)));
+	    		}
+			}
+    	}
     }
 
     /**
@@ -373,7 +671,20 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     public void openInventory() {}
 
     public void closeInventory() {}
-
+    
+    @Override
+	public Packet getDescriptionPacket() {
+		NBTTagCompound tagCompound = new NBTTagCompound();
+		writeToNBT(tagCompound);
+		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 1, tagCompound);
+	}
+    
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		NBTTagCompound tag = pkt.func_148857_g();
+		readFromNBT(tag);
+	}
+    
     /**
      * Returns true if automation is allowed to insert the given stack (ignoring stack size) into the given slot.
      */
