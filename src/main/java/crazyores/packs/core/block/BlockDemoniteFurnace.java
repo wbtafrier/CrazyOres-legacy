@@ -155,11 +155,6 @@ public class BlockDemoniteFurnace extends BlockContainer implements IName {
         if (!isFurnaceUpdating) {
             TileEntityDemoniteFurnace demoniteFurnace = (TileEntityDemoniteFurnace)world.getTileEntity(x, y, z);
             
-            if (demoniteFurnace.overHeat > demoniteFurnace.NO_RETURN) {
-            	System.out.println("CREATE EXPLOSION!");
-            	return;
-            }
-            
             if (demoniteFurnace != null) {
                 for (int i1 = 0; i1 < demoniteFurnace.getSizeInventory(); ++i1) {
                     ItemStack itemstack = demoniteFurnace.getStackInSlot(i1);
@@ -192,6 +187,10 @@ public class BlockDemoniteFurnace extends BlockContainer implements IName {
                     }
                 }
                 world.func_147453_f(x, y, z, block);
+                
+                if (demoniteFurnace.overHeat > demoniteFurnace.NO_RETURN) {
+                	System.out.println("CREATE EXPLOSION!");
+                }
             }
         }
         super.breakBlock(world, x, y, z, block, metadata);
