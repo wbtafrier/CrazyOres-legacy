@@ -164,12 +164,12 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
 
         this.furnaceBurnTime = nbt.getShort("BurnTime");
         this.furnaceCookTime = nbt.getShort("CookTime");
+        this.currentItemBurnTime = getItemBurnTime(this.furnaceItemStacks[2]);
+        
         this.overHeat = nbt.getShort("OverHeat");
-        
-        this.heatUpAmount = nbt.getShort("HeatUpAmount");
         this.timeAlive = nbt.getInteger("TimeAlive");
+        this.heatUpAmount = nbt.getShort("HeatUpAmount");
         
-        this.currentItemBurnTime = getItemBurnTime(this.furnaceItemStacks[1]);
 
         if (nbt.hasKey("CustomName", 8)) {
             this.customName = nbt.getString("CustomName");
@@ -180,10 +180,6 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
         super.writeToNBT(nbt);
         nbt.setShort("BurnTime", (short)this.furnaceBurnTime);
         nbt.setShort("CookTime", (short)this.furnaceCookTime);
-        nbt.setShort("OverHeat", (short)this.overHeat);
-        
-        nbt.setShort("HeatUpAmount", (short)this.heatUpAmount);
-        nbt.setInteger("TimeAlive", this.timeAlive);
         
         NBTTagList nbttaglist = new NBTTagList();
 
@@ -196,6 +192,10 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
             }
         }
 
+        nbt.setShort("OverHeat", (short)this.overHeat);
+        nbt.setShort("HeatUpAmount", (short)this.heatUpAmount);
+        nbt.setInteger("TimeAlive", this.timeAlive);
+        
         nbt.setTag("Items", nbttaglist);
 
         if (this.hasCustomInventoryName()) {
@@ -228,6 +228,12 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
         if (this.currentItemBurnTime == 0) {
             this.currentItemBurnTime = 200;
         }
+        
+        System.out.println("FURNACE COOK TIME: " + this.furnaceBurnTime);
+        System.out.println("TIME REMAINING: " + timeRemaining);
+        System.out.println("CURRENT ITEM BURN TIME: " + this.currentItemBurnTime);
+        System.out.println("TOTAL: " + this.furnaceBurnTime * timeRemaining / this.currentItemBurnTime);
+        
         return this.furnaceBurnTime * timeRemaining / this.currentItemBurnTime;
     }
 
@@ -241,7 +247,6 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     public void updateEntity() {
     	if (worldObj.isRemote) {
     		this.spawnSmokeParticles(worldObj, xCoord, yCoord, zCoord);
-            return;
     	}
     	
         boolean flag = this.furnaceBurnTime > 0;
@@ -251,6 +256,8 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     	
     	if (this.furnaceBurnTime > 0) {
             --this.furnaceBurnTime;
+            
+//            System.out.println(furnaceBurnTime);
             
 //            if (rand.nextInt(5) == 0) {
             	timeAlive++;
@@ -271,42 +278,44 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     	}
     	
 //    	System.out.println("OVERHEAT: " + overHeat);
-    	System.out.println("TIME ALIVE: " + timeAlive);
-    	System.out.println("HEATUP AMOUNT: " + heatUpAmount);
+//    	System.out.println("TIME ALIVE: " + timeAlive);
+//    	System.out.println("HEATUP AMOUNT: " + heatUpAmount);
     	
     	update = overHeat > 0;
-    		
-        if (this.furnaceBurnTime != 0 || this.furnaceItemStacks[2] != null && this.furnaceItemStacks[0] != null && this.furnaceItemStacks[1] != null) {
-        		if (this.furnaceBurnTime == 0 && this.canSmelt()) {
-        			
-                this.currentItemBurnTime = this.furnaceBurnTime = getItemBurnTime(this.furnaceItemStacks[2]);
-
-                if (this.furnaceBurnTime > 0) {
-                    update = true;
-
-                    if (this.furnaceItemStacks[2] != null) {
-                        --this.furnaceItemStacks[2].stackSize;
-
-                        if (this.furnaceItemStacks[2].stackSize == 0) {
-                            this.furnaceItemStacks[2] = furnaceItemStacks[2].getItem().getContainerItem(furnaceItemStacks[2]);
-                        }
-                    }
-                }
-            }
-
-            if (this.isBurning() && this.canSmelt()) {
-                ++this.furnaceCookTime;
-
-                if (this.furnaceCookTime == 200) {
-                    this.furnaceCookTime = 0;
-                    this.smeltItem();
-                    update = true;
-                }
-            }
-            else {
-                this.furnaceCookTime = 0;
-            }
-        }
+    	
+    	if (!this.worldObj.isRemote) {
+	        if (this.furnaceBurnTime != 0 || this.furnaceItemStacks[2] != null && this.furnaceItemStacks[0] != null && this.furnaceItemStacks[1] != null) {
+	        		if (this.furnaceBurnTime == 0 && this.canSmelt()) {
+	        			
+	                this.currentItemBurnTime = this.furnaceBurnTime = getItemBurnTime(this.furnaceItemStacks[2]);
+	
+	                if (this.furnaceBurnTime > 0) {
+	                    update = true;
+	
+	                    if (this.furnaceItemStacks[2] != null) {
+	                        --this.furnaceItemStacks[2].stackSize;
+	
+	                        if (this.furnaceItemStacks[2].stackSize == 0) {
+	                            this.furnaceItemStacks[2] = furnaceItemStacks[2].getItem().getContainerItem(furnaceItemStacks[2]);
+	                        }
+	                    }
+	                }
+	            }
+	
+	            if (this.isBurning() && this.canSmelt()) {
+	                ++this.furnaceCookTime;
+	
+	                if (this.furnaceCookTime == 200) {
+	                    this.furnaceCookTime = 0;
+	                    this.smeltItem();
+	                    update = true;
+	                }
+	            }
+	            else {
+	                this.furnaceCookTime = 0;
+	            }
+	        }
+    	}
 
         if (flag != this.furnaceBurnTime > 0) {
             update = true;
