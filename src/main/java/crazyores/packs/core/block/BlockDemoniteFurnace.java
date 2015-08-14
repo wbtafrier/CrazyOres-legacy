@@ -22,12 +22,14 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.manager.pack.COPackManager;
 import crazyores.manager.support.IName;
 import crazyores.manager.tabs.COTabList;
 import crazyores.packs.core.entity.tileentity.TileEntityDemoniteFurnace;
+import crazyores.packs.core.item.CoreItems;
 
 public class BlockDemoniteFurnace extends BlockContainer implements IName {
 
@@ -57,8 +59,13 @@ public class BlockDemoniteFurnace extends BlockContainer implements IName {
 
 	@Override
 	public Item getItemDropped(int metadata, Random rand, int fortune) {
-		return Item.getItemFromBlock(CoreBlocks.demoniteFurnace);
+		return Item.getItemFromBlock(CoreBlocks.demoniteBlock);
 	}
+	
+	@Override
+    public int quantityDropped(Random rand) {
+		return rand.nextInt(4) + 1;
+    }
 	
 	@Override
 	public void onBlockAdded(World p_149726_1_, int p_149726_2_, int p_149726_3_, int p_149726_4_) {
