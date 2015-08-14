@@ -37,11 +37,20 @@ public class GuiDemoniteFurnace extends GuiContainer {
 		int l = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
 
+		int scaled;
 		if (this.tileFurnace.isBurning()) {
-			int i1 = this.tileFurnace.getBurnTimeRemainingScaled(13);
-			this.drawTexturedModalRect(k + 46, l + 36 + 12 - i1, 176, 12 - i1, 14, i1 + 1);
-			i1 = this.tileFurnace.getCookProgressScaled(24);
-			this.drawTexturedModalRect(k + 79, l + 34, 176, 14, i1 + 1, 16);
+			scaled = this.tileFurnace.getBurnTimeRemainingScaled(13);
+			this.drawTexturedModalRect(k + 73, l + 37 + 12 - scaled, 176, 12 - scaled, 14, scaled + 1);
+			scaled = this.tileFurnace.getCookProgressScaled(24);
+			this.drawTexturedModalRect(k + 106, l + 34, 176, 14, scaled + 1, 16);
 		}
+		/**
+	     * Draws a textured rectangle at the stored z-value. Args: x, y, u, v, width, height
+	     */
+		scaled = this.tileFurnace.getAgeTimeScaled(40);
+		this.drawTexturedModalRect(k + 18, l + 26 + scaled, 176, 31 + scaled, 6, 40 - scaled);
+		
+		scaled = this.tileFurnace.getWarmthTimeScaled(40);
+		this.drawTexturedModalRect(k + 43, l + 65 - scaled, 183, 70 - scaled, 6, scaled + 1);
 	}
 }

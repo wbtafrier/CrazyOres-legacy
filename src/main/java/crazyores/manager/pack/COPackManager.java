@@ -19,6 +19,7 @@ import crazyores.packs.core.entity.CoreEntityRegistry;
 import crazyores.packs.core.event.CoreEventManager;
 import crazyores.packs.core.gui.CoreGuiRegistry;
 import crazyores.packs.core.item.CoreItems;
+import crazyores.packs.core.recipe.CoreFuelHandler;
 import crazyores.packs.core.recipe.CoreRecipes;
 import crazyores.packs.core.tabs.CoreTabs;
 import crazyores.packs.core.util.CoreHarvestLevels;
@@ -49,6 +50,7 @@ public class COPackManager {
 			CoreTabs.initCoreTabs();
 			CoreBlocks.initBlocks();
 			CoreItems.initItems();
+			CoreFuelHandler.initFuels();
 			CoreLootHandler.initLoot();
 			CoreHarvestLevels.setHarvestLevels();
 			CoreEventManager.registerEvents();

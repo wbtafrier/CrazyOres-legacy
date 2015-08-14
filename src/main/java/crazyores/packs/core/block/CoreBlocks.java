@@ -114,8 +114,8 @@ public class CoreBlocks {
 		
 		enderBlock = (new CoreBlock("ender_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockEnder"); registerBlock(enderBlock);
 		
-		demoniteFurnace = new BlockDemoniteFurnace("demonite_furnace", false, 3.0f, 6.0f); registerBlock(demoniteFurnace);
-		demoniteFurnaceLit = new BlockDemoniteFurnace("demonite_furnace_lit", true, 3.0f, 6.0f); registerBlock(demoniteFurnaceLit);
+		demoniteFurnace = new BlockDemoniteFurnace("demonite_furnace", false, 16.0f, 2.0f); registerBlock(demoniteFurnace);
+		demoniteFurnaceLit = new BlockDemoniteFurnace("demonite_furnace_lit", true, 16.0f, 2.0f); registerBlock(demoniteFurnaceLit);
 	}
 	
 	/**

@@ -43,6 +43,7 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     public static final int NO_RETURN = MAX_HEAT - 2000;
     
     public static final int MAX_TIME_ALIVE = 100000;
+    public static final int MAX_HEAT_UP_INCREMENT = 100;
     
     public static final Block[] coolingBlocks = new Block[] { Blocks.lava, Blocks.flowing_lava, Blocks.water, Blocks.flowing_water, Blocks.ice, Blocks.packed_ice };
     
@@ -164,12 +165,12 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
 
         this.furnaceBurnTime = nbt.getShort("BurnTime");
         this.furnaceCookTime = nbt.getShort("CookTime");
-        this.currentItemBurnTime = getItemBurnTime(this.furnaceItemStacks[2]);
-        
         this.overHeat = nbt.getShort("OverHeat");
+        
         this.timeAlive = nbt.getInteger("TimeAlive");
         this.heatUpAmount = nbt.getShort("HeatUpAmount");
         
+        this.currentItemBurnTime = getItemBurnTime(this.furnaceItemStacks[2]);
 
         if (nbt.hasKey("CustomName", 8)) {
             this.customName = nbt.getString("CustomName");
@@ -178,11 +179,9 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
 
     public void writeToNBT(NBTTagCompound nbt) {
         super.writeToNBT(nbt);
-        nbt.setShort("BurnTime", (short)this.furnaceBurnTime);
-        nbt.setShort("CookTime", (short)this.furnaceCookTime);
-        
         NBTTagList nbttaglist = new NBTTagList();
-
+        
+        nbt.setTag("Items", nbttaglist);
         for (int i = 0; i < this.furnaceItemStacks.length; ++i) {
             if (this.furnaceItemStacks[i] != null) {
                 NBTTagCompound nbttagcompound1 = new NBTTagCompound();
@@ -191,13 +190,14 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
                 nbttaglist.appendTag(nbttagcompound1);
             }
         }
-
-        nbt.setShort("OverHeat", (short)this.overHeat);
-        nbt.setShort("HeatUpAmount", (short)this.heatUpAmount);
-        nbt.setInteger("TimeAlive", this.timeAlive);
         
-        nbt.setTag("Items", nbttaglist);
-
+        nbt.setShort("BurnTime", (short)this.furnaceBurnTime);
+        nbt.setShort("CookTime", (short)this.furnaceCookTime);
+        nbt.setShort("OverHeat", (short)this.overHeat);
+        
+        nbt.setInteger("TimeAlive", this.timeAlive);
+        nbt.setShort("HeatUpAmount", (short)this.heatUpAmount);
+        
         if (this.hasCustomInventoryName()) {
         	nbt.setString("CustomName", this.customName);
         }
@@ -229,12 +229,30 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
             this.currentItemBurnTime = 200;
         }
         
-        System.out.println("FURNACE COOK TIME: " + this.furnaceBurnTime);
-        System.out.println("TIME REMAINING: " + timeRemaining);
-        System.out.println("CURRENT ITEM BURN TIME: " + this.currentItemBurnTime);
-        System.out.println("TOTAL: " + this.furnaceBurnTime * timeRemaining / this.currentItemBurnTime);
-        
-        return this.furnaceBurnTime * timeRemaining / this.currentItemBurnTime;
+        int i = this.furnaceBurnTime * timeRemaining / this.currentItemBurnTime;
+//        System.out.println(i);
+        return i;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public int getAgeTimeScaled(int age) {
+    	
+    	//0 - 40
+    	
+    	//0 to 100,000
+    	//age to MAX_TIME_ALIVE = 0 to 40
+    	System.out.println("AGE: " + (int)(((float)this.timeAlive) / (float)MAX_TIME_ALIVE * age));
+    	return (int)(((float)this.timeAlive) / (float)MAX_TIME_ALIVE * age);
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public int getWarmthTimeScaled(int warmth) {
+    	
+    	//0 - 40
+    	//0 to 10,000
+    	//warmth to MAX_HEAT = 0 to 40
+    	System.out.println("WARMTH: " + (int)(((float)this.overHeat) / (float)MAX_HEAT * warmth));
+    	return (int)(((float)this.overHeat) / (float)MAX_HEAT * warmth);
     }
 
     /**
@@ -255,26 +273,24 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     	int coolingAmount = getCoolingAmount(this.worldObj, this.xCoord, this.yCoord, this.zCoord);
     	
     	if (this.furnaceBurnTime > 0) {
-            --this.furnaceBurnTime;
-            
-//            System.out.println(furnaceBurnTime);
-            
+    		--this.furnaceBurnTime;
 //            if (rand.nextInt(5) == 0) {
-            	timeAlive++;
-            	
+            	timeAlive = MathHelper.clamp_int(timeAlive + 1, 0, MAX_TIME_ALIVE);
+            	System.out.println("TIME ALIVE: " + timeAlive);
             	if (timeAlive % 2000 == 0) {
-            		heatUpAmount++;
+            		heatUpAmount = MathHelper.clamp_int(heatUpAmount + 1, 0, MAX_HEAT_UP_INCREMENT);
             	}
 //            }
             
             overHeat = MathHelper.clamp_int((overHeat + heatUpAmount) - coolingAmount, 0, MAX_HEAT);
         }
     	else {
-            overHeat = MathHelper.clamp_int(overHeat - coolingAmount, 0, MAX_HEAT);
+    		if (coolingAmount >= 0) overHeat = MathHelper.clamp_int(overHeat - coolingAmount, 0, MAX_HEAT);
     	}
     	
-    	if (overHeat >= MAX_HEAT || timeAlive >= MAX_TIME_ALIVE) {
-    		//TODO: EXPLODE!!!
+    	//TODO: MAKE timeAlive AFFECT SPEED NOT EXPLOSION!!!
+    	if (overHeat >= MAX_HEAT /*|| timeAlive >= MAX_TIME_ALIVE*/) {
+    		worldObj.newExplosion(null, xCoord, yCoord, zCoord, BlockDemoniteFurnace.EXPLOSION_STRENGTH, true, true);
     	}
     	
 //    	System.out.println("OVERHEAT: " + overHeat);
@@ -285,8 +301,7 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     	
     	if (!this.worldObj.isRemote) {
 	        if (this.furnaceBurnTime != 0 || this.furnaceItemStacks[2] != null && this.furnaceItemStacks[0] != null && this.furnaceItemStacks[1] != null) {
-	        		if (this.furnaceBurnTime == 0 && this.canSmelt()) {
-	        			
+	        	if (this.furnaceBurnTime == 0 && this.canSmelt()) {
 	                this.currentItemBurnTime = this.furnaceBurnTime = getItemBurnTime(this.furnaceItemStacks[2]);
 	
 	                if (this.furnaceBurnTime > 0) {
@@ -315,15 +330,14 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
 	                this.furnaceCookTime = 0;
 	            }
 	        }
+	
+	        if (flag != this.furnaceBurnTime > 0) {
+	            update = true;
+	            BlockDemoniteFurnace.updateBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+	        }
     	}
-
-        if (flag != this.furnaceBurnTime > 0) {
-            update = true;
-            BlockDemoniteFurnace.updateBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
-        }
-
+	        
         if (update) {
-        	worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
         	this.markDirty();
         }
     }

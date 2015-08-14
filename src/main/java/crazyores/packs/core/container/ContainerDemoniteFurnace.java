@@ -28,10 +28,10 @@ public class ContainerDemoniteFurnace extends Container {
 
     public ContainerDemoniteFurnace(InventoryPlayer inventory, TileEntityDemoniteFurnace furnace) {
         this.tileFurnace = furnace;
-        this.addSlotToContainer(new Slot(furnace, INPUT_1, 33, 17));
-        this.addSlotToContainer(new Slot(furnace, INPUT_2, 56, 17));
-        this.addSlotToContainer(new Slot(furnace, FUEL, 45, 53));
-        this.addSlotToContainer(new SlotDemoniteFurnace(inventory.player, furnace, OUTPUT, 116, 35));
+        this.addSlotToContainer(new Slot(furnace, INPUT_1, 60, 17));
+        this.addSlotToContainer(new Slot(furnace, INPUT_2, 83, 17));
+        this.addSlotToContainer(new Slot(furnace, FUEL, 72, 53));
+        this.addSlotToContainer(new SlotDemoniteFurnace(inventory.player, furnace, OUTPUT, 143, 35));
         int i;
 
         for (i = 0; i < 3; ++i) {

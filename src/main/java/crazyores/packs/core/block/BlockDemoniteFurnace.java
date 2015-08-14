@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
@@ -19,6 +20,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -34,6 +36,7 @@ public class BlockDemoniteFurnace extends BlockContainer implements IName {
 	public final String textureName;
 	private boolean flaming;
 	private static boolean isFurnaceUpdating;
+	public static final float EXPLOSION_STRENGTH = 10.0f;
 	
 	@SideOnly(Side.CLIENT)
     private IIcon topIcon;
@@ -42,14 +45,14 @@ public class BlockDemoniteFurnace extends BlockContainer implements IName {
 	
 	protected BlockDemoniteFurnace(String unlocalizedName, boolean isFlaming, float hardness, float resistance) {
 		super(Material.iron);
-		this.setCreativeTab(COTabList.crazyOresBlocksTab);
-		this.setStepSound(Block.soundTypeMetal);
 		
 		flaming = isFlaming;
 		textureName = "demonite_furnace";
 		this.blockUnlocalizedName = unlocalizedName;
 		this.setHardness(hardness);
 		this.setResistance(resistance);
+		if (!flaming) this.setCreativeTab(COTabList.crazyOresBlocksTab);
+		this.setStepSound(Block.soundTypeMetal);
 	}
 
 	@Override
@@ -156,11 +159,6 @@ public class BlockDemoniteFurnace extends BlockContainer implements IName {
         if (!isFurnaceUpdating) {
             TileEntityDemoniteFurnace demoniteFurnace = (TileEntityDemoniteFurnace)world.getTileEntity(x, y, z);
             
-            if (demoniteFurnace.overHeat > demoniteFurnace.NO_RETURN) {
-            	System.out.println("CREATE EXPLOSION!");
-            	return;
-            }
-            
             if (demoniteFurnace != null) {
                 for (int i1 = 0; i1 < demoniteFurnace.getSizeInventory(); ++i1) {
                     ItemStack itemstack = demoniteFurnace.getStackInSlot(i1);
@@ -193,9 +191,21 @@ public class BlockDemoniteFurnace extends BlockContainer implements IName {
                     }
                 }
                 world.func_147453_f(x, y, z, block);
+                
+                if (demoniteFurnace.overHeat > demoniteFurnace.NO_RETURN) {
+                	world.newExplosion(null, x, y, z, EXPLOSION_STRENGTH, true, true);
+                }
+                
             }
         }
         super.breakBlock(world, x, y, z, block, metadata);
+    }
+	
+	@Override
+	public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion exp) {
+        if (!world.isRemote) {
+        	world.newExplosion(null, x, y, z, EXPLOSION_STRENGTH, true, true);
+        }
     }
 	
 	@Override
