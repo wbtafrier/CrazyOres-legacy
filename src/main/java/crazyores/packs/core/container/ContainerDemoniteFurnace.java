@@ -50,9 +50,9 @@ public class ContainerDemoniteFurnace extends Container {
         crafting.sendProgressBarUpdate(this, 0, this.tileFurnace.furnaceCookTime);
         crafting.sendProgressBarUpdate(this, 1, this.tileFurnace.furnaceBurnTime);
         crafting.sendProgressBarUpdate(this, 2, this.tileFurnace.currentItemBurnTime);
-//        crafting.sendProgressBarUpdate(this, 3, this.tileFurnace.overHeat);
-//        crafting.sendProgressBarUpdate(this, 4, this.tileFurnace.timeAlive);
-//        crafting.sendProgressBarUpdate(this, 5, this.tileFurnace.heatUpAmount);
+        crafting.sendProgressBarUpdate(this, 3, this.tileFurnace.overHeat);
+        crafting.sendProgressBarUpdate(this, 4, this.tileFurnace.timeAlive);
+        crafting.sendProgressBarUpdate(this, 5, this.tileFurnace.heatUpAmount);
     }
 
     /**
@@ -76,25 +76,25 @@ public class ContainerDemoniteFurnace extends Container {
                 icrafting.sendProgressBarUpdate(this, 2, this.tileFurnace.currentItemBurnTime);
             }
             
-//            if (this.lastOverHeat != this.tileFurnace.overHeat) {
-//                icrafting.sendProgressBarUpdate(this, 3, this.tileFurnace.overHeat);
-//            }
-//            
-//            if (this.lastTimeAlive != this.tileFurnace.timeAlive) {
-//                icrafting.sendProgressBarUpdate(this, 4, this.tileFurnace.timeAlive);
-//            }
-//            
-//            if (this.lastHeatUpAmount != this.tileFurnace.heatUpAmount) {
-//                icrafting.sendProgressBarUpdate(this, 5, this.tileFurnace.heatUpAmount);
-//            }
+            if (this.lastOverHeat != this.tileFurnace.overHeat) {
+                icrafting.sendProgressBarUpdate(this, 3, this.tileFurnace.overHeat);
+            }
+            
+            if (this.lastTimeAlive != this.tileFurnace.timeAlive) {
+                icrafting.sendProgressBarUpdate(this, 4, this.tileFurnace.timeAlive);
+            }
+            
+            if (this.lastHeatUpAmount != this.tileFurnace.heatUpAmount) {
+                icrafting.sendProgressBarUpdate(this, 5, this.tileFurnace.heatUpAmount);
+            }
         }
 
         this.lastCookTime = this.tileFurnace.furnaceCookTime;
         this.lastBurnTime = this.tileFurnace.furnaceBurnTime;
         this.lastItemBurnTime = this.tileFurnace.currentItemBurnTime;
-//        this.lastOverHeat = this.tileFurnace.overHeat;
-//        this.lastTimeAlive = this.tileFurnace.timeAlive;
-//        this.lastHeatUpAmount = this.tileFurnace.heatUpAmount;
+        this.lastOverHeat = this.tileFurnace.overHeat;
+        this.lastTimeAlive = this.tileFurnace.timeAlive;
+        this.lastHeatUpAmount = this.tileFurnace.heatUpAmount;
     }
 
     @SideOnly(Side.CLIENT)
@@ -111,17 +111,17 @@ public class ContainerDemoniteFurnace extends Container {
             this.tileFurnace.currentItemBurnTime = p_75137_2_;
         }
         
-//        if (p_75137_1_ == 3) {
-//            this.tileFurnace.overHeat = p_75137_2_;
-//        }
-//        
-//        if (p_75137_1_ == 4) {
-//            this.tileFurnace.timeAlive = p_75137_2_;
-//        }
-//        
-//        if (p_75137_1_ == 5) {
-//            this.tileFurnace.heatUpAmount = p_75137_2_;
-//        }
+        if (p_75137_1_ == 3) {
+            this.tileFurnace.overHeat = p_75137_2_;
+        }
+        
+        if (p_75137_1_ == 4) {
+            this.tileFurnace.timeAlive = p_75137_2_;
+        }
+        
+        if (p_75137_1_ == 5) {
+            this.tileFurnace.heatUpAmount = p_75137_2_;
+        }
     }
 
     public boolean canInteractWith(EntityPlayer p_75145_1_) {
