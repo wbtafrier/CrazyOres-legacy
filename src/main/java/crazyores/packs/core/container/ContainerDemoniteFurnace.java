@@ -23,6 +23,7 @@ public class ContainerDemoniteFurnace extends Container {
     private int lastOverHeat;
     private int lastTimeAlive;
     private int lastHeatUpAmount;
+    private int lastSmeltingSpeed;
     
     private final int INPUT_1 = 0, INPUT_2 = 1, FUEL = 2, OUTPUT = 3;
 
@@ -53,6 +54,7 @@ public class ContainerDemoniteFurnace extends Container {
         crafting.sendProgressBarUpdate(this, 3, this.tileFurnace.overHeat);
         crafting.sendProgressBarUpdate(this, 4, this.tileFurnace.timeAlive);
         crafting.sendProgressBarUpdate(this, 5, this.tileFurnace.heatUpAmount);
+        crafting.sendProgressBarUpdate(this, 6, this.tileFurnace.smeltingSpeed);
     }
 
     /**
@@ -87,6 +89,10 @@ public class ContainerDemoniteFurnace extends Container {
             if (this.lastHeatUpAmount != this.tileFurnace.heatUpAmount) {
                 icrafting.sendProgressBarUpdate(this, 5, this.tileFurnace.heatUpAmount);
             }
+            
+            if (this.lastSmeltingSpeed != this.tileFurnace.smeltingSpeed) {
+                icrafting.sendProgressBarUpdate(this, 6, this.tileFurnace.smeltingSpeed);
+            }
         }
 
         this.lastCookTime = this.tileFurnace.furnaceCookTime;
@@ -95,6 +101,7 @@ public class ContainerDemoniteFurnace extends Container {
         this.lastOverHeat = this.tileFurnace.overHeat;
         this.lastTimeAlive = this.tileFurnace.timeAlive;
         this.lastHeatUpAmount = this.tileFurnace.heatUpAmount;
+        this.lastSmeltingSpeed = this.tileFurnace.smeltingSpeed;
     }
 
     @SideOnly(Side.CLIENT)
@@ -121,6 +128,10 @@ public class ContainerDemoniteFurnace extends Container {
         
         if (p_75137_1_ == 5) {
             this.tileFurnace.heatUpAmount = p_75137_2_;
+        }
+        
+        if (p_75137_1_ == 6) {
+            this.tileFurnace.smeltingSpeed = p_75137_2_;
         }
     }
 

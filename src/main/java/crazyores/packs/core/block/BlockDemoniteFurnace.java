@@ -272,10 +272,6 @@ public class BlockDemoniteFurnace extends BlockContainer implements IName {
 	@Override
 	@SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int metadata) {
-		
-//		if (metadata == 0 && side == 3) return frontIcon;
-//		else return side == 1 ? topIcon : (side == 0 ? frontIcon : (side != metadata ? this.blockIcon : topIcon));
-		
 		return metadata == 0 && side == 3 ? frontIcon : (side == 1 ? topIcon : (side == 0 ? topIcon : (side != metadata ? this.blockIcon : frontIcon)));
     }
 	

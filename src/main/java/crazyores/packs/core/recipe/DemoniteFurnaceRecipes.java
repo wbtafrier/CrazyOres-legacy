@@ -22,33 +22,35 @@ public class DemoniteFurnaceRecipes {
 	private List<ItemStack[]> recipes;
 	private Map experienceList;
 	
+	private static final int STACK_SIZE = 4;
+	
 	private DemoniteFurnaceRecipes() {
 		recipes = new ArrayList<ItemStack[]>();
 		experienceList = new HashMap();
 		
-		addRecipe(new ItemStack(Blocks.iron_ore), new ItemStack(Items.iron_ingot, 3), 0.4f);
-		addRecipe(new ItemStack(Blocks.gold_ore), new ItemStack(Items.gold_ingot, 3), 0.5f);
-		addRecipe(new ItemStack(Blocks.diamond_ore), new ItemStack(Items.diamond, 3), 0.8f);
-		addRecipe(new ItemStack(Blocks.coal_ore), new ItemStack(Items.coal, 3), 0.2f);
-		addRecipe(new ItemStack(Blocks.redstone_ore), new ItemStack(Items.redstone, 3), 0.3f);
-		addRecipe(new ItemStack(Blocks.lapis_ore), new ItemStack(Items.dye, 3, 4), 0.3f);
-		addRecipe(new ItemStack(Blocks.emerald_ore), new ItemStack(Items.emerald, 3), 0.6f);
-		addRecipe(new ItemStack(Blocks.quartz_ore), new ItemStack(Items.quartz, 3), 0.7f);
+		addRecipe(new ItemStack(Blocks.iron_ore), new ItemStack(Items.iron_ingot, STACK_SIZE), 0.4f);
+		addRecipe(new ItemStack(Blocks.gold_ore), new ItemStack(Items.gold_ingot, STACK_SIZE), 0.5f);
+		addRecipe(new ItemStack(Blocks.diamond_ore), new ItemStack(Items.diamond, STACK_SIZE), 0.8f);
+		addRecipe(new ItemStack(Blocks.coal_ore), new ItemStack(Items.coal, STACK_SIZE), 0.2f);
+		addRecipe(new ItemStack(Blocks.redstone_ore), new ItemStack(Items.redstone, STACK_SIZE), 0.3f);
+		addRecipe(new ItemStack(Blocks.lapis_ore), new ItemStack(Items.dye, STACK_SIZE, 4), 0.3f);
+		addRecipe(new ItemStack(Blocks.emerald_ore), new ItemStack(Items.emerald, STACK_SIZE), 0.6f);
+		addRecipe(new ItemStack(Blocks.quartz_ore), new ItemStack(Items.quartz, STACK_SIZE), 0.7f);
 		
-		addRecipe(new ItemStack(CoreBlocks.meteoriteOre), new ItemStack(CoreItems.meteoriteCoal, 3), 0.6f);
-		addRecipe(new ItemStack(CoreBlocks.copperOre), new ItemStack(CoreItems.copperIngot, 3), 0.4f);
-		addRecipe(new ItemStack(CoreBlocks.adamiteOre), new ItemStack(CoreItems.adamiteShard, 3), 0.7f);
-		addRecipe(new ItemStack(CoreBlocks.sapphireOre), new ItemStack(CoreItems.sapphireGem, 3), 0.5f);
-		addRecipe(new ItemStack(CoreBlocks.rubyOre), new ItemStack(CoreItems.rubyGem, 3), 0.5f);
-		addRecipe(new ItemStack(CoreBlocks.foolsRubyOre), new ItemStack(CoreItems.foolsRubyMush, 3), 0.2f);
-		addRecipe(new ItemStack(CoreBlocks.zectiumOre), new ItemStack(CoreItems.zectiumIngot, 3), 1.0f);
-		addRecipe(new ItemStack(CoreBlocks.osmoniumOre), new ItemStack(CoreItems.osmoniumIngot, 3), 1.1f);
-		addRecipe(new ItemStack(CoreBlocks.starconiumOre), new ItemStack(CoreItems.starconiumGem, 3), 1.4f);
-		addRecipe(new ItemStack(CoreBlocks.experiumOre), new ItemStack(CoreItems.experiumOrb, 3), 2.2f);
+		addRecipe(new ItemStack(CoreBlocks.meteoriteOre), new ItemStack(CoreItems.meteoriteCoal, STACK_SIZE), 0.6f);
+		addRecipe(new ItemStack(CoreBlocks.copperOre), new ItemStack(CoreItems.copperIngot, STACK_SIZE), 0.4f);
+		addRecipe(new ItemStack(CoreBlocks.adamiteOre), new ItemStack(CoreItems.adamiteShard, STACK_SIZE), 0.7f);
+		addRecipe(new ItemStack(CoreBlocks.sapphireOre), new ItemStack(CoreItems.sapphireGem, STACK_SIZE), 0.5f);
+		addRecipe(new ItemStack(CoreBlocks.rubyOre), new ItemStack(CoreItems.rubyGem, STACK_SIZE), 0.5f);
+		addRecipe(new ItemStack(CoreBlocks.foolsRubyOre), new ItemStack(CoreItems.foolsRubyMush, STACK_SIZE), 0.2f);
+		addRecipe(new ItemStack(CoreBlocks.zectiumOre), new ItemStack(CoreItems.zectiumIngot, STACK_SIZE), 1.0f);
+		addRecipe(new ItemStack(CoreBlocks.osmoniumOre), new ItemStack(CoreItems.osmoniumIngot, STACK_SIZE), 1.1f);
+		addRecipe(new ItemStack(CoreBlocks.starconiumOre), new ItemStack(CoreItems.starconiumGem, STACK_SIZE), 1.4f);
+		addRecipe(new ItemStack(CoreBlocks.experiumOre), new ItemStack(CoreItems.experiumOrb, STACK_SIZE), 2.2f);
 		
-		addRecipe(new ItemStack(CoreBlocks.demoniteOre), new ItemStack(CoreItems.demoniteOrb, 3), 0.6f);
-		addRecipe(new ItemStack(CoreBlocks.invisiumOre), new ItemStack(CoreItems.invisiumIngot, 3), 0.7f);
-		addRecipe(new ItemStack(CoreBlocks.enderOre), new ItemStack(CoreItems.enderGem, 3), 1.8f);
+		addRecipe(new ItemStack(CoreBlocks.demoniteOre), new ItemStack(CoreItems.demoniteOrb, STACK_SIZE), 0.6f);
+		addRecipe(new ItemStack(CoreBlocks.invisiumOre), new ItemStack(CoreItems.invisiumIngot, STACK_SIZE), 0.7f);
+		addRecipe(new ItemStack(CoreBlocks.enderOre), new ItemStack(CoreItems.enderGem, STACK_SIZE), 1.8f);
 		
 		//TODO:ADD MORE RECIPES!!
 	}

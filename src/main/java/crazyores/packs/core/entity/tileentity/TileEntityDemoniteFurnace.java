@@ -26,6 +26,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.packs.core.block.BlockDemoniteFurnace;
+import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.recipe.DemoniteFurnaceRecipes;
 
 public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInventory {
@@ -38,19 +39,20 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     public int overHeat = 0;
     public int heatUpAmount = 50;
     public int timeAlive = 0;
+    public int smeltingSpeed = 200;
     
     public static final int MAX_HEAT = 10000;
     public static final int NO_RETURN = MAX_HEAT - 2000;
-    
-    public static final int MAX_TIME_ALIVE = 100000;
+    public static final int MAX_TIME_ALIVE = 2000;
     public static final int MAX_HEAT_UP_INCREMENT = 100;
+    public static final int MAX_SMELTING_SPEED = 600;
     
-    public static final Block[] coolingBlocks = new Block[] { Blocks.lava, Blocks.flowing_lava, Blocks.water, Blocks.flowing_water, Blocks.ice, Blocks.packed_ice };
-    
-	//slot 0 = cook1 slot
-	//slot 1 = cook2 slot
-	//slot 2 = fuel slot
-	//slot 3 = result slot
+	/*
+	 * slot 0 = cook1 slot
+	 * slot 1 = cook2 slot
+	 * slot 2 = fuel slot
+	 * slot 3 = result slot
+	 */
     private ItemStack[] furnaceItemStacks = new ItemStack[4];
     
     /** The number of ticks that the furnace will keep burning */
@@ -169,6 +171,7 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
         
         this.timeAlive = nbt.getInteger("TimeAlive");
         this.heatUpAmount = nbt.getShort("HeatUpAmount");
+        this.smeltingSpeed = nbt.getShort("SmeltingSpeed");
         
         this.currentItemBurnTime = getItemBurnTime(this.furnaceItemStacks[2]);
 
@@ -197,6 +200,7 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
         
         nbt.setInteger("TimeAlive", this.timeAlive);
         nbt.setShort("HeatUpAmount", (short)this.heatUpAmount);
+        nbt.setShort("SmeltingSpeed", (short)this.smeltingSpeed);
         
         if (this.hasCustomInventoryName()) {
         	nbt.setString("CustomName", this.customName);
@@ -216,7 +220,7 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
      */
     @SideOnly(Side.CLIENT)
     public int getCookProgressScaled(int progress) {
-        return this.furnaceCookTime * progress / 200;
+        return this.furnaceCookTime * progress / smeltingSpeed;
     }
 
     /**
@@ -236,22 +240,13 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     
     @SideOnly(Side.CLIENT)
     public int getAgeTimeScaled(int age) {
-    	
-    	//0 - 40
-    	
-    	//0 to 100,000
-    	//age to MAX_TIME_ALIVE = 0 to 40
-    	System.out.println("AGE: " + (int)(((float)this.timeAlive) / (float)MAX_TIME_ALIVE * age));
+//    	System.out.println("AGE: " + (int)(((float)this.timeAlive) / (float)MAX_TIME_ALIVE * age));
     	return (int)(((float)this.timeAlive) / (float)MAX_TIME_ALIVE * age);
     }
     
     @SideOnly(Side.CLIENT)
     public int getWarmthTimeScaled(int warmth) {
-    	
-    	//0 - 40
-    	//0 to 10,000
-    	//warmth to MAX_HEAT = 0 to 40
-    	System.out.println("WARMTH: " + (int)(((float)this.overHeat) / (float)MAX_HEAT * warmth));
+//    	System.out.println("WARMTH: " + (int)(((float)this.overHeat) / (float)MAX_HEAT * warmth));
     	return (int)(((float)this.overHeat) / (float)MAX_HEAT * warmth);
     }
 
@@ -263,43 +258,51 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     }
 
     public void updateEntity() {
+    	boolean update = false;
+    	boolean flag = this.furnaceBurnTime > 0;
+    	
     	if (worldObj.isRemote) {
     		this.spawnSmokeParticles(worldObj, xCoord, yCoord, zCoord);
     	}
     	
-        boolean flag = this.furnaceBurnTime > 0;
-        boolean update = false;
-        
     	int coolingAmount = getCoolingAmount(this.worldObj, this.xCoord, this.yCoord, this.zCoord);
-    	
-    	if (this.furnaceBurnTime > 0) {
-    		--this.furnaceBurnTime;
-//            if (rand.nextInt(5) == 0) {
+		
+		if (this.furnaceBurnTime > 0) {
+			--this.furnaceBurnTime;
+    		
+//			System.out.println("OVERHEAT: " + overHeat);
+//			System.out.println("COOLING AMOUNT: " + coolingAmount);
+			
+            if (overHeat > 0 && rand.nextInt(overHeat) > MAX_HEAT / 10) {
             	timeAlive = MathHelper.clamp_int(timeAlive + 1, 0, MAX_TIME_ALIVE);
-            	System.out.println("TIME ALIVE: " + timeAlive);
-            	if (timeAlive % 2000 == 0) {
+            	
+            	if (timeAlive % (MAX_TIME_ALIVE / 50) == 0) {
+//            		System.out.println("SMELTING SPEED: " + smeltingSpeed + " | HEAT UP AMOUNT: " + heatUpAmount);
+            		smeltingSpeed = MathHelper.clamp_int(smeltingSpeed + 8, 0, MAX_SMELTING_SPEED);
             		heatUpAmount = MathHelper.clamp_int(heatUpAmount + 1, 0, MAX_HEAT_UP_INCREMENT);
             	}
-//            }
+            }
             
             overHeat = MathHelper.clamp_int((overHeat + heatUpAmount) - coolingAmount, 0, MAX_HEAT);
         }
-    	else {
+		else {
     		if (coolingAmount >= 0) overHeat = MathHelper.clamp_int(overHeat - coolingAmount, 0, MAX_HEAT);
     	}
+		update = overHeat > 0;
     	
-    	//TODO: MAKE timeAlive AFFECT SPEED NOT EXPLOSION!!!
-    	if (overHeat >= MAX_HEAT /*|| timeAlive >= MAX_TIME_ALIVE*/) {
-    		worldObj.newExplosion(null, xCoord, yCoord, zCoord, BlockDemoniteFurnace.EXPLOSION_STRENGTH, true, true);
-    	}
-    	
-//    	System.out.println("OVERHEAT: " + overHeat);
-//    	System.out.println("TIME ALIVE: " + timeAlive);
-//    	System.out.println("HEATUP AMOUNT: " + heatUpAmount);
-    	
-    	update = overHeat > 0;
     	
     	if (!this.worldObj.isRemote) {
+    		
+//        	System.out.println("TIME ALIVE: " + timeAlive);
+//        	System.out.println("HEATUP AMOUNT: " + heatUpAmount);
+//        	System.out.println("TIME ALIVE: " + timeAlive);
+//        	System.out.println("SMELTING SPEED: " + smeltingSpeed);
+    		updateSurroundingBlocks(worldObj, xCoord, yCoord, zCoord);
+    		
+        	if (overHeat >= MAX_HEAT /*|| timeAlive >= MAX_TIME_ALIVE*/) {
+        		worldObj.newExplosion(null, xCoord, yCoord, zCoord, BlockDemoniteFurnace.EXPLOSION_STRENGTH, true, true);
+        	}
+    		
 	        if (this.furnaceBurnTime != 0 || this.furnaceItemStacks[2] != null && this.furnaceItemStacks[0] != null && this.furnaceItemStacks[1] != null) {
 	        	if (this.furnaceBurnTime == 0 && this.canSmelt()) {
 	                this.currentItemBurnTime = this.furnaceBurnTime = getItemBurnTime(this.furnaceItemStacks[2]);
@@ -320,7 +323,7 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
 	            if (this.isBurning() && this.canSmelt()) {
 	                ++this.furnaceCookTime;
 	
-	                if (this.furnaceCookTime == 200) {
+	                if (this.furnaceCookTime == smeltingSpeed) {
 	                    this.furnaceCookTime = 0;
 	                    this.smeltItem();
 	                    update = true;
@@ -345,36 +348,72 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     private int getCoolingAmount(World world, int x, int y, int z) {
     	Block block;
     	int amount = 0;
+    	int demonditeFurnaceCounter = 0;
     	
     	for (int xOffset = -1; xOffset < 2; xOffset++) {
     		for (int yOffset = -1; yOffset < 2; yOffset++) {
     			for (int zOffset = -1; zOffset < 2; zOffset++) {
     				block = world.getBlock(x + xOffset, y + yOffset, z + zOffset);
-    				Block b = testBlock(block, coolingBlocks);
-    				amount += getAmount(b);
+    				
+    				if (demonditeFurnaceCounter == 0 && block.isAssociatedBlock(CoreBlocks.demoniteFurnaceLit)) {
+    					demonditeFurnaceCounter++;
+    					continue;
+    				}
+    				else {
+    					int a = getAmount(block);
+    					amount += (xOffset == 0 && yOffset == -1 && zOffset == 0) ? a * 2 : a;
+    				}
     			}
     		}
     	}
     	return amount;
     }
     
-    private Block testBlock(Block block, Block... targetBlocks) {
+    private void updateSurroundingBlocks(World world, int x, int y, int z) {
     	
-    	for (Block b : targetBlocks) {
-    		if (block.isAssociatedBlock(b)) {
-    			return b;
+    	if (overHeat < 100) return;
+    	
+    	if (rand.nextInt(overHeat >= NO_RETURN ? 10 : 100) < 5) {
+    		
+    		if (overHeat >= NO_RETURN) {
+        		Block b = world.getBlock(x, y + 1, z);
+        		
+        		if (b.isAssociatedBlock(Blocks.ice) || b.isAssociatedBlock(Blocks.snow) || b.isAssociatedBlock(Blocks.packed_ice)) {
+        			world.setBlock(x, y + 1, z, Blocks.water);
+        			return;
+        		}
+        		else if (b.isAssociatedBlock(Blocks.snow_layer)) {
+        			world.setBlock(x, y + 1, z, Blocks.air);
+        			return;
+        		}
+        	}
+    		
+			int randX = rand.nextInt(3) - 1;
+    		int randY = rand.nextInt(3) - 1;
+    		int randZ = rand.nextInt(3) - 1;
+//    		System.out.println("MELTING BLOCK AT: (" + x + randX + ", " + y + randY + ", " + z + randZ + ")");
+    		
+			Block b = world.getBlock(x + randX, y + randY, z + randZ);
+			
+			if (b.isAssociatedBlock(Blocks.ice) || b.isAssociatedBlock(Blocks.snow)) {
+				world.setBlock(x + randX, y + randY, z + randZ, Blocks.water);
+			}
+			else if (b.isAssociatedBlock(Blocks.snow_layer)) {
+				world.setBlock(x + randX, y + randY, z + randZ, Blocks.air);
+    			return;
     		}
     	}
-    	return null;
     }
     
     private int getAmount(Block b) {
-    	
-    	if (b == coolingBlocks[0] || b == coolingBlocks[1]) return -20;
-    	else if (b == coolingBlocks[2] || b == coolingBlocks[3]) return 2;
-    	else if (b == coolingBlocks[4]) return 3;
-    	else if (b == coolingBlocks[5]) return 5;
-    	return 0;
+    	if (b.isAssociatedBlock(CoreBlocks.demoniteFurnaceLit)) return -40;
+    	else if (b.isAssociatedBlock(Blocks.lava) || b.isAssociatedBlock(Blocks.flowing_lava)) return -20;
+    	else if (b.isAssociatedBlock(Blocks.fire)) return -10;
+    	else if (b.isAssociatedBlock(Blocks.water) || b.isAssociatedBlock(Blocks.flowing_water) || b.isAssociatedBlock(Blocks.snow_layer)) return 2;
+    	else if (b.isAssociatedBlock(Blocks.snow)) return 3;
+    	else if (b.isAssociatedBlock(Blocks.ice)) return 4;
+    	else if (b.isAssociatedBlock(Blocks.packed_ice)) return 5;
+    	else return 0;
     }
     
     @SideOnly(Side.CLIENT)
