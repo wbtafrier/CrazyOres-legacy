@@ -102,7 +102,7 @@ public class CoreBow extends ItemBow implements IName {
         return itemUnlocalizedName;
     }
 	
-	public int getBowEnhancement() {
-		return -1;
+	public EnumBowEnhancement getBowEnhancement() {
+		return EnumBowEnhancement.NONE;
 	}
 }

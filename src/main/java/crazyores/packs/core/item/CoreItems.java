@@ -44,8 +44,7 @@ public class CoreItems {
 	
 	//Items
 	public static Item zectiumCore;
-	public static Item invisiumWand;
-	
+
 	//Pickaxes
 	public static Item copperPickaxe;
 	public static Item meteoritePickaxe;
@@ -230,8 +229,6 @@ public class CoreItems {
 		
 		//Items
 		zectiumCore = new ItemZectiumCore("zectium_core", COTabList.crazyOresItemsTab, 16); registerItem(zectiumCore);
-		
-		invisiumWand = new CoreWand("invisium_wand", CoreHarvestLevels.INVISIUM); registerItem(invisiumWand);
 	}
 	
 	private static void initOreDrops() {
