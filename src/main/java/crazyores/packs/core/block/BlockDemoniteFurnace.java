@@ -38,7 +38,7 @@ public class BlockDemoniteFurnace extends BlockContainer implements IName {
 	public final String textureName;
 	private boolean flaming;
 	private static boolean isFurnaceUpdating;
-	public static final float EXPLOSION_STRENGTH = 10.0f;
+	public static final float EXPLOSION_STRENGTH = 7.0f;
 	
 	@SideOnly(Side.CLIENT)
     private IIcon topIcon;

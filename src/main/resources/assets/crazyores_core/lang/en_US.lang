@@ -16,7 +16,6 @@ demonite_ore.name=Demonite Ore
 invisium_ore.name=Invisium Ore
 darkstone_ore.name=Darkstone Ore
 luminite_ore.name=Luminite Ore
-
 ender_ore.name=Ender Ore
 
 meteorite_block.name=Meteorite Block
@@ -33,8 +32,19 @@ experium_block.name=Experium Block
 demonite_block.name=Demonite Block
 invisium_block.name=Invisium Block
 darkstone_block.name=Darkstone Block
-
 ender_block.name=Ender Block
+
+copper_head.name=Copper Head
+sapphire_head.name=Sapphire Head
+adamite_head.name=Adamite Head
+ruby_head.name=Ruby Head
+fools_ruby_head.name=Fool's Ruby Head
+zectium_head.name=Zectium Head
+tapazite_head.name=Tapazite Head
+osmonium_head.name=Osmonium Head
+starconium_head.name=Starconium Head
+demonite_head.name=Demonite Head
+ender_head.name=Ender Head
 
 demonite_furnace.name=Demonite Furnace
 demonite_furnace_lit.name=Demonite Furnace

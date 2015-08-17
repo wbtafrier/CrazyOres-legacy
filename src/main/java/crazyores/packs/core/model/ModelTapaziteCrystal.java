@@ -7,11 +7,11 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelCrystal extends ModelBase {
+public class ModelTapaziteCrystal extends ModelBase {
 
 	public List<ModelRenderer> obeliskModels;
 
-	public ModelCrystal(List<ModelObelisk> obelisks, int textureWidth, int textureHeight) {
+	public ModelTapaziteCrystal(List<ModelObelisk> obelisks, int textureWidth, int textureHeight) {
 
 		this.obeliskModels = new ArrayList<ModelRenderer>();
 

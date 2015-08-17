@@ -73,6 +73,7 @@ public class COPackManager {
 	
 	public static void init() {
 		CoreEntityRegistry.registerCoreEntities();
+		CoreEntityRegistry.registerCoreTileEntities();
 		GameRegistry.registerWorldGenerator(new Generate(), 1);
 		CoreRecipes.initCraftingRecipes();
 	}

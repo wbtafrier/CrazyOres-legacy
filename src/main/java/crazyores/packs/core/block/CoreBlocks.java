@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
 import crazyores.manager.tabs.COTabList;
+import crazyores.packs.core.entity.golem.EnumGolemType;
 
 public class CoreBlocks {
 
@@ -50,6 +51,19 @@ public class CoreBlocks {
 	public static Block osmoniumBlock;
 	public static Block starconiumBlock;
 	public static Block experiumBlock;
+	
+	public static Block copperGolemHead;
+	public static Block adamiteGolemHead;
+	public static Block sapphireGolemHead;
+	public static Block rubyGolemHead;
+	public static Block foolsRubyGolemHead;
+	public static Block zectiumGolemHead;
+	public static Block tapaziteGolemHead;
+	public static Block osmoniumGolemHead;
+	public static Block starconiumGolemHead;
+	
+	public static Block demoniteGolemHead;
+	public static Block enderGolemHead;
 	
 	//Nether Blocks
 	public static Block demoniteBlock;
@@ -116,6 +130,20 @@ public class CoreBlocks {
 		
 		demoniteFurnace = new BlockDemoniteFurnace("demonite_furnace", false, 16.0f, 2.0f); registerBlock(demoniteFurnace);
 		demoniteFurnaceLit = new BlockDemoniteFurnace("demonite_furnace_lit", true, 16.0f, 2.0f); registerBlock(demoniteFurnaceLit);
+		
+		//Golem heads
+		copperGolemHead = new GolemHead("copper_head", EnumGolemType.COPPER, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(copperGolemHead);
+		sapphireGolemHead = new GolemHead("sapphire_head", EnumGolemType.SAPPHIRE, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(sapphireGolemHead);
+		adamiteGolemHead = new GolemHead("adamite_head", EnumGolemType.ADAMITE, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(adamiteGolemHead);
+		rubyGolemHead = new GolemHead("ruby_head", EnumGolemType.RUBY, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(rubyGolemHead);
+		foolsRubyGolemHead = new GolemHead("fools_ruby_head", EnumGolemType.FOOLS_RUBY, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(foolsRubyGolemHead);
+		zectiumGolemHead = new GolemHead("zectium_head", EnumGolemType.ZECTIUM, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(zectiumGolemHead);
+		tapaziteGolemHead = new GolemHead("tapazite_head", EnumGolemType.TAPAZITE, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(tapaziteGolemHead);
+		osmoniumGolemHead = new GolemHead("osmonium_head", EnumGolemType.OSMONIUM, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(osmoniumGolemHead);
+		starconiumGolemHead = new GolemHead("starconium_head", EnumGolemType.STARCONIUM, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(starconiumGolemHead);
+		
+		demoniteGolemHead = new GolemHead("demonite_head", EnumGolemType.DEMONITE, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(demoniteGolemHead);
+		enderGolemHead = new GolemHead("ender_head", EnumGolemType.ENDER, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(enderGolemHead);
 	}
 	
 	/**
