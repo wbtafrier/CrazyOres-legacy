@@ -15,6 +15,11 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import crazyores.packs.core.entity.CoreEntityArrow;
+import crazyores.packs.core.entity.EntityElectricArrow;
+import crazyores.packs.core.entity.EntityExplosiveArrow;
+import crazyores.packs.core.entity.EntityFlamingArrow;
+import crazyores.packs.core.entity.EntityFreezingArrow;
+import crazyores.packs.core.entity.EntityVanillaArrow;
 
 public class SwiftBow extends CoreBow {
 
@@ -29,7 +34,7 @@ public class SwiftBow extends CoreBow {
 	
 	@Override
 	public EnumBowEnhancement getBowEnhancement() {
-		return EnumBowEnhancement.SWIFT;
+		return EnumBowEnhancement.FIRE;
 	}
 	
 	/**
@@ -79,11 +84,23 @@ public class SwiftBow extends CoreBow {
                 f = 1.0F;
             }
 
-            CoreEntityArrow entityArrow = new CoreEntityArrow(world, player, f * SPEED_BOOST);
+            CoreEntityArrow entityArrow = null;
             
-//            if (arrow.equals(Items.arrow)) {
-//            	entityArrow = new CoreEntityArrow(world, player, f * SPEED_BOOST);
-//            }
+            if (arrow.equals(CoreItems.flamingArrow)) {
+            	entityArrow = new EntityFlamingArrow(world, player, f * SPEED_BOOST, getBowEnhancement());
+            }
+            else if (arrow.equals(CoreItems.freezingArrow)) {
+            	entityArrow = new EntityFreezingArrow(world, player, f * SPEED_BOOST, getBowEnhancement());
+            }
+            else if (arrow.equals(CoreItems.explosiveArrow)) {
+            	entityArrow = new EntityExplosiveArrow(world, player, f * SPEED_BOOST, getBowEnhancement());
+            }
+            else if (arrow.equals(CoreItems.electricArrow)) {
+            	entityArrow = new EntityElectricArrow(world, player, f * SPEED_BOOST, getBowEnhancement());
+            }
+            else {
+            	entityArrow = new EntityVanillaArrow(world, player, f * SPEED_BOOST, getBowEnhancement());
+            }
 
             if (f == 1.0F) {
                 entityArrow.setIsCritical(true);
@@ -112,7 +129,7 @@ public class SwiftBow extends CoreBow {
                 entityArrow.canBePickedUp = 2;
             }
             else {
-                player.inventory.consumeInventoryItem(Items.arrow);
+                player.inventory.consumeInventoryItem(arrow);
             }
 
             if (!world.isRemote) {
@@ -134,7 +151,7 @@ public class SwiftBow extends CoreBow {
             return event.result;
         }
 
-        if (player.capabilities.isCreativeMode || player.inventory.hasItem(Items.arrow))
+        if (player.capabilities.isCreativeMode || player.inventory.hasItem(Items.arrow) || player.inventory.hasItem(CoreItems.flamingArrow) || player.inventory.hasItem(CoreItems.freezingArrow) || player.inventory.hasItem(CoreItems.explosiveArrow) || player.inventory.hasItem(CoreItems.electricArrow))
         {
             player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
         }
