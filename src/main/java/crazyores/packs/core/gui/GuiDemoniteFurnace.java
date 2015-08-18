@@ -10,7 +10,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.packs.core.container.ContainerDemoniteFurnace;
 import crazyores.packs.core.entity.tileentity.TileEntityDemoniteFurnace;
-import crazyores.packs.core.util.CoreResourceLoader;
+import crazyores.packs.core.util.CoreResourceHandler;
 
 @SideOnly(Side.CLIENT)
 public class GuiDemoniteFurnace extends GuiContainer {
@@ -32,7 +32,7 @@ public class GuiDemoniteFurnace extends GuiContainer {
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		this.mc.getTextureManager().bindTexture(CoreResourceLoader.DEMONITE_FURNACE_GUI_IMAGE);
+		this.mc.getTextureManager().bindTexture(CoreResourceHandler.DEMONITE_FURNACE_GUI_IMAGE);
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);

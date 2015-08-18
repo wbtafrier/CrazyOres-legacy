@@ -2,13 +2,13 @@ package crazyores.packs.core.model.data;
 
 import java.util.ArrayList;
 
-import crazyores.packs.core.model.ModelCrystal;
+import crazyores.packs.core.model.ModelTapaziteCrystal;
 import crazyores.packs.core.model.ModelObelisk;
 import net.minecraft.client.model.ModelRenderer;
 
 public class TapaziteObeliskData {
 
-	public static final ModelCrystal tapaziteStalagmitePhase1 = new ModelCrystal(
+	public static final ModelTapaziteCrystal tapaziteStalagmitePhase1 = new ModelTapaziteCrystal(
 
 			new ArrayList<ModelObelisk>() {{
 				add(new ModelObelisk(/*Box bounds*/new int[] {3, 6, 3}, /*Ball offset*/new float[] {-1.5F, -5F, -1.5F}, /*Rotation Point*/new float[] {0F, 25F, 0F},
@@ -30,7 +30,7 @@ public class TapaziteObeliskData {
 				add(new ModelObelisk(/*Box bounds*/new int[] {1, 4, 1}, /*Ball offset*/new float[] {-0.5F, -3F, -0.5F}, /*Rotation Point*/new float[] {-2F, 25F, 4F},
 						/*Obelisk Rotation (Use Radians!)*/new float[] {-0.1858931F, 0F, -0.8004762F}, /*TextureOffsetX*/39, /*TextureOffsetY*/0)); }; }, 64, 32);
 
-	public static final ModelCrystal tapaziteStalagmitePhase2 = new ModelCrystal(
+	public static final ModelTapaziteCrystal tapaziteStalagmitePhase2 = new ModelTapaziteCrystal(
 
 			new ArrayList<ModelObelisk>() {{
 				add(new ModelObelisk(/*Box bounds*/new int[] {3, 7, 3}, /*Ball offset*/new float[] {-1.5F, -6F, -1.5F}, /*Rotation Point*/new float[] {0F, 25F, 0F},
@@ -52,7 +52,7 @@ public class TapaziteObeliskData {
 				add(new ModelObelisk(/*Box bounds*/new int[] {1, 4, 1}, /*Ball offset*/new float[] {-0.5F, -3F, -0.5F}, /*Rotation Point*/new float[] {-2F, 25F, 4F},
 						/*Obelisk Rotation (Use Radians!)*/new float[] {-0.1858931F, 0F, -0.8004762F}, /*TextureOffsetX*/39, /*TextureOffsetY*/0)); }; }, 64, 32);
 
-	public static final ModelCrystal tapaziteStalagmitePhase3 = new ModelCrystal(
+	public static final ModelTapaziteCrystal tapaziteStalagmitePhase3 = new ModelTapaziteCrystal(
 
 			new ArrayList<ModelObelisk>() {{
 				add(new ModelObelisk(/*Box bounds*/new int[] {4, 8, 4}, /*Ball offset*/new float[] {-1.5F, -7F, -1.5F}, /*Rotation Point*/new float[] {0F, 25F, 0F},
@@ -74,7 +74,7 @@ public class TapaziteObeliskData {
 				add(new ModelObelisk(/*Box bounds*/new int[] {2, 5, 1}, /*Ball offset*/new float[] {-0.5F, -3F, -0.5F}, /*Rotation Point*/new float[] {-2F, 25F, 4F},
 						/*Obelisk Rotation (Use Radians!)*/new float[] {-0.1858931F, 0F, -0.8004762F}, /*TextureOffsetX*/39, /*TextureOffsetY*/0)); }; }, 64, 32);
 
-	public static final ModelCrystal tapaziteStalagmitePhase4 = new ModelCrystal(
+	public static final ModelTapaziteCrystal tapaziteStalagmitePhase4 = new ModelTapaziteCrystal(
 
 			new ArrayList<ModelObelisk>() {{
 				add(new ModelObelisk(/*Box bounds*/new int[] {5, 10, 4}, /*Ball offset*/new float[] {-2.5F, -9F, -1.5F}, /*Rotation Point*/new float[] {0F, 25F, 0F},
@@ -96,7 +96,7 @@ public class TapaziteObeliskData {
 				add(new ModelObelisk(/*Box bounds*/new int[] {2, 5, 2}, /*Ball offset*/new float[] {-0.5F, -3F, -1.5F}, /*Rotation Point*/new float[] {-2F, 25F, 4F},
 						/*Obelisk Rotation (Use Radians!)*/new float[] {-0.1858931F, 0F, -0.8004762F}, /*TextureOffsetX*/39, /*TextureOffsetY*/0)); }; }, 64, 32);
 
-	public static final ModelCrystal tapaziteStalagmitePhase5 = new ModelCrystal(
+	public static final ModelTapaziteCrystal tapaziteStalagmitePhase5 = new ModelTapaziteCrystal(
 
 			new ArrayList<ModelObelisk>() {{
 				add(new ModelObelisk(/*Box bounds*/new int[] {5, 12, 5}, /*Ball offset*/new float[] {-2.5F, -11F, -1.5F}, /*Rotation Point*/new float[] {0F, 25F, 0F},
@@ -120,7 +120,7 @@ public class TapaziteObeliskData {
 				add(new ModelObelisk(/*Box bounds*/new int[] {1, 4, 1}, /*Ball offset*/new float[] {-1F, -3F, -1F}, /*Rotation Point*/new float[] {-5F, 25F, -3F},
 						/*Obelisk Rotation (Use Radians!)*/new float[] {0.6878043F, 0F, -0.2799756F}, /*TextureOffsetX*/39, /*TextureOffsetY*/0)); }; }, 64, 32);
 
-	public static final ModelCrystal tapaziteStalagmitePhase6 = new ModelCrystal(
+	public static final ModelTapaziteCrystal tapaziteStalagmitePhase6 = new ModelTapaziteCrystal(
 
 			new ArrayList<ModelObelisk>() {{
 				add(new ModelObelisk(/*Box bounds*/new int[] {6, 15, 6}, /*Ball offset*/new float[] {-3.5F, -14F, -1.5F}, /*Rotation Point*/new float[] {0F, 25F, 0F},
@@ -146,7 +146,7 @@ public class TapaziteObeliskData {
 				add(new ModelObelisk(/*Box bounds*/new int[] {1, 4, 1}, /*Ball offset*/new float[] {-0.5F, -3F, -0.5F}, /*Rotation Point*/new float[] {4F, 25F, 5.5F},
 						/*Obelisk Rotation (Use Radians!)*/new float[] {-0.2602503F, 0F, 0.4833219F}, /*TextureOffsetX*/0, /*TextureOffsetY*/0)); }; }, 64, 32);
 
-	public static final ModelCrystal tapaziteStalagmitePhase7 = new ModelCrystal(
+	public static final ModelTapaziteCrystal tapaziteStalagmitePhase7 = new ModelTapaziteCrystal(
 
 			new ArrayList<ModelObelisk>() {{
 				add(new ModelObelisk(/*Box bounds*/new int[] {7, 19, 7}, /*Ball offset*/new float[] {-3.5F, -18F, -1.5F}, /*Rotation Point*/new float[] {0F, 25F, 0F},
@@ -174,7 +174,7 @@ public class TapaziteObeliskData {
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public static final ModelCrystal tapaziteStalactitePhase1 = new ModelCrystal(
+	public static final ModelTapaziteCrystal tapaziteStalactitePhase1 = new ModelTapaziteCrystal(
 
 			new ArrayList<ModelObelisk>() {{
 				add(new ModelObelisk(/*Box bounds*/new int[] {3, 6, 3}, /*Ball offset*/new float[] {-1.5F, -5F, -1.5F}, /*Rotation Point*/new float[] {0F, -7F, 0F},
@@ -196,7 +196,7 @@ public class TapaziteObeliskData {
 				add(new ModelObelisk(/*Box bounds*/new int[] {1, 4, 1}, /*Ball offset*/new float[] {-0.5F, -3F, -0.5F}, /*Rotation Point*/new float[] {-2F, -7F, 4F},
 						/*Obelisk Rotation (Use Radians!)*/new float[] {-0.1858931F, 0F, -0.8004762F}, /*TextureOffsetX*/39, /*TextureOffsetY*/0)); }; }, 64, 32);
 
-	public static final ModelCrystal tapaziteStalactitePhase2 = new ModelCrystal(
+	public static final ModelTapaziteCrystal tapaziteStalactitePhase2 = new ModelTapaziteCrystal(
 
 			new ArrayList<ModelObelisk>() {{
 				add(new ModelObelisk(/*Box bounds*/new int[] {3, 7, 3}, /*Ball offset*/new float[] {-1.5F, -6F, -1.5F}, /*Rotation Point*/new float[] {0F, -7F, 0F},
@@ -218,7 +218,7 @@ public class TapaziteObeliskData {
 				add(new ModelObelisk(/*Box bounds*/new int[] {1, 4, 1}, /*Ball offset*/new float[] {-0.5F, -3F, -0.5F}, /*Rotation Point*/new float[] {-2F, -7F, 4F},
 						/*Obelisk Rotation (Use Radians!)*/new float[] {-0.1858931F, 0F, -0.8004762F}, /*TextureOffsetX*/39, /*TextureOffsetY*/0)); }; }, 64, 32);
 
-	public static final ModelCrystal tapaziteStalactitePhase3 = new ModelCrystal(
+	public static final ModelTapaziteCrystal tapaziteStalactitePhase3 = new ModelTapaziteCrystal(
 
 			new ArrayList<ModelObelisk>() {{
 				add(new ModelObelisk(/*Box bounds*/new int[] {4, 8, 4}, /*Ball offset*/new float[] {-1.5F, -7F, -1.5F}, /*Rotation Point*/new float[] {0F, -7F, 0F},
@@ -240,7 +240,7 @@ public class TapaziteObeliskData {
 				add(new ModelObelisk(/*Box bounds*/new int[] {2, 5, 1}, /*Ball offset*/new float[] {-0.5F, -3F, -0.5F}, /*Rotation Point*/new float[] {-2F, -7F, 4F},
 						/*Obelisk Rotation (Use Radians!)*/new float[] {-0.1858931F, 0F, -0.8004762F}, /*TextureOffsetX*/39, /*TextureOffsetY*/0)); }; }, 64, 32);
 
-	public static final ModelCrystal tapaziteStalactitePhase4 = new ModelCrystal(
+	public static final ModelTapaziteCrystal tapaziteStalactitePhase4 = new ModelTapaziteCrystal(
 
 			new ArrayList<ModelObelisk>() {{
 				add(new ModelObelisk(/*Box bounds*/new int[] {5, 10, 4}, /*Ball offset*/new float[] {-2.5F, -9F, -1.5F}, /*Rotation Point*/new float[] {0F, -7F, 0F},
@@ -262,7 +262,7 @@ public class TapaziteObeliskData {
 				add(new ModelObelisk(/*Box bounds*/new int[] {2, 5, 2}, /*Ball offset*/new float[] {-0.5F, -3F, -1.5F}, /*Rotation Point*/new float[] {-2F, -7F, 4F},
 						/*Obelisk Rotation (Use Radians!)*/new float[] {-0.1858931F, 0F, -0.8004762F}, /*TextureOffsetX*/39, /*TextureOffsetY*/0)); }; }, 64, 32);
 
-	public static final ModelCrystal tapaziteStalactitePhase5 = new ModelCrystal(
+	public static final ModelTapaziteCrystal tapaziteStalactitePhase5 = new ModelTapaziteCrystal(
 
 			new ArrayList<ModelObelisk>() {{
 				add(new ModelObelisk(/*Box bounds*/new int[] {5, 12, 5}, /*Ball offset*/new float[] {-2.5F, -11F, -1.5F}, /*Rotation Point*/new float[] {0F, -7F, 0F},
@@ -286,7 +286,7 @@ public class TapaziteObeliskData {
 				add(new ModelObelisk(/*Box bounds*/new int[] {1, 4, 1}, /*Ball offset*/new float[] {-1F, -3F, -1F}, /*Rotation Point*/new float[] {-5F, -7F, -3F},
 						/*Obelisk Rotation (Use Radians!)*/new float[] {0.6878043F, 0F, -0.2799756F}, /*TextureOffsetX*/39, /*TextureOffsetY*/0)); }; }, 64, 32);
 
-	public static final ModelCrystal tapaziteStalactitePhase6 = new ModelCrystal(
+	public static final ModelTapaziteCrystal tapaziteStalactitePhase6 = new ModelTapaziteCrystal(
 
 			new ArrayList<ModelObelisk>() {{
 				add(new ModelObelisk(/*Box bounds*/new int[] {6, 15, 6}, /*Ball offset*/new float[] {-3.5F, -14F, -1.5F}, /*Rotation Point*/new float[] {0F, -7F, 0F},
@@ -312,7 +312,7 @@ public class TapaziteObeliskData {
 				add(new ModelObelisk(/*Box bounds*/new int[] {1, 4, 1}, /*Ball offset*/new float[] {-0.5F, -3F, -0.5F}, /*Rotation Point*/new float[] {4F, -7F, 5.5F},
 						/*Obelisk Rotation (Use Radians!)*/new float[] {-0.2602503F, 0F, 0.4833219F}, /*TextureOffsetX*/39, /*TextureOffsetY*/0)); }; }, 64, 32);
 
-	public static final ModelCrystal tapaziteStalactitePhase7 = new ModelCrystal(
+	public static final ModelTapaziteCrystal tapaziteStalactitePhase7 = new ModelTapaziteCrystal(
 
 			new ArrayList<ModelObelisk>() {{
 				add(new ModelObelisk(/*Box bounds*/new int[] {7, 19, 7}, /*Ball offset*/new float[] {-3.5F, -18F, -1.5F}, /*Rotation Point*/new float[] {0F, -7F, 0F},

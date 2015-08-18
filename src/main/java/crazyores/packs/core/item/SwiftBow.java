@@ -50,6 +50,9 @@ public class SwiftBow extends CoreBow {
 
         List<Item> arrows = new ArrayList<Item>();
         for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+        	
+        	if (player.inventory.getStackInSlot(i) == null) continue;
+        	
         	Item item = player.inventory.getStackInSlot(i).getItem();
         	if (item.equals(Items.arrow) || item.equals(CoreItems.freezingArrow) || item.equals(CoreItems.explosiveArrow) || item.equals(CoreItems.flamingArrow) || item.equals(CoreItems.electricArrow)) {
         		if (!arrows.contains(item)) {

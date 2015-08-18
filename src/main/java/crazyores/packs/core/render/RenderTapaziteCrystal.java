@@ -11,14 +11,14 @@ import org.lwjgl.opengl.GL11;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.packs.core.block.CoreBlocks;
-import crazyores.packs.core.model.ModelCrystal;
+import crazyores.packs.core.model.ModelTapaziteCrystal;
 import crazyores.packs.core.model.data.TapaziteObeliskData;
-import crazyores.packs.core.util.CoreResourceLoader;
+import crazyores.packs.core.util.CoreResourceHandler;
 
 @SideOnly(Side.CLIENT)
 public class RenderTapaziteCrystal extends TileEntitySpecialRenderer {
 
-	public static ModelCrystal[] stalagmiteModels = new ModelCrystal[] {
+	public static ModelTapaziteCrystal[] stalagmiteModels = new ModelTapaziteCrystal[] {
 		
 		TapaziteObeliskData.tapaziteStalagmitePhase1,
 		TapaziteObeliskData.tapaziteStalagmitePhase2,
@@ -29,7 +29,7 @@ public class RenderTapaziteCrystal extends TileEntitySpecialRenderer {
 		TapaziteObeliskData.tapaziteStalagmitePhase7
 	};
 	
-	public static ModelCrystal[] stalactiteModels = new ModelCrystal[] {
+	public static ModelTapaziteCrystal[] stalactiteModels = new ModelTapaziteCrystal[] {
 		
 		TapaziteObeliskData.tapaziteStalactitePhase1,
 		TapaziteObeliskData.tapaziteStalactitePhase2,
@@ -60,7 +60,7 @@ public class RenderTapaziteCrystal extends TileEntitySpecialRenderer {
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 
 		//Binding the textures
-		this.bindTexture(CoreResourceLoader.TAPAZITE_CRYSTAL_IMAGE);
+		this.bindTexture(CoreResourceHandler.TAPAZITE_CRYSTAL_IMAGE);
 
 		//This rotation part is very important! Without it, your model will render upside-down! And for some reason you DO need PushMatrix again!                       
 		GL11.glPushMatrix();
