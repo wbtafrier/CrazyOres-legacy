@@ -35,6 +35,8 @@ public class CoreEntityRegistry {
 		EntityRegistry.registerModEntity(EntityStarconiumGolem.class, "Starconium Golem", coreIDCounter++, CrazyOresCore.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(EntityDemoniteGolem.class, "Demonite Golem", coreIDCounter++, CrazyOresCore.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(EntityEnderGolem.class, "Ender Golem", coreIDCounter++, CrazyOresCore.instance, 64, 3, true);
+		
+		EntityRegistry.registerModEntity(EntityFlamingArrow.class, "Flaming Arrow", coreIDCounter++, CrazyOresCore.instance, 128, 1, true);
 	}
 	
 	public static void registerCoreTileEntities() {

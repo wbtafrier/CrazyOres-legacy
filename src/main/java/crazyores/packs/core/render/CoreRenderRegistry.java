@@ -1,8 +1,10 @@
 package crazyores.packs.core.render;
 
+import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import crazyores.packs.core.entity.EntityFlamingArrow;
 import crazyores.packs.core.entity.EntityZectiumCore;
 import crazyores.packs.core.entity.golem.EntityAdamiteGolem;
 import crazyores.packs.core.entity.golem.EntityCopperGolem;
@@ -47,6 +49,8 @@ public class CoreRenderRegistry {
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityDemoniteGolem.class, new RenderGolems(new ModelDemoniteGolem(), EnumGolemType.DEMONITE));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderGolem.class, new RenderGolems(new ModelEnderGolem(), EnumGolemType.ENDER));
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityFlamingArrow.class, new RenderArrow());
 	}
 	
 	public static void renderCoreTileEntities() {

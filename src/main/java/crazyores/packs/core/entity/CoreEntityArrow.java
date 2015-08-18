@@ -9,6 +9,11 @@ public class CoreEntityArrow extends EntityArrow {
 
 	private EnumBowEnhancement bowEnhancement = EnumBowEnhancement.NONE;
 	
+	public CoreEntityArrow(World world)
+    {
+        super(world);
+    }
+	
 	public CoreEntityArrow(World world, EntityLivingBase shootingEntity, float speed) {
         super(world, shootingEntity, speed);
     }
@@ -17,4 +22,8 @@ public class CoreEntityArrow extends EntityArrow {
         this(world, shootingEntity, speed);
         this.bowEnhancement = enhancement;
     }
+	
+	public EnumBowEnhancement getEnhancement() {
+		return bowEnhancement;
+	}
 }
