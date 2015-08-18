@@ -76,11 +76,11 @@ public class SwiftBow extends CoreBow {
                 f = 1.0F;
             }
 
-            CoreEntityArrow entityArrow = new CoreEntityArrow(world, player, f * SPEED_BOOST);
+            CoreEntityArrow entityArrow = null;
             
-//            if (arrow.equals(Items.arrow)) {
-//            	entityArrow = new CoreEntityArrow(world, player, f * SPEED_BOOST);
-//            }
+            if (arrow.equals(CoreItems.flamingArrow)) {
+            	entityArrow = new CoreEntityArrow(world, player, f * SPEED_BOOST);
+            }
 
             if (f == 1.0F) {
                 entityArrow.setIsCritical(true);

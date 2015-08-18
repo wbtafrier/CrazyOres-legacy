@@ -17,36 +17,4 @@ public class CoreEntityArrow extends EntityArrow {
         this(world, shootingEntity, speed);
         this.bowEnhancement = enhancement;
     }
-	
-	// SUBSCLASSES =======================================================================================
-	
-	static class Flaming extends CoreEntityArrow {
-		public Flaming(World world, EntityLivingBase shootingEntity, float speed, EnumBowEnhancement enhancement) {
-			super(world, shootingEntity, speed, enhancement);
-		}
-	}
-	
-	static class Explosive extends CoreEntityArrow {
-		public Explosive(World world, EntityLivingBase shootingEntity, float speed, EnumBowEnhancement enhancement) {
-			super(world, shootingEntity, speed, enhancement);
-		}
-	}
-	
-	static class Freezing extends CoreEntityArrow {
-		public Freezing(World world, EntityLivingBase shootingEntity, float speed, EnumBowEnhancement enhancement) {
-			super(world, shootingEntity, speed, enhancement);
-		}
-	}
-	
-	static class Electric extends CoreEntityArrow {
-		public Electric(World world, EntityLivingBase shootingEntity, float speed, EnumBowEnhancement enhancement) {
-			super(world, shootingEntity, speed, enhancement);
-		}
-	}
-	
-	static class Arrow extends CoreEntityArrow {
-		public Arrow(World world, EntityLivingBase shootingEntity, float speed, EnumBowEnhancement enhancement) {
-			super(world, shootingEntity, speed, enhancement);
-		}
-	}
 }
