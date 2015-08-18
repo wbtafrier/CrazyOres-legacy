@@ -56,8 +56,6 @@ public class EntityCopperGolem extends CoreEntityGolem {
 	
 	@Override
 	public void setHoldingRose(boolean shouldHoldRose) {
-		System.out.println("HELLO?");
-		
         this.holdRoseTick = shouldHoldRose ? 50 : 0;
         this.worldObj.setEntityState(this, (byte)11);
     }
@@ -65,11 +63,8 @@ public class EntityCopperGolem extends CoreEntityGolem {
 	@Override
 	@SideOnly(Side.CLIENT)
     public void handleHealthUpdate(byte b) {
-		System.out.println("HELLO??? : " + b);
-		
         if (b == 4) {
             this.attackTimer = 10;
-            System.out.println("PLAY THROW SONG");
             this.playSound("mob.irongolem.throw", 1.0F, 1.0F);
         }
         else if (b == 11) {

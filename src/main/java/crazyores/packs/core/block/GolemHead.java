@@ -61,7 +61,6 @@ public class GolemHead extends CoreBlock {
 					}
 					
 					if (counter >= 1) {
-						System.out.println("COUNTER: " + counter + "SCALE: " + (float)counter * inc + start);
 						spawnGolem(world, x, y, z, new EntityFoolsRubyGolem(world, ((float)counter * inc + start) + (-0.05f + world.rand.nextFloat() * 0.2f)), counter, true);
 					}
 					return;

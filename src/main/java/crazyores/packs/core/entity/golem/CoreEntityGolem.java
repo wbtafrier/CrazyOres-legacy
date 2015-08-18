@@ -52,7 +52,6 @@ public abstract class CoreEntityGolem extends EntityGolem {
 	protected void entityInit() {
         super.entityInit();
         this.dataWatcher.addObject(16, Byte.valueOf((byte)0));
-        System.out.println("ADDING OBJECT?");
     }
 	
 	@Override
@@ -150,8 +149,6 @@ public abstract class CoreEntityGolem extends EntityGolem {
         nbt.setFloat("Width", this.getWidth());
         nbt.setFloat("Height", this.getHeight());
         nbt.setFloat("Scale", getScale());
-        
-        System.out.println("SAVING SCALE X AS: " + getScale());
     }
 	
 	/**
@@ -286,7 +283,6 @@ public abstract class CoreEntityGolem extends EntityGolem {
     
     public void setScale(float s) {
     	dataWatcher.updateObject(20, s);
-    	System.out.println("UPDATING BOUNDING BOX: " + s + " |  " + getScale());
     	updateSize();
     }
     
