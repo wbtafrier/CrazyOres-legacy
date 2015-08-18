@@ -25,6 +25,10 @@ public class EntitySapphireGolem extends CoreEntityGolem {
 		super(world, 1.4f, 2.9f);
 	}
 	
+	public EntitySapphireGolem(World world, float scale) {
+		super(world, 1.4f, 2.9f, scale);
+	}
+	
 	@Override
 	protected void applyEntityAttributes() {
         super.applyEntityAttributes();

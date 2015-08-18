@@ -191,8 +191,8 @@ public class ModelZectiumGolem extends ModelBase {
 	 * and third as in the setRotationAngles method.
 	 */
 	public void setLivingAnimations(EntityLivingBase entity, float par2, float par3, float par4) {
-		EntityZectiumGolem entitygolems = (EntityZectiumGolem)entity;
-		int i = entitygolems.getAttackTimer();
+		EntityZectiumGolem golem = (EntityZectiumGolem)entity;
+		int i = golem.getAttackTimer();
 
 		if (i > 0) {
 			this.armRightTop.rotateAngleX = -2.0F + 1.5F * this.func_78172_a((float)i - par4, 10.0F) + 6.391F;
@@ -203,12 +203,27 @@ public class ModelZectiumGolem extends ModelBase {
 			this.armLeftBottom.rotateAngleX = -2.0F + 1.5F * this.func_78172_a((float)i - par4, 10.0F) + -25.562F;
 		}
 		else {
-			this.armRightTop.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + 6.391F;
-			this.armRightMiddle.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -25.562F;
-			this.armRightBottom.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -25.562F;
-			this.armLeftTop.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + 6.391F;
-			this.armLeftMiddle.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -25.562F;
-			this.armLeftBottom.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -25.562F;
+			int j = golem.getHoldRoseTick();
+			
+			if (j > 0) {
+				this.armRightTop.rotateAngleX = (-0.8F + 0.025F * this.func_78172_a((float)j, 100.0F)) + 6.391F;
+				this.armRightMiddle.rotateAngleX = (-0.8F + 0.025F * this.func_78172_a((float)j, 100.0F)) + -25.562F;
+				this.armRightBottom.rotateAngleX = (-0.8F + 0.025F * this.func_78172_a((float)j, 100.0F)) + -25.562F;
+				this.armRightBottom.rotateAngleY = (0.05F * this.func_78172_a((float) i - par4, 100.0F));
+				
+				this.armLeftTop.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + 6.391F;
+				this.armLeftMiddle.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -25.562F;
+				this.armLeftBottom.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -25.562F;
+			}
+			else {
+				this.armRightTop.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + 6.391F;
+				this.armRightMiddle.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -25.562F;
+				this.armRightBottom.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -25.562F;
+				
+				this.armLeftTop.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + 6.391F;
+				this.armLeftMiddle.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -25.562F;
+				this.armLeftBottom.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -25.562F;
+			}
 		}
 	}
 }

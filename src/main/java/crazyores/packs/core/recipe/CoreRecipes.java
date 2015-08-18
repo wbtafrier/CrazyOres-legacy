@@ -12,6 +12,8 @@ import crazyores.packs.core.item.CoreItems;
 public class CoreRecipes {
 
 	public static void initCraftingRecipes() {
+		initFurnaceRecipes();
+		
 		initPickaxeRecipes();
 		initAxeRecipes();
 		initShovelRecipes();
@@ -23,11 +25,31 @@ public class CoreRecipes {
 		initBootsRecipes();
 		initBlockRecipes();
 		initRodRecipes();
+		
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Items.experience_bottle, 1), new Object[] {"orbExperium", Items.glass_bottle}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.torch, 16), new Object[] {"#", "S", '#', "coalMeteorite", 'S', Items.stick}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.torch, 32), new Object[] {"#", "S", '#', "gemMeteorite", 'S', Items.stick}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.starconiumShard, 1), new Object[] {"###", "#C#", "###", '#', "gemStarconium", 'C', "crystalWhiteLuminite"}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.starconiumSledgehammer, 1), new Object[] {"###", "###", " S ", '#', "shardStarconium", 'S', Items.stick}));
+	}
+	
+	private static void initFurnaceRecipes() {
+		GameRegistry.addSmelting(Blocks.obsidian, new ItemStack(Items.diamond, 2), 1F);
+		
+		GameRegistry.addSmelting(CoreBlocks.meteoriteOre, new ItemStack(CoreItems.meteoriteCoal), 0.6f);
+		GameRegistry.addSmelting(CoreBlocks.copperOre, new ItemStack(CoreItems.copperIngot), 0.4f);
+		GameRegistry.addSmelting(CoreBlocks.adamiteOre, new ItemStack(CoreItems.adamiteShard), 0.7f);
+		GameRegistry.addSmelting(CoreBlocks.sapphireOre, new ItemStack(CoreItems.sapphireGem), 0.5f);
+		GameRegistry.addSmelting(CoreBlocks.rubyOre, new ItemStack(CoreItems.rubyGem), 0.5f);
+		GameRegistry.addSmelting(CoreBlocks.foolsRubyOre, new ItemStack(CoreItems.foolsRubyMush), 0.2f);
+		GameRegistry.addSmelting(CoreBlocks.zectiumOre, new ItemStack(CoreItems.zectiumIngot), 1.0f);
+		GameRegistry.addSmelting(CoreBlocks.osmoniumOre, new ItemStack(CoreItems.osmoniumIngot), 1.1f);
+		GameRegistry.addSmelting(CoreBlocks.starconiumOre, new ItemStack(CoreItems.starconiumGem), 1.4f);
+		GameRegistry.addSmelting(CoreBlocks.experiumOre, new ItemStack(CoreItems.experiumOrb), 2.0f);
+		
+		GameRegistry.addSmelting(CoreBlocks.demoniteOre, new ItemStack(CoreItems.demoniteOrb), 0.6f);
+		GameRegistry.addSmelting(CoreBlocks.invisiumOre, new ItemStack(CoreItems.invisiumIngot), 0.7f);
+		GameRegistry.addSmelting(CoreBlocks.enderOre, new ItemStack(CoreItems.enderGem), 1.8f);
 	}
 	
 	private static void initPickaxeRecipes() {

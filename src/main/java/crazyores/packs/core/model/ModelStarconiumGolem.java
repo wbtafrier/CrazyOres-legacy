@@ -224,8 +224,8 @@ public class ModelStarconiumGolem extends ModelBase {
 	 * and third as in the setRotationAngles method.
 	 */
 	public void setLivingAnimations(EntityLivingBase entity, float par2, float par3, float par4) {
-		EntityStarconiumGolem entitygolems = (EntityStarconiumGolem)entity;
-		int i = entitygolems.getAttackTimer();
+		EntityStarconiumGolem golem = (EntityStarconiumGolem)entity;
+		int i = golem.getAttackTimer();
 
 		if (i > 0) {
 			this.armRightTop.rotateAngleX = -2.0F + 1.5F * this.func_78172_a((float)i - par4, 10.0F) + 0.1115358F;
@@ -238,14 +238,30 @@ public class ModelStarconiumGolem extends ModelBase {
 			this.armLeftBottom.rotateAngleX = -2.0F + 1.5F * this.func_78172_a((float)i - par4, 10.0F) + -1.22173F;
 		}
 		else {
-			this.armRightTop.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + 0.1115358F;
-			this.armRightTopMiddle.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -0.3717838F;
-			this.armRightBottomMiddle.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -0.7679449F;
-			this.armRightBottom.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -1.22173F;
-			this.armLeftTop.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + 0.1115358F;
-			this.armLeftTopMiddle.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -0.3717838F;
-			this.armLeftBottomMiddle.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -0.7679449F;
-			this.armLeftBottom.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -1.22173F;
+			int j = golem.getHoldRoseTick();
+			
+			if (j > 0) {
+				this.armRightTop.rotateAngleX = (-0.5F + 0.025F * this.func_78172_a((float)j, 100.0F)) + 0.1115358F;
+				this.armRightTopMiddle.rotateAngleX = (-0.5F + 0.025F * this.func_78172_a((float)j, 100.0F)) + -0.3717838F;
+				this.armRightBottomMiddle.rotateAngleX = (-0.5F + 0.025F * this.func_78172_a((float)j, 100.0F)) + -0.7679449F;
+				this.armRightBottom.rotateAngleX = (-0.5F + 0.025F * this.func_78172_a((float)j, 100.0F)) + -1.22173F;
+				
+				this.armLeftTop.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + 0.1115358F;
+				this.armLeftTopMiddle.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -0.3717838F;
+				this.armLeftBottomMiddle.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -0.7679449F;
+				this.armLeftBottom.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -1.22173F;
+			}
+			else {
+				this.armRightTop.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + 0.1115358F;
+				this.armRightTopMiddle.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -0.3717838F;
+				this.armRightBottomMiddle.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -0.7679449F;
+				this.armRightBottom.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -1.22173F;
+				
+				this.armLeftTop.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + 0.1115358F;
+				this.armLeftTopMiddle.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -0.3717838F;
+				this.armLeftBottomMiddle.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -0.7679449F;
+				this.armLeftBottom.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3 + -1.22173F;
+			}
 		}
 	}
 }

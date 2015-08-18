@@ -25,6 +25,10 @@ public class EntityZectiumGolem extends CoreEntityGolem {
 		super(world, 1.8f, 3.6f);
 	}
 	
+	public EntityZectiumGolem(World world, float scale) {
+		super(world, 1.8f, 3.6f, scale);
+	}
+	
 	@Override
 	protected void applyEntityAttributes() {
         super.applyEntityAttributes();

@@ -25,6 +25,10 @@ public class EntityStarconiumGolem extends CoreEntityGolem {
 		super(world, 3.0f, 5.0f);
 	}
 	
+	public EntityStarconiumGolem(World world, float scale) {
+		super(world, 3.0f, 5.0f, scale);
+	}
+	
 	@Override
 	protected void applyEntityAttributes() {
         super.applyEntityAttributes();

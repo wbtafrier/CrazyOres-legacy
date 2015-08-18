@@ -25,6 +25,10 @@ public class EntityTapaziteGolem extends CoreEntityGolem {
 		super(world, 1.8f, 3.9f);
 	}
 	
+	public EntityTapaziteGolem(World world, float scale) {
+		super(world, 1.8f, 3.9f, scale);
+	}
+	
 	@Override
 	protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -39,10 +43,9 @@ public class EntityTapaziteGolem extends CoreEntityGolem {
         this.tasks.addTask(2, new EntityAIMoveTowardsTarget(this, 0.9d, 32.0f));
         this.tasks.addTask(3, new EntityAIMoveThroughVillage(this, 0.6d, true));
         this.tasks.addTask(4, new EntityAIMoveTowardsRestriction(this, 1.0d));
-        this.tasks.addTask(5, new CoreEntityAILookAtVillager(this));
-        this.tasks.addTask(6, new EntityAIWander(this, 0.6D));
-        this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
+        this.tasks.addTask(5, new EntityAIWander(this, 0.6D));
+        this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
+        this.tasks.addTask(7, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new CoreEntityAIDefendVillage(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false));
         this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, IMob.mobSelector));

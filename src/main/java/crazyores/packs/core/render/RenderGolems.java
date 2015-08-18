@@ -7,12 +7,14 @@ import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
+import crazyores.packs.core.entity.ai.CoreEntityAILookAtVillager;
 import crazyores.packs.core.entity.golem.CoreEntityGolem;
 import crazyores.packs.core.entity.golem.EntityAdamiteGolem;
 import crazyores.packs.core.entity.golem.EntityCopperGolem;
@@ -132,11 +134,47 @@ public class RenderGolems extends RenderLiving {
             GL11.glEnable(GL12.GL_RESCALE_NORMAL);
             GL11.glPushMatrix();
             
-            if (golem instanceof EntityCopperGolem)
-            	GL11.glRotatef(5.0F + 180.0F * this.copperGolemModel.rightArm.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
-            
-            
-            GL11.glTranslatef(-0.6875F, 1.25F, -0.9375F);
+            if (golem instanceof EntityCopperGolem) {
+            	GL11.glRotatef(5.0F + 180f * this.copperGolemModel.rightArm.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
+            	GL11.glTranslatef(-0.6875F, 1.25F, -0.9375F);
+            }
+            else if (golem instanceof EntitySapphireGolem) {
+            	GL11.glRotatef(5.0F + 180f * this.sapphireGolemModel.armRightBottom.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
+            	GL11.glTranslatef(-0.6875F, 1.55F, -0.8375F);
+            }
+    		else if (golem instanceof EntityAdamiteGolem) {
+    			GL11.glRotatef(5.0f + 180f * this.adamiteGolemModel.armRightBottom.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
+    			GL11.glTranslatef(-0.7375F, 1.65F, -0.5375F);
+    		}
+    		else if (golem instanceof EntityRubyGolem) {
+    			GL11.glRotatef(5.0F + 180f * this.rubyGolemModel.armRightBottom.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
+    			GL11.glTranslatef(-0.9375F, 1.72F, -0.8375F);
+    		}
+    		else if (golem instanceof EntityFoolsRubyGolem) {
+    			GL11.glRotatef(5.0F + 180f * this.foolsRubyGolemModel.armLeft.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
+    			GL11.glTranslatef(0.4375F, 0.9F, -0.9375F);
+    		}
+    		else if (golem instanceof EntityZectiumGolem) {
+    			GL11.glRotatef(5.0F + 180f * this.zectiumGolemModel.armRightBottom.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
+    			GL11.glTranslatef(-0.6875F, 1.25F, -0.9375F);
+    		}
+    		else if (golem instanceof EntityOsmoniumGolem) {
+    			GL11.glRotatef(5.0F + 180f * this.osmoniumGolemModel.armRightBottom.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
+    			GL11.glTranslatef(-0.6875F, 1.25F, -0.9375F);
+    		}
+    		else if (golem instanceof EntityStarconiumGolem) {
+    			GL11.glRotatef(5.0F + 180f * this.starconiumGolemModel.armRightBottom.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
+    			GL11.glTranslatef(-0.6875F, 1.25F, -0.9375F);
+    		}
+    		else if (golem instanceof EntityDemoniteGolem) {
+    			GL11.glRotatef(5.0F + 180f * this.demoniteGolemModel.armRightBottom.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
+    			GL11.glTranslatef(-0.6875F, 1.25F, -0.9375F);
+    		}
+    		else if (golem instanceof EntityEnderGolem) {
+    			GL11.glRotatef(5.0F + 180f * this.enderGolemModel.armRightBottom.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
+    			GL11.glTranslatef(-0.6875F, 1.25F, -0.9375F);
+    		}
+            	
             GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
             float f1 = 0.8F;
             GL11.glScalef(f1, -f1, f1);
@@ -146,7 +184,16 @@ public class RenderGolems extends RenderLiving {
             OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j / 1.0F, (float)k / 1.0F);
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
             this.bindTexture(TextureMap.locationBlocksTexture);
-            this.field_147909_c.renderBlockAsItem(Blocks.red_flower, 0, 1.0F);
+            
+            
+            if (golem instanceof EntityCopperGolem) {
+            	CoreEntityAILookAtVillager c = ((EntityCopperGolem)golem).getAILookAtVillagerTask();
+                if (c != null && c.getBlockToHold() != null) this.field_147909_c.renderBlockAsItem(c.getBlockToHold(), 0, 1.0F);
+            }
+            else {
+            	this.field_147909_c.renderBlockAsItem(Blocks.red_flower, 0, 1.0F);
+            }
+            
             GL11.glPopMatrix();
             GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         }
@@ -199,23 +246,13 @@ public class RenderGolems extends RenderLiving {
     
     @Override
     protected void preRenderCallback(EntityLivingBase entity, float par2) {
-    	if (entity instanceof EntityEnderGolem) {
-    		this.scaleGolem((CoreEntityGolem)entity, par2);
-    	}
+    	
+		CoreEntityGolem g = (CoreEntityGolem)entity;
+		this.scaleGolem(g, g.getScale());
     }
     
-    private float s = 2.0f;
-    private boolean flip = false;
-    
-	protected void scaleGolem(CoreEntityGolem entity, float par2) {
-		//for shits and giggles ;)
-		
-		if (s >= 20) flip = true;
-		if (s <= 2) flip = false;
-		
-		if (!flip)
-			GL11.glScalef(s += 0.01, s += 0.01, s += 0.01);
-		else
-			GL11.glScalef(s -= 0.01, s -= 0.01, s -= 0.01);
+	protected void scaleGolem(CoreEntityGolem entity, float scale) {
+		GL11.glScalef(scale, scale, scale);
+//		entity.updateSize();
     }
 }

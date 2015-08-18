@@ -39,7 +39,7 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     public int overHeat = 0;
     public int heatUpAmount = 50;
     public int timeAlive = 0;
-    public int smeltingSpeed = 200;
+    public int smeltingSpeed = 150;
     
     public static final int MAX_HEAT = 10000;
     public static final int NO_RETURN = MAX_HEAT - 2000;
@@ -278,7 +278,7 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
             	
             	if (timeAlive % (MAX_TIME_ALIVE / 50) == 0) {
 //            		System.out.println("SMELTING SPEED: " + smeltingSpeed + " | HEAT UP AMOUNT: " + heatUpAmount);
-            		smeltingSpeed = MathHelper.clamp_int(smeltingSpeed + 8, 0, MAX_SMELTING_SPEED);
+            		smeltingSpeed = MathHelper.clamp_int(smeltingSpeed + 9, 0, MAX_SMELTING_SPEED);
             		heatUpAmount = MathHelper.clamp_int(heatUpAmount + 1, 0, MAX_HEAT_UP_INCREMENT);
             	}
             }
@@ -373,7 +373,7 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     	
     	if (overHeat < 100) return;
     	
-    	if (rand.nextInt(overHeat >= NO_RETURN ? 10 : 100) < 5) {
+    	if (rand.nextInt(overHeat >= NO_RETURN ? 100 : (MAX_HEAT - overHeat) / 2) < 50) {
     		
     		if (overHeat >= NO_RETURN) {
         		Block b = world.getBlock(x, y + 1, z);

@@ -52,6 +52,15 @@ public class DemoniteFurnaceRecipes {
 		addRecipe(new ItemStack(CoreBlocks.invisiumOre), new ItemStack(CoreItems.invisiumIngot, STACK_SIZE), 0.7f);
 		addRecipe(new ItemStack(CoreBlocks.enderOre), new ItemStack(CoreItems.enderGem, STACK_SIZE), 1.8f);
 		
+		addRecipe(new ItemStack(Blocks.sand), new ItemStack(Blocks.glass, STACK_SIZE), 0.4f);
+		
+		addRecipe(new ItemStack(Items.potato), new ItemStack(Items.baked_potato, STACK_SIZE - 1), 0.2f);
+		addRecipe(new ItemStack(Items.beef), new ItemStack(Items.cooked_beef, STACK_SIZE - 1), 0.3f);
+		addRecipe(new ItemStack(Items.porkchop), new ItemStack(Items.cooked_porkchop, STACK_SIZE - 1), 0.3f);
+		addRecipe(new ItemStack(Items.chicken), new ItemStack(Items.cooked_chicken, STACK_SIZE - 1), 0.3f);
+		addRecipe(new ItemStack(Items.fish), new ItemStack(Items.cooked_fished, STACK_SIZE - 1), 0.3f);
+		addRecipe(new ItemStack(Items.fish, 1, 1), new ItemStack(Items.cooked_fished, STACK_SIZE - 1, 1), 0.3f);
+		
 		//TODO:ADD MORE RECIPES!!
 	}
 	
@@ -78,7 +87,7 @@ public class DemoniteFurnaceRecipes {
 			}
 		}
 		recipes.add(recipe);
-		experienceList.put(experience, recipe[2]);
+		experienceList.put(recipe[2], experience);
 	}
 	
 	public List<ItemStack[]> getRecipesList() {
@@ -120,8 +129,9 @@ public class DemoniteFurnaceRecipes {
 	
 	//TODO:EXPERIENCE DOESN'T WORK RIGHT NOW.
 	public float getExperience(ItemStack stack) {
+		
 		for (ItemStack[] recipe : recipes) {
-			if (stack.getItem().equals(recipe[2])) return (Float) experienceList.get(recipe[2]);
+			if (stack.isItemEqual(recipe[2])) return (Float)experienceList.get(recipe[2]);
 		}
 		return 0;
 	}

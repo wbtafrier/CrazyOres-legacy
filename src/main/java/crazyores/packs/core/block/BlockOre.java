@@ -120,13 +120,13 @@ public class BlockOre extends CoreBlock {
             
             if (Loader.isModLoaded(COPackManager.corePack.getPackID())) {
             	if (this == CoreBlocks.meteoriteOre) 		exp = MathHelper.getRandomIntegerInRange(rand, 1, 3);
-            	else if (this == CoreBlocks.sapphireOre)	exp = MathHelper.getRandomIntegerInRange(rand, 0, 0);
-            	else if (this == CoreBlocks.adamiteOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 0, 0);
-            	else if (this == CoreBlocks.rubyOre) 		exp = MathHelper.getRandomIntegerInRange(rand, 0, 0);
-            	else if (this == CoreBlocks.foolsRubyOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 0, 0);
-            	else if (this == CoreBlocks.starconiumOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 0, 0);
-            	else if (this == CoreBlocks.experiumOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 0, 0);
-            	else if (this == CoreBlocks.demoniteOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 0, 0);
+            	else if (this == CoreBlocks.sapphireOre)	exp = MathHelper.getRandomIntegerInRange(rand, 2, 5);
+            	else if (this == CoreBlocks.adamiteOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 4, 6);
+            	else if (this == CoreBlocks.rubyOre) 		exp = MathHelper.getRandomIntegerInRange(rand, 3, 6);
+            	else if (this == CoreBlocks.foolsRubyOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 0, 2);
+            	else if (this == CoreBlocks.starconiumOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 5, 9);
+            	else if (this == CoreBlocks.experiumOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 8, 16);
+            	else if (this == CoreBlocks.demoniteOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 3, 6);
             }
             return exp;
         }

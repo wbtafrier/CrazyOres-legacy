@@ -25,6 +25,10 @@ public class EntityRubyGolem extends CoreEntityGolem {
 		super(world, 1.6f, 3.3f);
 	}
 	
+	public EntityRubyGolem(World world, float scale) {
+		super(world, 1.6f, 3.3f, scale);
+	}
+	
 	@Override
 	protected void applyEntityAttributes() {
         super.applyEntityAttributes();

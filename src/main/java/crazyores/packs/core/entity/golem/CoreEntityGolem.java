@@ -3,17 +3,8 @@ package crazyores.packs.core.entity.golem;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAIMoveTowardsTarget;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityGolem;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,9 +19,6 @@ import net.minecraft.village.Village;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import crazyores.packs.core.entity.ai.CoreEntityAIAttackOnCollide;
-import crazyores.packs.core.entity.ai.CoreEntityAIDefendVillage;
-import crazyores.packs.core.entity.ai.CoreEntityAILookAtVillager;
 import crazyores.packs.core.item.CoreItems;
 
 public abstract class CoreEntityGolem extends EntityGolem {
@@ -40,23 +28,31 @@ public abstract class CoreEntityGolem extends EntityGolem {
 	protected int holdRoseTick;
 	protected Village village;
 	
-	public CoreEntityGolem(World world, float width, float height) {
+	public CoreEntityGolem(World world, float w, float h) {
 		super(world);
-		setSize(width, height);
+		this.dataWatcher.addObject(20, 1.0f);
+		this.dataWatcher.addObject(21, w);
+        this.dataWatcher.addObject(22, h);
+        setScale((1.0f + world.rand.nextFloat() * 0.5f));
+		setAbilities();
+	}
+	
+	public CoreEntityGolem(World world, float w, float h, float s) {
+		super(world);
+		this.dataWatcher.addObject(20, 1.0f);
+		this.dataWatcher.addObject(21, w);
+        this.dataWatcher.addObject(22, h);
+        setScale(s);
 		setAbilities();
 	}
 	
 	protected abstract void setAbilities();
 	
-	//DO NOT CALL EVERY FRAME!!! THE GAME FREEZES. ONLY CALL IF ABSOLUTELY NECESSARY.
-	public void updateSize(float scale) {
-		setSize(this.width * scale, this.height * scale);
-	}
-	
 	@Override
 	protected void entityInit() {
         super.entityInit();
         this.dataWatcher.addObject(16, Byte.valueOf((byte)0));
+        System.out.println("ADDING OBJECT?");
     }
 	
 	@Override
@@ -113,6 +109,8 @@ public abstract class CoreEntityGolem extends EntityGolem {
     public void onLivingUpdate() {
         super.onLivingUpdate();
 
+        updateSize();
+        
         if (this.attackTimer > 0) {
             --this.attackTimer;
         }
@@ -149,6 +147,11 @@ public abstract class CoreEntityGolem extends EntityGolem {
     public void writeEntityToNBT(NBTTagCompound nbt) {
         super.writeEntityToNBT(nbt);
         nbt.setBoolean("PlayerCreated", this.isPlayerCreated());
+        nbt.setFloat("Width", this.getWidth());
+        nbt.setFloat("Height", this.getHeight());
+        nbt.setFloat("Scale", getScale());
+        
+        System.out.println("SAVING SCALE X AS: " + getScale());
     }
 	
 	/**
@@ -158,6 +161,9 @@ public abstract class CoreEntityGolem extends EntityGolem {
     public void readEntityFromNBT(NBTTagCompound nbt) {
         super.readEntityFromNBT(nbt);
         this.setPlayerCreated(nbt.getBoolean("PlayerCreated"));
+        this.setWidth(nbt.getFloat("Width"));
+        this.setHeight(nbt.getFloat("Height"));
+        this.setScale(nbt.getFloat("Scale"));
     }
 	
 	//TODO: OVERRIDE IN GOLEM CLASSES
@@ -171,7 +177,6 @@ public abstract class CoreEntityGolem extends EntityGolem {
         	entity.motionY += 0.4000000059604645D;
         }
 
-        System.out.println("PLAY THROW SOUND");
         this.playSound("mob.irongolem.throw", 1.0F, 1.0F);
         return flag;
     }
@@ -181,7 +186,6 @@ public abstract class CoreEntityGolem extends EntityGolem {
     public void handleHealthUpdate(byte b) {
         if (b == 4) {
             this.attackTimer = 10;
-            System.out.println("PLAY THROW SONG");
             this.playSound("mob.irongolem.throw", 1.0F, 1.0F);
         }
         else if (b == 11) {
@@ -211,7 +215,6 @@ public abstract class CoreEntityGolem extends EntityGolem {
      */
     @Override
     protected String getHurtSound() {
-    	System.out.println("PLAY HIT SOUND");
         return "mob.irongolem.hit";
     }
  
@@ -220,13 +223,11 @@ public abstract class CoreEntityGolem extends EntityGolem {
      */
     @Override
     protected String getDeathSound() {
-    	System.out.println("PLAY DEATH SOUND");
         return "mob.irongolem.death";
     }
     
     @Override
     protected void func_145780_a(int x, int y, int z, Block block) {
-    	System.out.println("PLAY WALK SOUND");
         this.playSound("mob.irongolem.walk", 1.0F, 1.0F);
     }
     
@@ -272,14 +273,45 @@ public abstract class CoreEntityGolem extends EntityGolem {
         }
     }
     
-    @Override
     /**
      * Called when the mob's health reaches 0.
      */
+    @Override
     public void onDeath(DamageSource source) {
         if (!this.isPlayerCreated() && this.attackingPlayer != null && this.village != null) {
             this.village.setReputationForPlayer(this.attackingPlayer.getCommandSenderName(), -5);
         }
         super.onDeath(source);
     }
+    
+    public void setScale(float s) {
+    	dataWatcher.updateObject(20, s);
+    	System.out.println("UPDATING BOUNDING BOX: " + s + " |  " + getScale());
+    	updateSize();
+    }
+    
+    public void setWidth(float w) {
+    	dataWatcher.updateObject(21, w);
+    }
+    
+    public void setHeight(float h) {
+    	dataWatcher.updateObject(22, h);
+    }
+    
+    public float getWidth() {
+    	return dataWatcher.getWatchableObjectFloat(21);
+    }
+    
+    public float getHeight() {
+    	return dataWatcher.getWatchableObjectFloat(22);
+    }
+    
+    public float getScale() {
+    	return dataWatcher.getWatchableObjectFloat(20);
+    }
+
+    
+	public void updateSize() {
+		setSize(getWidth() * getScale(), getHeight() * getScale());
+	}
 }

@@ -15,7 +15,7 @@ public class ModelCopperGolem extends ModelBase
 	public ModelRenderer leftArm;
 	public ModelRenderer rightLeg;
 	public ModelRenderer leftLeg;
-
+	
 	public ModelCopperGolem() {
 		textureWidth = 128;
 		textureHeight = 128;
@@ -110,8 +110,16 @@ public class ModelCopperGolem extends ModelBase
 			this.leftArm.rotateAngleX = -2.0F + 1.5F * this.func_78172_a((float)i - par4, 10.0F);
 		}
 		else {
-			this.rightArm.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3;
-			this.leftArm.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3;
+			int j = golem.getHoldRoseTick();
+			
+			if (j > 0) {
+                this.rightArm.rotateAngleX = -0.8F + 0.025F * this.func_78172_a((float)j, 70.0F);
+                this.leftArm.rotateAngleX = 0.0F;
+            }
+			else {
+				this.rightArm.rotateAngleX = (-0.2F + 1.5F * this.func_78172_a(par2, 13.0F)) * par3;
+				this.leftArm.rotateAngleX = (-0.2F - 1.5F * this.func_78172_a(par2, 13.0F)) * par3;
+			}
 		}
 	}
 

@@ -22,8 +22,11 @@ import net.minecraft.world.World;
 public class EntityEnderGolem extends CoreEntityGolem {
 
 	public EntityEnderGolem(World world) {
-		super(world, 2.0f, 4.0f);
-		updateSize(2.0f);
+		super(world, 2.0f, 4.0f, (2.0f + world.rand.nextFloat() * 0.5f));
+	}
+	
+	public EntityEnderGolem(World world, float scale) {
+		super(world, 2.0f, 4.0f, scale);
 	}
 	
 	@Override

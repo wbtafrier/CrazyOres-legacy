@@ -25,6 +25,10 @@ public class EntityDemoniteGolem extends CoreEntityGolem {
 		super(world, 1.9f, 3.4f);
 	}
 	
+	public EntityDemoniteGolem(World world, float scale) {
+		super(world, 1.9f, 3.4f, scale);
+	}
+	
 	@Override
 	protected void applyEntityAttributes() {
         super.applyEntityAttributes();

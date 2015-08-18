@@ -1,18 +1,30 @@
 package crazyores.packs.core.entity.ai;
 
+import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.passive.EntityVillager;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.packs.core.entity.golem.CoreEntityGolem;
+import crazyores.packs.core.entity.golem.EntityCopperGolem;
 
-public class CoreEntityAILookAtVillager extends EntityAIBase
-{
-    private CoreEntityGolem theGolem;
-    private EntityVillager theVillager;
+public class CoreEntityAILookAtVillager extends EntityAIBase {
+	
+    private CoreEntityGolem golem;
+    private Entity entity;
+    private static Class[] entityList = new Class[] {EntityVillager.class, EntityPlayer.class};
+    private static Block[] flowers = new Block[] {Blocks.red_flower, Blocks.yellow_flower};
     private int lookTime;
+    
+    private Block flowerType;
 
     public CoreEntityAILookAtVillager(CoreEntityGolem golem) {
-        this.theGolem = golem;
+        this.golem = golem;
+        
+        flowerType = flowers[golem.getRNG().nextInt(flowers.length)];
         this.setMutexBits(3);
     }
 
@@ -20,16 +32,37 @@ public class CoreEntityAILookAtVillager extends EntityAIBase
      * Returns whether the EntityAIBase should begin execution.
      */
     public boolean shouldExecute() {
-        if (!this.theGolem.worldObj.isDaytime()) {
-            return false;
-        }
-        else if (this.theGolem.getRNG().nextInt(8000) != 0) {
+    	
+        if (!this.golem.worldObj.isDaytime()) {
             return false;
         }
         else {
-            this.theVillager = (EntityVillager)this.theGolem.worldObj.findNearestEntityWithinAABB(EntityVillager.class, this.theGolem.boundingBox.expand(6.0D, 2.0D, 6.0D), this.theGolem);
-            return this.theVillager != null;
+        	
+//        	if (golem instanceof EntityCopperGolem) {
+        		
+        		if (this.golem.getRNG().nextInt(30) != 0) {
+    	            return false;
+        		}
+        		
+//        		Class c = entityList[golem.getRNG().nextInt(entityList.length)];
+//        		this.entity = this.golem.worldObj.findNearestEntityWithinAABB(c, this.golem.boundingBox.expand(6.0D, 2.0D, 6.0D), this.golem);
+        		this.entity = this.golem.worldObj.findNearestEntityWithinAABB(EntityPlayer.class, this.golem.boundingBox.expand(6.0D, 2.0D, 6.0D), this.golem);
+                return this.entity != null;
+//        	}
+//        	else {
+//        		if (this.golem.getRNG().nextInt(8000) != 0) {
+//    	            return false;
+//        		}
+//        		
+//        		this.entity = (EntityVillager)this.golem.worldObj.findNearestEntityWithinAABB(EntityVillager.class, this.golem.boundingBox.expand(6.0D, 2.0D, 6.0D), this.golem);
+//                return this.entity != null;
+//        	}
         }
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public Block getBlockToHold() {
+    	return flowerType;
     }
 
     /**
@@ -43,23 +76,23 @@ public class CoreEntityAILookAtVillager extends EntityAIBase
      * Execute a one shot task or start executing a continuous task
      */
     public void startExecuting() {
-        this.lookTime = 400;
-        this.theGolem.setHoldingRose(true);
+        this.golem.setHoldingRose(true);
+        this.lookTime = this.golem.getHoldRoseTick();
     }
 
     /**
      * Resets the task
      */
     public void resetTask() {
-        this.theGolem.setHoldingRose(false);
-        this.theVillager = null;
+        this.golem.setHoldingRose(false);
+        this.entity = null;
     }
 
     /**
      * Updates the task
      */
     public void updateTask() {
-        this.theGolem.getLookHelper().setLookPositionWithEntity(this.theVillager, 30.0F, 30.0F);
+        this.golem.getLookHelper().setLookPositionWithEntity(this.entity, 30.0F, 30.0F);
         --this.lookTime;
     }
 }

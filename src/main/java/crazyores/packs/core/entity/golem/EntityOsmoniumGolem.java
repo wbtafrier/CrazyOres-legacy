@@ -25,6 +25,10 @@ public class EntityOsmoniumGolem extends CoreEntityGolem {
 		super(world, 2.2f, 4.4f);
 	}
 	
+	public EntityOsmoniumGolem(World world, float scale) {
+		super(world, 2.2f, 4.4f, scale);
+	}
+	
 	@Override
 	protected void applyEntityAttributes() {
         super.applyEntityAttributes();
