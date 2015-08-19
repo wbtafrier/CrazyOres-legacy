@@ -89,6 +89,8 @@ entity.crazyores_core.demonite_golem.name=Demonite Golem
 entity.crazyores_core.ender_golem.name=Ender Golem
 
 entity.crazyores_core.flaming_arrow.name=Flaming Arrow
+entity.crazyores_core.explosive_arrow.name=Explosive Arrow
+
 
 tileentity.crazyores_core.tapazite_crystal.name=Tapazite Crystal
 tileentity.crazyores_core.demonite_furnace.name=Demonite Furnace

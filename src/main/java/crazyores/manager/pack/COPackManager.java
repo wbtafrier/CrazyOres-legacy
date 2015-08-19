@@ -15,7 +15,7 @@ import crazyores.manager.tabs.CrazyOresTabs;
 import crazyores.manager.util.CrazyOresLogger;
 import crazyores.manager.world.generate.Generate;
 import crazyores.packs.core.block.CoreBlocks;
-import crazyores.packs.core.entity.CoreEntityRegistry;
+import crazyores.packs.core.entity.arrow.CoreEntityRegistry;
 import crazyores.packs.core.event.CoreEventManager;
 import crazyores.packs.core.gui.CoreGuiRegistry;
 import crazyores.packs.core.item.CoreItems;

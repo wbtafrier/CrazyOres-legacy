@@ -14,12 +14,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
-import crazyores.packs.core.entity.CoreEntityArrow;
-import crazyores.packs.core.entity.EntityElectricArrow;
-import crazyores.packs.core.entity.EntityExplosiveArrow;
-import crazyores.packs.core.entity.EntityFlamingArrow;
-import crazyores.packs.core.entity.EntityFreezingArrow;
-import crazyores.packs.core.entity.EntityVanillaArrow;
+import crazyores.packs.core.entity.arrow.CoreEntityArrow;
+import crazyores.packs.core.entity.arrow.EntityElectricArrow;
+import crazyores.packs.core.entity.arrow.EntityExplosiveArrow;
+import crazyores.packs.core.entity.arrow.EntityFlamingArrow;
+import crazyores.packs.core.entity.arrow.EntityFreezingArrow;
+import crazyores.packs.core.entity.arrow.EntityVanillaArrow;
 
 public class SwiftBow extends CoreBow {
 

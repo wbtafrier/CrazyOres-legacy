@@ -119,7 +119,7 @@ public class BlockCake extends CoreBlock {
     }
 	
 	private void updateCake(World world, int x, int y, int z, EntityPlayer player) {
-//		if (player.canEat(false)) {
+		if (player.canEat(false)) {
         	player.getFoodStats().addStats(2, 0.1F);
             
             int l = world.getBlockMetadata(x, y, z) + 1;
@@ -128,7 +128,7 @@ public class BlockCake extends CoreBlock {
         		world.setBlockToAir(x, y, z);
         	else
         		world.setBlockMetadataWithNotify(x, y, z, l, 2);
-//		}
+		}
     }
 	
 	@Override

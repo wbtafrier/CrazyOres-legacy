@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Level;
 import cpw.mods.fml.common.Loader;
 import crazyores.manager.pack.COPackManager;
 import crazyores.manager.util.CrazyOresLogger;
-import crazyores.packs.core.entity.CoreEntityRegistry;
+import crazyores.packs.core.entity.arrow.CoreEntityRegistry;
 import crazyores.packs.core.event.CoreClientEvent;
 import crazyores.packs.core.render.CoreRenderRegistry;
 

@@ -1,7 +1,8 @@
-package crazyores.packs.core.entity;
+package crazyores.packs.core.entity.arrow;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import crazyores.packs.core.entity.EntityZectiumCore;
 import crazyores.packs.core.entity.golem.EntityAdamiteGolem;
 import crazyores.packs.core.entity.golem.EntityCopperGolem;
 import crazyores.packs.core.entity.golem.EntityDemoniteGolem;
@@ -25,7 +26,7 @@ public class CoreEntityRegistry {
 	//Put names in the lang file! They read as: entity.crazyores_core.theentityname.name
 	
 	public static void registerCoreEntities() {
-		EntityRegistry.registerModEntity(EntityZectiumCore.class, "zectium_core", coreIDCounter++, CrazyOresCore.instance, 64, 20, true);
+		EntityRegistry.registerModEntity(EntityZectiumCore.class, "zectium_core", coreIDCounter++, CrazyOresCore.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(EntityCopperGolem.class, "copper_golem", coreIDCounter++, CrazyOresCore.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(EntitySapphireGolem.class, "sapphire_golem", coreIDCounter++, CrazyOresCore.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(EntityAdamiteGolem.class, "adamite_golem", coreIDCounter++, CrazyOresCore.instance, 64, 3, true);
@@ -39,6 +40,7 @@ public class CoreEntityRegistry {
 		EntityRegistry.registerModEntity(EntityEnderGolem.class, "ender_golem", coreIDCounter++, CrazyOresCore.instance, 64, 3, true);
 		
 		EntityRegistry.registerModEntity(EntityFlamingArrow.class, "flaming_arrow", coreIDCounter++, CrazyOresCore.instance, 128, 1, true);
+		EntityRegistry.registerModEntity(EntityExplosiveArrow.class, "explosive_arrow", coreIDCounter++, CrazyOresCore.instance, 128, 1, true);
 	}
 	
 	public static void registerCoreTileEntities() {

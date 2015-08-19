@@ -1,4 +1,4 @@
-package crazyores.packs.core.entity;
+package crazyores.packs.core.entity.arrow;
 
 import java.util.List;
 
@@ -47,6 +47,8 @@ public class EntityFlamingArrow extends CoreEntityArrow {
 
 	@Override
 	public void onUpdate() {
+		super.onUpdate();
+		
 		if (!this.isInWater()) {
 			this.setFire(500);
 		}
@@ -257,8 +259,7 @@ public class EntityFlamingArrow extends CoreEntityArrow {
                     this.arrowShake = 7;
                     this.setIsCritical(false);
 
-                    if (this.currentBlock.getMaterial() != Material.air)
-                    {
+                    if (this.currentBlock.getMaterial() != Material.air) {
                         this.currentBlock.onEntityCollidedWithBlock(this.worldObj, this.currentX, this.currentY, this.currentZ, this);
                         if (this.isBurning() && this.getEnhancement().equals(EnumBowEnhancement.FIRE)) {
                         	if (this.currentBlock.isFlammable(this.worldObj, this.currentX, this.currentY, this.currentZ, ForgeDirection.getOrientation(movingobjectposition.sideHit))) {
@@ -297,8 +298,7 @@ public class EntityFlamingArrow extends CoreEntityArrow {
                                     ++x;
                                 }
 
-                                if (this.worldObj.isAirBlock(x, y, z))
-                                {
+                                if (this.worldObj.isAirBlock(x, y, z)) {
                                     this.worldObj.setBlock(x, y, z, Blocks.fire);
                                 }
 	                        }

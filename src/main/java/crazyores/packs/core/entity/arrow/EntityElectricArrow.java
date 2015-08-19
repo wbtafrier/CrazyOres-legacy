@@ -1,4 +1,4 @@
-package crazyores.packs.core.entity;
+package crazyores.packs.core.entity.arrow;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;

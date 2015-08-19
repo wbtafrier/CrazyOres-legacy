@@ -1,4 +1,4 @@
-package crazyores.packs.core.entity;
+package crazyores.packs.core.entity.arrow;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -9,8 +9,7 @@ public class CoreEntityArrow extends EntityArrow {
 
 	private EnumBowEnhancement bowEnhancement = EnumBowEnhancement.NONE;
 	
-	public CoreEntityArrow(World world)
-    {
+	public CoreEntityArrow(World world) {
         super(world);
     }
 	
