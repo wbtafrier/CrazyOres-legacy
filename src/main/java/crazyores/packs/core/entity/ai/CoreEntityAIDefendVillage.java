@@ -4,15 +4,15 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAITarget;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.village.Village;
-import crazyores.packs.core.entity.golem.CoreEntityGolem;
+import crazyores.packs.core.entity.golem.EntityGolems;
 
 public class CoreEntityAIDefendVillage extends EntityAITarget {
 	
-    private CoreEntityGolem golem;
+    private EntityGolems golem;
     /** The aggressor of the golem's village which is now the golem's attack target. */
     private EntityLivingBase villageAgressorTarget;
 
-    public CoreEntityAIDefendVillage(CoreEntityGolem golemType) {
+    public CoreEntityAIDefendVillage(EntityGolems golemType) {
         super(golemType, false, true);
         this.golem = golemType;
         this.setMutexBits(1);

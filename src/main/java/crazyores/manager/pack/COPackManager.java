@@ -57,17 +57,6 @@ public class COPackManager {
 			NetworkRegistry.INSTANCE.registerGuiHandler(corePack.getPackID(), new CoreGuiRegistry());
 		}
 
-		if (Loader.isModLoaded(foodsPack.getPackID())) {
-			try {
-				crazyOresPackNames.add(foodsPack);
-//				FoodsTabs.initFoodsTabs();
-			}
-			catch (Exception e) {
-				CrazyOresLogger.write(Level.ERROR, "CrazyOres was unable to load the " + foodsPack.getFullPackName() + " addon.");
-				e.printStackTrace();
-			}
-		}
-		
 		COPackManager.loadLoggers();
 	}
 	

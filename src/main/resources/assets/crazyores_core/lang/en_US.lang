@@ -49,6 +49,10 @@ ender_head.name=Ender Head
 demonite_furnace.name=Demonite Furnace
 demonite_furnace_lit.name=Demonite Furnace
 
+chocolate_cake.name=Chocolate Cake
+strawberry_cake.name=Strawberry Cake
+birthday_cake.name=Birthday Cake
+
 # GUI LOCALIZATION
 container.demonite_furnace=Demonite Furnace
 
@@ -68,6 +72,26 @@ tapazite_stalactite_3.name=Tapazite Stalactite Phase 4
 tapazite_stalactite_4.name=Tapazite Stalactite Phase 5
 tapazite_stalactite_5.name=Tapazite Stalactite Phase 6
 tapazite_stalactite_6.name=Tapazite Stalactite Phase 7
+
+#ENTITY LOCALIZATION
+
+entity.crazyores_core.zectium_core.name=Zectium Core
+entity.crazyores_core.copper_golem.name=Copper Golem
+entity.crazyores_core.sapphire_golem.name=Sapphire Golem
+entity.crazyores_core.adamite_golem.name=Adamite Golem
+entity.crazyores_core.ruby_golem.name=Ruby Golem
+entity.crazyores_core.fools_ruby_golem.name=Fool's Ruby Golem
+entity.crazyores_core.zectium_golem.name=Zectium Golem
+entity.crazyores_core.tapazite_golem.name=Tapazite Golem
+entity.crazyores_core.osmonium_golem.name=Osmonium Golem
+entity.crazyores_core.starconium_golem.name=Starconium Golem
+entity.crazyores_core.demonite_golem.name=Demonite Golem
+entity.crazyores_core.ender_golem.name=Ender Golem
+
+entity.crazyores_core.flaming_arrow.name=Flaming Arrow
+
+tileentity.crazyores_core.tapazite_crystal.name=Tapazite Crystal
+tileentity.crazyores_core.demonite_furnace.name=Demonite Furnace
 
 # ORE DROPS 
 meteorite_coal.name=Meteorite Coal
@@ -221,6 +245,10 @@ copper_bucket_lava.name=Lava Bucket
 
 # ITEMS LIST 
 starconium_shard.name=Starconium Shard
+
+chocolate_cake_placer.name=Chocolate Cake
+strawberry_cake_placer.name=Strawberry Cake
+birthday_cake_placer.name=Birthday Cake
 
 # ROD LIST 
 copper_rod.name=Copper Rod

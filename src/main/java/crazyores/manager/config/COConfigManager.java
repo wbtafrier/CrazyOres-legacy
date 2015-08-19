@@ -2,9 +2,7 @@ package crazyores.manager.config;
 
 import java.io.File;
 
-import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
 
 import org.apache.logging.log4j.Level;
 
@@ -40,10 +38,6 @@ public abstract class COConfigManager {
 		
 		if (Loader.isModLoaded(CrazyOresData.corePackID)) {
 			COCoreConfigLoader.initCore(event);
-		}
-		
-		if (Loader.isModLoaded(CrazyOresData.foodsPackID)) {
-//			COFoodsConfig.initFoods(event);
 		}
 	}
 }

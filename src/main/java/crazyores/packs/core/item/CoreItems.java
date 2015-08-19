@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
 import crazyores.manager.tabs.COTabList;
+import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.util.CoreHarvestLevels;
 
 public class CoreItems {
@@ -174,6 +175,9 @@ public class CoreItems {
 	public static Item invisiumBoots;
 	public static Item enderBoots;
 
+	public static Item chocolateCake;
+	public static Item strawberryCake;
+	public static Item birthdayCake;
 	
 	/** Bucket List **/
 /*
@@ -229,6 +233,10 @@ public class CoreItems {
 		
 		//Items
 		zectiumCore = new ItemZectiumCore("zectium_core", COTabList.crazyOresItemsTab, 16); registerItem(zectiumCore);
+		
+		chocolateCake = new ItemCake("chocolate_cake_placer", CoreBlocks.chocolateCake, 1); registerItem(chocolateCake);
+		strawberryCake = new ItemCake("strawberry_cake_placer", CoreBlocks.strawberryCake, 1); registerItem(strawberryCake);
+		birthdayCake = new ItemCake("birthday_cake_placer", CoreBlocks.birthdayCake, 1); registerItem(birthdayCake);
 	}
 	
 	private static void initOreDrops() {

@@ -8,12 +8,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import crazyores.packs.core.entity.golem.CoreEntityGolem;
+import crazyores.packs.core.entity.golem.EntityGolems;
 import crazyores.packs.core.entity.golem.EntityCopperGolem;
 
 public class CoreEntityAILookAtVillager extends EntityAIBase {
 	
-    private CoreEntityGolem golem;
+    private EntityGolems golem;
     private Entity entity;
     private static Class[] entityList = new Class[] {EntityVillager.class, EntityPlayer.class};
     private static Block[] flowers = new Block[] {Blocks.red_flower, Blocks.yellow_flower};
@@ -21,7 +21,7 @@ public class CoreEntityAILookAtVillager extends EntityAIBase {
     
     private Block flowerType;
 
-    public CoreEntityAILookAtVillager(CoreEntityGolem golem) {
+    public CoreEntityAILookAtVillager(EntityGolems golem) {
         this.golem = golem;
         
         flowerType = flowers[golem.getRNG().nextInt(flowers.length)];
@@ -38,25 +38,24 @@ public class CoreEntityAILookAtVillager extends EntityAIBase {
         }
         else {
         	
-//        	if (golem instanceof EntityCopperGolem) {
+        	if (golem instanceof EntityCopperGolem) {
         		
         		if (this.golem.getRNG().nextInt(30) != 0) {
     	            return false;
         		}
         		
-//        		Class c = entityList[golem.getRNG().nextInt(entityList.length)];
-//        		this.entity = this.golem.worldObj.findNearestEntityWithinAABB(c, this.golem.boundingBox.expand(6.0D, 2.0D, 6.0D), this.golem);
-        		this.entity = this.golem.worldObj.findNearestEntityWithinAABB(EntityPlayer.class, this.golem.boundingBox.expand(6.0D, 2.0D, 6.0D), this.golem);
+        		Class c = entityList[golem.getRNG().nextInt(entityList.length)];
+        		this.entity = this.golem.worldObj.findNearestEntityWithinAABB(c, this.golem.boundingBox.expand(6.0D, 2.0D, 6.0D), this.golem);
                 return this.entity != null;
-//        	}
-//        	else {
-//        		if (this.golem.getRNG().nextInt(8000) != 0) {
-//    	            return false;
-//        		}
-//        		
-//        		this.entity = (EntityVillager)this.golem.worldObj.findNearestEntityWithinAABB(EntityVillager.class, this.golem.boundingBox.expand(6.0D, 2.0D, 6.0D), this.golem);
-//                return this.entity != null;
-//        	}
+        	}
+        	else {
+        		if (this.golem.getRNG().nextInt(8000) != 0) {
+    	            return false;
+        		}
+        		
+        		this.entity = (EntityVillager)this.golem.worldObj.findNearestEntityWithinAABB(EntityVillager.class, this.golem.boundingBox.expand(6.0D, 2.0D, 6.0D), this.golem);
+                return this.entity != null;
+        	}
         }
     }
     

@@ -18,10 +18,6 @@ public class GolemTargets implements IAnimals {
 		
 		@Override
         public boolean isEntityApplicable(Entity entity) {
-        	
-        	if (golemType.equals(EnumGolemType.COPPER))
-        		return (entity instanceof IMob);
-			
             return entity instanceof IMob;
         }
     };

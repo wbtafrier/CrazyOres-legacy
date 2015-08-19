@@ -4,7 +4,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import crazyores.packs.core.entity.golem.CoreEntityGolem;
+import crazyores.packs.core.entity.golem.EntityGolems;
 import crazyores.packs.core.entity.golem.EntityAdamiteGolem;
 
 public class ModelAdamiteGolem extends ModelBase {

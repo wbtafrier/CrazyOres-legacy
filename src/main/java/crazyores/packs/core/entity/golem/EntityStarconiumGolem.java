@@ -3,6 +3,7 @@ package crazyores.packs.core.entity.golem;
 import crazyores.packs.core.entity.ai.CoreEntityAIAttackOnCollide;
 import crazyores.packs.core.entity.ai.CoreEntityAIDefendVillage;
 import crazyores.packs.core.entity.ai.CoreEntityAILookAtVillager;
+import crazyores.packs.core.entity.ai.GolemTargets;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -19,14 +20,14 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityStarconiumGolem extends CoreEntityGolem {
+public class EntityStarconiumGolem extends EntityGolems {
 
 	public EntityStarconiumGolem(World world) {
-		super(world, 3.0f, 5.0f);
+		super(world, 3.0f, 5.0f, EnumGolemType.STARCONIUM);
 	}
 	
 	public EntityStarconiumGolem(World world, float scale) {
-		super(world, 3.0f, 5.0f, scale);
+		super(world, 3.0f, 5.0f, scale, EnumGolemType.STARCONIUM);
 	}
 	
 	@Override
@@ -49,6 +50,6 @@ public class EntityStarconiumGolem extends CoreEntityGolem {
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new CoreEntityAIDefendVillage(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, IMob.mobSelector));
+        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, new GolemTargets(EnumGolemType.COPPER).mobSelector));
 	}
 }

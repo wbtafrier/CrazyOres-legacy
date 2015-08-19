@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.manager.pack.COPackManager;
-import crazyores.packs.core.entity.golem.CoreEntityGolem;
+import crazyores.packs.core.entity.golem.EntityGolems;
 import crazyores.packs.core.entity.golem.EntityAdamiteGolem;
 import crazyores.packs.core.entity.golem.EntityCopperGolem;
 import crazyores.packs.core.entity.golem.EntityDemoniteGolem;
@@ -101,16 +101,13 @@ public class GolemHead extends CoreBlock {
 		}
 	}
 	
-	private void spawnGolem(World world, int x, int y, int z, CoreEntityGolem golem, int blocksTall, boolean hasArmsOnXAxis) {
+	private void spawnGolem(World world, int x, int y, int z, EntityGolems golem, int blocksTall, boolean hasArmsOnXAxis) {
 		setAirBlocks(world, x, y, z, blocksTall, hasArmsOnXAxis);
 		
 		golem.setPlayerCreated(true);
 		golem.setLocationAndAngles((double)x + 0.5d, (double)y - (blocksTall) + 0.05d, z, 0.0f, 0.0f);
         world.spawnEntityInWorld(golem);
-		
-		for (int i = 0; i < 120; i++)
-            world.spawnParticle("snowballpoof", (double)x + world.rand.nextDouble(), (double)y - (blocksTall) + 0.05d + world.rand.nextDouble() * 3.9d, (double)z + world.rand.nextDouble(), 0.0d, 0.0d, 0.0d);
-		notifyBlockChange(world, x, y, z, blocksTall, hasArmsOnXAxis);
+        notifyBlockChange(world, x, y, z, blocksTall, hasArmsOnXAxis);
 	}
 	
 	/**

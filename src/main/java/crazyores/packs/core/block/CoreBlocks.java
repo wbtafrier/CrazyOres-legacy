@@ -80,6 +80,10 @@ public class CoreBlocks {
 //	public static Block darkstoneBlock;
 //	public static Block luminiteBlock;
 	
+	public static Block chocolateCake;
+	public static Block strawberryCake;
+	public static Block birthdayCake;
+	
 	public static void initBlocks() {
 		tapaziteLightSource = new BlockLightSource("tapazite_light_source", Material.air, 0.75F, 1.2F, 3.0F); registerBlock(tapaziteLightSource);
 		tapaziteStalagmite = new BlockTapaziteStalagmite("tapazite_stalagmite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.crazyOresBlocksTab); registerBlock(tapaziteStalagmite, ItemBlockTapaziteStalagmite.class);
@@ -144,6 +148,10 @@ public class CoreBlocks {
 		
 		demoniteGolemHead = new GolemHead("demonite_head", EnumGolemType.DEMONITE, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(demoniteGolemHead);
 		enderGolemHead = new GolemHead("ender_head", EnumGolemType.ENDER, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(enderGolemHead);
+	
+		chocolateCake = new BlockCake("chocolate_cake", "chocolate", 8); registerBlock(chocolateCake);
+		strawberryCake = new BlockCake("strawberry_cake", "strawberry", 10); registerBlock(strawberryCake);
+		birthdayCake = new BlockCake("birthday_cake", "birthday", 12); registerBlock(birthdayCake);
 	}
 	
 	/**

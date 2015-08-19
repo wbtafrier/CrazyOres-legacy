@@ -21,24 +21,28 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.packs.core.item.CoreItems;
 
-public abstract class CoreEntityGolem extends EntityGolem {
+public abstract class EntityGolems extends EntityGolem {
 
 	protected int homeCheckTimer;
 	protected int attackTimer;
 	protected int holdRoseTick;
 	protected Village village;
 	
-	public CoreEntityGolem(World world, float w, float h) {
+	protected EnumGolemType type;
+	
+	public EntityGolems(World world, float w, float h, EnumGolemType golemType) {
 		super(world);
+		type = golemType;
 		this.dataWatcher.addObject(20, 1.0f);
 		this.dataWatcher.addObject(21, w);
         this.dataWatcher.addObject(22, h);
-        setScale((1.0f + world.rand.nextFloat() * 0.5f));
+        setScale(1.0f + (world.rand.nextFloat() * 0.2f));
 		setAbilities();
 	}
 	
-	public CoreEntityGolem(World world, float w, float h, float s) {
+	public EntityGolems(World world, float w, float h, float s, EnumGolemType golemType) {
 		super(world);
+		type = golemType;
 		this.dataWatcher.addObject(20, 1.0f);
 		this.dataWatcher.addObject(21, w);
         this.dataWatcher.addObject(22, h);
@@ -135,8 +139,11 @@ public abstract class CoreEntityGolem extends EntityGolem {
      */
 	//TODO: OVERRIDE FOR GOLEM CLASSES
 	@Override
-	public boolean canAttackClass(Class p_70686_1_) {
-        return this.isPlayerCreated() && EntityPlayer.class.isAssignableFrom(p_70686_1_) ? false : super.canAttackClass(p_70686_1_);
+	public boolean canAttackClass(Class c) {
+		if (this.type.equals(EnumGolemType.COPPER))
+			return this.isPlayerCreated() && EntityPlayer.class.isAssignableFrom(c) ? false : super.canAttackClass(c);
+		else
+			return true;
     }
 	
 	/**
@@ -168,10 +175,48 @@ public abstract class CoreEntityGolem extends EntityGolem {
 	public boolean attackEntityAsMob(Entity entity) {
         this.attackTimer = 10;
         this.worldObj.setEntityState(this, (byte)4);
-        boolean flag = entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float)(7 + this.rand.nextInt(15)));
+        
+        int damage = 0;
+        
+        if (this.type.equals(EnumGolemType.FOOLS_RUBY)) {
+        	damage = 2;
+        }
+        else if (this.type.equals(EnumGolemType.COPPER)) {
+        	damage = 8 + rand.nextInt(15);
+        }
+        else if (this.type.equals(EnumGolemType.SAPPHIRE)) {
+        	damage = 11 + rand.nextInt(15);
+        }
+        else if (this.type.equals(EnumGolemType.ADAMITE)) {
+        	damage = 15 + rand.nextInt(15);
+        }
+        else if (this.type.equals(EnumGolemType.RUBY)) {
+        	damage = 19 + rand.nextInt(15);
+        }
+        else if (this.type.equals(EnumGolemType.DEMONITE)) {
+        	entity.setFire(20);
+        	damage = 10 + rand.nextInt(15);
+        }
+        else if (this.type.equals(EnumGolemType.ZECTIUM)) {
+        	damage = 25 + rand.nextInt(15);
+        }
+        else if (this.type.equals(EnumGolemType.TAPAZITE)) {
+        	damage = 30 + rand.nextInt(15);
+        }
+        else if (this.type.equals(EnumGolemType.OSMONIUM)) {
+        	damage = 39 + rand.nextInt(15);
+        }
+        else if (this.type.equals(EnumGolemType.STARCONIUM)) {
+        	damage = 50 + rand.nextInt(15);
+        }
+        else if (this.type.equals(EnumGolemType.ENDER)) {
+        	damage = 60 + rand.nextInt(15);
+        }
+        
+        boolean flag = entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
 
         if (flag) {
-        	entity.motionY += 0.4000000059604645D;
+        	entity.motionY += 0.4000000059604645D * (1 + type.ordinal() * 0.2);
         }
 
         this.playSound("mob.irongolem.throw", 1.0F, 1.0F);

@@ -15,7 +15,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import crazyores.packs.core.entity.ai.CoreEntityAILookAtVillager;
-import crazyores.packs.core.entity.golem.CoreEntityGolem;
+import crazyores.packs.core.entity.golem.EntityGolems;
 import crazyores.packs.core.entity.golem.EntityAdamiteGolem;
 import crazyores.packs.core.entity.golem.EntityCopperGolem;
 import crazyores.packs.core.entity.golem.EntityDemoniteGolem;
@@ -51,7 +51,6 @@ public class RenderGolems extends RenderLiving {
 	private ModelFoolsRubyGolem foolsRubyGolemModel;
 	private ModelZectiumGolem zectiumGolemModel;
 	private ModelTapaziteGolem tapaziteGolemModel;
-	private ModelTapaziteCrystal crystalGolemModel;
 	private ModelOsmoniumGolem osmoniumGolemModel;
 	private ModelStarconiumGolem starconiumGolemModel;
 	private ModelDemoniteGolem demoniteGolemModel;
@@ -84,11 +83,11 @@ public class RenderGolems extends RenderLiving {
 			this.enderGolemModel = (ModelEnderGolem)this.mainModel;
 	}
 
-	public void doRender(CoreEntityGolem golem, double par2, double par4, double par6, float par8, float par9) {
+	public void doRender(EntityGolems golem, double par2, double par4, double par6, float par8, float par9) {
 		super.doRender(golem, par2, par4, par6, par8, par9);
 	}
 
-	protected ResourceLocation getEntityTexture(CoreEntityGolem golem) {
+	protected ResourceLocation getEntityTexture(EntityGolems golem) {
 		
 		if (golem instanceof EntityCopperGolem)
 			return CoreResourceHandler.COPPER_GOLEM_IMAGE;
@@ -116,7 +115,7 @@ public class RenderGolems extends RenderLiving {
 			return CoreResourceHandler.UNKNOWN_IMAGE;
 	}
 	
-	protected void rotateCorpse(CoreEntityGolem golem, float x, float y, float z) {
+	protected void rotateCorpse(EntityGolems golem, float x, float y, float z) {
         super.rotateCorpse(golem, x, y, z);
 
         if ((double)golem.limbSwingAmount >= 0.01D) {
@@ -127,7 +126,7 @@ public class RenderGolems extends RenderLiving {
         }
     }
 	
-	protected void renderEquippedItems(CoreEntityGolem golem, float idk) {
+	protected void renderEquippedItems(EntityGolems golem, float idk) {
         super.renderEquippedItems(golem, idk);
 
         if (golem.getHoldRoseTick() != 0) {
@@ -156,23 +155,23 @@ public class RenderGolems extends RenderLiving {
     		}
     		else if (golem instanceof EntityZectiumGolem) {
     			GL11.glRotatef(5.0F + 180f * this.zectiumGolemModel.armRightBottom.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
-    			GL11.glTranslatef(-0.6875F, 1.25F, -0.9375F);
+    			GL11.glTranslatef(-0.9875F, 1.62F, -0.9375F);
     		}
     		else if (golem instanceof EntityOsmoniumGolem) {
     			GL11.glRotatef(5.0F + 180f * this.osmoniumGolemModel.armRightBottom.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
-    			GL11.glTranslatef(-0.6875F, 1.25F, -0.9375F);
+    			GL11.glTranslatef(-1.005F, 1.68F, -1.0375F);
     		}
     		else if (golem instanceof EntityStarconiumGolem) {
     			GL11.glRotatef(5.0F + 180f * this.starconiumGolemModel.armRightBottom.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
-    			GL11.glTranslatef(-0.6875F, 1.25F, -0.9375F);
+    			GL11.glTranslatef(-1.2475F, 1.85F, -0.9375F);
     		}
     		else if (golem instanceof EntityDemoniteGolem) {
     			GL11.glRotatef(5.0F + 180f * this.demoniteGolemModel.armRightBottom.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
-    			GL11.glTranslatef(-0.6875F, 1.25F, -0.9375F);
+    			GL11.glTranslatef(-0.7875F, 1.55F, -0.2375F);
     		}
     		else if (golem instanceof EntityEnderGolem) {
     			GL11.glRotatef(5.0F + 180f * this.enderGolemModel.armRightBottom.rotateAngleX / (float)Math.PI, 1.0F, 0.0F, 0.0F);
-    			GL11.glTranslatef(-0.6875F, 1.25F, -0.9375F);
+    			GL11.glTranslatef(-1.1275F, 1.65F, -1.1475F);
     		}
             	
             GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
@@ -206,15 +205,15 @@ public class RenderGolems extends RenderLiving {
      * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
      */
     public void doRender(EntityLiving entity, double x, double y, double z, float f1, float f2) {
-    	this.doRender((CoreEntityGolem)entity, x, y, z, f1, f2);
+    	this.doRender((EntityGolems)entity, x, y, z, f1, f2);
     }
 
     protected void renderEquippedItems(EntityLivingBase entity, float f1) {
-        this.renderEquippedItems((CoreEntityGolem)entity, f1);
+        this.renderEquippedItems((EntityGolems)entity, f1);
     }
 
     protected void rotateCorpse(EntityLivingBase entity, float x, float y, float z) {
-        this.rotateCorpse((CoreEntityGolem)entity, x, y, z);
+        this.rotateCorpse((EntityGolems)entity, x, y, z);
     }
 
     /**
@@ -224,14 +223,14 @@ public class RenderGolems extends RenderLiving {
      * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
      */
     public void doRender(EntityLivingBase entity, double x, double y, double z, float f1, float f2) {
-        this.doRender((CoreEntityGolem)entity, x, y, z, f1, f2);
+        this.doRender((EntityGolems)entity, x, y, z, f1, f2);
     }
 
     /**
      * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
      */
     protected ResourceLocation getEntityTexture(Entity entity) {
-    	return this.getEntityTexture((CoreEntityGolem)entity);
+    	return this.getEntityTexture((EntityGolems)entity);
     }
 
     /**
@@ -241,17 +240,17 @@ public class RenderGolems extends RenderLiving {
      * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
      */
     public void doRender(Entity entity, double x, double y, double z, float f1, float f2) {
-        this.doRender((CoreEntityGolem)entity, x, y, z, f1, f2);
+        this.doRender((EntityGolems)entity, x, y, z, f1, f2);
     }
     
     @Override
     protected void preRenderCallback(EntityLivingBase entity, float par2) {
     	
-		CoreEntityGolem g = (CoreEntityGolem)entity;
+		EntityGolems g = (EntityGolems)entity;
 		this.scaleGolem(g, g.getScale());
     }
     
-	protected void scaleGolem(CoreEntityGolem entity, float scale) {
+	protected void scaleGolem(EntityGolems entity, float scale) {
 		GL11.glScalef(scale, scale, scale);
 //		entity.updateSize();
     }

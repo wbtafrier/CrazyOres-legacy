@@ -15,6 +15,11 @@ public class CoreBlock extends Block implements IBlock, IName {
 	public final String blockUnlocalizedName;
 	private String oreDictionaryName;
 	
+	protected CoreBlock(String unlocalizedName, Material blockMaterial) {
+		super(blockMaterial);
+		this.blockUnlocalizedName = unlocalizedName;
+	}
+	
 	/**
 	 * Constructor for the CoreBlock class.
 	 * @param blockUnlocalizedName
