@@ -48,7 +48,7 @@ public class EntityZectiumCore extends EntityThrowable {
             }
 
             if (COCoreConfigSettings.zectiumCoreExplodes)
-            	this.worldObj.newExplosion((Entity)null, this.posX, this.posY, this.posZ, explosionStrength, false, true);
+            	this.worldObj.newExplosion(this, this.posX, this.posY, this.posZ, explosionStrength, false, true);
 //          else
 //            	this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "random.explode", 4.0F, (1.0F + (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
             this.setDead();

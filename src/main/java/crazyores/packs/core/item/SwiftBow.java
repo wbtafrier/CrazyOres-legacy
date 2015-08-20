@@ -2,18 +2,23 @@ package crazyores.packs.core.item;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.packs.core.entity.arrow.CoreEntityArrow;
 import crazyores.packs.core.entity.arrow.EntityElectricArrow;
 import crazyores.packs.core.entity.arrow.EntityExplosiveArrow;
@@ -23,9 +28,8 @@ import crazyores.packs.core.entity.arrow.EntityVanillaArrow;
 
 public class SwiftBow extends CoreBow {
 
-	private Random rand = new Random();
-	
-	private float SPEED_BOOST = 10.0f;
+	private static final float ARROW_SPEED_BOOST = 1.5f;
+	public static final int PULL_BACK_SPEED_BOOST = 5;
 	
 	protected SwiftBow(String unlocalizedName) {
 		//TODO: Fix uses and enchantibility for all bows
@@ -34,7 +38,7 @@ public class SwiftBow extends CoreBow {
 	
 	@Override
 	public EnumBowEnhancement getBowEnhancement() {
-		return EnumBowEnhancement.FIRE;
+		return EnumBowEnhancement.SWIFT;
 	}
 	
 	/**
@@ -42,13 +46,15 @@ public class SwiftBow extends CoreBow {
      */
 	@Override
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int itemInUseCount) {
-        int j = this.getMaxItemUseDuration(stack) - itemInUseCount;
+        int j = (this.getMaxItemUseDuration(stack) - itemInUseCount) * PULL_BACK_SPEED_BOOST;
 
         ArrowLooseEvent event = new ArrowLooseEvent(player, stack, j);
         MinecraftForge.EVENT_BUS.post(event);
+       
         if (event.isCanceled()) {
             return;
         }
+        
         j = event.charge;
 
         boolean arrowsAvailable = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
@@ -69,7 +75,7 @@ public class SwiftBow extends CoreBow {
         if (arrowsAvailable || arrows.size() > 0) {
         	Item arrow = Items.arrow;
         	if (arrows.size() > 0) {
-        		int index = rand.nextInt(arrows.size());
+        		int index = Item.itemRand.nextInt(arrows.size());
         		arrow = arrows.get(index);
         	}
         	
@@ -87,19 +93,19 @@ public class SwiftBow extends CoreBow {
             CoreEntityArrow entityArrow = null;
             
             if (arrow.equals(CoreItems.flamingArrow)) {
-            	entityArrow = new EntityFlamingArrow(world, player, f * SPEED_BOOST, getBowEnhancement());
+            	entityArrow = new EntityFlamingArrow(world, player, f * ARROW_SPEED_BOOST, getBowEnhancement());
             }
             else if (arrow.equals(CoreItems.freezingArrow)) {
-            	entityArrow = new EntityFreezingArrow(world, player, f * SPEED_BOOST, getBowEnhancement());
+            	entityArrow = new EntityFreezingArrow(world, player, f * ARROW_SPEED_BOOST, getBowEnhancement());
             }
             else if (arrow.equals(CoreItems.explosiveArrow)) {
-            	entityArrow = new EntityExplosiveArrow(world, player, f * SPEED_BOOST, getBowEnhancement());
+            	entityArrow = new EntityExplosiveArrow(world, player, f * ARROW_SPEED_BOOST, getBowEnhancement());
             }
             else if (arrow.equals(CoreItems.electricArrow)) {
-            	entityArrow = new EntityElectricArrow(world, player, f * SPEED_BOOST, getBowEnhancement());
+            	entityArrow = new EntityElectricArrow(world, player, f * ARROW_SPEED_BOOST, getBowEnhancement());
             }
             else {
-            	entityArrow = new EntityVanillaArrow(world, player, f * SPEED_BOOST, getBowEnhancement());
+            	entityArrow = new EntityVanillaArrow(world, player, f * ARROW_SPEED_BOOST, getBowEnhancement());
             }
 
             if (f == 1.0F) {
@@ -158,4 +164,25 @@ public class SwiftBow extends CoreBow {
 
         return stack;
     }
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
+		if (player.getItemInUse() == null) {
+			return this.itemIcon;
+		}
+		
+		int duration = (stack.getMaxItemUseDuration() - useRemaining) * PULL_BACK_SPEED_BOOST;
+		
+		if (duration >= 18) {
+			return this.iconArray[2];
+		}
+		else if (duration > 13) {
+			return this.iconArray[1];
+		}
+		else if (duration > 0) {
+			return this.iconArray[0];
+		}
+		return this.itemIcon;
+	}
 }

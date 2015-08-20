@@ -60,7 +60,7 @@ public class RenderTapaziteCrystal extends TileEntitySpecialRenderer {
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 
 		//Binding the textures
-		this.bindTexture(CoreResourceHandler.TAPAZITE_CRYSTAL_IMAGE);
+		this.bindTexture(CoreResourceHandler.TAPAZITE_CRYSTAL_TEXTURE);
 
 		//This rotation part is very important! Without it, your model will render upside-down! And for some reason you DO need PushMatrix again!                       
 		GL11.glPushMatrix();

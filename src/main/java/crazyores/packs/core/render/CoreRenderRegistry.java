@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.entity.RenderSnowball;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import crazyores.packs.core.entity.EntityZectiumCore;
+import crazyores.packs.core.entity.arrow.EntityExplosiveArrow;
 import crazyores.packs.core.entity.arrow.EntityFlamingArrow;
 import crazyores.packs.core.entity.golem.EntityAdamiteGolem;
 import crazyores.packs.core.entity.golem.EntityCopperGolem;
@@ -50,7 +51,8 @@ public class CoreRenderRegistry {
 		RenderingRegistry.registerEntityRenderingHandler(EntityDemoniteGolem.class, new RenderGolems(new ModelDemoniteGolem(), EnumGolemType.DEMONITE));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderGolem.class, new RenderGolems(new ModelEnderGolem(), EnumGolemType.ENDER));
 		
-		RenderingRegistry.registerEntityRenderingHandler(EntityFlamingArrow.class, new RenderArrow());
+		RenderingRegistry.registerEntityRenderingHandler(EntityFlamingArrow.class, new CoreRenderArrow());
+		RenderingRegistry.registerEntityRenderingHandler(EntityExplosiveArrow.class, new CoreRenderArrow());
 	}
 	
 	public static void renderCoreTileEntities() {

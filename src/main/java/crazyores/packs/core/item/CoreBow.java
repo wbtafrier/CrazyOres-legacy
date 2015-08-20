@@ -16,7 +16,7 @@ public class CoreBow extends ItemBow implements IName {
 
 	public static final String[] bowPullIconNameArray = new String[] {"1", "2", "3"};
     @SideOnly(Side.CLIENT)
-    private IIcon[] iconArray;
+	protected IIcon[] iconArray;
 	public String itemUnlocalizedName;
 	
 	private int enchantibility = 1;
@@ -65,6 +65,7 @@ public class CoreBow extends ItemBow implements IName {
 		}
 		
 		int duration = stack.getMaxItemUseDuration() - useRemaining;
+		
 		if (duration >= 18) {
 			return this.iconArray[2];
 		}

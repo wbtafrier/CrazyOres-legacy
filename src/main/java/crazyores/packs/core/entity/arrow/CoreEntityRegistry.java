@@ -41,6 +41,8 @@ public class CoreEntityRegistry {
 		
 		EntityRegistry.registerModEntity(EntityFlamingArrow.class, "flaming_arrow", coreIDCounter++, CrazyOresCore.instance, 128, 1, true);
 		EntityRegistry.registerModEntity(EntityExplosiveArrow.class, "explosive_arrow", coreIDCounter++, CrazyOresCore.instance, 128, 1, true);
+		EntityRegistry.registerModEntity(EntityElectricArrow.class, "electric_arrow", coreIDCounter++, CrazyOresCore.instance, 128, 1, true);
+		EntityRegistry.registerModEntity(EntityFreezingArrow.class, "freezing_arrow", coreIDCounter++, CrazyOresCore.instance, 128, 1, true);
 	}
 	
 	public static void registerCoreTileEntities() {

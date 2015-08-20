@@ -293,8 +293,8 @@ public class CoreItems {
 		//TODO: MAKE TEXTURES!!!!!1
 		flamingArrow = new CoreItem("meteorite_arrow", COTabList.crazyOresItemsTab); registerItem(flamingArrow);
 		explosiveArrow = new CoreItem("zectium_arrow", COTabList.crazyOresItemsTab); registerItem(explosiveArrow);
-		freezingArrow = new CoreItem("sapphire_arrow", COTabList.crazyOresItemsTab); registerItem(freezingArrow);
-		electricArrow = new CoreItem("copper_arrow", COTabList.crazyOresItemsTab); registerItem(electricArrow);
+		electricArrow = new CoreItem("adamite_arrow", COTabList.crazyOresItemsTab); registerItem(electricArrow);
+		freezingArrow = new CoreItem("osmonium_arrow", COTabList.crazyOresItemsTab); registerItem(freezingArrow);
 		
 //		flamingArrowhead;
 //		explosiveArrowhead;

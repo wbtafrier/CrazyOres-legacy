@@ -90,29 +90,29 @@ public class RenderGolems extends RenderLiving {
 	protected ResourceLocation getEntityTexture(EntityGolems golem) {
 		
 		if (golem instanceof EntityCopperGolem)
-			return CoreResourceHandler.COPPER_GOLEM_IMAGE;
+			return CoreResourceHandler.COPPER_GOLEM_TEXTURE;
 		else if (golem instanceof EntitySapphireGolem)
-			return CoreResourceHandler.SAPPHIRE_GOLEM_IMAGE;
+			return CoreResourceHandler.SAPPHIRE_GOLEM_TEXTURE;
 		else if (golem instanceof EntityAdamiteGolem)
-			return CoreResourceHandler.ADAMITE_GOLEM_IMAGE;
+			return CoreResourceHandler.ADAMITE_GOLEM_TEXTURE;
 		else if (golem instanceof EntityRubyGolem)
-			return CoreResourceHandler.RUBY_GOLEM_IMAGE;
+			return CoreResourceHandler.RUBY_GOLEM_TEXTURE;
 		else if (golem instanceof EntityFoolsRubyGolem)
-			return CoreResourceHandler.FOOLS_RUBY_GOLEM_IMAGE;
+			return CoreResourceHandler.FOOLS_RUBY_GOLEM_TEXTURE;
 		else if (golem instanceof EntityZectiumGolem)
-			return CoreResourceHandler.ZECTIUM_GOLEM_IMAGE;
+			return CoreResourceHandler.ZECTIUM_GOLEM_TEXTURE;
 		else if (golem instanceof EntityTapaziteGolem)
-			return CoreResourceHandler.TAPAZITE_GOLEM_IMAGE;
+			return CoreResourceHandler.TAPAZITE_GOLEM_TEXTURE;
 		else if (golem instanceof EntityOsmoniumGolem)
-			return CoreResourceHandler.OSMONIUM_GOLEM_IMAGE;
+			return CoreResourceHandler.OSMONIUM_GOLEM_TEXTURE;
 		else if (golem instanceof EntityStarconiumGolem)
-			return CoreResourceHandler.STARCONIUM_GOLEM_IMAGE;
+			return CoreResourceHandler.STARCONIUM_GOLEM_TEXTURE;
 		else if (golem instanceof EntityDemoniteGolem)
-			return CoreResourceHandler.DEMONITE_GOLEM_IMAGE;
+			return CoreResourceHandler.DEMONITE_GOLEM_TEXTURE;
 		else if (golem instanceof EntityEnderGolem)
-			return CoreResourceHandler.ENDER_GOLEM_IMAGE;
+			return CoreResourceHandler.ENDER_GOLEM_TEXTURE;
 		else
-			return CoreResourceHandler.UNKNOWN_IMAGE;
+			return CoreResourceHandler.UNKNOWN_TEXTURE;
 	}
 	
 	protected void rotateCorpse(EntityGolems golem, float x, float y, float z) {
