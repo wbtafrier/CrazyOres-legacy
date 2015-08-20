@@ -32,7 +32,6 @@ public class GolemHead extends CoreBlock {
 	private String textureName;
 	private EnumGolemType golemType;
 	
-	@SideOnly(Side.CLIENT)
     private IIcon[] topIcon = new IIcon[4];
     @SideOnly(Side.CLIENT)
     private IIcon frontIcon;

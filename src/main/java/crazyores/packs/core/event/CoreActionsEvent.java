@@ -99,7 +99,9 @@ public class CoreActionsEvent {
 								player.inventory.damageArmor(armorDamage / 2.0f);
 							}
 							
-							player.capabilities.setPlayerWalkSpeed(0.09f);
+							if (player.worldObj.isRemote) {
+								player.capabilities.setPlayerWalkSpeed(0.09f);
+							}
 							event.setCanceled(true);
 						}
 					}
@@ -157,12 +159,16 @@ public class CoreActionsEvent {
 					}
 				}
 				else if (armor[0].getItem().equals(CoreItems.osmoniumBoots) && armor[1].getItem().equals(CoreItems.osmoniumLeggings) && armor[2].getItem().equals(CoreItems.osmoniumChestplate) && armor[3].getItem().equals(CoreItems.osmoniumHelmet)) {
-					player.capabilities.setPlayerWalkSpeed(0.2f);
+					if (player.worldObj.isRemote) {
+						player.capabilities.setPlayerWalkSpeed(0.2f);
+					}
 				}
 			}
 			else {
-				player.capabilities.setPlayerWalkSpeed(0.1f);
-				
+				if (player.worldObj.isRemote) {
+					player.capabilities.setPlayerWalkSpeed(0.1f);
+				}
+					
 				for (int i = 0; i < armor.length; i++) {
 					if (armor[i] == null) continue;
 					CoreArmor slot = (CoreArmor)armor[i].getItem();
