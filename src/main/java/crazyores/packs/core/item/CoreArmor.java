@@ -148,7 +148,6 @@ public class CoreArmor extends ItemArmor {
 	
 	private int counter = 0;
 	public void updateCounter() {
-		System.out.println("INCREMENTING TO: " + counter);
 		counter = counter == 60 ? 60 : counter + 1;
 	}
 	
