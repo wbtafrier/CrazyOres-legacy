@@ -170,7 +170,7 @@ public class CoreActionsEvent {
 				}
 					
 				for (int i = 0; i < armor.length; i++) {
-					if (armor[i] == null) continue;
+					if (armor[i] == null || armor[i].getItem() instanceof CoreArmor) continue;
 					CoreArmor slot = (CoreArmor)armor[i].getItem();
 					slot.setInvisiumEffect(false);
 				}
