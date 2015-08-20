@@ -21,11 +21,10 @@ public class FreezeEvent {
 		
 		for (int i = 0; i < frozenEntities.size(); i++) {
 			FrozenEntity frozenEntity = frozenEntities.get(i);
+			EntityLivingBase entity = frozenEntity.getEntity();
 			
-			EntityLivingBase entity = null;
-			
-			if (Minecraft.getMinecraft().thePlayer != null)
-				entity = (EntityLivingBase) Minecraft.getMinecraft().thePlayer.worldObj.getEntityByID(frozenEntity.getEntity().getEntityId());
+			if (entity != null && entity.worldObj != null)
+				entity = (EntityLivingBase) entity.worldObj.getEntityByID(frozenEntity.getEntity().getEntityId());
 			
 			
 			if (entity != null && frozenEntity.hasTicksLeft()) {
