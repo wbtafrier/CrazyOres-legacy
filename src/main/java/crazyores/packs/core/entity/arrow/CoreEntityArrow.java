@@ -483,7 +483,9 @@ public class CoreEntityArrow extends EntityArrow implements IProjectile, IThrowa
 
             if (this.canBePickedUp == 1) {
             	if ((this instanceof EntityFlamingArrow && !player.inventory.addItemStackToInventory(new ItemStack(CoreItems.flamingArrow, 1))) 
-            	|| (this instanceof EntityExplosiveArrow && !player.inventory.addItemStackToInventory(new ItemStack(CoreItems.explosiveArrow, 1)))) {
+            	|| (this instanceof EntityExplosiveArrow && !player.inventory.addItemStackToInventory(new ItemStack(CoreItems.explosiveArrow, 1)))
+            	|| (this instanceof EntityElectricArrow && !player.inventory.addItemStackToInventory(new ItemStack(CoreItems.electricArrow, 1)))
+            	|| (this instanceof EntityFreezingArrow && !player.inventory.addItemStackToInventory(new ItemStack(CoreItems.freezingArrow, 1)))) {
             		canPickUp = false;
             	}
             }

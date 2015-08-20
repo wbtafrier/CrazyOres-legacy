@@ -1,12 +1,16 @@
 package crazyores.packs.core.entity.arrow;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+import crazyores.packs.core.entity.FrozenEntity;
+import crazyores.packs.core.event.FreezeEvent;
 import crazyores.packs.core.item.EnumBowEnhancement;
 
 public class EntityFreezingArrow extends CoreEntityArrow {
@@ -74,7 +78,7 @@ public class EntityFreezingArrow extends CoreEntityArrow {
 			for (int y = -radius + yCenter; y <= radius + yCenter; y++) {
 				for (int z = -radius + zCenter; z <= radius + zCenter; z++) {
 					
-					if (this.worldObj.getBlock(x, y, z).isAssociatedBlock(Blocks.air) && this.worldObj.getBlock(x, y - 1, z).getMaterial().isSolid()) {
+					if ((this.worldObj.getBlock(x, y, z).isAssociatedBlock(Blocks.air) || this.worldObj.getBlock(x, y, z).isAssociatedBlock(Blocks.fire)) && this.worldObj.getBlock(x, y - 1, z).getMaterial().isSolid()) {
 						
 						if (worldObj.rand.nextInt(20) == 0) this.worldObj.setBlock(x, y, z, Blocks.snow);
 						else if (this.worldObj.rand.nextInt(25) == 0) this.worldObj.setBlock(x, y, z, Blocks.ice);
@@ -85,14 +89,13 @@ public class EntityFreezingArrow extends CoreEntityArrow {
 		}
 		
 		List<EntityLivingBase> entitiesInRadius = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(xCenter - radius, yCenter - radius, zCenter - radius, xCenter + radius, yCenter + radius, zCenter + radius));
+		List<FrozenEntity> frozenEntities = new ArrayList<FrozenEntity>();
 		
-		for (EntityLivingBase entity : entitiesInRadius) {
-			
-			
-			//MAKE THEM FREEZE FOR A CERTAIN AMOUNT OF TIME+
-			
-		
+		for (EntityLivingBase e : entitiesInRadius) {
+			frozenEntities.add(new FrozenEntity(e, 200));
 		}
+		
+		FreezeEvent.addEntitiesToList(frozenEntities);
 		
 		this.setDead();
 	}
