@@ -1,19 +1,19 @@
 package crazyores.packs.core.item;
 
-import crazyores.manager.tabs.COTabList;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import crazyores.packs.core.tabs.CoreTabList;
 
 public class ItemCake extends CoreItem {
 
 	private Block block;
 
     public ItemCake(String unlocalizedName, Block block, int stackSize) {
-    	super(unlocalizedName, COTabList.crazyOresBlocksTab);
+    	super(unlocalizedName, CoreTabList.coreFoodTab);
         this.block = block;
         this.setMaxStackSize(stackSize);
     }

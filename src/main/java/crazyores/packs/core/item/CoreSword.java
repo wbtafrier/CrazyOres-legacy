@@ -20,7 +20,7 @@ public String itemUnlocalizedName;
 	protected CoreSword(String unlocalizedName, ToolMaterial toolMaterial) {
 		super(toolMaterial);
 		this.setUnlocalizedName(unlocalizedName);
-		setCreativeTab(CoreTabList.coreToolsTab);
+		setCreativeTab(CoreTabList.coreWeaponsTab);
 	}
 	
 	@Override

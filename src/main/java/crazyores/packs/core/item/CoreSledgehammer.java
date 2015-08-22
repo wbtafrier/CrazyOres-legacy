@@ -28,7 +28,7 @@ public class CoreSledgehammer extends ItemTool {
 		super(2.0f, material, Block.blockRegistry.getKeys());
 		this.damageVsEntity = 4.0F + material.getDamageVsEntity();
 		this.setUnlocalizedName(unlocalizedName);
-		setCreativeTab(CoreTabList.coreToolsTab);
+		this.setCreativeTab(CoreTabList.coreToolsTab);
 	}
 	
 	@Override

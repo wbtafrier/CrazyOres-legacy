@@ -17,10 +17,11 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
+import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import crazyores.manager.pack.COPackManager;
 import crazyores.manager.support.IName;
 import crazyores.packs.core.entity.arrow.CoreEntityArrow;
-import crazyores.packs.core.entity.arrow.EntityElectricArrow;
+import crazyores.packs.core.entity.arrow.EntityLightningArrow;
 import crazyores.packs.core.entity.arrow.EntityExplosiveArrow;
 import crazyores.packs.core.entity.arrow.EntityFlamingArrow;
 import crazyores.packs.core.entity.arrow.EntityFreezingArrow;
@@ -38,7 +39,7 @@ public class CoreBow extends ItemBow implements IName {
 	
 	protected CoreBow(String unlocalizedName, int maxUses, int enchantibility) {
 		this.setUnlocalizedName(unlocalizedName);
-		setCreativeTab(CoreTabList.coreToolsTab);
+		this.setCreativeTab(CoreTabList.coreWeaponsTab);
 		this.maxStackSize = 1;
 		this.setMaxDamage(maxUses);
 		this.enchantibility = enchantibility;
@@ -73,7 +74,7 @@ public class CoreBow extends ItemBow implements IName {
         	if (player.inventory.getStackInSlot(i) == null) continue;
         	
         	Item item = player.inventory.getStackInSlot(i).getItem();
-        	if (item.equals(Items.arrow) || item.equals(CoreItems.freezingArrow) || item.equals(CoreItems.explosiveArrow) || item.equals(CoreItems.flamingArrow) || item.equals(CoreItems.electricArrow)) {
+        	if (item.equals(Items.arrow) || item.equals(CoreItems.freezingArrow) || item.equals(CoreItems.explosiveArrow) || item.equals(CoreItems.flamingArrow) || item.equals(CoreItems.lightningArrow)) {
         		if (!arrows.contains(item)) {
         			arrows.add(item);
         		}
@@ -101,19 +102,19 @@ public class CoreBow extends ItemBow implements IName {
             CoreEntityArrow entityArrow = null;
             
             if (arrow.equals(CoreItems.flamingArrow)) {
-            	entityArrow = new EntityFlamingArrow(world, player, f, getBowEnhancement());
+            	entityArrow = new EntityFlamingArrow(world, player, f * 2.0F, getBowEnhancement());
             }
             else if (arrow.equals(CoreItems.freezingArrow)) {
-            	entityArrow = new EntityFreezingArrow(world, player, f, getBowEnhancement());
+            	entityArrow = new EntityFreezingArrow(world, player, f * 2.0F, getBowEnhancement());
             }
             else if (arrow.equals(CoreItems.explosiveArrow)) {
-            	entityArrow = new EntityExplosiveArrow(world, player, f, getBowEnhancement());
+            	entityArrow = new EntityExplosiveArrow(world, player, f * 2.0F, getBowEnhancement());
             }
-            else if (arrow.equals(CoreItems.electricArrow)) {
-            	entityArrow = new EntityElectricArrow(world, player, f, getBowEnhancement());
+            else if (arrow.equals(CoreItems.lightningArrow)) {
+            	entityArrow = new EntityLightningArrow(world, player, f * 2.0F, getBowEnhancement());
             }
             else {
-            	entityArrow = new EntityVanillaArrow(world, player, f, getBowEnhancement());
+            	entityArrow = new EntityVanillaArrow(world, player, f * 2.0F, getBowEnhancement());
             }
 
             if (f == 1.0F) {
@@ -150,6 +151,23 @@ public class CoreBow extends ItemBow implements IName {
                 world.spawnEntityInWorld(entityArrow);
             }
         }
+    }
+	
+	/**
+     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
+     */
+	@Override
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+        ArrowNockEvent event = new ArrowNockEvent(player, stack);
+        MinecraftForge.EVENT_BUS.post(event);
+        if (event.isCanceled()) {
+            return event.result;
+        }
+
+        if (player.capabilities.isCreativeMode || player.inventory.hasItem(Items.arrow) || player.inventory.hasItem(CoreItems.flamingArrow) || player.inventory.hasItem(CoreItems.freezingArrow) || player.inventory.hasItem(CoreItems.explosiveArrow) || player.inventory.hasItem(CoreItems.lightningArrow)) {
+            player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
+        }
+        return stack;
     }
 	
 	/**

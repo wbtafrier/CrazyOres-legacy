@@ -60,6 +60,6 @@ public class TapaziteObeliskEvent {
 		obeliskData.get(index).updatePlayerPosition();
 		obeliskData.get(index).updateBlock();
 		obeliskData.get(index).updateLightPosition();
-		obeliskData.get(index).updateYPos();
+		obeliskData.get(index).updatePosition();
 	}
 }

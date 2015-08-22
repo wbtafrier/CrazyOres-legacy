@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL12;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.packs.core.entity.arrow.CoreEntityArrow;
-import crazyores.packs.core.entity.arrow.EntityElectricArrow;
+import crazyores.packs.core.entity.arrow.EntityLightningArrow;
 import crazyores.packs.core.entity.arrow.EntityExplosiveArrow;
 import crazyores.packs.core.entity.arrow.EntityFlamingArrow;
 import crazyores.packs.core.entity.arrow.EntityFreezingArrow;
@@ -96,7 +96,7 @@ public class CoreRenderArrow extends Render {
     	else if (entity instanceof EntityExplosiveArrow) {
     		return CoreResourceHandler.EXPLOSIVE_ARROW_TEXTURE;
     	}
-    	else if (entity instanceof EntityElectricArrow) {
+    	else if (entity instanceof EntityLightningArrow) {
     		return CoreResourceHandler.ELECTRIC_ARROW_TEXTURE;
     	}
     	else if (entity instanceof EntityFreezingArrow) {

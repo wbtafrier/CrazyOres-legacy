@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.entity.RenderSnowball;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import crazyores.packs.core.entity.EntityZectiumCore;
-import crazyores.packs.core.entity.arrow.EntityElectricArrow;
+import crazyores.packs.core.entity.arrow.EntityLightningArrow;
 import crazyores.packs.core.entity.arrow.EntityExplosiveArrow;
 import crazyores.packs.core.entity.arrow.EntityFlamingArrow;
 import crazyores.packs.core.entity.arrow.EntityFreezingArrow;
@@ -54,7 +54,7 @@ public class CoreRenderRegistry {
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlamingArrow.class, new CoreRenderArrow());
 		RenderingRegistry.registerEntityRenderingHandler(EntityExplosiveArrow.class, new CoreRenderArrow());
-		RenderingRegistry.registerEntityRenderingHandler(EntityElectricArrow.class, new CoreRenderArrow());
+		RenderingRegistry.registerEntityRenderingHandler(EntityLightningArrow.class, new CoreRenderArrow());
 		RenderingRegistry.registerEntityRenderingHandler(EntityFreezingArrow.class, new CoreRenderArrow());
 	}
 	

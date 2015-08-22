@@ -1,7 +1,11 @@
 package crazyores.packs.core.event;
 
 import java.util.Random;
+import java.util.UUID;
 
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -12,15 +16,19 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import crazyores.packs.core.entity.FrozenEntity;
 import crazyores.packs.core.item.CoreArmor;
 import crazyores.packs.core.item.CoreItems;
 
 public class CoreActionsEvent {
 	
 	private static Random eventRand = new Random();
+	public static final AttributeModifier slowness = (new AttributeModifier(UUID.fromString("7107DE5E-7CE8-4030-940E-514C1F160892"), "potion.moveArmorSlowdown", -0.1D, 2));
+	public static final AttributeModifier speed = (new AttributeModifier(UUID.fromString("7107DE5E-7CE8-4030-940E-514C1F160893"), "potion.moveArmorSpeed", 0.2D, 2));
 	
 	@SubscribeEvent
 	public void armorEvent(LivingEvent event) {
+		
 		
 		if (event.entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer)event.entity;
@@ -34,6 +42,8 @@ public class CoreActionsEvent {
 				}
 			}
 			
+			IAttributeInstance instance = event.entityLiving.getEntityAttribute(SharedMonsterAttributes.movementSpeed);
+
 			if (isFullArmorSet) {
 				
 				for (int i = 0; i < armor.length; i++) {
@@ -84,14 +94,16 @@ public class CoreActionsEvent {
 				}
 				else if (armor[0].getItem().equals(CoreItems.zectiumBoots) && armor[1].getItem().equals(CoreItems.zectiumLeggings) && armor[2].getItem().equals(CoreItems.zectiumChestplate) && armor[3].getItem().equals(CoreItems.zectiumHelmet)) {
 				
+					if (instance.getModifier(slowness.getID()) == null) {
+						instance.applyModifier(slowness);
+					}
+					
 					if (event instanceof LivingAttackEvent) {
 						LivingAttackEvent hurtEvent = (LivingAttackEvent)event;
 						DamageSource damage = hurtEvent.source;
 						
 						if (damage.isExplosion()) {
 						
-							System.out.println("HELLO");
-							
 							float preAmount = hurtEvent.ammount;
 							int armorDamage = MathHelper.floor_float(preAmount);
 							
@@ -99,9 +111,6 @@ public class CoreActionsEvent {
 								player.inventory.damageArmor(armorDamage / 2.0f);
 							}
 							
-							if (player.worldObj.isRemote) {
-								player.capabilities.setPlayerWalkSpeed(0.09f);
-							}
 							event.setCanceled(true);
 						}
 					}
@@ -159,18 +168,24 @@ public class CoreActionsEvent {
 					}
 				}
 				else if (armor[0].getItem().equals(CoreItems.osmoniumBoots) && armor[1].getItem().equals(CoreItems.osmoniumLeggings) && armor[2].getItem().equals(CoreItems.osmoniumChestplate) && armor[3].getItem().equals(CoreItems.osmoniumHelmet)) {
-					if (player.worldObj.isRemote) {
-						player.capabilities.setPlayerWalkSpeed(0.2f);
+					
+					if(instance.getModifier(speed.getID()) == null) {
+						instance.applyModifier(speed);
 					}
 				}
 			}
 			else {
-				if (player.worldObj.isRemote) {
-					player.capabilities.setPlayerWalkSpeed(0.1f);
+				
+				if(instance.getModifier(speed.getID()) != null) {
+					instance.removeModifier(speed);
 				}
-					
+				
+				if (instance.getModifier(slowness.getID()) != null) {
+					instance.removeModifier(slowness);
+				}
+				
 				for (int i = 0; i < armor.length; i++) {
-					if (armor[i] == null || armor[i].getItem() instanceof CoreArmor) continue;
+					if (armor[i] == null || !(armor[i].getItem() instanceof CoreArmor)) continue;
 					CoreArmor slot = (CoreArmor)armor[i].getItem();
 					slot.setInvisiumEffect(false);
 				}

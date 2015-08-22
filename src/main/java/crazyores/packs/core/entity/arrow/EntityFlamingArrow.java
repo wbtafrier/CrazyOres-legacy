@@ -1,5 +1,6 @@
 package crazyores.packs.core.entity.arrow;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.block.Block;
@@ -19,10 +20,14 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+import crazyores.packs.core.entity.FrozenEntity;
+import crazyores.packs.core.event.FreezeEvent;
 import crazyores.packs.core.item.EnumBowEnhancement;
 
 public class EntityFlamingArrow extends CoreEntityArrow {
 
+	private static final int DEFAULT_RADIUS = 2;
+	
 	public EntityFlamingArrow(World world) {
         super(world);
     }
@@ -93,6 +98,20 @@ public class EntityFlamingArrow extends CoreEntityArrow {
                     }
             	}
             }
+        }
+        
+        if (this.getEnhancement().equals(EnumBowEnhancement.FIRE)) {
+        	
+        	if (this.movingobjectposition != null && this.movingobjectposition.entityHit != null) {
+            	int x = (int)this.movingobjectposition.entityHit.posX;
+    			int y = (int)this.movingobjectposition.entityHit.posY;
+    			int z = (int)this.movingobjectposition.entityHit.posZ;
+    			spreadHellBitches(x, y, z, DEFAULT_RADIUS, 4, 10);
+            }
+        	
+        	if (inGround) {
+        		spreadHellBitches(currentX, currentY, currentZ, DEFAULT_RADIUS, 4, 10);
+        	}
         }
 	}
 }

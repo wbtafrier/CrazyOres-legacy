@@ -62,7 +62,7 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 		super.setHardness(hardness);
 		super.setResistance(resistance);
 	}
-
+	
 	public static boolean correctLightingForGrowth(World world, int x, int y, int z) {
 
 		if (world.getBlockLightValue(x, y + 1, z) <= 8 && world.getBlockLightValue(x, y - 1, z) <= 8 && world.getBlockLightValue(x + 1, y, z) <= 8 &&

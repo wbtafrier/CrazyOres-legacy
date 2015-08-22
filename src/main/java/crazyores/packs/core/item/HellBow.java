@@ -3,8 +3,6 @@ package crazyores.packs.core.item;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,37 +13,26 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
-import net.minecraftforge.event.entity.player.ArrowNockEvent;
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.packs.core.entity.arrow.CoreEntityArrow;
-import crazyores.packs.core.entity.arrow.EntityLightningArrow;
 import crazyores.packs.core.entity.arrow.EntityExplosiveArrow;
 import crazyores.packs.core.entity.arrow.EntityFlamingArrow;
 import crazyores.packs.core.entity.arrow.EntityFreezingArrow;
+import crazyores.packs.core.entity.arrow.EntityLightningArrow;
 import crazyores.packs.core.entity.arrow.EntityVanillaArrow;
 
-public class SwiftBow extends CoreBow {
+public class HellBow extends CoreBow {
 
-	private static final float ARROW_SPEED_BOOST = 2.5f;
-	public static final int PULL_BACK_SPEED_BOOST = 5;
+	public static final float PULL_BACK_SPEED_REDUCTION = 0.7f;
 	
-	protected SwiftBow(String unlocalizedName, int maxUses, int enchantability) {
+	protected HellBow(String unlocalizedName, int maxUses, int enchantability) {
 		super(unlocalizedName, maxUses, enchantability);
 	}
 	
 	@Override
-	public EnumBowEnhancement getBowEnhancement() {
-		return EnumBowEnhancement.SWIFT;
-	}
-	
-	/**
-     * called when the player releases the use item button. Args: itemstack, world, entityplayer, itemInUseCount
-     */
-	@Override
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int itemInUseCount) {
-        int j = (this.getMaxItemUseDuration(stack) - itemInUseCount) * PULL_BACK_SPEED_BOOST;
+        int j = (int)((this.getMaxItemUseDuration(stack) - itemInUseCount) * PULL_BACK_SPEED_REDUCTION);
 
         ArrowLooseEvent event = new ArrowLooseEvent(player, stack, j);
         MinecraftForge.EVENT_BUS.post(event);
@@ -92,19 +79,19 @@ public class SwiftBow extends CoreBow {
             CoreEntityArrow entityArrow = null;
             
             if (arrow.equals(CoreItems.flamingArrow)) {
-            	entityArrow = new EntityFlamingArrow(world, player, f * ARROW_SPEED_BOOST, getBowEnhancement());
+            	entityArrow = new EntityFlamingArrow(world, player, f * 2.0f, getBowEnhancement());
             }
             else if (arrow.equals(CoreItems.freezingArrow)) {
-            	entityArrow = new EntityFreezingArrow(world, player, f * ARROW_SPEED_BOOST, getBowEnhancement());
+            	entityArrow = new EntityFreezingArrow(world, player, f * 2.0f, getBowEnhancement());
             }
             else if (arrow.equals(CoreItems.explosiveArrow)) {
-            	entityArrow = new EntityExplosiveArrow(world, player, f * ARROW_SPEED_BOOST, getBowEnhancement());
+            	entityArrow = new EntityExplosiveArrow(world, player, f * 2.0f, getBowEnhancement());
             }
             else if (arrow.equals(CoreItems.lightningArrow)) {
-            	entityArrow = new EntityLightningArrow(world, player, f * ARROW_SPEED_BOOST, getBowEnhancement());
+            	entityArrow = new EntityLightningArrow(world, player, f * 2.0f, getBowEnhancement());
             }
             else {
-            	entityArrow = new EntityVanillaArrow(world, player, f * ARROW_SPEED_BOOST, getBowEnhancement());
+            	entityArrow = new EntityVanillaArrow(world, player, f * 2.0f, getBowEnhancement());
             }
 
             if (f == 1.0F) {
@@ -142,12 +129,18 @@ public class SwiftBow extends CoreBow {
             }
         }
     }
-
+	
+	
+	@Override
+	public EnumBowEnhancement getBowEnhancement() {
+		return EnumBowEnhancement.FIRE;
+	}
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
 		if (player.getItemInUse() != null && stack.getItem() == this) {
-			int duration = (stack.getMaxItemUseDuration() - useRemaining) * PULL_BACK_SPEED_BOOST;
+			int duration = (int)((stack.getMaxItemUseDuration() - useRemaining) * PULL_BACK_SPEED_REDUCTION);
 
             if (duration >= 18) {
                 return this.getItemIconForUseDuration(2);

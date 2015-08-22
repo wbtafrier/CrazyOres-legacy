@@ -5,32 +5,32 @@ import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.world.World;
 import crazyores.packs.core.item.EnumBowEnhancement;
 
-public class EntityElectricArrow extends CoreEntityArrow {
+public class EntityLightningArrow extends CoreEntityArrow {
 
 	private int lighteningStrikes;
 	private boolean randomizeStrikes;
 	
-	public EntityElectricArrow(World world) {
+	public EntityLightningArrow(World world) {
         super(world);
         init();
     }
 
-    public EntityElectricArrow(World world, double x, double y, double z) {
+    public EntityLightningArrow(World world, double x, double y, double z) {
         super(world, x, y, z);
         init();
     }
     
-    public EntityElectricArrow(World world, EntityLivingBase shootingEntity, float speed) {
+    public EntityLightningArrow(World world, EntityLivingBase shootingEntity, float speed) {
       super(world, shootingEntity, speed);
       init();
   }
 
-    public EntityElectricArrow(World world, EntityLivingBase shootingEntity, float speed, EnumBowEnhancement enhancement) {
+    public EntityLightningArrow(World world, EntityLivingBase shootingEntity, float speed, EnumBowEnhancement enhancement) {
         super(world, shootingEntity, speed, enhancement);
         init();
     }
     
-    public EntityElectricArrow(World world, EntityLivingBase shootingEntity, EntityLivingBase idk, float idk2, float idk3) {
+    public EntityLightningArrow(World world, EntityLivingBase shootingEntity, EntityLivingBase idk, float idk2, float idk3) {
         super(world, shootingEntity, idk, idk2, idk3);
         init();
     }
@@ -73,6 +73,8 @@ public class EntityElectricArrow extends CoreEntityArrow {
 		for (int i = 0; i < lighteningStrikes; i++) {
 			this.worldObj.addWeatherEffect(new EntityLightningBolt(this.worldObj, x + rand.nextDouble(), y, z + rand.nextDouble()));
 		}
+		
+		if (this.getEnhancement().equals(EnumBowEnhancement.FIRE)) this.spreadHellBitches((int)x, (int)y, (int)z, 2, 4, false);
 		
 		this.setDead();
 	}

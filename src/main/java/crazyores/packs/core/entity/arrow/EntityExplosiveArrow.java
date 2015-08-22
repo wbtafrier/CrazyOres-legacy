@@ -22,51 +22,34 @@ import crazyores.packs.core.item.EnumBowEnhancement;
 
 public class EntityExplosiveArrow extends CoreEntityArrow {
 
-	private float explosionStrength;
-	private float chargedBonus;
+	private static final int DEFAULT_RADIUS = 5;
+	private static final float RADIUS_BONUS = 1.5f;
 	
 	public EntityExplosiveArrow(World world) {
         super(world);
-        init();
     }
 
     public EntityExplosiveArrow(World world, double x, double y, double z) {
         super(world, x, y, z);
-        init();
     }
     
     public EntityExplosiveArrow(World world, EntityLivingBase shootingEntity, float speed) {
       super(world, shootingEntity, speed);
-      init();
   }
 
     public EntityExplosiveArrow(World world, EntityLivingBase shootingEntity, float speed, EnumBowEnhancement enhancement) {
         super(world, shootingEntity, speed, enhancement);
-        init();
     }
     
     public EntityExplosiveArrow(World world, EntityLivingBase shootingEntity, EntityLivingBase idk, float idk2, float idk3) {
         super(world, shootingEntity, idk, idk2, idk3);
-        init();
     }
     
-    private void init() {
-    	chargedBonus = 1.0f;
-    	
-    	if (this.getEnhancement().equals(EnumBowEnhancement.BOOSTER)) explosionStrength = 2.0f;
-    	else if (this.getEnhancement().equals(EnumBowEnhancement.DUAL)) explosionStrength = 3.0f;
-    	else explosionStrength = 3.0f;
-    }
-	
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
 		
 		if (!this.worldObj.isRemote) {
-			
-			if (this.getIsCritical()) {
-				chargedBonus = 1.5f;
-			}
 			
 			if (this.movingobjectposition != null && this.movingobjectposition.entityHit != null) {
             	double x = this.movingobjectposition.entityHit.posX;
@@ -82,7 +65,12 @@ public class EntityExplosiveArrow extends CoreEntityArrow {
 	}
 	
 	private void explode(double x, double y, double z) {
-		this.worldObj.newExplosion(this, x, y, z, explosionStrength * chargedBonus, this.getEnhancement().equals(EnumBowEnhancement.FIRE) ? true : false, true);
+		int radius = isCrit ? (int)(DEFAULT_RADIUS * RADIUS_BONUS) : DEFAULT_RADIUS;
+		
+		boolean isFireBow = this.getEnhancement().equals(EnumBowEnhancement.FIRE);
+		this.worldObj.newExplosion(this, x, y, z, radius, isFireBow ? true : false, true);
+		
+		if (isFireBow) this.spreadHellBitches((int)x, (int)y, (int)z, radius, 4, 30);
 		this.setDead();
 	}
 }

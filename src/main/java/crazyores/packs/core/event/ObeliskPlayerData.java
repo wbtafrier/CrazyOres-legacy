@@ -34,7 +34,7 @@ public class ObeliskPlayerData {
 	public synchronized void updateLightPosition() {
 		if (playerPosX < 0) lightX = playerPosX - 1;
 		else lightX = playerPosX;
-		lightY = playerPosY;
+		lightY = playerPosY + 1;
 		if (playerPosZ < 0) lightZ = playerPosZ - 1;
 		else lightZ = playerPosZ;
 	}
@@ -63,15 +63,50 @@ public class ObeliskPlayerData {
 //		}
 	}
 	
-	public synchronized void updateYPos() {
+	public synchronized void updatePosition() {
 		World world = player.worldObj;
 		
-		for (int y = 0; y < 3; y++) {
+		for (int y = 0; y >= -1; y--) {
 			if (world.getBlock((int)lightX, (int)lightY + y, (int)lightZ).isAir(world, (int)lightX, (int)lightY + y, (int)lightZ)) {
 				this.lightY += y;
 				this.setLightBlock(world);
-				break;
+				return;
 			}
+		}
+
+		for (int x = 0; x >= -1; x--) {
+			if (world.getBlock((int)lightX + x, (int)lightY, (int)lightZ).isAir(world, (int)lightX + x, (int)lightY, (int)lightZ)) {
+				this.lightX += x;
+				this.setLightBlock(world);
+				return;
+			}
+		}
+		
+		for (int z = 0; z >= -1; z--) {
+			if (world.getBlock((int)lightX, (int)lightY, (int)lightZ + z).isAir(world, (int)lightX, (int)lightY, (int)lightZ + z)) {
+				this.lightZ += z;
+				this.setLightBlock(world);
+				return;
+			}
+		}
+		
+		if (world.getBlock((int)lightX, (int)lightY + 1, (int)lightZ).isAir(world, (int)lightY + 1, (int)lightY, (int)lightZ)) {
+			this.lightY += 1;
+			this.setLightBlock(world);
+			return;
+		}
+		
+		
+		if (world.getBlock((int)lightX + 1, (int)lightY, (int)lightZ).isAir(world, (int)lightX + 1, (int)lightY, (int)lightZ)) {
+			this.lightX += 1;
+			this.setLightBlock(world);
+			return;
+		}
+		
+		if (world.getBlock((int)lightX, (int)lightY, (int)lightZ + 1).isAir(world, (int)lightX, (int)lightY, (int)lightZ + 1)) {
+			this.lightZ += 1;
+			this.setLightBlock(world);
+			return;
 		}
 	}
 	
