@@ -53,6 +53,15 @@ chocolate_cake.name=Chocolate Cake
 strawberry_cake.name=Strawberry Cake
 birthday_cake.name=Birthday Cake
 
+reinforced_glass.name=Reinforced Glass
+smooth_reinforced_glass.name=Smooth Reinforced Glass
+
+reinforced_brick.name=Reinforced Brick
+diagonal_reinforced_brick.name=Diagonal Reinforced Brick
+
+diagonal_brick.name=Diagonal Brick
+
+
 # GUI LOCALIZATION
 container.demonite_furnace=Demonite Furnace
 
@@ -268,19 +277,17 @@ ender_rod.name=Ender Rod
 
 # BOW LIST 
 meteorite_bow.name=Hell Bow (needs texture)
+osmonium_bow.name=Swift Bow (needs texture)
+invisium_bow.name=Dual Shot Bow (needs texture)
+ender_bow.name=Confusion Bow (needs texture)
 
 
 copper_bow.name=Copper Bow
-invisium_bow.name=Invisium Bow
 sapphire_bow.name=Sapphire Bow
 adamite_bow.name=Adamite Bow
 ruby_bow.name=Ruby Bow
 zectium_bow.name=Zectium Bow
 tapazite_bow.name=Tapazite Bow
-
-osmonium_bow.name=Swift Bow (needs texture)
-
-ender_bow.name=Ender Bow
 starconium_bow.name=Starconium Bow
 
 # ARROW LIST 

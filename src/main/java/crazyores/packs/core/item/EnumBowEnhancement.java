@@ -10,5 +10,5 @@ public enum EnumBowEnhancement {
 	SWIFT,
 	FIRE,
 	DUAL,
-	BOOSTER;
+	POISON;
 }

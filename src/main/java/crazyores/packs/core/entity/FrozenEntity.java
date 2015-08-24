@@ -41,6 +41,8 @@ public class FrozenEntity {
 		
 		if (b && instance.getModifier(slowness.getID()) == null) {
 			entity.getEntityAttribute(SharedMonsterAttributes.movementSpeed).applyModifier(slowness);
+			if (entity.isBurning()) entity.extinguish();
+			
 			System.out.println("ADDING");
 		}
 		else if (instance.getModifier(slowness.getID()) != null) {

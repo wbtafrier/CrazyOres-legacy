@@ -23,10 +23,15 @@ public class EntityLightningArrow extends CoreEntityArrow {
     public EntityLightningArrow(World world, EntityLivingBase shootingEntity, float speed) {
       super(world, shootingEntity, speed);
       init();
-  }
+	}
 
     public EntityLightningArrow(World world, EntityLivingBase shootingEntity, float speed, EnumBowEnhancement enhancement) {
         super(world, shootingEntity, speed, enhancement);
+        init();
+    }
+    
+    public EntityLightningArrow(World world, EntityLivingBase shootingEntity, double verticalOffset, float speed, EnumBowEnhancement enhancement) {
+        super(world, shootingEntity, verticalOffset, speed, enhancement);
         init();
     }
     

@@ -73,16 +73,27 @@ public class CoreBlocks {
 	public static Block demoniteFurnaceLit;
 	
 	//Ender Blocks
-	//TODO: Add the Ender Blocks.
 	public static Block enderBlock;
 //	public static Block ultraBlock;
 	
 //	public static Block darkstoneBlock;
 //	public static Block luminiteBlock;
 	
+	
+	//Decoration Blocks
+	
+	//Cake!
 	public static Block chocolateCake;
 	public static Block strawberryCake;
 	public static Block birthdayCake;
+	
+	//Materials
+	public static Block reinforcedGlass;
+	public static Block smoothReinforcedGlass;
+	
+	public static Block reinforcedBrick;
+	public static Block diagonalReinforcedBrick;
+	public static Block diagonalBrick;
 	
 	public static void initBlocks() {
 		tapaziteLightSource = new BlockLightSource("tapazite_light_source", Material.air, 0.75F, 1.2F, 3.0F); registerBlock(tapaziteLightSource);
@@ -152,6 +163,13 @@ public class CoreBlocks {
 		chocolateCake = new BlockCake("chocolate_cake", "chocolate", 8); registerBlock(chocolateCake);
 		strawberryCake = new BlockCake("strawberry_cake", "strawberry", 10); registerBlock(strawberryCake);
 		birthdayCake = new BlockCake("birthday_cake", "birthday", 12); registerBlock(birthdayCake);
+		
+		reinforcedGlass = new CoreGlass("reinforced_glass", true, 1.0f, 100.0f); registerBlock(reinforcedGlass);
+		smoothReinforcedGlass = new CoreGlass("smooth_reinforced_glass", true, 1.0f, 100.0f); registerBlock(smoothReinforcedGlass);
+		
+		reinforcedBrick = new CoreBlock("reinforced_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 4.0f, 100.0f); registerBlock(reinforcedBrick);
+		diagonalReinforcedBrick = new CoreBlock("diagonal_reinforced_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 4.0f, 100.0f); registerBlock(diagonalReinforcedBrick);
+		diagonalBrick =  new CoreBlock("diagonal_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 2.0f, 10.0f); registerBlock(diagonalBrick);
 	}
 	
 	/**
