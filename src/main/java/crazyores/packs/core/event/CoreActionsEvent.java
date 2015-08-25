@@ -3,6 +3,7 @@ package crazyores.packs.core.event;
 import java.util.Random;
 import java.util.UUID;
 
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
@@ -14,9 +15,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import crazyores.packs.core.entity.FrozenEntity;
 import crazyores.packs.core.item.CoreArmor;
 import crazyores.packs.core.item.CoreItems;
 
@@ -28,8 +29,6 @@ public class CoreActionsEvent {
 	
 	@SubscribeEvent
 	public void armorEvent(LivingEvent event) {
-		
-		
 		if (event.entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer)event.entity;
 			ItemStack[] armor = player.inventory.armorInventory;
@@ -41,7 +40,6 @@ public class CoreActionsEvent {
 					break;
 				}
 			}
-			
 			IAttributeInstance instance = event.entityLiving.getEntityAttribute(SharedMonsterAttributes.movementSpeed);
 
 			if (isFullArmorSet) {
@@ -86,6 +84,7 @@ public class CoreActionsEvent {
 					}
 					
 					player.setInvisible(invisiumEffect);
+					System.out.println("Invisible: " + player.isInvisible());
 				}
 				else if (armor[0].getItem().equals(CoreItems.adamiteBoots) && armor[1].getItem().equals(CoreItems.adamiteLeggings) && armor[2].getItem().equals(CoreItems.adamiteChestplate) && armor[3].getItem().equals(CoreItems.adamiteHelmet)) {
 					if (player.isInWater()) {
@@ -190,6 +189,16 @@ public class CoreActionsEvent {
 					slot.setInvisiumEffect(false);
 				}
 				player.setInvisible(player.isPotionActive(Potion.invisibility));
+			}
+		}
+		else if (event instanceof LivingSetAttackTargetEvent) {
+			LivingSetAttackTargetEvent attackEvent = (LivingSetAttackTargetEvent)event;
+			if (attackEvent.target != null && attackEvent.target instanceof EntityPlayer) {
+				EntityPlayer player = (EntityPlayer)attackEvent.target;
+				ItemStack[] armor = player.inventory.armorInventory;
+				if (player.isInvisible() && armor[0].getItem().equals(CoreItems.invisiumBoots) && armor[1].getItem().equals(CoreItems.invisiumLeggings) && armor[2].getItem().equals(CoreItems.invisiumChestplate) && armor[3].getItem().equals(CoreItems.invisiumHelmet)) {
+					((EntityLiving) attackEvent.entity).setAttackTarget(null);
+				}
 			}
 		}
 	}
