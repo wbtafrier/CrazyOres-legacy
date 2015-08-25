@@ -207,7 +207,7 @@ public class CoreItems {
 	public static Item swiftBow;
 	public static Item hellBow;
 	public static Item dualShotBow;
-	public static Item boosterBow;
+	public static Item confusionBow;
 	
 	/** Arrow List **/
 	
@@ -223,7 +223,7 @@ public class CoreItems {
 	public static Item flamingArrowhead;
 	public static Item explosiveArrowhead;
 	public static Item freezingArrowhead;
-	public static Item electricArrowhead;
+	public static Item lightningArrowhead;
 
 	public static void initItems() {
 		initOreDrops();
@@ -288,9 +288,8 @@ public class CoreItems {
 	private static void initBowsArrows() {
 		swiftBow = new SwiftBow("osmonium_bow", 540, 10); registerItem(swiftBow);
 		hellBow = new HellBow("meteorite_bow", 366, 10); registerItem(hellBow);
-//		hellBow;
-//		dualShotBow;
-//		boosterBow;
+		dualShotBow = new DualBow("invisium_bow", 410, 10); registerItem(dualShotBow);
+		confusionBow = new ConfusionBow("ender_bow", 300, 10); registerItem(confusionBow);
 		
 		//TODO: MAKE TEXTURES!!!!!1
 		flamingArrow = new CoreItem("meteorite_arrow", CoreTabList.coreWeaponsTab); registerItem(flamingArrow);

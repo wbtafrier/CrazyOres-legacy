@@ -53,6 +53,8 @@ public class CoreHarvestLevels {
 		Blocks.coal_block.setHarvestLevel(PICKAXE, 0);
 		Blocks.coal_ore.setHarvestLevel(PICKAXE, 0);
 		
+		CoreBlocks.diagonalBrick.setHarvestLevel(PICKAXE, 0);
+		
 		Blocks.gold_block.setHarvestLevel(PICKAXE, 2);
 		Blocks.gold_ore.setHarvestLevel(PICKAXE, 2);
 		
@@ -99,6 +101,8 @@ public class CoreHarvestLevels {
 		
 		CoreBlocks.zectiumOre.setHarvestLevel(PICKAXE, 7);
 		CoreBlocks.zectiumBlock.setHarvestLevel(PICKAXE, 7);
+		CoreBlocks.reinforcedBrick.setHarvestLevel(PICKAXE, 7);
+		CoreBlocks.diagonalReinforcedBrick.setHarvestLevel(PICKAXE, 7);
 		
 		CoreBlocks.osmoniumOre.setHarvestLevel(PICKAXE, 9);
 		CoreBlocks.osmoniumBlock.setHarvestLevel(PICKAXE, 9);

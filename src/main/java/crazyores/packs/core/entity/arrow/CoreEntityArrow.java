@@ -1,6 +1,7 @@
 package crazyores.packs.core.entity.arrow;
 
 import java.util.List;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -15,18 +16,24 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.play.server.S12PacketEntityVelocity;
 import net.minecraft.network.play.server.S2BPacketChangeGameState;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import cpw.mods.fml.common.registry.IThrowableEntity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.packs.core.item.CoreItems;
 import crazyores.packs.core.item.EnumBowEnhancement;
+import crazyores.packs.core.item.ConfusionBow;
 
 public class CoreEntityArrow extends EntityArrow implements IProjectile, IThrowableEntity {
 
@@ -57,7 +64,13 @@ public class CoreEntityArrow extends EntityArrow implements IProjectile, IThrowa
     
     public CoreEntityArrow(World world, EntityLivingBase shootingEntity, float speed) {
       super(world, shootingEntity, speed);
-  }
+    }
+    
+    public CoreEntityArrow(World world, EntityLivingBase shootingEntity, double verticalOffset, float speed, EnumBowEnhancement enhancement) {
+        this(world, shootingEntity, speed);
+        this.bowEnhancement = enhancement;
+        this.posY += verticalOffset;
+    }
 
     public CoreEntityArrow(World world, EntityLivingBase shootingEntity, float speed, EnumBowEnhancement enhancement) {
         this(world, shootingEntity, speed);
@@ -198,6 +211,11 @@ public class CoreEntityArrow extends EntityArrow implements IProjectile, IThrowa
                     }
 
                     if (movingobjectposition.entityHit.attackEntityFrom(damagesource, (float)k)) {
+                    	
+                    	if (this.getEnhancement().equals(EnumBowEnhancement.POISON)) {
+    						this.confuseEntities((int)entity.posX, (int)entity.posY, (int)entity.posZ, 5);
+        				}
+                    	
                         if (movingobjectposition.entityHit instanceof EntityLivingBase) {
                             EntityLivingBase entitylivingbase = (EntityLivingBase)movingobjectposition.entityHit;
 
@@ -312,6 +330,14 @@ public class CoreEntityArrow extends EntityArrow implements IProjectile, IThrowa
             this.motionY -= (double)f1;
             this.setPosition(this.posX, this.posY, this.posZ);
             this.func_145775_I();
+            
+            if (inGround) {
+            	if (this.getEnhancement().equals(EnumBowEnhancement.POISON)) {
+					this.confuseEntities(currentX, currentY, currentZ, 5);
+					this.teleportPlayer((EntityLivingBase)this.getThrower());
+					return;
+				}
+            }
         }
     }
 
@@ -395,4 +421,55 @@ public class CoreEntityArrow extends EntityArrow implements IProjectile, IThrowa
 	protected void spreadHellBitches(int xCenter, int yCenter, int zCenter, int defaultRadius, int randFire, boolean lava) {
 		this.spreadHellBitches(xCenter, yCenter, zCenter, defaultRadius, randFire, -1);
 	}
+	
+	protected void confuseEntities(int currX, int currY, int currZ, int radius) {
+		
+		if (!this.worldObj.isRemote) {
+			List<EntityLivingBase> entitiesInRadius = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(currX - radius, currY - radius, currZ - radius, currX + radius, currY + radius, currZ + radius));
+			
+			for (EntityLivingBase entity : entitiesInRadius) {
+				Random rand = entity.getRNG();
+				
+				if (rand.nextInt(2) == 0) entity.motionX += 0.8f + (rand.nextDouble());
+				else entity.motionX -= 0.8f + (rand.nextDouble());
+				
+				if (rand.nextInt(2) == 0) entity.motionY += 0.8f + (rand.nextDouble()) * (isCrit ? rand.nextInt(4) + 1 : rand.nextInt(2) + 1);
+				else entity.motionY -= 0.8f + (rand.nextDouble()) * (isCrit ? 2 : 1);
+				
+				if (rand.nextInt(2) == 0) entity.motionZ += 0.8f + (rand.nextDouble());
+				else entity.motionZ -= 0.8f + (rand.nextDouble());
+				
+				if (entity instanceof EntityPlayer)
+					((EntityPlayerMP)entity).playerNetServerHandler.sendPacket(new S12PacketEntityVelocity(entity));
+				
+				entity.addPotionEffect(new PotionEffect(Potion.confusion.id, ConfusionBow.NAUSEA_EFFECT, 0));
+			}
+			this.setDead();
+		}
+	}
+	
+	protected void teleportPlayer(EntityLivingBase player) {
+
+        if (!this.worldObj.isRemote) {
+            if (player != null && player instanceof EntityPlayerMP) {
+                EntityPlayerMP entityplayermp = (EntityPlayerMP)player;
+
+                if (entityplayermp.playerNetServerHandler.func_147362_b().isChannelOpen() && entityplayermp.worldObj == this.worldObj) {
+                    EnderTeleportEvent event = new EnderTeleportEvent(entityplayermp, this.posX, this.posY, this.posZ, 2.0F);
+                    
+                    if (!MinecraftForge.EVENT_BUS.post(event)) { // Don't indent to lower patch size
+                    if (player.isRiding()) {
+                    	player.mountEntity((Entity)null);
+                    }
+
+                    player.setPositionAndUpdate(event.targetX, event.targetY, event.targetZ);
+                    player.fallDistance = 0.0F;
+                    player.attackEntityFrom(DamageSource.fall, event.attackDamage);
+                    }
+                }
+            }
+
+            this.setDead();
+        }
+    }
 }

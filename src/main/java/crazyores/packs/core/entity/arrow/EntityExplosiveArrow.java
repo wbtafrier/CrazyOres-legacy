@@ -35,10 +35,14 @@ public class EntityExplosiveArrow extends CoreEntityArrow {
     
     public EntityExplosiveArrow(World world, EntityLivingBase shootingEntity, float speed) {
       super(world, shootingEntity, speed);
-  }
+	}
 
     public EntityExplosiveArrow(World world, EntityLivingBase shootingEntity, float speed, EnumBowEnhancement enhancement) {
         super(world, shootingEntity, speed, enhancement);
+    }
+    
+    public EntityExplosiveArrow(World world, EntityLivingBase shootingEntity, double verticalOffset, float speed, EnumBowEnhancement enhancement) {
+        super(world, shootingEntity, verticalOffset, speed, enhancement);
     }
     
     public EntityExplosiveArrow(World world, EntityLivingBase shootingEntity, EntityLivingBase idk, float idk2, float idk3) {
