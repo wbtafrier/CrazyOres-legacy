@@ -1,5 +1,6 @@
 package crazyores.packs.core.item;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -115,6 +116,11 @@ public class CoreItems {
 
 	public static Item starconiumSledgehammer;
 
+	/** Bucket List **/
+	public static Item copperBucketEmpty;
+	public static Item copperBucketWater;
+	public static Item copperBucketLava;
+	public static Item copperBucketMilk;
 	
 	/** Helmet List **/
 
@@ -185,13 +191,6 @@ public class CoreItems {
 	public static Item greatWhiteSharkEgg;
 	public static Item adamiteSharkEgg;
 	
-	/** Bucket List **/
-/*
-	public static Item copperBucketEmpty;
-	public static Item copperBucketWater;
-	public static Item copperBucketLava;
-*/
-	
 	/** Rod List **/
 /*
 	public static Item copperRod;
@@ -239,7 +238,7 @@ public class CoreItems {
 		initSpawnEggs();
 		
 		//Items
-		zectiumCore = new ItemZectiumCore("zectium_core", COTabList.crazyOresItemsTab, 16); registerItem(zectiumCore);
+		zectiumCore = new ItemZectiumCore("zectium_core", COTabList.crazyOresItemsTab, 32); registerItem(zectiumCore);
 		
 		chocolateCake = new ItemCake("chocolate_cake_placer", CoreBlocks.chocolateCake, 1); registerItem(chocolateCake);
 		strawberryCake = new ItemCake("strawberry_cake_placer", CoreBlocks.strawberryCake, 1); registerItem(strawberryCake);
@@ -378,6 +377,11 @@ public class CoreItems {
 		enderShovel = new CoreShovel("ender_shovel", CoreHarvestLevels.ENDER); registerItem(enderShovel);
 		enderSword = new CoreSword("ender_sword", CoreHarvestLevels.ENDER); registerItem(enderSword);
 		enderHoe = new CoreHoe("ender_hoe", CoreHarvestLevels.ENDER); registerItem(enderHoe);
+		
+		copperBucketEmpty = (new CoreBucket("copper_bucket_empty", Blocks.air)).setMaxStackSize(32); registerItem(copperBucketEmpty);
+		copperBucketWater = new CoreBucket("copper_bucket_water", Blocks.flowing_water); registerItem(copperBucketWater);
+		copperBucketLava = new CoreBucket("copper_bucket_lava", Blocks.flowing_lava); registerItem(copperBucketLava); 
+		copperBucketMilk = new CoreMilkBucket("copper_bucket_milk"); registerItem(copperBucketMilk);
 	}
 	
 	private static void initArmor() {

@@ -18,6 +18,7 @@ import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.entity.CoreEntityRegistry;
 import crazyores.packs.core.event.CoreEventManager;
 import crazyores.packs.core.gui.CoreGuiRegistry;
+import crazyores.packs.core.item.CoreFluidContainerRegistry;
 import crazyores.packs.core.item.CoreItems;
 import crazyores.packs.core.recipe.CoreFuelHandler;
 import crazyores.packs.core.recipe.CoreRecipes;
@@ -57,6 +58,7 @@ public class COPackManager {
 			CoreEventManager.registerEvents();
 			GenerateStructures.initStructures();
 			NetworkRegistry.INSTANCE.registerGuiHandler(corePack.getPackID(), new CoreGuiRegistry());
+			CoreFluidContainerRegistry.registerFluidContainers();
 		}
 
 		COPackManager.loadLoggers();
