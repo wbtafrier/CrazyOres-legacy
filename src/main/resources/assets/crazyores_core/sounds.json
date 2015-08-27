@@ -1,0 +1,34 @@
+{
+    "mob.zectiumProtector.death":
+    {
+        "category": "neutral",
+        "sounds":
+        [
+            "mob/zectium_protector/zectium_protector_death"
+        ]
+    },
+    "mob.zectiumProtector.moan":
+    {
+        "category": "neutral",
+        "sounds":
+        [
+            "mob/zectium_protector/zectium_protector_moan"
+        ]
+    },
+    "mob.zectiumProtector.hurt":
+    {
+        "category": "neutral",
+        "sounds":
+        [
+            "mob/zectium_protector/zectium_protector_hurt"
+        ]
+    },
+    "mob.zectiumProtector.shoot":
+    {
+        "category": "neutral",
+        "sounds":
+        [
+            "mob/zectium_protector/zectium_protector_shoot"
+        ]
+    }
+}
