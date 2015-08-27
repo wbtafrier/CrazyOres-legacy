@@ -25,22 +25,25 @@ public abstract class CoreDungeon extends WorldGenerator {
 		
 		if (!world.isRemote) {
 		
-			int x = xChunk * rand.nextInt(16) + 8;
-			int y = rand.nextInt(50) + 80;
-			int z = zChunk * rand.nextInt(16) + 8;
+			int x = xChunk + rand.nextInt(16);
+			int y;
+			int z = zChunk + rand.nextInt(16);
 			
 			EnumDungeonType t = EnumDungeonType.values()[rand.nextInt(EnumDungeonType.values().length)];
-			int genStructure = rand.nextInt(100);
 			
-	//		switch (t) {
-	//		default: {
-			if (genStructure == 0) {
-				new ZectiumDungeon(world.difficultySetting).generate(world, rand, x, y, z);
-	//			}
-	//		}
-	//		case TAPAZITE:
-	//		case ADAMITE:
-	//		case COPPER:
+			if (t.equals(EnumDungeonType.ZECTIUM)) {
+				int r = rand.nextInt(100);
+				System.out.println(r);
+				if (r == 0) {
+					y = rand.nextInt(70) + 30;
+					new ZectiumDungeon(world.difficultySetting).generate(world, rand, x, y, z);
+				}
+			}
+			else if (t.equals(EnumDungeonType.ADAMITE)) {
+				
+				if (rand.nextInt(80) == 0) {
+					new AdamiteDungeon(world.difficultySetting).generate(world, rand, x, 0, z);
+				}
 			}
 		}
 	}

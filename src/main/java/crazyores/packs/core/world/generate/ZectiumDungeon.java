@@ -30,7 +30,7 @@ public class ZectiumDungeon extends CoreDungeon {
 	public boolean generate(World world, Random rand, int x, int y, int z) {
 		
 		if (!world.getBlock(x, y, z).isAssociatedBlock(Blocks.air)) {
-			System.out.println("COULD NOT GENERATE");
+			System.out.println("COULD NOT GENERATE AT: " + x + " " + y + " " + z);
 			return false;
 		}
 		
@@ -98,31 +98,4 @@ public class ZectiumDungeon extends CoreDungeon {
 			}
 		}
 	}
-	
-//	private void spawnMobs(World world, int x, int y, int z, Random rand, String entityName) {
-//		
-//		x = x + rand.nextInt(DEFAULT_WIDTH - 2) + 2;
-//		y = y + rand.nextInt(2) + 1;
-//		z = z + rand.nextInt(DEFAULT_WIDTH) - 2 + 2;
-//		
-//		int protectorAmount = this.difficulty.ordinal();
-//		
-//		for (int i = 0; i < protectorAmount; i++) {
-//			EntityZectiumProtector protector = new EntityZectiumProtector(world);
-//			protector.setLocationAndAngles(x, y, z, 0.0f, 0.0f);
-//	        world.spawnEntityInWorld(protector);
-//	        System.out.println("SPAWNED PROTECTOR!!!");
-//		}
-//		
-//		world.setBlock(x, y, z, Blocks.mob_spawner, 0, 2);
-//        TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(x, y, z);
-//
-//        if (tileentitymobspawner != null) {
-//            tileentitymobspawner.func_145881_a().setEntityName(CrazyOresData.corePackID + "." + "zectium_protector");
-//        }
-//        else
-//        {
-//            System.err.println("Failed to fetch mob spawner entity at (" + p_76484_3_ + ", " + p_76484_4_ + ", " + p_76484_5_ + ")");
-//        }
-//	}
 }
