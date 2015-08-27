@@ -29,6 +29,8 @@ public class AdamiteDungeon extends CoreDungeon {
 			if (y > 30) return debugFalse(world, x, y, z);
 		}
 		
+		System.out.println("SPAWNING ADAMITE DUNGEON");
+		
 		int xWidth = DEFAULT_WIDTH + rand.nextInt(10);
 		int roomHeight = 8;
 		int zWidth = DEFAULT_WIDTH + rand.nextInt(10);

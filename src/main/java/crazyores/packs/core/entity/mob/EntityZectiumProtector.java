@@ -131,19 +131,15 @@ public class EntityZectiumProtector extends EntityFlying implements IMob {
             double d7 = this.targetedEntity.posZ - this.posZ;
             this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(d5, d7)) * 180.0F / (float)Math.PI;
 
-            if (this.canEntityBeSeen(this.targetedEntity))
-            {
-//                if (this.attackCounter == 10)
-//                {
-//                    this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1007, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
-//                }
+            if (this.canEntityBeSeen(this.targetedEntity)) {
+                if (this.attackCounter == 5) {
+                    this.playSound(CrazyOresData.corePackID + ":mob.zectiumProtector.shoot", 10.0F, (rand.nextFloat() - rand.nextFloat()) * 0.2F + 1.0F);
+                }
 
                 ++this.attackCounter;
 
-                if (this.attackCounter == 20)
+                if (this.attackCounter == 30)
                 {
-                    this.playSound(CrazyOresData.corePackID + ":mob.zectiumProtector.shoot", 10.0F, (rand.nextFloat() - rand.nextFloat()) * 0.2F + 1.0F);
-                    
                     double d8 = 4.0D;
                     Vec3 vec3 = this.getLook(1.0F);
                     EntityZectiumCore zectiumCore = new EntityZectiumCore(this.worldObj, this.posX + vec3.xCoord * d8, this.posY + (double)(this.height / 2.0F), this.posZ + vec3.zCoord * d8);
