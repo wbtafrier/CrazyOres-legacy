@@ -50,6 +50,6 @@ public class EntityDemoniteGolem extends EntityGolems {
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new CoreEntityAIDefendVillage(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, new GolemTargets(EnumGolemType.COPPER).mobSelector));
+        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, new GolemTargets(EnumGolemType.DEMONITE).mobSelector));
 	}
 }

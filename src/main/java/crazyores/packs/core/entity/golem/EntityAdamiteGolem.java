@@ -12,6 +12,7 @@ import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAIMoveTowardsTarget;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
@@ -40,6 +41,7 @@ public class EntityAdamiteGolem extends EntityGolems {
 	@Override
 	protected void setAbilities() {
 		this.getNavigator().setAvoidsWater(false);
+		this.tasks.addTask(1, new EntityAISwimming(this));
 		this.tasks.addTask(1, new CoreEntityAIAttackOnCollide(this, 1.0d, true));
         this.tasks.addTask(2, new EntityAIMoveTowardsTarget(this, 0.9d, 32.0f));
         this.tasks.addTask(3, new EntityAIMoveThroughVillage(this, 0.6d, true));
@@ -50,6 +52,6 @@ public class EntityAdamiteGolem extends EntityGolems {
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new CoreEntityAIDefendVillage(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, new GolemTargets(EnumGolemType.COPPER).mobSelector));
+        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, new GolemTargets(EnumGolemType.ADAMITE).mobSelector));
 	}
 }

@@ -1,9 +1,9 @@
 package crazyores.packs.core.entity.mob;
 
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,6 +13,7 @@ import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -174,7 +175,10 @@ public abstract class EntityShark extends EntityMob {
 	        if (this.entityToAttack == null || this.aggroCooldown-- <= 0)
 	        {
 	            this.entityToAttack = this.worldObj.getClosestVulnerablePlayerToEntity(this, radius);
-//	            this.entityToAttack = findClosestEdibleEntity();
+	            
+	            if (this.entityToAttack == null) {
+	            	this.entityToAttack = findClosestEdibleEntity();
+	            }
 	
 	            if (this.entityToAttack != null)
 	            {
@@ -193,33 +197,61 @@ public abstract class EntityShark extends EntityMob {
             }
         }
         
+        if (this.getHealth() > 0.0f) {
+	        AxisAlignedBB axisalignedbb = null;
+	
+	        if (this.ridingEntity != null && !this.ridingEntity.isDead)
+	        {
+	            axisalignedbb = this.boundingBox.func_111270_a(this.ridingEntity.boundingBox).expand(1.0D, 0.0D, 1.0D);
+	        }
+	        else
+	        {
+	            axisalignedbb = this.boundingBox.expand(1.0D, 0.5D, 1.0D);
+	        }
+	
+	        List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, axisalignedbb);
+	
+	        if (list != null)
+	        {
+	            for (int i = 0; i < list.size(); ++i)
+	            {
+	                Entity entity = (Entity)list.get(i);
+	
+	                if (!entity.isDead && (entity instanceof EntitySheep || entity instanceof EntityHorse || entity instanceof EntityPig || entity instanceof EntityChicken || entity instanceof EntityCow || entity instanceof EntityVillager))
+	                {
+	                	entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float)this.getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue());
+	                }
+	            }
+	        }
+		}
+	
         super.onLivingUpdate();
     }
 	
-//	private EntityLivingBase findClosestEdibleEntity() {
-//		
-//		if (worldObj.loadedEntityList != null && worldObj.loadedEntityList.size() > 0) {
-//			float closest = Float.MAX_VALUE;
-//			float nextAnimal;
-//			EntityLivingBase animal = null;
-//			
-//			for (int i = 1; i < this.worldObj.loadedEntityList.size(); i++) {
-//				Object e = worldObj.loadedEntityList.get(i);
-//				
-//	        	if (e instanceof EntitySheep || e instanceof EntityHorse || e instanceof EntityPig || e instanceof EntityChicken || e instanceof EntityCow || e instanceof EntityPlayer) {
-//	        		nextAnimal = ((Entity)worldObj.loadedEntityList.get(i)).getDistanceToEntity(this);
-//	        		
-//	        		if (nextAnimal < closest) {
-//	        			closest = nextAnimal;
-//	        			animal = ((EntityLivingBase)worldObj.loadedEntityList.get(i));
-//	        		}
-//	        	}
-//	    	}
-//			return animal;
-//		}
-//		else
-//			return null;
-//	}
+	private EntityLivingBase findClosestEdibleEntity() {
+		
+		if (worldObj.loadedEntityList != null && worldObj.loadedEntityList.size() > 0) {
+			float closest = Float.MAX_VALUE;
+			float nextAnimal;
+			EntityLivingBase animal = null;
+			
+			for (int i = 1; i < this.worldObj.loadedEntityList.size(); i++) {
+				Object e = worldObj.loadedEntityList.get(i);
+				
+	        	if (e instanceof EntitySheep || e instanceof EntityHorse || e instanceof EntityPig || e instanceof EntityChicken || e instanceof EntityCow || e instanceof EntityVillager) {
+	        		nextAnimal = ((Entity)worldObj.loadedEntityList.get(i)).getDistanceToEntity(this);
+	        		
+	        		if (nextAnimal < closest) {
+	        			closest = nextAnimal;
+	        			animal = ((EntityLivingBase)worldObj.loadedEntityList.get(i));
+	        		}
+	        	}
+	    	}
+			return animal;
+		}
+		else
+			return null;
+	}
 	
 	private void closeMouth() {
 		if (topJawRotation < 0.0d || bottomJawRotation > 0.0d){

@@ -440,8 +440,8 @@ public class CoreItems {
 	
 	private static void initSpawnEggs() {
 		zectiumProtectorEgg = new CoreSpawnEgg("zectium_protector_egg", "zectium_protector", 0x4FAD18, 0x81D045); registerItem(zectiumProtectorEgg);
-		greatWhiteSharkEgg = new CoreSpawnEgg("great_white_shark_egg", "great_white_shark", 0xFFFFFF, 0xFFFFFF); registerItem(greatWhiteSharkEgg);
-		adamiteSharkEgg = new CoreSpawnEgg("adamite_shark_egg", "adamite_shark", 0xAAAAAA, 0x333333); registerItem(adamiteSharkEgg);
+		greatWhiteSharkEgg = new CoreSpawnEgg("great_white_shark_egg", "great_white_shark", 0xCBCBCB, 0x656982); registerItem(greatWhiteSharkEgg);
+		adamiteSharkEgg = new CoreSpawnEgg("adamite_shark_egg", "adamite_shark", 0xF3F06D, 0xFFFFC1); registerItem(adamiteSharkEgg);
 	}
 	
 	private static void registerItem(Item item) {
