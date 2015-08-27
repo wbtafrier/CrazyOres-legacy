@@ -12,6 +12,7 @@ import cpw.mods.fml.common.Loader;
 import crazyores.manager.pack.COPackManager;
 import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.config.COCoreConfigSettings;
+import crazyores.packs.core.world.generate.GenerateStructures;
 
 public class Generate implements IWorldGenerator {
 
@@ -29,7 +30,11 @@ public class Generate implements IWorldGenerator {
 		
 		switch(world.provider.dimensionId) {
 		case -1: generateCoreNetherOres(world, rand, x, z); break;
-		case 0: generateCoreSurfaceOres(world, rand, x, z); break;
+		case 0: {
+			generateCoreSurfaceOres(world, rand, x, z);
+			GenerateStructures.generateSurfaceStructures(world, rand, x, z);
+			break;
+		}
 		case 1: generateCoreEndOres(world, rand, x, z); break;
 		}
 	}

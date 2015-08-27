@@ -36,7 +36,6 @@ public class CoreItems {
 	public static Item demoniteOrb;
 	public static Item invisiumIngot;
 	
-	//TODO: Should be in the decorations pack
 	public static Item darkstoneIngot;
 	public static Item whiteLuminiteCrystal;
 	
@@ -176,9 +175,15 @@ public class CoreItems {
 	public static Item invisiumBoots;
 	public static Item enderBoots;
 
+	//Cake!
 	public static Item chocolateCake;
 	public static Item strawberryCake;
 	public static Item birthdayCake;
+	
+	//Custom Spawn Eggs
+	public static Item zectiumProtectorEgg;
+	public static Item greatWhiteSharkEgg;
+	public static Item adamiteSharkEgg;
 	
 	/** Bucket List **/
 /*
@@ -231,6 +236,7 @@ public class CoreItems {
 		initTools();
 		initArmor();
 		initBowsArrows();
+		initSpawnEggs();
 		
 		//Items
 		zectiumCore = new ItemZectiumCore("zectium_core", COTabList.crazyOresItemsTab, 16); registerItem(zectiumCore);
@@ -430,6 +436,12 @@ public class CoreItems {
 		enderChestplate = new CoreArmor("ender_chestplate", CoreArmor.ENDER_ARMOR, 4, 1); registerItem(enderChestplate);
 		enderLeggings = new CoreArmor("ender_leggings", CoreArmor.ENDER_ARMOR, 4, 2); registerItem(enderLeggings);
 		enderBoots = new CoreArmor("ender_boots", CoreArmor.ENDER_ARMOR, 4, 3); registerItem(enderBoots);
+	}
+	
+	private static void initSpawnEggs() {
+		zectiumProtectorEgg = new CoreSpawnEgg("zectium_protector_egg", "zectium_protector", 0x4FAD18, 0x81D045); registerItem(zectiumProtectorEgg);
+		greatWhiteSharkEgg = new CoreSpawnEgg("great_white_shark_egg", "great_white_shark", 0xFFFFFF, 0xFFFFFF); registerItem(greatWhiteSharkEgg);
+		adamiteSharkEgg = new CoreSpawnEgg("adamite_shark_egg", "adamite_shark", 0xAAAAAA, 0x333333); registerItem(adamiteSharkEgg);
 	}
 	
 	private static void registerItem(Item item) {

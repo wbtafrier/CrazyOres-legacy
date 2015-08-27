@@ -53,14 +53,39 @@ chocolate_cake.name=Chocolate Cake
 strawberry_cake.name=Strawberry Cake
 birthday_cake.name=Birthday Cake
 
+zectium_protector_spawner.name=Zectium Protector Spawner
+great_white_shark_spawner.name=Great White Shark Spawner
+adamite_shark_spawner.name=Adamite Shark Spawner
+
 reinforced_glass.name=Reinforced Glass
 smooth_reinforced_glass.name=Smooth Reinforced Glass
 
 reinforced_brick.name=Reinforced Brick
+reinforced_brick_stairs.name=Reinforced Brick Stairs
+
+reinforced_brick_slabs.name=Reinforced Brick Slab
+double_reinforced_brick_slabs.name=Reinforced Brick Slab
+
 diagonal_reinforced_brick.name=Diagonal Reinforced Brick
+diagonal_reinforced_brick_stairs.name=Diagonal Reinforced Brick Stairs
+
+reinforced_brick_slab.name=Reinforced Brick Slab
+double_reinforced_brick_slab.name=Reinforced Brick Slab
 
 diagonal_brick.name=Diagonal Brick
+diagonal_brick_stairs.name=Diagonal Brick Stairs
 
+lightened_brick.name=Lightened Brick
+lightened_brick_stairs.name=Lightened Brick Stairs
+
+diagonal_lightened_brick.name=Lightened Diagonal Brick
+diagonal_lightened_brick_stairs.name=Lightened Diagonal Brick Stairs
+
+adamite_brick.name=Adamite Brick
+adamite_brick_stairs.name=Adamite Brick Stairs
+
+diagonal_adamite_brick.name=Diagonal Adamite Brick
+diagonal_adamite_brick_stairs.name=Diagonal Adamite Brick Stairs
 
 # GUI LOCALIZATION
 container.demonite_furnace=Demonite Furnace
@@ -97,6 +122,11 @@ entity.crazyores_core.starconium_golem.name=Starconium Golem
 entity.crazyores_core.demonite_golem.name=Demonite Golem
 entity.crazyores_core.ender_golem.name=Ender Golem
 
+entity.crazyores_core.zectium_protector.name=Zectium Protector
+
+entity.crazyores_core.great_white_shark.name=Great White Shark
+entity.crazyores_core.adamite_shark.name=Torpedo Shark
+
 entity.crazyores_core.flaming_arrow.name=Flaming Arrow
 entity.crazyores_core.explosive_arrow.name=Explosive Arrow
 entity.crazyores_core.lightning_arrow.name=Lightning Arrow
@@ -104,6 +134,11 @@ entity.crazyores_core.freezing_arrow.name=Freezing Arrow
 
 tileentity.crazyores_core.tapazite_crystal.name=Tapazite Crystal
 tileentity.crazyores_core.demonite_furnace.name=Demonite Furnace
+
+#SPAWN EGGS
+zectium_protector_egg.name=Spawn Zectium Protector
+great_white_shark_egg.name=Spawn Great White Shark
+adamite_shark_egg.name=Adamite Shark
 
 # ORE DROPS 
 meteorite_coal.name=Meteorite Coal
@@ -310,6 +345,7 @@ itemGroup.crazyOresTools=CrazyOres Tools
 itemGroup.crazyOresArmor=CrazyOres Armor
 itemGroup.crazyOresWeapons=CrazyOres Weapons
 itemGroup.crazyOresFood=CrazyOres Food
+itemGroup.crazyOresMobs=CrazyOres Mobs
 
 # CONFIG LOCALIZATION
 config.category.loadPacks=Load Packs

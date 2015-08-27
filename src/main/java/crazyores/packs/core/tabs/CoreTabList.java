@@ -8,4 +8,5 @@ public class CoreTabList {
 	public static CreativeTabs coreArmorTab;
 	public static CreativeTabs coreWeaponsTab;
 	public static CreativeTabs coreFoodTab;
+	public static CreativeTabs coreMobsTab;
 }

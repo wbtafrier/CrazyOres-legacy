@@ -11,12 +11,14 @@ public class CoreTabs {
 	public static final String coreArmorTab = "crazyOresArmor";
 	public static final String coreWeaponsTab = "crazyOresWeapons";
 	public static final String coreFoodTab = "crazyOresFood";
+	public static final String coreMobsTab = "crazyOresMobs";
 	
 	public static void initCoreTabs() {
 		createCoreToolsTab();
 		createCoreArmorTab();
 		createCoreWeaponsTab();
 		createCoreFoodTab();
+		createCoreMobsTab();
 	}
 	
 	public static void createCoreToolsTab() {
@@ -24,8 +26,6 @@ public class CoreTabs {
 			
 			@Override
 			public Item getTabIconItem() {
-				
-				//TODO: Replace with a cool block from the core pack
 				return CoreItems.starconiumPickaxe;
 			}
 		};
@@ -36,8 +36,6 @@ public class CoreTabs {
 			
 			@Override
 			public Item getTabIconItem() {
-				
-				//TODO: Replace with a cool block from the core pack
 				return CoreItems.enderChestplate;
 			}
 		};
@@ -48,8 +46,6 @@ public class CoreTabs {
 			
 			@Override
 			public Item getTabIconItem() {
-				
-				//TODO: Replace with a cool block from the core pack
 				return CoreItems.swiftBow;
 			}
 		};
@@ -60,9 +56,17 @@ public class CoreTabs {
 			
 			@Override
 			public Item getTabIconItem() {
-				
-				//TODO: Replace with a cool block from the core pack
 				return CoreItems.birthdayCake;
+			}
+		};
+	}
+	
+	public static void createCoreMobsTab() {
+		CoreTabList.coreMobsTab = new CreativeTabs(coreMobsTab) {
+			
+			@Override
+			public Item getTabIconItem() {
+				return CoreItems.zectiumProtectorEgg;
 			}
 		};
 	}

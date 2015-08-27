@@ -26,7 +26,7 @@ import crazyores.packs.core.item.EnumBowEnhancement;
 
 public class EntityFlamingArrow extends CoreEntityArrow {
 
-	private static final int DEFAULT_RADIUS = 2;
+	private static final int DEFAULT_RADIUS = 3;
 	
 	public EntityFlamingArrow(World world) {
         super(world);

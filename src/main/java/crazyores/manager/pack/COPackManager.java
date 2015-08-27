@@ -15,7 +15,7 @@ import crazyores.manager.tabs.CrazyOresTabs;
 import crazyores.manager.util.CrazyOresLogger;
 import crazyores.manager.world.generate.Generate;
 import crazyores.packs.core.block.CoreBlocks;
-import crazyores.packs.core.entity.arrow.CoreEntityRegistry;
+import crazyores.packs.core.entity.CoreEntityRegistry;
 import crazyores.packs.core.event.CoreEventManager;
 import crazyores.packs.core.gui.CoreGuiRegistry;
 import crazyores.packs.core.item.CoreItems;
@@ -24,6 +24,7 @@ import crazyores.packs.core.recipe.CoreRecipes;
 import crazyores.packs.core.tabs.CoreTabs;
 import crazyores.packs.core.util.CoreHarvestLevels;
 import crazyores.packs.core.world.generate.CoreLootHandler;
+import crazyores.packs.core.world.generate.GenerateStructures;
 
 /**
  * In this class we will check to see which packs are installed and if they are, load them into the game.
@@ -54,6 +55,7 @@ public class COPackManager {
 			CoreLootHandler.initLoot();
 			CoreHarvestLevels.setHarvestLevels();
 			CoreEventManager.registerEvents();
+			GenerateStructures.initStructures();
 			NetworkRegistry.INSTANCE.registerGuiHandler(corePack.getPackID(), new CoreGuiRegistry());
 		}
 

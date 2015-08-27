@@ -12,12 +12,13 @@ public class CoreResourceHandler {
 	private static final String texturesPath = COPackManager.corePack.getPackID() + ":textures" + sep;
 	private static final String modelsPath = texturesPath + "models" + sep;
 	private static final String golemPath = modelsPath + "mobs" + sep + "golems" + sep;
+	private static final String evilPath = modelsPath + "mobs" + sep + "evil" + sep;
 	
 	private static final String guiPath = texturesPath + "gui" + sep;
 	
 	private static final String arrowPath = modelsPath + "arrows" + sep;
 	
-	public static final ResourceLocation UNKNOWN_TEXTURE = new ResourceLocation(modelsPath + "unknown_TEXTURE.png");
+	public static final ResourceLocation UNKNOWN_TEXTURE = new ResourceLocation(modelsPath + "unknown_texture.png");
 	public static final ResourceLocation TAPAZITE_CRYSTAL_TEXTURE = new ResourceLocation(modelsPath + "tapazite_crystal_model.png");
 	public static final ResourceLocation DEMONITE_FURNACE_GUI_TEXTURE = new ResourceLocation(guiPath + "demonite_furnace_gui.png");
 	
@@ -32,6 +33,11 @@ public class CoreResourceHandler {
 	public static final ResourceLocation STARCONIUM_GOLEM_TEXTURE = new ResourceLocation(golemPath + "starconium_golem.png");
 	public static final ResourceLocation DEMONITE_GOLEM_TEXTURE = new ResourceLocation(golemPath + "demonite_golem.png");
 	public static final ResourceLocation ENDER_GOLEM_TEXTURE = new ResourceLocation(golemPath + "ender_golem.png");
+	
+	public static final ResourceLocation ZECTIUM_PROTECTOR_TEXTURE = new ResourceLocation(evilPath + "zectium_protector.png");
+	
+	public static final ResourceLocation GREAT_WHITE_SHARK_TEXTURE = new ResourceLocation(evilPath + "great_white_shark.png");
+	public static final ResourceLocation ADAMITE_SHARK_TEXTURE = new ResourceLocation(evilPath + "adamite_shark.png");
 	
 	public static final ResourceLocation FLAMING_ARROW_TEXTURE = new ResourceLocation(arrowPath + "flaming_arrow.png");
 	public static final ResourceLocation EXPLOSIVE_ARROW_TEXTURE = new ResourceLocation(arrowPath + "explosive_arrow.png");

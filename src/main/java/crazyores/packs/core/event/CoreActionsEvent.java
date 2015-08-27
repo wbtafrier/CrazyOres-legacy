@@ -17,6 +17,8 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import crazyores.packs.core.entity.FrozenEntity;
+import crazyores.packs.core.entity.golem.EntityZectiumGolem;
+import crazyores.packs.core.entity.mob.EntityZectiumProtector;
 import crazyores.packs.core.item.CoreArmor;
 import crazyores.packs.core.item.CoreItems;
 
@@ -29,8 +31,15 @@ public class CoreActionsEvent {
 	@SubscribeEvent
 	public void armorEvent(LivingEvent event) {
 		
-		
-		if (event.entity instanceof EntityPlayer) {
+		if (event instanceof LivingAttackEvent && (event.entity instanceof EntityZectiumProtector || event.entity instanceof EntityZectiumGolem)) {
+			LivingAttackEvent hurtEvent = (LivingAttackEvent)event;
+			DamageSource damage = hurtEvent.source;
+			
+			if (damage.isExplosion()) {
+				event.setCanceled(true);
+			}
+		}
+		else if (event.entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer)event.entity;
 			ItemStack[] armor = player.inventory.armorInventory;
 			
@@ -114,7 +123,6 @@ public class CoreActionsEvent {
 							event.setCanceled(true);
 						}
 					}
-					
 				}
 				else if (armor[0].getItem().equals(CoreItems.meteoriteBoots) && armor[1].getItem().equals(CoreItems.meteoriteLeggings) && armor[2].getItem().equals(CoreItems.meteoriteChestplate) && armor[3].getItem().equals(CoreItems.meteoriteHelmet)) {
 					

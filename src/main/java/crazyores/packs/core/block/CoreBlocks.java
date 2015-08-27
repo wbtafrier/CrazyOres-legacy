@@ -7,6 +7,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
 import crazyores.manager.tabs.COTabList;
 import crazyores.packs.core.entity.golem.EnumGolemType;
+import crazyores.packs.core.tabs.CoreTabList;
 
 public class CoreBlocks {
 
@@ -87,13 +88,35 @@ public class CoreBlocks {
 	public static Block strawberryCake;
 	public static Block birthdayCake;
 	
+	//Spawners
+	public static Block zectiumProtectorSpawner;
+	public static Block greatWhiteSharkSpawner;
+	public static Block adamiteSharkSpawner;
+	
 	//Materials
 	public static Block reinforcedGlass;
 	public static Block smoothReinforcedGlass;
 	
 	public static Block reinforcedBrick;
+	public static Block reinforcedBrickStairs;
+	
 	public static Block diagonalReinforcedBrick;
+	public static Block diagonalReinforcedBrickStairs;
+	
 	public static Block diagonalBrick;
+	public static Block diagonalBrickStairs;
+	
+	public static Block adamiteBrick;
+	public static Block adamiteBrickStairs;
+	
+	public static Block diagonalAdamiteBrick;
+	public static Block diagonalAdamiteBrickStairs;
+	
+	public static Block lightenedBrick;
+	public static Block lightenedBrickStairs;
+	
+	public static Block diagonalLightenedBrick;
+	public static Block diagonalLightenedBrickStairs;
 	
 	public static void initBlocks() {
 		tapaziteLightSource = new BlockLightSource("tapazite_light_source", Material.air, 0.75F, 1.2F, 3.0F); registerBlock(tapaziteLightSource);
@@ -164,12 +187,35 @@ public class CoreBlocks {
 		strawberryCake = new BlockCake("strawberry_cake", "strawberry", 10); registerBlock(strawberryCake);
 		birthdayCake = new BlockCake("birthday_cake", "birthday", 12); registerBlock(birthdayCake);
 		
+		greatWhiteSharkSpawner = new CoreSpawner("great_white_shark_spawner", "great_white_shark", CoreTabList.coreMobsTab, Block.soundTypePiston, 6.0f, 5.0f); registerBlock(greatWhiteSharkSpawner);
+		zectiumProtectorSpawner = new CoreSpawner("zectium_protector_spawner", "zectium_protector", CoreTabList.coreMobsTab, Block.soundTypePiston, 10.0f, 100f); registerBlock(zectiumProtectorSpawner);
+		adamiteSharkSpawner = new CoreSpawner("adamite_shark_spawner", "adamite_shark", CoreTabList.coreMobsTab, Block.soundTypePiston, 6.0f, 5.0f); registerBlock(adamiteSharkSpawner);
+		
 		reinforcedGlass = new CoreGlass("reinforced_glass", true, 1.0f, 100.0f); registerBlock(reinforcedGlass);
 		smoothReinforcedGlass = new CoreGlass("smooth_reinforced_glass", true, 1.0f, 100.0f); registerBlock(smoothReinforcedGlass);
 		
+		
 		reinforcedBrick = new CoreBlock("reinforced_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 4.0f, 100.0f); registerBlock(reinforcedBrick);
+		reinforcedBrickStairs = new CoreStairs("reinforced_brick_stairs", reinforcedBrick, 4.0f, 100.0f); registerBlock(reinforcedBrickStairs);
+		
 		diagonalReinforcedBrick = new CoreBlock("diagonal_reinforced_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 4.0f, 100.0f); registerBlock(diagonalReinforcedBrick);
-		diagonalBrick =  new CoreBlock("diagonal_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 2.0f, 10.0f); registerBlock(diagonalBrick);
+		diagonalReinforcedBrickStairs = new CoreStairs("diagonal_reinforced_brick_stairs", diagonalReinforcedBrick, 4.0f, 100.0f); registerBlock(diagonalReinforcedBrickStairs);
+		
+		diagonalBrick = new CoreBlock("diagonal_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 2.0f, 10.0f); registerBlock(diagonalBrick);
+		diagonalBrickStairs = new CoreStairs("diagonal_brick_stairs", diagonalBrick, 2.0f, 10.0f); registerBlock(diagonalBrickStairs);
+		
+		adamiteBrick = new CoreBlock("adamite_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 3.0f, 10.0f); registerBlock(adamiteBrick);
+		adamiteBrickStairs = new CoreStairs("adamite_brick_stairs", adamiteBrick, 3.0f, 10.0f); registerBlock(adamiteBrickStairs);
+		
+		diagonalAdamiteBrick = new CoreBlock("diagonal_adamite_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 3.0f, 10.0f); registerBlock(diagonalAdamiteBrick);
+		diagonalAdamiteBrickStairs = new CoreStairs("diagonal_adamite_brick_stairs", diagonalAdamiteBrick, 3.0f, 10.0f); registerBlock(diagonalAdamiteBrickStairs);
+		
+		
+		lightenedBrick = new CoreBlock("lightened_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 2.0f, 10.0f); registerBlock(lightenedBrick);
+		lightenedBrickStairs = new CoreStairs("lightened_brick_stairs", lightenedBrick, 2.0f, 10.0f); registerBlock(lightenedBrickStairs);
+		
+		diagonalLightenedBrick = new CoreBlock("diagonal_lightened_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 2.0f, 10.0f); registerBlock(diagonalLightenedBrick);
+		diagonalLightenedBrickStairs = new CoreStairs("diagonal_lightened_brick_stairs", diagonalLightenedBrick, 2.0f, 10.0f); registerBlock(diagonalLightenedBrickStairs);
 	}
 	
 	/**

@@ -4,10 +4,10 @@ import net.minecraft.client.renderer.entity.RenderSnowball;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import crazyores.packs.core.entity.EntityZectiumCore;
-import crazyores.packs.core.entity.arrow.EntityLightningArrow;
 import crazyores.packs.core.entity.arrow.EntityExplosiveArrow;
 import crazyores.packs.core.entity.arrow.EntityFlamingArrow;
 import crazyores.packs.core.entity.arrow.EntityFreezingArrow;
+import crazyores.packs.core.entity.arrow.EntityLightningArrow;
 import crazyores.packs.core.entity.golem.EntityAdamiteGolem;
 import crazyores.packs.core.entity.golem.EntityCopperGolem;
 import crazyores.packs.core.entity.golem.EntityDemoniteGolem;
@@ -20,6 +20,9 @@ import crazyores.packs.core.entity.golem.EntityStarconiumGolem;
 import crazyores.packs.core.entity.golem.EntityTapaziteGolem;
 import crazyores.packs.core.entity.golem.EntityZectiumGolem;
 import crazyores.packs.core.entity.golem.EnumGolemType;
+import crazyores.packs.core.entity.mob.EntityAdamiteShark;
+import crazyores.packs.core.entity.mob.EntityGreatWhiteShark;
+import crazyores.packs.core.entity.mob.EntityZectiumProtector;
 import crazyores.packs.core.entity.tileentity.TileEntityTapaziteCrystal;
 import crazyores.packs.core.item.CoreItems;
 import crazyores.packs.core.model.ModelAdamiteGolem;
@@ -33,6 +36,8 @@ import crazyores.packs.core.model.ModelSapphireGolem;
 import crazyores.packs.core.model.ModelStarconiumGolem;
 import crazyores.packs.core.model.ModelTapaziteGolem;
 import crazyores.packs.core.model.ModelZectiumGolem;
+import crazyores.packs.core.model.mob.ModelShark;
+import crazyores.packs.core.model.mob.ModelZectiumProtector;
 
 public class CoreRenderRegistry {
 
@@ -51,6 +56,11 @@ public class CoreRenderRegistry {
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityDemoniteGolem.class, new RenderGolems(new ModelDemoniteGolem(), EnumGolemType.DEMONITE));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderGolem.class, new RenderGolems(new ModelEnderGolem(), EnumGolemType.ENDER));
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityZectiumProtector.class, new RenderZectiumProtector(new ModelZectiumProtector()));
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityGreatWhiteShark.class, new RenderSharks(new ModelShark()));
+		RenderingRegistry.registerEntityRenderingHandler(EntityAdamiteShark.class, new RenderSharks(new ModelShark()));
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlamingArrow.class, new CoreRenderArrow());
 		RenderingRegistry.registerEntityRenderingHandler(EntityExplosiveArrow.class, new CoreRenderArrow());

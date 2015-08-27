@@ -54,6 +54,12 @@ public class CoreHarvestLevels {
 		Blocks.coal_ore.setHarvestLevel(PICKAXE, 0);
 		
 		CoreBlocks.diagonalBrick.setHarvestLevel(PICKAXE, 0);
+		CoreBlocks.diagonalBrickStairs.setHarvestLevel(PICKAXE, 0);
+		
+		CoreBlocks.lightenedBrick.setHarvestLevel(PICKAXE, 0);
+		CoreBlocks.lightenedBrickStairs.setHarvestLevel(PICKAXE, 0);
+		CoreBlocks.diagonalLightenedBrick.setHarvestLevel(PICKAXE, 0);
+		CoreBlocks.diagonalLightenedBrickStairs.setHarvestLevel(PICKAXE, 0);
 		
 		Blocks.gold_block.setHarvestLevel(PICKAXE, 2);
 		Blocks.gold_ore.setHarvestLevel(PICKAXE, 2);
@@ -90,6 +96,14 @@ public class CoreHarvestLevels {
 		CoreBlocks.adamiteOre.setHarvestLevel(PICKAXE, 3);
 		CoreBlocks.adamiteBlock.setHarvestLevel(PICKAXE, 3);
 		
+		CoreBlocks.adamiteBrick.setHarvestLevel(PICKAXE, 3);
+		CoreBlocks.diagonalAdamiteBrick.setHarvestLevel(PICKAXE, 3);
+		CoreBlocks.adamiteBrickStairs.setHarvestLevel(PICKAXE, 3);
+		CoreBlocks.diagonalAdamiteBrickStairs.setHarvestLevel(PICKAXE, 3);
+		
+		CoreBlocks.adamiteSharkSpawner.setHarvestLevel(PICKAXE, 3);
+		CoreBlocks.greatWhiteSharkSpawner.setHarvestLevel(PICKAXE, 3);
+		
 		CoreBlocks.sapphireOre.setHarvestLevel(PICKAXE, 4);
 		CoreBlocks.sapphireBlock.setHarvestLevel(PICKAXE, 4);
 		
@@ -101,8 +115,13 @@ public class CoreHarvestLevels {
 		
 		CoreBlocks.zectiumOre.setHarvestLevel(PICKAXE, 7);
 		CoreBlocks.zectiumBlock.setHarvestLevel(PICKAXE, 7);
+		
 		CoreBlocks.reinforcedBrick.setHarvestLevel(PICKAXE, 7);
 		CoreBlocks.diagonalReinforcedBrick.setHarvestLevel(PICKAXE, 7);
+		CoreBlocks.reinforcedBrickStairs.setHarvestLevel(PICKAXE, 7);
+		CoreBlocks.diagonalReinforcedBrickStairs.setHarvestLevel(PICKAXE, 7);
+		
+		CoreBlocks.zectiumProtectorSpawner.setHarvestLevel(PICKAXE, 7);
 		
 		CoreBlocks.osmoniumOre.setHarvestLevel(PICKAXE, 9);
 		CoreBlocks.osmoniumBlock.setHarvestLevel(PICKAXE, 9);
