@@ -16,6 +16,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import crazyores.manager.pack.data.CrazyOresData;
 import crazyores.packs.core.entity.EntityZectiumCore;
 import crazyores.packs.core.item.CoreItems;
 
@@ -132,16 +133,16 @@ public class EntityZectiumProtector extends EntityFlying implements IMob {
 
             if (this.canEntityBeSeen(this.targetedEntity))
             {
-                if (this.attackCounter == 10)
-                {
-                    this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1007, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
-                }
+//                if (this.attackCounter == 10)
+//                {
+//                    this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1007, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
+//                }
 
                 ++this.attackCounter;
 
                 if (this.attackCounter == 20)
                 {
-                    this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1008, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
+                    this.playSound(CrazyOresData.corePackID + ":mob.zectiumProtector.shoot", 10.0F, (rand.nextFloat() - rand.nextFloat()) * 0.2F + 1.0F);
                     
                     double d8 = 4.0D;
                     Vec3 vec3 = this.getLook(1.0F);
@@ -343,20 +344,20 @@ public class EntityZectiumProtector extends EntityFlying implements IMob {
 	
 	@Override
 	protected String getLivingSound() {
-        return "mob.ghast.moan";
+        return CrazyOresData.corePackID + ":mob.zectiumProtector.moan";
     }
 
     /**
      * Returns the sound this mob makes when it is hurt.
      */
     protected String getHurtSound() {
-        return "mob.ghast.scream";
+        return CrazyOresData.corePackID + ":mob.zectiumProtector.hurt";
     }
 
     /**
      * Returns the sound this mob makes on death.
      */
     protected String getDeathSound() {
-        return "mob.ghast.death";
+        return CrazyOresData.corePackID + ":mob.zectiumProtector.death";
     }
 }
