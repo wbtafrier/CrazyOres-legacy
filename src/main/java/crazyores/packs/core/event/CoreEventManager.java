@@ -11,5 +11,6 @@ public class CoreEventManager {
 		MinecraftForge.EVENT_BUS.register(new TapaziteObeliskEvent());
 		FMLCommonHandler.instance().bus().register(new FreezeEvent());
 		MinecraftForge.EVENT_BUS.register(new FreezeEvent());
+		MinecraftForge.EVENT_BUS.register(new CoreBucketEvent());
 	}
 }

@@ -289,6 +289,7 @@ ender_boots.name=Ender Boots
 copper_bucket_empty.name=Copper Bucket
 copper_bucket_water.name=Water Bucket
 copper_bucket_lava.name=Lava Bucket
+copper_bucket_milk.name=Milk
 
 # ITEMS LIST 
 starconium_shard.name=Starconium Shard
