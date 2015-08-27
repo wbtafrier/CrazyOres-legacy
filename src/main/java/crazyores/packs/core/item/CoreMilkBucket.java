@@ -17,16 +17,13 @@ public class CoreMilkBucket extends CoreItem {
 
 	@Override
 	public ItemStack onEaten(ItemStack itemStack, World world, EntityPlayer player) {
-        if (!player.capabilities.isCreativeMode)
-        {
+        if (!player.capabilities.isCreativeMode) {
             --itemStack.stackSize;
         }
 
-        if (!world.isRemote)
-        {
+        if (!world.isRemote) {
             player.curePotionEffects(itemStack);
         }
-
         return itemStack.stackSize <= 0 ? new ItemStack(CoreItems.copperBucketEmpty) : itemStack;
     }
 	

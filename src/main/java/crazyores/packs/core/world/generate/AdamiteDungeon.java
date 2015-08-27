@@ -86,7 +86,7 @@ public class AdamiteDungeon extends CoreDungeon {
 		
 		int spawnerCounter = world.difficultySetting.ordinal() + (rand.nextInt(2) + 1);
 		int chestCounter = rand.nextInt(3) + 2;
-		while (spawnerCounter > 0 && chestCounter > 0) {
+		while (spawnerCounter > 0 || chestCounter > 0) {
 			for (int xPos = 0; xPos < xWidth; xPos++) {
 				for (int zPos = 0; zPos < zWidth; zPos++) {
 					
@@ -115,6 +115,7 @@ public class AdamiteDungeon extends CoreDungeon {
 					
 					if (chestCounter > 0 && xPos == rand.nextInt(xWidth) && zPos == rand.nextInt(zWidth)) {
 						spawnChest(world, x + xPos, yPos + 1, z + zPos, rand);
+//						System.out.println("FUCK THIS: " + (x + xPos) + " " + (yPos + 1) + " " + (z + zPos));
 						chestCounter--;
 					}
 				}

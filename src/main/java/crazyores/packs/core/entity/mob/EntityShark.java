@@ -309,10 +309,7 @@ public abstract class EntityShark extends EntityMob {
 	
 	@Override
 	public boolean getCanSpawnHere() {
-        boolean b = ((this.worldObj.getBlock((int)posX, (int)posY, (int)posZ).isAssociatedBlock(Blocks.water) || this.worldObj.getBlock((int)posX, (int)posY, (int)posZ).isAssociatedBlock(Blocks.flowing_water)));
-    
-//        System.out.println(b);
-        return b;
+        return ((this.worldObj.getBlock((int)posX, (int)posY, (int)posZ).isAssociatedBlock(Blocks.water) || this.worldObj.getBlock((int)posX, (int)posY, (int)posZ).isAssociatedBlock(Blocks.flowing_water)));
 	}
 	
 	@Override

@@ -37,20 +37,18 @@ public class CoreBucketEvent {
 	
 	@SubscribeEvent
 	public void milkCow(EntityInteractEvent event) {
-		if (event != null && event.entityPlayer != null && event.target != null) {
-			if (event.target instanceof EntityCow) {
-				ItemStack itemStack = event.entityPlayer.inventory.getCurrentItem();
-				if (itemStack != null && itemStack.getItem().equals(CoreItems.copperBucketEmpty) && !event.entityPlayer.capabilities.isCreativeMode) {
-                	if (itemStack.stackSize-- == 1)
-                    {
-                        event.entityPlayer.inventory.setInventorySlotContents(event.entityPlayer.inventory.currentItem, new ItemStack(CoreItems.copperBucketMilk));
-                    }
-                    else if (!event.entityPlayer.inventory.addItemStackToInventory(new ItemStack(CoreItems.copperBucketMilk)))
-                    {
-                    	event.entityPlayer.dropPlayerItemWithRandomChoice(new ItemStack(CoreItems.copperBucketMilk, 1, 0), false);
-                    }
-				}
-			}
-		}
+		ItemStack itemstack = event.entityPlayer.inventory.getCurrentItem();
+		
+		if(event.target instanceof EntityCow) {
+			if (itemstack != null && itemstack.getItem().equals(CoreItems.copperBucketEmpty)) {
+    			
+				if (--itemstack.stackSize <= 0) {
+    				event.entityPlayer.inventory.setInventorySlotContents(event.entityPlayer.inventory.currentItem, new ItemStack(CoreItems.copperBucketMilk));
+    			}
+    			else if (!event.entityPlayer.inventory.addItemStackToInventory(new ItemStack(CoreItems.copperBucketMilk))) {
+    				event.entityPlayer.dropPlayerItemWithRandomChoice(new ItemStack(CoreItems.copperBucketMilk, 1, 0), false);
+    			}
+    		}
+    	}
 	}
 }
