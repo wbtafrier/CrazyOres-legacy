@@ -236,15 +236,6 @@ public class EntityZectiumProtector extends EntityFlying implements IMob {
         }
     }
 	
-	@Override
-	public boolean isBurning() {
-        return this.func_70845_n();
-    }
-	
-	public boolean func_70845_n() {
-        return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
-    }
-	
 	public void func_70844_e(boolean p_70844_1_) {
         byte b0 = this.dataWatcher.getWatchableObjectByte(16);
 

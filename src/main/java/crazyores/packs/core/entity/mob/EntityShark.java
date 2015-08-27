@@ -309,7 +309,7 @@ public abstract class EntityShark extends EntityMob {
 	
 	@Override
 	public boolean getCanSpawnHere() {
-        boolean b = rand.nextInt(10) == 0 && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && (this.worldObj.getBlock((int)posX, (int)posY, (int)posZ).isAssociatedBlock(Blocks.water) || this.worldObj.getBlock((int)posX, (int)posY, (int)posZ).isAssociatedBlock(Blocks.flowing_water));
+        boolean b = ((this.worldObj.getBlock((int)posX, (int)posY, (int)posZ).isAssociatedBlock(Blocks.water) || this.worldObj.getBlock((int)posX, (int)posY, (int)posZ).isAssociatedBlock(Blocks.flowing_water)));
     
 //        System.out.println(b);
         return b;

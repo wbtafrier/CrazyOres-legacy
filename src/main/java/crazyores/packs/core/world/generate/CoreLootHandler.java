@@ -8,6 +8,7 @@ import crazyores.packs.core.item.CoreItems;
 public class CoreLootHandler {
 	
 	public static final String ZECTIUM_DUNGEON = "zectiumDungeon";
+	public static final String ADAMITE_DUNGEON = "adamiteDungeon";
 	
 	public static void initLoot() {
 		
@@ -28,5 +29,15 @@ public class CoreLootHandler {
 		zectiumDungeon.addItem(new WeightedRandomChestContent(new ItemStack(CoreItems.starconiumShard),		0, 1,  2));		//	2
 		zectiumDungeon.setMin(3);																							//	100
 		zectiumDungeon.setMax(7);
+		
+		ChestGenHooks adamiteDungeon = ChestGenHooks.getInfo(ADAMITE_DUNGEON);
+		adamiteDungeon.addItem(new WeightedRandomChestContent(new ItemStack(CoreItems.adamiteShard),		1, 2, 50));		//	50
+		adamiteDungeon.addItem(new WeightedRandomChestContent(new ItemStack(CoreItems.adamiteLeggings),		0, 1,  5));		//	5
+		adamiteDungeon.addItem(new WeightedRandomChestContent(new ItemStack(CoreItems.adamiteChestplate),	0, 1,  3));		//	3
+		adamiteDungeon.addItem(new WeightedRandomChestContent(new ItemStack(CoreItems.adamiteHelmet),		0, 1,  4));		//	4
+		adamiteDungeon.addItem(new WeightedRandomChestContent(new ItemStack(CoreItems.adamiteBoots),		0, 1,  4));		//	4
+		adamiteDungeon.addItem(new WeightedRandomChestContent(new ItemStack(CoreItems.starconiumShard),		0, 1,  2));		//	2
+		adamiteDungeon.setMin(3);																							//	100
+		adamiteDungeon.setMax(7);
 	}
 }

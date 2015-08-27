@@ -19,7 +19,7 @@ import crazyores.packs.core.entity.mob.EntityZectiumProtector;
 
 public class ZectiumDungeon extends CoreDungeon {
 
-	private static final int DEFAULT_WIDTH = 10;
+	private static final int DEFAULT_WIDTH = 11;
 	private static final int DEFAULT_HEIGHT = 7;
 	
 	public ZectiumDungeon(EnumDifficulty d) {

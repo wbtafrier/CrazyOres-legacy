@@ -4,10 +4,14 @@ import java.util.Random;
 
 import org.apache.logging.log4j.Level;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityMobSpawner;
+import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.ChestGenHooks;
 import crazyores.manager.util.CrazyOresLogger;
 import crazyores.packs.core.block.CoreSpawner;
 
@@ -30,6 +34,7 @@ public abstract class CoreDungeon extends WorldGenerator {
 			int z = zChunk + rand.nextInt(16);
 			
 			EnumDungeonType t = EnumDungeonType.values()[rand.nextInt(EnumDungeonType.values().length)];
+			t = EnumDungeonType.ADAMITE;
 			
 			if (t.equals(EnumDungeonType.ZECTIUM)) {
 				int r = rand.nextInt(100);
@@ -41,7 +46,7 @@ public abstract class CoreDungeon extends WorldGenerator {
 			}
 			else if (t.equals(EnumDungeonType.ADAMITE)) {
 				
-				if (rand.nextInt(80) == 0) {
+				if (rand.nextInt(10) == 0) {
 					new AdamiteDungeon(world.difficultySetting).generate(world, rand, x, 0, z);
 				}
 			}
