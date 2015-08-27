@@ -106,7 +106,7 @@ public abstract class EntityShark extends EntityMob {
 	
 	            
 	            if (this.canEntityBeSeen(entityToAttack)) {
-            		System.out.println("CAN BE SEEN");
+//            		System.out.println("CAN BE SEEN");
                 
 	                waypointX = entityToAttack.posX;
                 	waypointY = entityToAttack.posY;
@@ -117,7 +117,7 @@ public abstract class EntityShark extends EntityMob {
                 		bottomJawRotation = MathHelper.clamp_double(bottomJawRotation + Math.toRadians(3.0f), 0.0f, Math.toRadians(40f));
                 		System.out.println(topJawRotation);
                 		
-                		System.out.println("OPEN MOUTH! Top: " + topJawRotation + " Bottom: " + bottomJawRotation);
+//                		System.out.println("OPEN MOUTH! Top: " + topJawRotation + " Bottom: " + bottomJawRotation);
                 	}
                 	else {
                 		closeMouth();
@@ -188,7 +188,7 @@ public abstract class EntityShark extends EntityMob {
 	
         }
         else {
-        	System.out.println("WHY");
+//        	System.out.println("WHY");
             if (!this.worldObj.isRemote) {
                 this.motionX = 0.0D;
                 this.motionY -= 0.08D;
@@ -255,7 +255,7 @@ public abstract class EntityShark extends EntityMob {
 	
 	private void closeMouth() {
 		if (topJawRotation < 0.0d || bottomJawRotation > 0.0d){
-    		System.out.println("CLOSE MOUTH");
+//    		System.out.println("CLOSE MOUTH");
     		topJawRotation = MathHelper.clamp_double(topJawRotation + Math.toRadians(1.5f), Math.toRadians(-20f), 0.0f);
     		bottomJawRotation = MathHelper.clamp_double(bottomJawRotation - Math.toRadians(3.0f), 0.0f, Math.toRadians(40f));
     	}
@@ -311,7 +311,7 @@ public abstract class EntityShark extends EntityMob {
 	public boolean getCanSpawnHere() {
         boolean b = rand.nextInt(10) == 0 && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && (this.worldObj.getBlock((int)posX, (int)posY, (int)posZ).isAssociatedBlock(Blocks.water) || this.worldObj.getBlock((int)posX, (int)posY, (int)posZ).isAssociatedBlock(Blocks.flowing_water));
     
-        System.out.println(b);
+//        System.out.println(b);
         return b;
 	}
 	
