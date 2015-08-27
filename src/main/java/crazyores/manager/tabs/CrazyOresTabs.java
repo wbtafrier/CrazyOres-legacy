@@ -1,5 +1,7 @@
 package crazyores.manager.tabs;
 
+import crazyores.packs.core.block.CoreBlocks;
+import crazyores.packs.core.item.CoreItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -22,7 +24,7 @@ public abstract class CrazyOresTabs {
 			public Item getTabIconItem() {
 				
 				//TODO: Replace with a cool block from the core pack
-				return Item.getItemFromBlock(Blocks.cobblestone);
+				return Item.getItemFromBlock(CoreBlocks.luminiteOre);
 			}
 		};
 	}
@@ -34,7 +36,7 @@ public abstract class CrazyOresTabs {
 			public Item getTabIconItem() {
 				
 				//TODO: Replace with a cool block from the core pack
-				return Item.getItemFromBlock(Blocks.cactus);
+				return CoreItems.starconiumShard;
 			}
 		};
 	}
