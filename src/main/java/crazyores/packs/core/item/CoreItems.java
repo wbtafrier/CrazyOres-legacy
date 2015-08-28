@@ -293,7 +293,7 @@ public class CoreItems {
 		swiftBow = new SwiftBow("swift_bow", 540, 10); registerItem(swiftBow);
 		hellBow = new HellBow("hell_bow", 366, 10); registerItem(hellBow);
 		dualShotBow = new DualBow("dual_shot_bow", 410, 10); registerItem(dualShotBow);
-		confusionBow = new ConfusionBow("ender_bow", 300, 10); registerItem(confusionBow);
+		confusionBow = new ConfusionBow("confusion_bow", 300, 10); registerItem(confusionBow);
 		
 		//TODO: MAKE TEXTURES!!!!!1
 		flamingArrow = new CoreItem("meteorite_arrow", CoreTabList.coreWeaponsTab); registerItem(flamingArrow);

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.logging.log4j.Level;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import crazyores.manager.util.CrazyOresLogger;
 import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.item.CoreItems;
@@ -54,6 +55,7 @@ public class DemoniteFurnaceRecipes {
 		
 		addRecipe(new ItemStack(Blocks.sand), new ItemStack(Blocks.glass, STACK_SIZE), 0.4f);
 		
+		addRecipe(new ItemStack(CoreItems.rawSharkMeat), new ItemStack(CoreItems.cookedSharkMeat, STACK_SIZE - 1), 0.5f);
 		addRecipe(new ItemStack(Items.potato), new ItemStack(Items.baked_potato, STACK_SIZE - 1), 0.2f);
 		addRecipe(new ItemStack(Items.beef), new ItemStack(Items.cooked_beef, STACK_SIZE - 1), 0.3f);
 		addRecipe(new ItemStack(Items.porkchop), new ItemStack(Items.cooked_porkchop, STACK_SIZE - 1), 0.3f);
@@ -127,7 +129,6 @@ public class DemoniteFurnaceRecipes {
 		return false;
     }
 	
-	//TODO:EXPERIENCE DOESN'T WORK RIGHT NOW.
 	public float getExperience(ItemStack stack) {
 		
 		for (ItemStack[] recipe : recipes) {

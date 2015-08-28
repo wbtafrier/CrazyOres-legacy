@@ -318,7 +318,7 @@ ender_rod.name=Ender Rod
 hell_bow.name=Hell Bow
 swift_bow.name=Swift Bow
 dual_shot_bow.name=Dual Shot Bow
-ender_bow.name=Confusion Bow (needs texture)
+confusion_bow.name=Confusion Bow
 
 
 copper_bow.name=Copper Bow

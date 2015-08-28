@@ -96,7 +96,7 @@ public class EntityFreezingArrow extends CoreEntityArrow {
 			isWater = true;
 			b = worldObj.getBlock(curX, y, curZ);
 			b2 = worldObj.getBlock(curX, y + 1, curZ);
-			System.out.println("WHILE LOOP: " + curX + " " + y + " " + curZ);
+//			System.out.println("WHILE LOOP: " + curX + " " + y + " " + curZ);
 		}
 		
 		if (isWater) {

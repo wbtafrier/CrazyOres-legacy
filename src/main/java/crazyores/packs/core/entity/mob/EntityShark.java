@@ -3,6 +3,7 @@ package crazyores.packs.core.entity.mob;
 import java.util.List;
 import java.util.Random;
 
+import crazyores.packs.core.item.CoreItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -377,28 +378,14 @@ public abstract class EntityShark extends EntityMob {
     
     @Override
     protected Item getDropItem() {
-        return Items.fish;
+        return CoreItems.rawSharkMeat;
     }
 
     /**
      * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
      * par2 - Level of Looting used to kill this mob.
      */
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
-    {
-        int j = this.rand.nextInt(7);
-        int k;
-
-        for (k = 0; k < j; ++k) {
-            this.dropItem(Items.fish, 1);
-        }
-
-//        j = this.rand.nextInt(2);
-//
-//        for (k = 0; k < j; ++k) {
-//            this.dropItem(CoreItems.rawSharkMeat, 1);
-//        }
-    }
+    protected abstract void dropFewItems(boolean p_70628_1_, int p_70628_2_);
     
     public double getTopJawRotation() {
     	return topJawRotation;
