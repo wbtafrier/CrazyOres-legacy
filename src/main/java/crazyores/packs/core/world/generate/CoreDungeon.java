@@ -10,6 +10,7 @@ import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.ChestGenHooks;
 import crazyores.manager.util.CrazyOresLogger;
@@ -33,7 +34,7 @@ public abstract class CoreDungeon extends WorldGenerator {
 			int y;
 			int z = zChunk + rand.nextInt(16);
 			
-			if (rand.nextInt(40) == 0) {
+			if ((rand.nextInt(40) == 0) && ((world.getBiomeGenForCoords(x, z) == BiomeGenBase.deepOcean) || (world.getBiomeGenForCoords(x, z) == BiomeGenBase.ocean) || (world.getBiomeGenForCoords(x, z) == BiomeGenBase.frozenOcean))) {
 				new AdamiteDungeon(world.difficultySetting).generate(world, rand, x, 0, z);
 			}
 			else if (rand.nextInt(1200) == 0) {

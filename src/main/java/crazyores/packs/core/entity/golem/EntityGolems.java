@@ -290,9 +290,7 @@ public abstract class EntityGolems extends EntityGolem {
         }
         
         if (this instanceof EntityFoolsRubyGolem) {
-        	System.out.println("HELLO");
-        	
-        	int drops = (int)this.getScale() * rand.nextInt(5);
+        	int drops = (int)this.getScale() * (7 + rand.nextInt(2));
         	for (int i = 0; i < drops; i++) {
         		this.dropItem(CoreItems.foolsRubyMush, 1);
         	}
