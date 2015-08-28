@@ -27,6 +27,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.packs.core.block.BlockDemoniteFurnace;
 import crazyores.packs.core.block.CoreBlocks;
+import crazyores.packs.core.item.CoreItems;
 import crazyores.packs.core.recipe.DemoniteFurnaceRecipes;
 
 public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInventory {
@@ -775,6 +776,6 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
      * side
      */
     public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
-        return p_102008_3_ != 0 || p_102008_1_ != 1 || p_102008_2_.getItem() == Items.bucket;
+        return p_102008_3_ != 0 || p_102008_1_ != 1 || p_102008_2_.getItem() == Items.bucket || p_102008_2_.getItem() == CoreItems.copperBucketEmpty;
     }
 }

@@ -150,36 +150,6 @@ public class CoreBucket extends ItemBucket {
         }
     }
     
-//    public boolean tryPlaceContainedLiquid(World world, int xPos, int yPos, int zPos) {
-//        if (this.containedBlock == Blocks.air) {
-//            return false;
-//        }
-//        else {
-//            Material material = world.getBlock(xPos, yPos, zPos).getMaterial();
-//            boolean flag = !material.isSolid();
-//
-//            if (!world.isAirBlock(xPos, yPos, zPos) && !flag) {
-//                return false;
-//            }
-//            else {
-//                if (world.provider.isHellWorld && this.containedBlock == Blocks.flowing_water) {
-//                    world.playSoundEffect((double)((float)xPos + 0.5F), (double)((float)yPos + 0.5F), (double)((float)zPos + 0.5F), "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
-//
-//                    for (int l = 0; l < 8; ++l) {
-//                        world.spawnParticle("largesmoke", (double)xPos + Math.random(), (double)yPos + Math.random(), (double)zPos + Math.random(), 0.0D, 0.0D, 0.0D);
-//                    }
-//                }
-//                else {
-//                    if (!world.isRemote && flag && !material.isLiquid()) {
-//                        world.func_147480_a(xPos, yPos, zPos, true);
-//                    }
-//                    world.setBlock(xPos, yPos, zPos, this.containedBlock, 0, 3);
-//                }
-//                return true;
-//            }
-//        }
-//    }
-    
     @Override
 	public String getUnlocalizedName() {
 		return itemUnlocalizedName;

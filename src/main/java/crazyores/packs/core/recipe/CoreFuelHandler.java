@@ -13,6 +13,7 @@ public class CoreFuelHandler implements IFuelHandler {
 		if (fuel.getItem() != null) {
 			if (fuel.getItem().equals(CoreItems.meteoriteCoal)) return 3200;
 			else if (fuel.getItem().equals(CoreItems.meteoriteGem)) return 6400;
+			else if (fuel.getItem().equals(CoreItems.copperBucketLava)) return 20000;
 		}
 		return 0;
 	}

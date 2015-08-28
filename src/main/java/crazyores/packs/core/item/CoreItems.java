@@ -220,8 +220,6 @@ public class CoreItems {
 	public static Item freezingArrow;
 	public static Item lightningArrow;
 	
-	public static Item quiver;
-	
 	/** Arrowhead List **/
 	
 	public static Item flamingArrowhead;
@@ -380,9 +378,9 @@ public class CoreItems {
 		enderHoe = new CoreHoe("ender_hoe", CoreHarvestLevels.ENDER); registerItem(enderHoe);
 		
 		copperBucketEmpty = (new CoreBucket("copper_bucket_empty", Blocks.air)).setMaxStackSize(32); registerItem(copperBucketEmpty);
-		copperBucketWater = new CoreBucket("copper_bucket_water", Blocks.flowing_water); registerItem(copperBucketWater);
-		copperBucketLava = new CoreBucket("copper_bucket_lava", Blocks.flowing_lava); registerItem(copperBucketLava); 
-		copperBucketMilk = new CoreMilkBucket("copper_bucket_milk"); registerItem(copperBucketMilk);
+		copperBucketWater = (new CoreBucket("copper_bucket_water", Blocks.flowing_water)).setContainerItem(copperBucketEmpty); registerItem(copperBucketWater);
+		copperBucketLava = (new CoreBucket("copper_bucket_lava", Blocks.flowing_lava)).setContainerItem(copperBucketEmpty); registerItem(copperBucketLava); 
+		copperBucketMilk = (new CoreMilkBucket("copper_bucket_milk")).setContainerItem(copperBucketEmpty); registerItem(copperBucketMilk);
 	}
 	
 	private static void initArmor() {
