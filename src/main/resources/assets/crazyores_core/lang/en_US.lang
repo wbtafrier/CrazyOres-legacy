@@ -330,17 +330,12 @@ tapazite_bow.name=Tapazite Bow
 starconium_bow.name=Starconium Bow
 
 # ARROW LIST 
-meteorite_arrow.name=Flaming Arrow (needs texture)
+flaming_arrow.name=Flaming Arrow (needs texture)
 adamite_arrow.name=Lightning Arrow (needs texture)
-invisium_arrow.name=Invisium Arrow
 osmonium_arrow.name=Freezing Arrow (needs texture)
-copper_arrow.name=Adamite Arrow
-ruby_arrow.name=Ruby Arrow
 zectium_arrow.name=Explosive Arrow (needs texture)
-tapazite_arrow.name=Tapazite Arrow
-sapphire_arrow.name=Osmonium Arrow
-ender_arrow.name=Ender Arrow
-starconium_arrow.name=Starconium Arrow
+
+flaming_arrowhead.name=Flaming Arrowhead
 
 # TAB LOCALIZATION
 itemGroup.crazyOresBlocks=CrazyOres Blocks

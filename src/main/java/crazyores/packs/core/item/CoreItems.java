@@ -222,7 +222,7 @@ public class CoreItems {
 	
 	/** Arrowhead List **/
 	
-	public static Item flamingArrowhead;
+	public static Item flamingArrowHead;
 	public static Item explosiveArrowhead;
 	public static Item freezingArrowhead;
 	public static Item lightningArrowhead;
@@ -296,10 +296,12 @@ public class CoreItems {
 		confusionBow = new ConfusionBow("confusion_bow", 300, 10); registerItem(confusionBow);
 		
 		//TODO: MAKE TEXTURES!!!!!1
-		flamingArrow = new CoreItem("meteorite_arrow", CoreTabList.coreWeaponsTab); registerItem(flamingArrow);
+		flamingArrow = new CoreItem("flaming_arrow", CoreTabList.coreWeaponsTab); registerItem(flamingArrow);
 		explosiveArrow = new CoreItem("zectium_arrow", CoreTabList.coreWeaponsTab); registerItem(explosiveArrow);
 		lightningArrow = new CoreItem("adamite_arrow", CoreTabList.coreWeaponsTab); registerItem(lightningArrow);
 		freezingArrow = new CoreItem("osmonium_arrow", CoreTabList.coreWeaponsTab); registerItem(freezingArrow);
+		
+		flamingArrowHead = new CoreItem("flaming_arrowhead", CoreTabList.coreWeaponsTab); registerItem(flamingArrowHead);
 		
 //		flamingArrowhead;
 //		explosiveArrowhead;
