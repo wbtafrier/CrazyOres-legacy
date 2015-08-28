@@ -64,7 +64,7 @@ public class CoreEntityRegistry {
 		EntityRegistry.registerModEntity(EntityGreatWhiteShark.class, "great_white_shark", coreIDCounter++, CrazyOresCore.instance, 64, 3, true);
 		EntityRegistry.registerModEntity(EntityAdamiteShark.class, "adamite_shark", coreIDCounter++, CrazyOresCore.instance, 64, 3, true);
 		
-		System.out.println("ADDING SPAWN");
+//		System.out.println("ADDING SPAWN");
 		BiomeGenBase[] allBiomes = FluentIterable.from(Arrays.asList(BiomeGenBase.getBiomeGenArray())).filter(Predicates.notNull()).toArray(BiomeGenBase.class);
 		EntityRegistry.addSpawn(EntityGreatWhiteShark.class, 1, 1, 1, EnumCreatureType.waterCreature, allBiomes);
 	}

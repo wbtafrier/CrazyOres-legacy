@@ -162,7 +162,7 @@ public class AdamiteDungeon extends CoreDungeon {
 					return false;
 			}
 		}
-		System.out.println("ADDING ADAMITE BRICK!");
+//		System.out.println("ADDING ADAMITE BRICK!");
 		
 		world.setBlock(x, y, z, CoreBlocks.adamiteBrick);
 		return true;

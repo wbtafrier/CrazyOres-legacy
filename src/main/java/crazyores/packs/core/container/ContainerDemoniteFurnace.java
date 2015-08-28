@@ -146,7 +146,7 @@ public class ContainerDemoniteFurnace extends Container {
         ItemStack itemstack = null;
         Slot slot = (Slot)this.inventorySlots.get(slotIndex);
         
-        System.out.println(slotIndex);
+//        System.out.println(slotIndex);
         
         if (slot != null && slot.getHasStack()) {
             ItemStack stackFromSlot = slot.getStack();

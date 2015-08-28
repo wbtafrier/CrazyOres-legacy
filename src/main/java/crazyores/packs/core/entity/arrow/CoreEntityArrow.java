@@ -14,6 +14,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.S12PacketEntityVelocity;
@@ -353,7 +354,8 @@ public class CoreEntityArrow extends EntityArrow implements IProjectile, IThrowa
             	if ((this instanceof EntityFlamingArrow && !player.inventory.addItemStackToInventory(new ItemStack(CoreItems.flamingArrow, 1))) 
             	|| (this instanceof EntityExplosiveArrow && !player.inventory.addItemStackToInventory(new ItemStack(CoreItems.explosiveArrow, 1)))
             	|| (this instanceof EntityLightningArrow && !player.inventory.addItemStackToInventory(new ItemStack(CoreItems.lightningArrow, 1)))
-            	|| (this instanceof EntityFreezingArrow && !player.inventory.addItemStackToInventory(new ItemStack(CoreItems.freezingArrow, 1)))) {
+            	|| (this instanceof EntityFreezingArrow && !player.inventory.addItemStackToInventory(new ItemStack(CoreItems.freezingArrow, 1)))
+            	|| (this instanceof EntityVanillaArrow && !player.inventory.addItemStackToInventory(new ItemStack(Items.arrow, 1)))) {
             		canPickUp = false;
             	}
             }

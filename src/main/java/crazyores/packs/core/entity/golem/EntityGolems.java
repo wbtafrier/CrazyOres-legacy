@@ -9,7 +9,6 @@ import net.minecraft.entity.monster.EntityGolem;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChunkCoordinates;
@@ -19,6 +18,7 @@ import net.minecraft.village.Village;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.item.CoreItems;
 
 public abstract class EntityGolems extends EntityGolem {
@@ -282,17 +282,70 @@ public abstract class EntityGolems extends EntityGolem {
     	int j = this.rand.nextInt(3);
         int k;
 
-        for (k = 0; k < j; ++k) {
-            this.func_145778_a(Item.getItemFromBlock(Blocks.red_flower), 1, 0.0F);
+        if (this instanceof EntityCopperGolem) {
+        	j += 1;
+	        for (k = 0; k < j; ++k) {
+	            this.func_145778_a(Item.getItemFromBlock(Blocks.red_flower), 1, 0.0F);
+	        }
+        }
+        
+        if (this instanceof EntityFoolsRubyGolem) {
+        	System.out.println("HELLO");
+        	
+        	int drops = (int)this.getScale() * rand.nextInt(5);
+        	for (int i = 0; i < drops; i++) {
+        		this.dropItem(CoreItems.foolsRubyMush, 1);
+        	}
         }
 
-        k = 3 + this.rand.nextInt(3);
+        k = 4 + this.rand.nextInt(4);
 
         for (int l = 0; l < k; ++l) {
         	if (this instanceof EntityCopperGolem)
         		this.dropItem(CoreItems.copperIngot, 1);
-        	else
-        		this.dropItem(Items.iron_ingot, 1);
+        	else if (this instanceof EntitySapphireGolem)
+        		this.dropItem(CoreItems.sapphireGem, 1);
+        	else if (this instanceof EntityAdamiteGolem)
+        		this.dropItem(CoreItems.adamiteShard, 1);
+        	else if (this instanceof EntityRubyGolem)
+        		this.dropItem(CoreItems.rubyGem, 1);
+        	else if (this instanceof EntityZectiumGolem)
+        		this.dropItem(CoreItems.zectiumIngot, 1);
+        	else if (this instanceof EntityTapaziteGolem)
+        		this.dropItem(CoreItems.tapaziteObelisk, 1);
+        	else if (this instanceof EntityOsmoniumGolem)
+        		this.dropItem(CoreItems.osmoniumIngot, 1);
+        	else if (this instanceof EntityStarconiumGolem)
+        		this.dropItem(CoreItems.starconiumGem, 1);
+        	else if (this instanceof EntityDemoniteGolem)
+        		this.dropItem(CoreItems.demoniteOrb, 1);
+        	else if (this instanceof EntityEnderGolem)
+        		this.dropItem(CoreItems.enderGem, 1);
+        }
+        
+        k = 1 + rand.nextInt(2);
+        
+        for (int l = 0; l < k; ++l) {
+        	if (this instanceof EntityCopperGolem)
+        		this.dropItem(Item.getItemFromBlock(CoreBlocks.copperBlock), 1);
+        	else if (this instanceof EntitySapphireGolem)
+        		this.dropItem(Item.getItemFromBlock(CoreBlocks.sapphireBlock), 1);
+        	else if (this instanceof EntityAdamiteGolem)
+        		this.dropItem(Item.getItemFromBlock(CoreBlocks.adamiteBlock), 1);
+        	else if (this instanceof EntityRubyGolem)
+        		this.dropItem(Item.getItemFromBlock(CoreBlocks.rubyBlock), 1);
+        	else if (this instanceof EntityZectiumGolem)
+        		this.dropItem(Item.getItemFromBlock(CoreBlocks.zectiumBlock), 1);
+        	else if (this instanceof EntityTapaziteGolem)
+        		this.dropItem(Item.getItemFromBlock(CoreBlocks.tapaziteBlock), 1);
+        	else if (this instanceof EntityOsmoniumGolem)
+        		this.dropItem(Item.getItemFromBlock(CoreBlocks.osmoniumBlock), 1);
+        	else if (this instanceof EntityStarconiumGolem)
+        		this.dropItem(Item.getItemFromBlock(CoreBlocks.starconiumBlock), 1);
+        	else if (this instanceof EntityDemoniteGolem)
+        		this.dropItem(Item.getItemFromBlock(CoreBlocks.demoniteBlock), 1);
+        	else if (this instanceof EntityEnderGolem)
+        		this.dropItem(Item.getItemFromBlock(CoreBlocks.enderBlock), 1);
         }
     }
     

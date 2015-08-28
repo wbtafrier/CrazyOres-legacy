@@ -38,7 +38,7 @@ public class CoreSpawner extends BlockMobSpawner {
 	public TileEntity createNewTileEntity(World world, int p_149915_2_) {
 		TileEntityMobSpawner spawner = new TileEntityMobSpawner();
 		spawner.func_145881_a().setEntityName(getEntityName());
-		System.out.println(spawner.func_145881_a().getEntityNameToSpawn());
+//		System.out.println(spawner.func_145881_a().getEntityNameToSpawn());
 		return spawner;
     }
 	

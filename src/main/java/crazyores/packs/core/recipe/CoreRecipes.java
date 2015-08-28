@@ -50,6 +50,8 @@ public class CoreRecipes {
 		GameRegistry.addSmelting(CoreBlocks.demoniteOre, new ItemStack(CoreItems.demoniteOrb), 0.6f);
 		GameRegistry.addSmelting(CoreBlocks.invisiumOre, new ItemStack(CoreItems.invisiumIngot), 0.7f);
 		GameRegistry.addSmelting(CoreBlocks.enderOre, new ItemStack(CoreItems.enderGem), 1.8f);
+		
+		GameRegistry.addSmelting(CoreItems.rawSharkMeat, new ItemStack(CoreItems.cookedSharkMeat), 0.5f);
 	}
 	
 	private static void initPickaxeRecipes() {

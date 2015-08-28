@@ -2,6 +2,8 @@ package crazyores.packs.core.item;
 
 import java.util.List;
 
+import org.apache.logging.log4j.Level;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -24,6 +26,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.manager.pack.COPackManager;
 import crazyores.manager.pack.data.CrazyOresData;
+import crazyores.manager.util.CrazyOresLogger;
 import crazyores.packs.core.tabs.CoreTabList;
 
 public class CoreSpawnEgg extends ItemMonsterPlacer {
@@ -176,7 +179,7 @@ public class CoreSpawnEgg extends ItemMonsterPlacer {
        if (!parWorld.isRemote) {
     	   
     	   String name = CrazyOresData.corePackID + "." + spawnEntity;
-    	   System.out.println(name);
+//    	   System.out.println(name);
     	   
             if (EntityList.stringToClassMapping.containsKey(name)) {
                 entityToSpawn = (EntityLiving) EntityList.createEntityByName(name, parWorld);
@@ -186,7 +189,7 @@ public class CoreSpawnEgg extends ItemMonsterPlacer {
                 entityToSpawn.playLivingSound();
             }
             else {
-                System.out.println("Entity not found " + name);
+                CrazyOresLogger.write(Level.WARN, "Entity not found " + name);
             }
         }
         return entityToSpawn;

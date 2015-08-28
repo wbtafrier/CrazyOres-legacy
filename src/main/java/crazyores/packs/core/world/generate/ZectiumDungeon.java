@@ -30,11 +30,11 @@ public class ZectiumDungeon extends CoreDungeon {
 	public boolean generate(World world, Random rand, int x, int y, int z) {
 		
 		if (!world.getBlock(x, y, z).isAssociatedBlock(Blocks.air)) {
-			System.out.println("COULD NOT GENERATE AT: " + x + " " + y + " " + z);
+//			System.out.println("COULD NOT GENERATE AT: " + x + " " + y + " " + z);
 			return false;
 		}
 		
-		System.out.println("GENERATING: " + x + " " + y + " " + z);
+		System.out.println("GENERATING ZECTIUM DUNGEON: " + x + " " + y + " " + z);
 		
 		for (int xChunk = 0; xChunk < DEFAULT_WIDTH; xChunk++) {
 			for (int yChunk = 0; yChunk < DEFAULT_HEIGHT; yChunk++) {

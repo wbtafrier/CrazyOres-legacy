@@ -290,7 +290,6 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     	}
 		update = overHeat > 0;
     	
-    	
     	if (!this.worldObj.isRemote) {
     		
 //        	System.out.println("TIME ALIVE: " + timeAlive);
