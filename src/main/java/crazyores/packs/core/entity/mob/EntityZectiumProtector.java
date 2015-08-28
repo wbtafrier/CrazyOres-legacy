@@ -133,12 +133,12 @@ public class EntityZectiumProtector extends EntityFlying implements IMob {
 
             if (this.canEntityBeSeen(this.targetedEntity)) {
                 if (this.attackCounter == 5) {
-                    this.playSound(CrazyOresData.corePackID + ":mob.zectiumProtector.shoot", 10.0F, (rand.nextFloat() - rand.nextFloat()) * 0.2F + 1.0F);
+                    this.playSound(CrazyOresData.corePackID + ":mob.zectiumProtector.shoot", getSoundVolume() * 2, (rand.nextFloat() - rand.nextFloat()) * 0.2F + 1.0F);
                 }
 
                 ++this.attackCounter;
 
-                if (this.attackCounter == 30)
+                if (this.attackCounter == 20)
                 {
                     double d8 = 4.0D;
                     Vec3 vec3 = this.getLook(1.0F);

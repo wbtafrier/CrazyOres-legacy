@@ -24,7 +24,7 @@ public class AdamiteDungeon extends CoreDungeon {
 	@Override
 	public boolean generate(World world, Random rand, int x, int y, int z) {
 		
-		if ((world.getBiomeGenForCoords(x, z) != BiomeGenBase.deepOcean) && (world.getBiomeGenForCoords(x, z) != BiomeGenBase.ocean)) {
+		if ((world.getBiomeGenForCoords(x, z) != BiomeGenBase.deepOcean) && (world.getBiomeGenForCoords(x, z) != BiomeGenBase.ocean) && (world.getBiomeGenForCoords(x, z) != BiomeGenBase.frozenOcean)) {
 			return debugFalse(world, x, y, z);
 		}
 		
@@ -179,7 +179,7 @@ public class AdamiteDungeon extends CoreDungeon {
 	}
 	
 	private boolean debugFalse(World world, int x, int y, int z) {
-		System.out.println("COULD NOT GENERATE IN BIOME: " + world.getBiomeGenForCoords(x, z) + " AT: (" + x + ", " + y + ", " + z + ")");
+//		System.out.println("COULD NOT GENERATE IN BIOME: " + world.getBiomeGenForCoords(x, z) + " AT: (" + x + ", " + y + ", " + z + ")");
 		return false;
 	}
 }

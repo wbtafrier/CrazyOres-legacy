@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.item.EntityBoat;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
@@ -38,12 +39,13 @@ public abstract class EntityShark extends EntityMob {
     private double waypointZ;
     
     private boolean attacking;
+    private float speed;
     
     private float radius;
     
 	private int courseChangeCooldown;
 	
-	public EntityShark(World world, EnumSharkType sharkType, float scale, float r) {
+	public EntityShark(World world, EnumSharkType sharkType, float scale, float r, float s) {
 		super(world);
 		type = sharkType;
 		this.dataWatcher.addObject(20, 1.0f);
@@ -52,6 +54,7 @@ public abstract class EntityShark extends EntityMob {
 		this.setScale(scale);
         this.experienceValue = 10;
         radius = r;
+        speed = s;
 	}
 	
 	@Override
@@ -82,11 +85,12 @@ public abstract class EntityShark extends EntityMob {
 	
 	@Override
 	public void onCollideWithPlayer(EntityPlayer player) {
-		player.attackEntityFrom(DamageSource.causeMobDamage(this), (float)this.getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue());
+//		player.attackEntityFrom(DamageSource.causeMobDamage(this), (float)this.getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue());
     }
 	
 	@Override
 	public void onLivingUpdate() {
+		
         if (!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
             this.setDead();
         }
@@ -97,13 +101,12 @@ public abstract class EntityShark extends EntityMob {
         	
 //        	System.out.println(posX + " " + posY + " " + posZ);
         	
-	        if (this.entityToAttack != null && this.entityToAttack.isInWater() && this.entityToAttack.getDistanceSqToEntity(this) < radius * radius) {
+	        if (this.entityToAttack != null && (this.entityToAttack.isInWater() || this.entityToAttack.isRiding()) && this.entityToAttack.getDistanceSqToEntity(this) < radius * radius) {
 	        	attacking = true;
 	            double d5 = this.entityToAttack.posX - this.posX;
 	            double d6 = this.entityToAttack.boundingBox.minY + (double)(this.entityToAttack.height / 2.0F) - (this.posY + (double)(this.height / 2.0F));
 	            double d7 = this.entityToAttack.posZ - this.posZ;
 	            this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(d5, d7)) * 180.0F / (float)Math.PI;
-	
 	            
 	            if (this.canEntityBeSeen(entityToAttack)) {
 //            		System.out.println("CAN BE SEEN");
@@ -113,9 +116,10 @@ public abstract class EntityShark extends EntityMob {
                 	waypointZ = entityToAttack.posZ;
 	
                 	if (this.entityToAttack.getDistanceSqToEntity(this) <= 6.0f * 6.0f) {
+                		
                 		topJawRotation = MathHelper.clamp_double(topJawRotation - Math.toRadians(1.5f), Math.toRadians(-20f), 0.0f);
                 		bottomJawRotation = MathHelper.clamp_double(bottomJawRotation + Math.toRadians(3.0f), 0.0f, Math.toRadians(40f));
-                		System.out.println(topJawRotation);
+//                		System.out.println(topJawRotation);
                 		
 //                		System.out.println("OPEN MOUTH! Top: " + topJawRotation + " Bottom: " + bottomJawRotation);
                 	}
@@ -131,8 +135,7 @@ public abstract class EntityShark extends EntityMob {
 	            this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(this.motionX, this.motionZ)) * 180.0F / (float)Math.PI;
 	            closeMouth();
 	        }
-        	
-        	
+	        
         	double d0 = this.waypointX - this.posX;
             double d1 = this.waypointY - this.posY;
             double d2 = this.waypointZ - this.posZ;
@@ -144,23 +147,24 @@ public abstract class EntityShark extends EntityMob {
 	            this.waypointZ = (this.posZ + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 5.0F));
 	        }
 	
-	        if (this.courseChangeCooldown-- <= 0) {
+	        if (this.courseChangeCooldown-- <= 0 || this.attacking) {
 	            this.courseChangeCooldown += this.rand.nextInt(5) + 2;
 	            d3 = (double)MathHelper.sqrt_double(d3);
 	
-	            if (this.isCourseTraversable(this.waypointX, this.waypointY, this.waypointZ, d3)) {
-	               
+	            if (this.isCourseTraversable(this.waypointX, this.waypointY, this.waypointZ, d3)  || this.attacking) {
+	            	
 	            	if (!this.worldObj.isRemote) {
-		            	this.motionX += d0 / d3 * 0.1D;
-		                this.motionY += d1 / d3 * 0.1D;
-		                this.motionZ += d2 / d3 * 0.1D;
+	            		
+		            	this.motionX += d0 / d3 * speed;
+		                this.motionY += d1 / d3 * speed;
+		                this.motionZ += d2 / d3 * speed;
 		                
 		                this.waypointX = (this.posX + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F));
 			            this.waypointY = (this.posY + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 1.0F));
 			            this.waypointZ = (this.posZ + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F));
 	            	}
 	            }
-	            else if (!attacking){
+	            else if (!attacking) {
 	                this.waypointX = this.posX;
 	                this.waypointY = this.posY;
 	                this.waypointZ = this.posZ;
@@ -217,9 +221,11 @@ public abstract class EntityShark extends EntityMob {
 	            {
 	                Entity entity = (Entity)list.get(i);
 	
-	                if (!entity.isDead && (entity instanceof EntitySheep || entity instanceof EntityHorse || entity instanceof EntityPig || entity instanceof EntityChicken || entity instanceof EntityCow || entity instanceof EntityVillager))
+	                if (!entity.isDead && (entity instanceof EntityPlayer || entity instanceof EntitySheep || entity instanceof EntityHorse || entity instanceof EntityPig || entity instanceof EntityChicken || entity instanceof EntityCow || entity instanceof EntityVillager))
 	                {
-	                	entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float)this.getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue());
+	                	if (!(entity instanceof EntityPlayer && entity.ridingEntity instanceof EntityBoat)) {
+	                		entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float)this.getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue());
+	                	}
 	                }
 	            }
 	        }
@@ -309,29 +315,8 @@ public abstract class EntityShark extends EntityMob {
 	
 	@Override
 	public boolean getCanSpawnHere() {
-        return this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && ((this.worldObj.getBlock((int)posX, (int)posY, (int)posZ).isAssociatedBlock(Blocks.water) || this.worldObj.getBlock((int)posX, (int)posY, (int)posZ).isAssociatedBlock(Blocks.flowing_water)));
+        return this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && this.rand.nextInt(5) == 0 && this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && ((this.worldObj.getBlock((int)posX, (int)posY, (int)posZ).isAssociatedBlock(Blocks.water) || this.worldObj.getBlock((int)posX, (int)posY, (int)posZ).isAssociatedBlock(Blocks.flowing_water)));
 	}
-	
-	@Override
-	protected String getLivingSound() {
-        return "mob.ghast.moan";
-    }
-
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
-	@Override
-    protected String getHurtSound() {
-        return "mob.ghast.scream";
-    }
-
-    /**
-     * Returns the sound this mob makes on death.
-     */
-	@Override
-    protected String getDeathSound() {
-        return "mob.ghast.death";
-    }
 	
 	public void setScale(float s) {
     	dataWatcher.updateObject(20, s);
@@ -348,14 +333,6 @@ public abstract class EntityShark extends EntityMob {
 	
 	public boolean canBreatheUnderwater() {
         return true;
-    }
-
-    /**
-     * Get number of ticks, at least during which the living entity will be silent.
-     */
-    @Override
-    public int getTalkInterval() {
-        return 120;
     }
 
     /**

@@ -16,6 +16,11 @@ public class CoreStairs extends BlockStairs {
 		this.blockResistance = resistance;
 	}
 	
+	protected CoreStairs(String unlocalizedName, Block block, float hardness, float resistance, float lightLevel) {
+		this(unlocalizedName, block, hardness, resistance);
+		this.setLightLevel(lightLevel);
+	}
+	
 	@Override
 	public String getUnlocalizedName() {
 		return blockUnlocalizedName;

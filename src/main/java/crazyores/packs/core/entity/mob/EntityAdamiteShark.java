@@ -7,6 +7,6 @@ import crazyores.packs.core.entity.mob.EntityShark.EnumSharkType;
 public class EntityAdamiteShark extends EntityShark {
 
 	public EntityAdamiteShark(World world) {
-		super(world, EnumSharkType.ADAMITE, 0.5f + (rand.nextFloat() * 0.2f), 16f);
+		super(world, EnumSharkType.ADAMITE, 0.5f + (rand.nextFloat() * 0.2f), 16f, 0.15f);
 	}
 }

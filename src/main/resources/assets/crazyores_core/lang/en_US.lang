@@ -298,6 +298,9 @@ chocolate_cake_placer.name=Chocolate Cake
 strawberry_cake_placer.name=Strawberry Cake
 birthday_cake_placer.name=Birthday Cake
 
+raw_shark_meat.name=Raw Shark Meat
+cooked_shark_meat.name=Cooked Shark Meat
+
 # ROD LIST 
 copper_rod.name=Copper Rod
 sapphire_rod.name=Sapphire Rod
@@ -312,9 +315,9 @@ invisium_rod.name=Invisium Rod
 ender_rod.name=Ender Rod
 
 # BOW LIST 
-meteorite_bow.name=Hell Bow (needs texture)
-osmonium_bow.name=Swift Bow (needs texture)
-invisium_bow.name=Dual Shot Bow (needs texture)
+hell_bow.name=Hell Bow
+swift_bow.name=Swift Bow
+dual_shot_bow.name=Dual Shot Bow
 ender_bow.name=Confusion Bow (needs texture)
 
 

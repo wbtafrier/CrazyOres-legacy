@@ -33,22 +33,12 @@ public abstract class CoreDungeon extends WorldGenerator {
 			int y;
 			int z = zChunk + rand.nextInt(16);
 			
-			EnumDungeonType t = EnumDungeonType.values()[rand.nextInt(EnumDungeonType.values().length)];
-			t = EnumDungeonType.ADAMITE;
-			
-			if (t.equals(EnumDungeonType.ZECTIUM)) {
-				int r = rand.nextInt(100);
-				System.out.println(r);
-				if (r == 0) {
-					y = rand.nextInt(70) + 30;
-					new ZectiumDungeon(world.difficultySetting).generate(world, rand, x, y, z);
-				}
+			if (rand.nextInt(40) == 0) {
+				new AdamiteDungeon(world.difficultySetting).generate(world, rand, x, 0, z);
 			}
-			else if (t.equals(EnumDungeonType.ADAMITE)) {
-				
-				if (rand.nextInt(10) == 0) {
-					new AdamiteDungeon(world.difficultySetting).generate(world, rand, x, 0, z);
-				}
+			else if (rand.nextInt(1200) == 0) {
+				y = rand.nextInt(61) + 60;
+				new ZectiumDungeon(world.difficultySetting).generate(world, rand, x, y, z);
 			}
 		}
 	}
@@ -63,13 +53,5 @@ public abstract class CoreDungeon extends WorldGenerator {
 	
 	protected void spawnMobs(World world, int x, int y, int z, Random rand, CoreSpawner spawnerType) {
 		world.setBlock(x, y, z, spawnerType, 0, 2);
-//        TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(x, y, z);
-//
-//        if (tileentitymobspawner != null) {
-//            tileentitymobspawner.func_145881_a().setEntityName(spawnerType.getEntityName());
-//        }
-//        else {
-//            CrazyOresLogger.write(Level.WARN, "Failed to fetch mob spawner entity at (" + x + ", " + y + ", " + z + ")");
-//        }
 	}
 }

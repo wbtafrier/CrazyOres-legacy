@@ -172,7 +172,7 @@ public class CoreBlocks {
 		//Golem heads
 		copperGolemHead = new GolemHead("copper_head", EnumGolemType.COPPER, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(copperGolemHead);
 		sapphireGolemHead = new GolemHead("sapphire_head", EnumGolemType.SAPPHIRE, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(sapphireGolemHead);
-		adamiteGolemHead = new GolemHead("adamite_head", EnumGolemType.ADAMITE, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(adamiteGolemHead);
+		adamiteGolemHead = new GolemHead("adamite_head", EnumGolemType.ADAMITE, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f, 0.7f); registerBlock(adamiteGolemHead);
 		rubyGolemHead = new GolemHead("ruby_head", EnumGolemType.RUBY, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(rubyGolemHead);
 		foolsRubyGolemHead = new GolemHead("fools_ruby_head", EnumGolemType.FOOLS_RUBY, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(foolsRubyGolemHead);
 		zectiumGolemHead = new GolemHead("zectium_head", EnumGolemType.ZECTIUM, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(zectiumGolemHead);
@@ -189,7 +189,7 @@ public class CoreBlocks {
 		
 		greatWhiteSharkSpawner = new CoreSpawner("great_white_shark_spawner", "great_white_shark", CoreTabList.coreMobsTab, Block.soundTypePiston, 6.0f, 5.0f); registerBlock(greatWhiteSharkSpawner);
 		zectiumProtectorSpawner = new CoreSpawner("zectium_protector_spawner", "zectium_protector", CoreTabList.coreMobsTab, Block.soundTypePiston, 10.0f, 100f); registerBlock(zectiumProtectorSpawner);
-		adamiteSharkSpawner = new CoreSpawner("adamite_shark_spawner", "adamite_shark", CoreTabList.coreMobsTab, Block.soundTypePiston, 6.0f, 5.0f); registerBlock(adamiteSharkSpawner);
+		adamiteSharkSpawner = new CoreSpawner("adamite_shark_spawner", "adamite_shark", CoreTabList.coreMobsTab, Block.soundTypePiston, 6.0f, 5.0f, 0.7f); registerBlock(adamiteSharkSpawner);
 		
 		reinforcedGlass = new CoreGlass("reinforced_glass", true, 1.0f, 100.0f); registerBlock(reinforcedGlass);
 		smoothReinforcedGlass = new CoreGlass("smooth_reinforced_glass", true, 1.0f, 100.0f); registerBlock(smoothReinforcedGlass);
@@ -204,11 +204,11 @@ public class CoreBlocks {
 		diagonalBrick = new CoreBlock("diagonal_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 2.0f, 10.0f); registerBlock(diagonalBrick);
 		diagonalBrickStairs = new CoreStairs("diagonal_brick_stairs", diagonalBrick, 2.0f, 10.0f); registerBlock(diagonalBrickStairs);
 		
-		adamiteBrick = new CoreBlock("adamite_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 3.0f, 10.0f); registerBlock(adamiteBrick);
-		adamiteBrickStairs = new CoreStairs("adamite_brick_stairs", adamiteBrick, 3.0f, 10.0f); registerBlock(adamiteBrickStairs);
+		adamiteBrick = new CoreBlock("adamite_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 3.0f, 10.0f, 0.7f); registerBlock(adamiteBrick);
+		adamiteBrickStairs = new CoreStairs("adamite_brick_stairs", adamiteBrick, 3.0f, 10.0f, 0.7f); registerBlock(adamiteBrickStairs);
 		
-		diagonalAdamiteBrick = new CoreBlock("diagonal_adamite_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 3.0f, 10.0f); registerBlock(diagonalAdamiteBrick);
-		diagonalAdamiteBrickStairs = new CoreStairs("diagonal_adamite_brick_stairs", diagonalAdamiteBrick, 3.0f, 10.0f); registerBlock(diagonalAdamiteBrickStairs);
+		diagonalAdamiteBrick = new CoreBlock("diagonal_adamite_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 3.0f, 10.0f, 0.7f); registerBlock(diagonalAdamiteBrick);
+		diagonalAdamiteBrickStairs = new CoreStairs("diagonal_adamite_brick_stairs", diagonalAdamiteBrick, 3.0f, 10.0f, 0.7f); registerBlock(diagonalAdamiteBrickStairs);
 		
 		
 		lightenedBrick = new CoreBlock("lightened_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 2.0f, 10.0f); registerBlock(lightenedBrick);

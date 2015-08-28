@@ -12,10 +12,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import crazyores.manager.world.generate.Generate;
 
 public class GenerateStructures {
-
-	public static void initStructures() {
-		GameRegistry.registerWorldGenerator(new Generate(), 0);
-	}
 	
 	public static void generateSurfaceStructures(World world, Random rand, int xChunk, int zChunk) {
 		CoreDungeon.generate(world, rand, xChunk, zChunk);

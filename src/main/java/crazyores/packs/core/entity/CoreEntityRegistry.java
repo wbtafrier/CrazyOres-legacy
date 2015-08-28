@@ -66,7 +66,7 @@ public class CoreEntityRegistry {
 		
 		System.out.println("ADDING SPAWN");
 		BiomeGenBase[] allBiomes = FluentIterable.from(Arrays.asList(BiomeGenBase.getBiomeGenArray())).filter(Predicates.notNull()).toArray(BiomeGenBase.class);
-		EntityRegistry.addSpawn(EntityGreatWhiteShark.class, 10, 2, 6, EnumCreatureType.waterCreature, allBiomes);
+		EntityRegistry.addSpawn(EntityGreatWhiteShark.class, 1, 1, 1, EnumCreatureType.waterCreature, allBiomes);
 	}
 	
 	public static void registerCoreTileEntities() {

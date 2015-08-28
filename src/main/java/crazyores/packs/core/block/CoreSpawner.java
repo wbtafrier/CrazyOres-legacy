@@ -29,6 +29,11 @@ public class CoreSpawner extends BlockMobSpawner {
 		this.setResistance(resistance);
 	}
 	
+	protected CoreSpawner(String blockUnlocalizedName, String spawnEntityName, CreativeTabs tab, Block.SoundType soundType, float hardness, float resistance, float lightLevel) {
+		this(blockUnlocalizedName, spawnEntityName, tab, soundType, hardness, resistance);
+		this.setLightLevel(lightLevel);
+	}
+	
 	@Override
 	public TileEntity createNewTileEntity(World world, int p_149915_2_) {
 		TileEntityMobSpawner spawner = new TileEntityMobSpawner();

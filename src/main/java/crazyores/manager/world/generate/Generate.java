@@ -63,29 +63,31 @@ public class Generate implements IWorldGenerator {
 			generateTapazite(CoreBlocks.tapaziteStalactite, Blocks.air, world, rand, x, z);
 		}
 		
+		//vein size, chances to spawn, minY, maxY
+		
 		if (COCoreConfigSettings.generateCopperOre)
-			generateOre(CoreBlocks.copperOre, Blocks.stone, world, rand, x, z, 8, 20, 0, 85);
+			generateOre(CoreBlocks.copperOre, Blocks.stone, world, rand, x, z, 8, 18, 0, 86);
 		
 		if (COCoreConfigSettings.generateMeteoriteOre)
-			generateOre(CoreBlocks.meteoriteOre, Blocks.stone, world, rand, x, z, 6, 25, 70, 255);
+			generateOre(CoreBlocks.meteoriteOre, Blocks.stone, world, rand, x, z, 6, 16, 70, 255);
 		
 		if (COCoreConfigSettings.generateAdamiteOre)
-			generateWaterOre(CoreBlocks.adamiteOre, world, rand, x, z, 2, 20, 0, 200);
+			generateWaterOre(CoreBlocks.adamiteOre, world, rand, x, z, 2, 10, 0, 255);
 		
 		if (COCoreConfigSettings.generateSapphireOre)
-			generateOre(CoreBlocks.sapphireOre, Blocks.stone, world, rand, x, z, 8, 20, 0, 50);
+			generateOre(CoreBlocks.sapphireOre, Blocks.stone, world, rand, x, z, 6, 10, 0, 49);
 		
 		if (COCoreConfigSettings.generateRubyOre)
-			generateOre(CoreBlocks.rubyOre, Blocks.stone, world, rand, x, z, 8, 18, 0, 40);
+			generateOre(CoreBlocks.rubyOre, Blocks.stone, world, rand, x, z, 6, 8, 0, 41);
 		
 		if (COCoreConfigSettings.generateFoolsRubyOre)
-			generateOre(CoreBlocks.foolsRubyOre, Blocks.stone, world, rand, x, z, 8, 20, 0, 50);
+			generateOre(CoreBlocks.foolsRubyOre, Blocks.stone, world, rand, x, z, 4, 20, 0, 50);
 		
 		if (COCoreConfigSettings.generateZectiumOre)
-			generateOre(CoreBlocks.zectiumOre, Blocks.stone, world, rand, x, z, 6, 4, 0, 24);
+			generateOre(CoreBlocks.zectiumOre, Blocks.stone, world, rand, x, z, 6, 2, 0, 14);
 		
 		if (COCoreConfigSettings.generateOsmoniumOre)
-			generateOre(CoreBlocks.osmoniumOre, Blocks.stone, world, rand, x, z, 4, 3, 0, 20);
+			generateOre(CoreBlocks.osmoniumOre, Blocks.stone, world, rand, x, z, 4, 3, 95, 255);
 		
 		if (COCoreConfigSettings.generateStarconiumOre)
 			generateOre(CoreBlocks.starconiumOre, Blocks.stone, world, rand, x, z, 4, 1, 0, 12);

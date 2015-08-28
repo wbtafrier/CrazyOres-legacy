@@ -42,6 +42,12 @@ public class GolemHead extends CoreBlock {
 		textureName = golemType.getName() + "_head";
 	}
 	
+	protected GolemHead(String unlocalizedName, EnumGolemType type, Material blockMaterial, CreativeTabs tab, SoundType soundType, float hardness, float resistance, float lightLevel) {
+		super(unlocalizedName, blockMaterial, tab, soundType, hardness, resistance, lightLevel);
+		golemType = type;
+		textureName = golemType.getName() + "_head";
+	}
+	
 	@Override
 	public void onBlockAdded(World world, int x, int y, int z) {
 		super.onBlockAdded(world, x, y, z);

@@ -229,6 +229,9 @@ public class CoreItems {
 	public static Item freezingArrowhead;
 	public static Item lightningArrowhead;
 
+	public static Item rawSharkMeat;
+	public static Item cookedSharkMeat;
+	
 	public static void initItems() {
 		initOreDrops();
 //		initRods();
@@ -236,13 +239,11 @@ public class CoreItems {
 		initArmor();
 		initBowsArrows();
 		initSpawnEggs();
+		initFood();
 		
 		//Items
 		zectiumCore = new ItemZectiumCore("zectium_core", COTabList.crazyOresItemsTab, 32); registerItem(zectiumCore);
 		
-		chocolateCake = new ItemCake("chocolate_cake_placer", CoreBlocks.chocolateCake, 1); registerItem(chocolateCake);
-		strawberryCake = new ItemCake("strawberry_cake_placer", CoreBlocks.strawberryCake, 1); registerItem(strawberryCake);
-		birthdayCake = new ItemCake("birthday_cake_placer", CoreBlocks.birthdayCake, 1); registerItem(birthdayCake);
 	}
 	
 	private static void initOreDrops() {
@@ -291,9 +292,9 @@ public class CoreItems {
 //	}
 	
 	private static void initBowsArrows() {
-		swiftBow = new SwiftBow("osmonium_bow", 540, 10); registerItem(swiftBow);
-		hellBow = new HellBow("meteorite_bow", 366, 10); registerItem(hellBow);
-		dualShotBow = new DualBow("invisium_bow", 410, 10); registerItem(dualShotBow);
+		swiftBow = new SwiftBow("swift_bow", 540, 10); registerItem(swiftBow);
+		hellBow = new HellBow("hell_bow", 366, 10); registerItem(hellBow);
+		dualShotBow = new DualBow("dual_shot_bow", 410, 10); registerItem(dualShotBow);
 		confusionBow = new ConfusionBow("ender_bow", 300, 10); registerItem(confusionBow);
 		
 		//TODO: MAKE TEXTURES!!!!!1
@@ -446,6 +447,15 @@ public class CoreItems {
 		zectiumProtectorEgg = new CoreSpawnEgg("zectium_protector_egg", "zectium_protector", 0x4FAD18, 0x81D045); registerItem(zectiumProtectorEgg);
 		greatWhiteSharkEgg = new CoreSpawnEgg("great_white_shark_egg", "great_white_shark", 0xCBCBCB, 0x656982); registerItem(greatWhiteSharkEgg);
 		adamiteSharkEgg = new CoreSpawnEgg("adamite_shark_egg", "adamite_shark", 0xF3F06D, 0xFFFFC1); registerItem(adamiteSharkEgg);
+	}
+	
+	private static void initFood() {
+		chocolateCake = new ItemCake("chocolate_cake_placer", CoreBlocks.chocolateCake, 1); registerItem(chocolateCake);
+		strawberryCake = new ItemCake("strawberry_cake_placer", CoreBlocks.strawberryCake, 1); registerItem(strawberryCake);
+		birthdayCake = new ItemCake("birthday_cake_placer", CoreBlocks.birthdayCake, 1); registerItem(birthdayCake);
+		
+		rawSharkMeat = new CoreFood("raw_shark_meat", 3, 0.1f, false); registerItem(rawSharkMeat);
+		cookedSharkMeat = new CoreFood("cooked_shark_meat", 9, 0.6f, false); registerItem(cookedSharkMeat);
 	}
 	
 	private static void registerItem(Item item) {

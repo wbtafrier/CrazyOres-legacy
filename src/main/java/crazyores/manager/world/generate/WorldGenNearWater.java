@@ -29,9 +29,9 @@ public class WorldGenNearWater extends WorldGenerator
             int l = rand.nextInt(this.numberOfBlocks) + 2;
             byte b0 = 1;
 
-            for (int i1 = x - l; i1 <= x + l; ++i1)
+            for (int i1 = x; i1 <= x + l; ++i1)
             {
-                for (int j1 = z - l; j1 <= z + l; ++j1)
+                for (int j1 = z; j1 <= z + l; ++j1)
                 {
                     int k1 = i1 - x;
                     int l1 = j1 - z;
@@ -42,7 +42,7 @@ public class WorldGenNearWater extends WorldGenerator
                         {
                             Block block = world.getBlock(i1, i2, j1);
 
-                            if (block == Blocks.dirt || block == Blocks.clay) {
+                            if (block == Blocks.dirt || block == Blocks.gravel) {
                                 world.setBlock(i1, i2, j1, this.block, 0, 2);
                             }
                         }

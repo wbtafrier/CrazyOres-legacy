@@ -80,19 +80,19 @@ public class DualBow extends CoreBow {
             	CoreEntityArrow entityArrow = null;
             
             	if (arrow.equals(CoreItems.flamingArrow)) {
-                	entityArrow = new EntityFlamingArrow(world, player, 0.3f * i, f * 2.0f, getBowEnhancement());
+                	entityArrow = new EntityFlamingArrow(world, player, 0.2f * i, f * 2.0f, getBowEnhancement());
                 }
                 else if (arrow.equals(CoreItems.freezingArrow)) {
-                	entityArrow = new EntityFreezingArrow(world, player, 0.3f * i, f * 2.0f, getBowEnhancement());
+                	entityArrow = new EntityFreezingArrow(world, player, 0.2f * i, f * 2.0f, getBowEnhancement());
                 }
                 else if (arrow.equals(CoreItems.explosiveArrow)) {
-                	entityArrow = new EntityExplosiveArrow(world, player, 0.3f * i, f * 2.0f, getBowEnhancement());
+                	entityArrow = new EntityExplosiveArrow(world, player, 0.2f * i, f * 2.0f, getBowEnhancement());
                 }
                 else if (arrow.equals(CoreItems.lightningArrow)) {
-                	entityArrow = new EntityLightningArrow(world, player, 0.3f * i, f * 2.0f, getBowEnhancement());
+                	entityArrow = new EntityLightningArrow(world, player, 0.2f * i, f * 2.0f, getBowEnhancement());
                 }
                 else {
-                	entityArrow = new EntityVanillaArrow(world, player, 0.3f * i, f * 2.0f, getBowEnhancement());
+                	entityArrow = new EntityVanillaArrow(world, player, 0.2f * i, f * 2.0f, getBowEnhancement());
                 }
 
                 if (f == 1.0F) {

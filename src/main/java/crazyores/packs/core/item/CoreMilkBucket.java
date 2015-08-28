@@ -1,45 +1,47 @@
 package crazyores.packs.core.item;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
+import net.minecraft.item.ItemBucketMilk;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import crazyores.manager.pack.COPackManager;
 import crazyores.packs.core.tabs.CoreTabList;
 
-public class CoreMilkBucket extends CoreItem {
+public class CoreMilkBucket extends ItemBucketMilk {
 
+	private String itemUnlocalizedName;
+	
 	protected CoreMilkBucket(String unlocalizedName) {
-		super(unlocalizedName);
-		this.setMaxStackSize(1);
 		this.setCreativeTab(CoreTabList.coreFoodTab);
+		itemUnlocalizedName = unlocalizedName;
 	}
-
+	
 	@Override
-	public ItemStack onEaten(ItemStack itemStack, World world, EntityPlayer player) {
-        if (!player.capabilities.isCreativeMode) {
-            --itemStack.stackSize;
-        }
-
+	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
         if (!world.isRemote) {
-            player.curePotionEffects(itemStack);
+        	player.curePotionEffects(new ItemStack(Items.milk_bucket));
         }
-        return itemStack.stackSize <= 0 ? new ItemStack(CoreItems.copperBucketEmpty) : itemStack;
+        return super.onEaten(stack, world, player);
     }
 	
 	@Override
-	public int getMaxItemUseDuration(ItemStack itemStack) {
-        return 32;
+	public String getUnlocalizedName() {
+		return itemUnlocalizedName;
+	}
+	
+	@Override
+	public String getUnlocalizedName(ItemStack itemStack) {
+        return itemUnlocalizedName;
     }
 	
 	@Override
-	public EnumAction getItemUseAction(ItemStack itemStack) {
-        return EnumAction.drink;
-    }
-
-	@Override
-    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
-        player.setItemInUse(itemStack, this.getMaxItemUseDuration(itemStack));
-        return itemStack;
+	@SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister iconRegister) {
+        this.itemIcon = iconRegister.registerIcon(String.format("%s%s%s", COPackManager.corePack.getPackID(), ":", this.getUnlocalizedName()));
     }
 }

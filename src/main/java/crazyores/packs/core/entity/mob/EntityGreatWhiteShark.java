@@ -12,6 +12,6 @@ import net.minecraft.world.World;
 public class EntityGreatWhiteShark extends EntityShark {
 
 	public EntityGreatWhiteShark(World world) {
-		super(world, EnumSharkType.GREAT_WHITE, 1.0f + (rand.nextFloat() * 0.2f), 32f);
+		super(world, EnumSharkType.GREAT_WHITE, 1.0f + (rand.nextFloat() * 0.2f), 32f, 0.07f);
 	}
 }

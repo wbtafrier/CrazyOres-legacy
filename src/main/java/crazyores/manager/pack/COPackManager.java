@@ -53,10 +53,8 @@ public class COPackManager {
 			CoreBlocks.initBlocks();
 			CoreItems.initItems();
 			CoreFuelHandler.initFuels();
-			CoreLootHandler.initLoot();
 			CoreHarvestLevels.setHarvestLevels();
 			CoreEventManager.registerEvents();
-			GenerateStructures.initStructures();
 			NetworkRegistry.INSTANCE.registerGuiHandler(corePack.getPackID(), new CoreGuiRegistry());
 			CoreFluidContainerRegistry.registerFluidContainers();
 		}
@@ -67,7 +65,8 @@ public class COPackManager {
 	public static void init() {
 		CoreEntityRegistry.registerCoreEntities();
 		CoreEntityRegistry.registerCoreTileEntities();
-		GameRegistry.registerWorldGenerator(new Generate(), 1);
+		CoreLootHandler.initLoot();
+		GameRegistry.registerWorldGenerator(new Generate(), 0);
 		CoreRecipes.initCraftingRecipes();
 	}
 	
