@@ -22,4 +22,8 @@ public class COCoreConfigSettings {
 	public static boolean generateEnderOre = true;
 	
 	public static boolean zectiumCoreExplodes = true;
+	public static boolean explosiveArrowExplodes = true;
+	public static boolean fireSpreadsArrow = true;
+	
+	public static int foolsRubyGolemMaxHeight = 50;
 }

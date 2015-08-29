@@ -235,19 +235,16 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
         }
         
         int i = this.furnaceBurnTime * timeRemaining / this.currentItemBurnTime;
-//        System.out.println(i);
         return i;
     }
     
     @SideOnly(Side.CLIENT)
     public int getAgeTimeScaled(int age) {
-//    	System.out.println("AGE: " + (int)(((float)this.timeAlive) / (float)MAX_TIME_ALIVE * age));
     	return (int)(((float)this.timeAlive) / (float)MAX_TIME_ALIVE * age);
     }
     
     @SideOnly(Side.CLIENT)
     public int getWarmthTimeScaled(int warmth) {
-//    	System.out.println("WARMTH: " + (int)(((float)this.overHeat) / (float)MAX_HEAT * warmth));
     	return (int)(((float)this.overHeat) / (float)MAX_HEAT * warmth);
     }
 
@@ -271,14 +268,10 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
 		if (this.furnaceBurnTime > 0) {
 			--this.furnaceBurnTime;
     		
-//			System.out.println("OVERHEAT: " + overHeat);
-//			System.out.println("COOLING AMOUNT: " + coolingAmount);
-			
             if (overHeat > 0 && rand.nextInt(overHeat) > MAX_HEAT / 10) {
             	timeAlive = MathHelper.clamp_int(timeAlive + 1, 0, MAX_TIME_ALIVE);
             	
             	if (timeAlive % (MAX_TIME_ALIVE / 50) == 0) {
-//            		System.out.println("SMELTING SPEED: " + smeltingSpeed + " | HEAT UP AMOUNT: " + heatUpAmount);
             		smeltingSpeed = MathHelper.clamp_int(smeltingSpeed + 9, 0, MAX_SMELTING_SPEED);
             		heatUpAmount = MathHelper.clamp_int(heatUpAmount + 1, 0, MAX_HEAT_UP_INCREMENT);
             	}
@@ -293,10 +286,6 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     	
     	if (!this.worldObj.isRemote) {
     		
-//        	System.out.println("TIME ALIVE: " + timeAlive);
-//        	System.out.println("HEATUP AMOUNT: " + heatUpAmount);
-//        	System.out.println("TIME ALIVE: " + timeAlive);
-//        	System.out.println("SMELTING SPEED: " + smeltingSpeed);
     		updateSurroundingBlocks(worldObj, xCoord, yCoord, zCoord);
     		
         	if (overHeat >= MAX_HEAT /*|| timeAlive >= MAX_TIME_ALIVE*/) {
@@ -391,7 +380,6 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
 			int randX = rand.nextInt(3) - 1;
     		int randY = rand.nextInt(3) - 1;
     		int randZ = rand.nextInt(3) - 1;
-//    		System.out.println("MELTING BLOCK AT: (" + x + randX + ", " + y + randY + ", " + z + randZ + ")");
     		
 			Block b = world.getBlock(x + randX, y + randY, z + randZ);
 			

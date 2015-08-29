@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityGolem;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
@@ -142,8 +143,10 @@ public abstract class EntityGolems extends EntityGolem {
 	public boolean canAttackClass(Class c) {
 		if (this.type.equals(EnumGolemType.COPPER))
 			return this.isPlayerCreated() && EntityPlayer.class.isAssignableFrom(c) ? false : super.canAttackClass(c);
+		else if (this.type.equals(EnumGolemType.ZECTIUM))
+			return EntityGhast.class != c;
 		else
-			return true;
+			return super.canAttackClass(c);
     }
 	
 	/**

@@ -96,7 +96,6 @@ public class EntityFreezingArrow extends CoreEntityArrow {
 			isWater = true;
 			b = worldObj.getBlock(curX, y, curZ);
 			b2 = worldObj.getBlock(curX, y + 1, curZ);
-//			System.out.println("WHILE LOOP: " + curX + " " + y + " " + curZ);
 		}
 		
 		if (isWater) {
@@ -106,7 +105,6 @@ public class EntityFreezingArrow extends CoreEntityArrow {
 					Block aboveBlock = this.worldObj.getBlock(x, y, z);
 					Block currentBlock = this.worldObj.getBlock(x, y - 1, z);
 					
-//					System.out.println("IF STATEMENT: " + x + " " + y + " " + z);
 					if (worldObj.getBlock(x, y - 1, z).isAssociatedBlock(Blocks.water) || worldObj.getBlock(x, y - 1, z).isAssociatedBlock(Blocks.flowing_water)) {
 						if (worldObj.getBlock(x, y, z).isAssociatedBlock(Blocks.air)) {
 							if (rand.nextInt(this.getEnhancement().equals(EnumBowEnhancement.FIRE) ? 40 : 1) == 0) worldObj.setBlock(x, y - 1, z, Blocks.ice);

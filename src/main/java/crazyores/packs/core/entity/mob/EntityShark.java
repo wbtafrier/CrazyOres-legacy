@@ -99,9 +99,6 @@ public abstract class EntityShark extends EntityMob {
         this.despawnEntity();
         
         if (this.isInWater() && this.inWater) {
-        	
-//        	System.out.println(posX + " " + posY + " " + posZ);
-        	
 	        if (this.entityToAttack != null && (this.entityToAttack.isInWater() || this.entityToAttack.isRiding()) && this.entityToAttack.getDistanceSqToEntity(this) < radius * radius) {
 	        	attacking = true;
 	            double d5 = this.entityToAttack.posX - this.posX;
@@ -110,7 +107,6 @@ public abstract class EntityShark extends EntityMob {
 	            this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(d5, d7)) * 180.0F / (float)Math.PI;
 	            
 	            if (this.canEntityBeSeen(entityToAttack)) {
-//            		System.out.println("CAN BE SEEN");
                 
 	                waypointX = entityToAttack.posX;
                 	waypointY = entityToAttack.posY;
@@ -120,9 +116,6 @@ public abstract class EntityShark extends EntityMob {
                 		
                 		topJawRotation = MathHelper.clamp_double(topJawRotation - Math.toRadians(1.5f), Math.toRadians(-20f), 0.0f);
                 		bottomJawRotation = MathHelper.clamp_double(bottomJawRotation + Math.toRadians(3.0f), 0.0f, Math.toRadians(40f));
-//                		System.out.println(topJawRotation);
-                		
-//                		System.out.println("OPEN MOUTH! Top: " + topJawRotation + " Bottom: " + bottomJawRotation);
                 	}
                 	else {
                 		closeMouth();
@@ -193,7 +186,6 @@ public abstract class EntityShark extends EntityMob {
 	
         }
         else {
-//        	System.out.println("WHY");
             if (!this.worldObj.isRemote) {
                 this.motionX = 0.0D;
                 this.motionY -= 0.08D;
@@ -262,7 +254,6 @@ public abstract class EntityShark extends EntityMob {
 	
 	private void closeMouth() {
 		if (topJawRotation < 0.0d || bottomJawRotation > 0.0d){
-//    		System.out.println("CLOSE MOUTH");
     		topJawRotation = MathHelper.clamp_double(topJawRotation + Math.toRadians(1.5f), Math.toRadians(-20f), 0.0f);
     		bottomJawRotation = MathHelper.clamp_double(bottomJawRotation - Math.toRadians(3.0f), 0.0f, Math.toRadians(40f));
     	}

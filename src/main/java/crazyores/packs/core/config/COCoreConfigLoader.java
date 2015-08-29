@@ -4,7 +4,6 @@ import java.io.File;
 
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
 
 import org.apache.logging.log4j.Level;
 
@@ -51,6 +50,10 @@ public class COCoreConfigLoader extends COConfigManager {
 			config.addCustomCategoryComment(LOAD_MISC_CATEGORY, "true: Enables the setting. | false: Disables the setting.");
 			
 			COCoreConfigSettings.zectiumCoreExplodes = config.get(LOAD_MISC_CATEGORY, StatCollector.translateToLocal("config.node.zectiumCoreExplodes"), true).getBoolean(true);
+			COCoreConfigSettings.explosiveArrowExplodes = config.get(LOAD_MISC_CATEGORY, StatCollector.translateToLocal("config.node.explosiveArrowExplodes"), true).getBoolean(true);
+			COCoreConfigSettings.fireSpreadsArrow = config.get(LOAD_MISC_CATEGORY, StatCollector.translateToLocal("config.node.fireSpreadsArrow"), true).getBoolean(true);
+			
+			COCoreConfigSettings.foolsRubyGolemMaxHeight = config.get(LOAD_MISC_CATEGORY, StatCollector.translateToLocal("config.node.foolsRubyGolemMaxHeight"), 50).getInt(50);
 			
 			CrazyOresLogger.write(null, Level.INFO, "CrazyOres Core config file loaded successfully.");
 		} 

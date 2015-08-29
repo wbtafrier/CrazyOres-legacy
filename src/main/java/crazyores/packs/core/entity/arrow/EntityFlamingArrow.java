@@ -20,6 +20,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+import crazyores.packs.core.config.COCoreConfigSettings;
 import crazyores.packs.core.entity.FrozenEntity;
 import crazyores.packs.core.event.FreezeEvent;
 import crazyores.packs.core.item.EnumBowEnhancement;
@@ -60,7 +61,7 @@ public class EntityFlamingArrow extends CoreEntityArrow {
 			this.setFire(500);
 		}
 
-        if (movingobjectposition != null && this.currentBlock != null) {
+        if (movingobjectposition != null && this.currentBlock != null && COCoreConfigSettings.fireSpreadsArrow) {
             if (this.currentBlock.getMaterial() != Material.air) {
                 this.currentBlock.onEntityCollidedWithBlock(this.worldObj, this.currentX, this.currentY, this.currentZ, this);
                 
@@ -104,7 +105,7 @@ public class EntityFlamingArrow extends CoreEntityArrow {
             }
         }
         
-        if (this.getEnhancement().equals(EnumBowEnhancement.FIRE)) {
+        if (this.getEnhancement().equals(EnumBowEnhancement.FIRE) && COCoreConfigSettings.fireSpreadsArrow) {
         	
         	if (this.movingobjectposition != null && this.movingobjectposition.entityHit != null) {
             	int x = (int)this.movingobjectposition.entityHit.posX;

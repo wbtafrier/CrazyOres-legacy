@@ -53,7 +53,7 @@ public class EntityExplosiveArrow extends CoreEntityArrow {
 	public void onUpdate() {
 		super.onUpdate();
 		
-		if (!this.worldObj.isRemote) {
+		if (!this.worldObj.isRemote && COCoreConfigSettings.explosiveArrowExplodes) {
 			
 			if (this.movingobjectposition != null && this.movingobjectposition.entityHit != null) {
             	double x = this.movingobjectposition.entityHit.posX;
@@ -72,9 +72,9 @@ public class EntityExplosiveArrow extends CoreEntityArrow {
 		int radius = isCrit ? (int)(DEFAULT_RADIUS * RADIUS_BONUS) : DEFAULT_RADIUS;
 		
 		boolean isFireBow = this.getEnhancement().equals(EnumBowEnhancement.FIRE);
-		this.worldObj.newExplosion(this, x, y, z, radius, isFireBow ? true : false, true);
+		this.worldObj.newExplosion(this, x, y, z, radius, (isFireBow && COCoreConfigSettings.fireSpreadsArrow) ? true : false, true);
 		
-		if (isFireBow) this.spreadHellBitches((int)x, (int)y, (int)z, radius, 4, 30);
+		if (isFireBow && COCoreConfigSettings.fireSpreadsArrow) this.spreadHellBitches((int)x, (int)y, (int)z, radius, 4, 30);
 		this.setDead();
 	}
 }

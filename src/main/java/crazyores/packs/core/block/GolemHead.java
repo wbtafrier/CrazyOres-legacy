@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.manager.pack.COPackManager;
+import crazyores.packs.core.config.COCoreConfigSettings;
 import crazyores.packs.core.entity.golem.EntityGolems;
 import crazyores.packs.core.entity.golem.EntityAdamiteGolem;
 import crazyores.packs.core.entity.golem.EntityCopperGolem;
@@ -61,7 +62,7 @@ public class GolemHead extends CoreBlock {
 					float inc = 0.3f;
 					int counter = 0;
 					
-					while (world.getBlock(x, y - (counter + 1), z).isAssociatedBlock(t.getBodyBlock())) {
+					while (world.getBlock(x, y - (counter + 1), z).isAssociatedBlock(t.getBodyBlock()) && counter < COCoreConfigSettings.foolsRubyGolemMaxHeight) {
 						counter++;
 					}
 					

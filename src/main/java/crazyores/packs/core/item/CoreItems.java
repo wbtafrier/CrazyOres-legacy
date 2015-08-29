@@ -220,12 +220,12 @@ public class CoreItems {
 	public static Item freezingArrow;
 	public static Item lightningArrow;
 	
-	/** Arrowhead List **/
+	/** ArrowHead List **/
 	
 	public static Item flamingArrowHead;
-	public static Item explosiveArrowhead;
-	public static Item freezingArrowhead;
-	public static Item lightningArrowhead;
+	public static Item explosiveArrowHead;
+	public static Item freezingArrowHead;
+	public static Item lightningArrowHead;
 
 	public static Item rawSharkMeat;
 	public static Item cookedSharkMeat;
@@ -302,11 +302,9 @@ public class CoreItems {
 		freezingArrow = new CoreItem("osmonium_arrow", CoreTabList.coreWeaponsTab); registerItem(freezingArrow);
 		
 		flamingArrowHead = new CoreItem("flaming_arrowhead", CoreTabList.coreWeaponsTab); registerItem(flamingArrowHead);
-		
-//		flamingArrowhead;
-//		explosiveArrowhead;
-//		freezingArrowhead;
-//		electricArrowhead;
+//		explosiveArrowHead;
+//		freezingArrowHead;
+//		electricArrowHead;
 	}
 	
 	private static void initTools() {
