@@ -29,6 +29,7 @@ import crazyores.manager.pack.COPackManager;
 import crazyores.manager.support.IName;
 import crazyores.manager.tabs.COTabList;
 import crazyores.packs.core.entity.tileentity.TileEntityDemoniteFurnace;
+import crazyores.packs.core.entity.tileentity.TileEntityLuminiteDisco;
 import crazyores.packs.core.item.CoreItems;
 
 public class BlockDemoniteFurnace extends BlockContainer implements IName {
