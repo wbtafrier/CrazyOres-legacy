@@ -301,7 +301,7 @@ public class CoreItems {
 		lightningArrow = new CoreItem("adamite_arrow", CoreTabList.coreWeaponsTab); registerItem(lightningArrow);
 		freezingArrow = new CoreItem("osmonium_arrow", CoreTabList.coreWeaponsTab); registerItem(freezingArrow);
 		
-		flamingArrowHead = new CoreItem("flaming_arrowhead", CoreTabList.coreWeaponsTab); registerItem(flamingArrowHead);
+		flamingArrowHead = new CoreItem("flaming_arrow_head", CoreTabList.coreWeaponsTab); registerItem(flamingArrowHead);
 //		explosiveArrowHead;
 //		freezingArrowHead;
 //		electricArrowHead;

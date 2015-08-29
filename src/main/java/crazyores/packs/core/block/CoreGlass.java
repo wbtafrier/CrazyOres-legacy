@@ -68,7 +68,7 @@ public class CoreGlass extends CoreBlock {
     public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
         Block block = world.getBlock(x, y, z);
 
-        if (this == Blocks.glass || this == CoreBlocks.reinforcedGlass || this == CoreBlocks.smoothReinforcedGlass) {
+        if (this == Blocks.glass || this == CoreBlocks.reinforcedGlass || this == CoreBlocks.smoothReinforcedGlass || this == CoreBlocks.luminiteStorageBlock) {
             if (world.getBlockMetadata(x, y, z) != world.getBlockMetadata(x - Facing.offsetsXForSide[side], y - Facing.offsetsYForSide[side], z - Facing.offsetsZForSide[side])) {
                 return true;
             }

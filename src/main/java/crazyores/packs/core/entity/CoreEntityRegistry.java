@@ -30,6 +30,7 @@ import crazyores.packs.core.entity.mob.EntityAdamiteShark;
 import crazyores.packs.core.entity.mob.EntityGreatWhiteShark;
 import crazyores.packs.core.entity.mob.EntityZectiumProtector;
 import crazyores.packs.core.entity.tileentity.TileEntityDemoniteFurnace;
+import crazyores.packs.core.entity.tileentity.TileEntityLuminiteDisco;
 import crazyores.packs.core.entity.tileentity.TileEntityTapaziteCrystal;
 import crazyores.packs.core.main.CrazyOresCore;
 
@@ -71,5 +72,6 @@ public class CoreEntityRegistry {
 	public static void registerCoreTileEntities() {
 		GameRegistry.registerTileEntity(TileEntityTapaziteCrystal.class, "tapazite_crystal");
 		GameRegistry.registerTileEntity(TileEntityDemoniteFurnace.class, "demonite_furnace");
+		GameRegistry.registerTileEntity(TileEntityLuminiteDisco.class, "luminite_disco");
 	}
 }

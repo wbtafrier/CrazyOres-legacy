@@ -118,6 +118,10 @@ public class CoreBlocks {
 	public static Block diagonalLightenedBrick;
 	public static Block diagonalLightenedBrickStairs;
 	
+	//Luminite Blocks
+	public static Block luminiteStorageBlock;
+	public static Block luminiteDiscoBlock;
+	
 	public static void initBlocks() {
 		tapaziteLightSource = new BlockLightSource("tapazite_light_source", Material.air, 0.75F, 1.2F, 3.0F); registerBlock(tapaziteLightSource);
 		tapaziteStalagmite = new BlockTapaziteStalagmite("tapazite_stalagmite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.crazyOresBlocksTab); registerBlock(tapaziteStalagmite, ItemBlockTapaziteStalagmite.class);
@@ -139,7 +143,7 @@ public class CoreBlocks {
 		
 		//Should be in the decorations pack
 		darkstoneOre = new BlockOre("darkstone_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(darkstoneOre);
-		luminiteOre = new BlockOre("luminite_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(luminiteOre);
+		luminiteOre = new BlockOre("luminite_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f, 0.8f); registerBlock(luminiteOre);
 		
 		enderOre = new BlockOre("ender_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(enderOre);
 		
@@ -216,6 +220,9 @@ public class CoreBlocks {
 		
 		diagonalLightenedBrick = new CoreBlock("diagonal_lightened_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 2.0f, 10.0f); registerBlock(diagonalLightenedBrick);
 		diagonalLightenedBrickStairs = new CoreStairs("diagonal_lightened_brick_stairs", diagonalLightenedBrick, 2.0f, 10.0f); registerBlock(diagonalLightenedBrickStairs);
+	
+		luminiteStorageBlock = new BlockLuminiteStorage("luminite_block", 3.0f, 9.0f); registerBlock(luminiteStorageBlock, ItemBlockLuminiteStorage.class);
+		luminiteDiscoBlock = new BlockLuminiteDisco("luminite_disco", 3.0f, 9.0f, 0.8f); registerBlock(luminiteDiscoBlock);
 	}
 	
 	/**
