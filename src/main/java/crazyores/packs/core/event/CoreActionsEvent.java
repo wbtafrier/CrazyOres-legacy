@@ -57,47 +57,13 @@ public class CoreActionsEvent {
 
 			if (isFullArmorSet) {
 				
-				for (int i = 0; i < armor.length; i++) {
-					((CoreArmor)armor[i].getItem()).updateCounter();
-				}
-				
 				if (armor[0].getItem().equals(CoreItems.invisiumBoots) && armor[1].getItem().equals(CoreItems.invisiumLeggings) && armor[2].getItem().equals(CoreItems.invisiumChestplate) && armor[3].getItem().equals(CoreItems.invisiumHelmet)) {
-					int counter = 0;
 					
-					if (event instanceof PlayerInteractEvent) {
-						PlayerInteractEvent e = (PlayerInteractEvent)event;
-					
-						if (e.action == PlayerInteractEvent.Action.RIGHT_CLICK_AIR || e.action == PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK) {
-							for (int i = 0; i < armor.length; i++) {
-								CoreArmor slot = (CoreArmor)armor[i].getItem();
-								if (!slot.getInvisiumEffect()) {
-									counter++;
-								}
-							}
-							
-							for (int i = 0; i < armor.length; i++) {
-								CoreArmor slot = (CoreArmor)armor[i].getItem();
-								if (counter >= 3) {
-									slot.setInvisiumEffect(true);
-								}
-								else {
-									slot.setInvisiumEffect(false);
-								}
-							}
+					if (player != null && !player.worldObj.isRemote) {
+						if (player.getActivePotionEffect(Potion.invisibility) == null || player.getActivePotionEffect(Potion.invisibility).getDuration() < INVISIBILITY_DURATION) {
+							setInvisible(player);
 						}
 					}
-					
-					boolean invisiumEffect = true;
-					for (int i = 0; i < armor.length; i++) {
-						CoreArmor slot = (CoreArmor)armor[i].getItem();
-						if (!slot.getInvisiumEffect()) {
-							invisiumEffect = false;
-							break;
-						}
-					}
-					
-					player.setInvisible(invisiumEffect);
-//					System.out.println("Invisible: " + player.isInvisible());
 				}
 				else if (armor[0].getItem().equals(CoreItems.adamiteBoots) && armor[1].getItem().equals(CoreItems.adamiteLeggings) && armor[2].getItem().equals(CoreItems.adamiteChestplate) && armor[3].getItem().equals(CoreItems.adamiteHelmet)) {
 					if (player.isInWater()) {
@@ -194,21 +160,6 @@ public class CoreActionsEvent {
 				if (instance.getModifier(slowness.getID()) != null) {
 					instance.removeModifier(slowness);
 				}
-				
-				for (int i = 0; i < armor.length; i++) {
-					if (armor[i] == null || !(armor[i].getItem() instanceof CoreArmor)) continue;
-					CoreArmor slot = (CoreArmor)armor[i].getItem();
-					slot.setInvisiumEffect(false);
-				}
-				player.setInvisible(player.isPotionActive(Potion.invisibility));
-				
-//				if (invisiumEffect) {
-//					if (player.getActivePotionEffect(Potion.invisibility) == null)
-//						player.addPotionEffect((new PotionEffect(Potion.invisibility.getId(), 10, 1)));
-//				}
-//				else {
-//					player.removePotionEffect(Potion.invisibility.getId());
-//				}
 			}
 		}
 		else if (event instanceof LivingSetAttackTargetEvent) {
@@ -221,5 +172,10 @@ public class CoreActionsEvent {
 				}
 			}
 		}
+	}
+	
+	private static final int INVISIBILITY_DURATION = 2;
+	public void setInvisible(EntityPlayer player) {
+		player.addPotionEffect(new PotionEffect(Potion.invisibility.getId(), INVISIBILITY_DURATION, -1));
 	}
 }
