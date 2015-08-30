@@ -27,24 +27,26 @@ public class CoreFood extends ItemFood {
 	@Override
 	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
 
-        if (this == CoreItems.rawSharkMeat) {
-            player.addPotionEffect(new PotionEffect(Potion.confusion.id, 300, 1));
-            
-            if (world.rand.nextInt(5) == 0) {
-            	player.addPotionEffect(new PotionEffect(Potion.poison.id, 400, 2));
-                player.addPotionEffect(new PotionEffect(Potion.hunger.id, 300, 2));
-            }
-        }
-        else if (this == CoreItems.cookedSharkMeat) {
-        	
-        	if (world.rand.nextInt(15) == 0) {
-        		player.addPotionEffect(new PotionEffect(Potion.poison.id, 200, 1));
-        	}
-        	
-        	if (world.rand.nextInt(5) == 0) {
-        		player.addPotionEffect(new PotionEffect(Potion.confusion.id, 200, 1));
-        	}
-        }
+		if (!world.isRemote) {
+	        if (this == CoreItems.rawSharkMeat) {
+	            player.addPotionEffect(new PotionEffect(Potion.confusion.id, 300, 1));
+	            
+	            if (world.rand.nextInt(5) == 0) {
+	            	player.addPotionEffect(new PotionEffect(Potion.poison.id, 400, 2));
+	                player.addPotionEffect(new PotionEffect(Potion.hunger.id, 300, 2));
+	            }
+	        }
+	        else if (this == CoreItems.cookedSharkMeat) {
+	        	
+	        	if (world.rand.nextInt(15) == 0) {
+	        		player.addPotionEffect(new PotionEffect(Potion.poison.id, 200, 1));
+	        	}
+	        	
+	        	if (world.rand.nextInt(5) == 0) {
+	        		player.addPotionEffect(new PotionEffect(Potion.confusion.id, 200, 1));
+	        	}
+	        }
+		}
         super.onFoodEaten(stack, world, player);
     }
 	
