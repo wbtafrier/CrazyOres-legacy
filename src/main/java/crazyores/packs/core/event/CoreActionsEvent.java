@@ -8,8 +8,11 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.play.server.S2BPacketChangeGameState;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -94,7 +97,11 @@ public class CoreActionsEvent {
 					}
 					
 					player.setInvisible(invisiumEffect);
-					System.out.println("Invisible: " + player.isInvisible());
+					
+					if (player != null && player instanceof EntityPlayerMP) {
+						((EntityPlayerMP)player).playerNetServerHandler.sendPacket(new S2BPacketChangeGameState(6, 0.0F));
+					}
+//					System.out.println("Invisible: " + player.isInvisible());
 				}
 				else if (armor[0].getItem().equals(CoreItems.adamiteBoots) && armor[1].getItem().equals(CoreItems.adamiteLeggings) && armor[2].getItem().equals(CoreItems.adamiteChestplate) && armor[3].getItem().equals(CoreItems.adamiteHelmet)) {
 					if (player.isInWater()) {
@@ -198,6 +205,23 @@ public class CoreActionsEvent {
 					slot.setInvisiumEffect(false);
 				}
 				player.setInvisible(player.isPotionActive(Potion.invisibility));
+				
+//				boolean invisiumEffect = true;
+//				for (int i = 0; i < armor.length; i++) {
+//					CoreArmor slot = (CoreArmor)armor[i].getItem();
+//					if (!slot.getInvisiumEffect()) {
+//						invisiumEffect = false;
+//						break;
+//					}
+//				}
+				
+//				if (invisiumEffect) {
+//					if (player.getActivePotionEffect(Potion.invisibility) == null)
+//						player.addPotionEffect((new PotionEffect(Potion.invisibility.getId(), 10, 1)));
+//				}
+//				else {
+//					player.removePotionEffect(Potion.invisibility.getId());
+//				}
 			}
 		}
 		else if (event instanceof LivingSetAttackTargetEvent) {
