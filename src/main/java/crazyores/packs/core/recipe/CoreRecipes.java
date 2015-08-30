@@ -234,9 +234,9 @@ public class CoreRecipes {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.diagonalAdamiteBrick, 4), new Object[] {" # ", "# #", " # ", '#', "shardAdamite"}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.diagonalAdamiteBrickStairs, 4), true, new Object[] {"#  ", "## ", "###", '#', CoreBlocks.diagonalAdamiteBrick}));
 		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.lightenedBrick, 4), new Object[] {"##", "##", '#', CoreItems.lightenedBrick}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.lightenedBrick, 4), new Object[] {"##", "##", '#', CoreItems.lightenedBrickItem}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.lightenedBrickStairs, 4), true, new Object[] {"#  ", "## ", "###", '#', CoreBlocks.lightenedBrick}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.diagonalLightenedBrick, 4), new Object[] {" # ", "# #", " # ", '#', CoreItems.lightenedBrick}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.diagonalLightenedBrick, 4), new Object[] {" # ", "# #", " # ", '#', CoreItems.lightenedBrickItem}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.diagonalLightenedBrickStairs, 4), true, new Object[] {"#  ", "## ", "###", '#', CoreBlocks.diagonalLightenedBrick}));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreBlocks.darkstoneBrick, 4), new Object[] {"##", "##", '#', "ingotDarkstone"}));
@@ -278,8 +278,8 @@ public class CoreRecipes {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.freezingArrow, 4), new Object[] {"A", "S", "F", 'A', CoreItems.freezingArrowHead, 'S', Items.stick, 'F', Items.feather}));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.freezingArrowHead, 1), new Object[] {" S ", "SFS", " S ", 'S', Blocks.snow, 'F', Items.flint}));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(CoreItems.lightningArrowHead, 1), true, new Object[] {"dustRedstone", "shardAdamite", Items.flint, "ingotCopper", Items.water_bucket}));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(CoreItems.lightningArrowHead, 1), true, new Object[] {"dustRedstone", "shardAdamite", Items.flint, "ingotCopper", CoreItems.copperBucketWater}));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(CoreItems.lightningArrowHead, 1), new Object[] {"dustRedstone", "shardAdamite", Items.flint, "ingotCopper", Items.water_bucket}));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(CoreItems.lightningArrowHead, 1), new Object[] {"dustRedstone", "shardAdamite", Items.flint, "ingotCopper", CoreItems.copperBucketWater}));
 	}
 	
 	private static void initMisc() {
@@ -294,7 +294,7 @@ public class CoreRecipes {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.chocolateCake, 1), new Object[] {" B ", "BCB", " B ", 'B', new ItemStack(Items.dye, 1, 3), 'C', Items.cake}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.strawberryCake, 1), new Object[] {" B ", "BCB", " B ", 'B', new ItemStack(Items.dye, 1, 9), 'C', Items.cake}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.birthdayCake, 1), new Object[] {" B ", "BCB", " B ", 'B', new ItemStack(Items.dye, 1, 12), 'C', Items.cake}));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(CoreItems.lightenedBrick, 1), new Object[] { new ItemStack(Items.dye, 1, 14), "ingotBrick"}));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(CoreItems.lightenedBrickItem, 1), new Object[] { new ItemStack(Items.dye, 1, 14), "ingotBrick"}));
 		
 	}
 }

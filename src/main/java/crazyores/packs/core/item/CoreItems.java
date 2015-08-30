@@ -214,11 +214,10 @@ public class CoreItems {
 	public static Item cookedSharkMeat;
 	
 	public static Item luminiteCrystal;
-	public static Item lightenedBrick;
+	public static Item lightenedBrickItem;
 	
 	public static void initItems() {
 		initOreDrops();
-//		initRods();
 		initTools();
 		initArmor();
 		initBowsArrows();
@@ -227,7 +226,7 @@ public class CoreItems {
 		
 		//Items
 		zectiumCore = new ItemZectiumCore("zectium_core", COTabList.crazyOresItemsTab, 32); registerItem(zectiumCore);
-		lightenedBrick = new CoreItem("lightened_brick", COTabList.crazyOresItemsTab); registerItem(lightenedBrick);
+		lightenedBrickItem = new CoreItem("lightened_brick_item", COTabList.crazyOresItemsTab); registerItem(lightenedBrickItem);
 		
 	}
 	

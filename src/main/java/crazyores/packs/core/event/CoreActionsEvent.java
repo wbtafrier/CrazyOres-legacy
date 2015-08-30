@@ -8,9 +8,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.play.server.S2BPacketChangeGameState;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -19,8 +17,8 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import crazyores.packs.core.entity.golem.EntityGolems;
 import crazyores.packs.core.entity.golem.EntityZectiumGolem;
 import crazyores.packs.core.entity.mob.EntityZectiumProtector;
 import crazyores.packs.core.item.CoreArmor;
@@ -34,12 +32,19 @@ public class CoreActionsEvent {
 	
 	@SubscribeEvent
 	public void armorEvent(LivingEvent event) {
-		if (event instanceof LivingAttackEvent && (event.entity instanceof EntityZectiumProtector || event.entity instanceof EntityZectiumGolem)) {
+		if (event instanceof LivingAttackEvent && (event.entity instanceof EntityZectiumProtector || event.entity instanceof EntityZectiumGolem || event.entity instanceof EntityGolems)) {
 			LivingAttackEvent hurtEvent = (LivingAttackEvent)event;
 			DamageSource damage = hurtEvent.source;
 			
 			if (damage.isExplosion()) {
+				if (event.entity instanceof EntityGolems) {
+					if (((EntityGolems)event.entity).groundPound()) {
+						event.setCanceled(true);
+						return;
+					}
+				}
 				event.setCanceled(true);
+				return;
 			}
 		}
 		else if (event.entity instanceof EntityPlayer) {

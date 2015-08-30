@@ -28,6 +28,7 @@ public abstract class EntityGolems extends EntityGolem {
 	protected int attackTimer;
 	protected int holdRoseTick;
 	protected Village village;
+	protected boolean groundPound;
 	
 	protected EnumGolemType type;
 	
@@ -56,6 +57,7 @@ public abstract class EntityGolems extends EntityGolem {
 	@Override
 	protected void entityInit() {
         super.entityInit();
+        groundPound = false;
         this.dataWatcher.addObject(16, Byte.valueOf((byte)0));
     }
 	
@@ -138,7 +140,6 @@ public abstract class EntityGolems extends EntityGolem {
 	/**
      * Returns true if this entity can attack entities of the specified class.
      */
-	//TODO: OVERRIDE FOR GOLEM CLASSES
 	@Override
 	public boolean canAttackClass(Class c) {
 		if (this.type.equals(EnumGolemType.COPPER))
@@ -173,7 +174,6 @@ public abstract class EntityGolems extends EntityGolem {
         this.setScale(nbt.getFloat("Scale"));
     }
 	
-	//TODO: OVERRIDE IN GOLEM CLASSES
 	@Override
 	public boolean attackEntityAsMob(Entity entity) {
         this.attackTimer = 10;
@@ -189,6 +189,7 @@ public abstract class EntityGolems extends EntityGolem {
         }
         else if (this.type.equals(EnumGolemType.SAPPHIRE)) {
         	damage = 11 + rand.nextInt(15);
+        	this.motionY = 0.5f;
         }
         else if (this.type.equals(EnumGolemType.ADAMITE)) {
         	damage = 15 + rand.nextInt(15);
@@ -216,14 +217,13 @@ public abstract class EntityGolems extends EntityGolem {
         	damage = 60 + rand.nextInt(15);
         }
         
-        boolean flag = entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
-
-        if (flag) {
-        	entity.motionY += 0.4000000059604645D * (1 + type.ordinal() * 0.2);
-        }
-
-        this.playSound("mob.irongolem.throw", 1.0F, 1.0F);
-        return flag;
+		boolean flag = entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
+		if (flag) {
+			entity.motionY += 0.4000000059604645D * (1 + type.ordinal() * 0.2);
+		}
+		
+		this.playSound("mob.irongolem.throw", 1.0F, 1.0F);
+		return flag;
     }
 	
 	@Override
@@ -405,8 +405,15 @@ public abstract class EntityGolems extends EntityGolem {
     	return dataWatcher.getWatchableObjectFloat(20);
     }
 
-    
 	public void updateSize() {
 		setSize(getWidth() * getScale(), getHeight() * getScale());
+	}
+	
+	public EnumGolemType getType() {
+		return type;
+	}
+	
+	public boolean groundPound() {
+		return groundPound;
 	}
 }

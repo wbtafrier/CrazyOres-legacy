@@ -134,6 +134,11 @@ public class CoreEntityAIAttackOnCollide extends EntityAIBase {
 
         this.attackTick = Math.max(this.attackTick - 1, 0);
 
+//        if (this.worldObj.rand.nextInt(5) == 0 && d0 < 100 && this.attackTick <= 20 && this.attacker.onGround) {
+//        	System.out.println("GROUND POUND!");
+//        	this.attacker.motionY += 1.0f;
+//        }
+//        else 
         if (d0 <= d1 && this.attackTick <= 20) {
             this.attackTick = 20;
 

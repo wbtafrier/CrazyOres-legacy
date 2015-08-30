@@ -17,6 +17,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -39,6 +40,7 @@ public class EntityDemoniteGolem extends EntityGolems {
 
 	@Override
 	protected void setAbilities() {
+		this.isImmuneToFire = true;
 		this.getNavigator().setAvoidsWater(true);
 		this.tasks.addTask(1, new CoreEntityAIAttackOnCollide(this, 1.0d, true));
         this.tasks.addTask(2, new EntityAIMoveTowardsTarget(this, 0.9d, 32.0f));
@@ -51,5 +53,14 @@ public class EntityDemoniteGolem extends EntityGolems {
         this.targetTasks.addTask(1, new CoreEntityAIDefendVillage(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false));
         this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, new GolemTargets(EnumGolemType.DEMONITE).mobSelector));
+	}
+	
+	@Override
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		
+		if (this.isWet()) {
+            this.attackEntityFrom(DamageSource.drown, 1.0F);
+        }
 	}
 }

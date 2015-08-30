@@ -252,6 +252,5 @@ public class RenderGolems extends RenderLiving {
     
 	protected void scaleGolem(EntityGolems entity, float scale) {
 		GL11.glScalef(scale, scale, scale);
-//		entity.updateSize();
     }
 }

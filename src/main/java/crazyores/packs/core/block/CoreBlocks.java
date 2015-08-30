@@ -128,6 +128,14 @@ public class CoreBlocks {
 	public static Block luminiteDiscoBlock;
 	
 	public static void initBlocks() {
+		initOres();
+		initStorageBlocks();
+		initGolemHeads();
+		initDecorationBlocks();
+		initMisc();
+	}
+	
+	private static void initOres() {
 		tapaziteLightSource = new BlockLightSource("tapazite_light_source", Material.air, 0.75F, 1.2F, 3.0F); registerBlock(tapaziteLightSource);
 		tapaziteStalagmite = new BlockTapaziteStalagmite("tapazite_stalagmite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.crazyOresBlocksTab); registerBlock(tapaziteStalagmite, ItemBlockTapaziteStalagmite.class);
 		tapaziteStalactite = new BlockTapaziteStalactite("tapazite_stalactite", Block.soundTypeGlass, 0.5F, 2.0F).setCreativeTab(COTabList.crazyOresBlocksTab); registerBlock(tapaziteStalactite, ItemBlockTapaziteStalactite.class);
@@ -146,14 +154,13 @@ public class CoreBlocks {
 		demoniteOre = new BlockOre("demonite_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(demoniteOre);
 		invisiumOre = new BlockOre("invisium_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(invisiumOre);
 		
-		//Should be in the decorations pack
 		darkstoneOre = new BlockOre("darkstone_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(darkstoneOre);
 		luminiteOre = new BlockOre("luminite_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f, 0.8f); registerBlock(luminiteOre);
 		
 		enderOre = new BlockOre("ender_ore", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f); registerBlock(enderOre);
-		
-		
-		//Storage Blocks
+	}
+	
+	private static void initStorageBlocks() {
 		copperBlock = (new CoreBlock("copper_block", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockCopper"); registerBlock(copperBlock);
 		meteoriteBlock = (new CoreBlock("meteorite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f, 0.8f)).setOreDictionaryName("blockMeteorite"); registerBlock(meteoriteBlock);
 		adamiteBlock = (new CoreBlock("adamite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f, 0.7f)).setOreDictionaryName("blockAdamite"); registerBlock(adamiteBlock);
@@ -168,13 +175,12 @@ public class CoreBlocks {
 		
 		demoniteBlock = (new CoreBlock("demonite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockDemonite"); registerBlock(demoniteBlock);
 		invisiumBlock = (new CoreBlock("invisium_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockInvisium"); registerBlock(invisiumBlock);
+		luminiteStorageBlock = new BlockLuminiteStorage("luminite_block", 3.0f, 9.0f); registerBlock(luminiteStorageBlock, ItemBlockLuminiteStorage.class);
 		
 		enderBlock = (new CoreBlock("ender_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockEnder"); registerBlock(enderBlock);
-		
-		demoniteFurnace = new BlockDemoniteFurnace("demonite_furnace", false, 16.0f, 2.0f); registerBlock(demoniteFurnace);
-		demoniteFurnaceLit = new BlockDemoniteFurnace("demonite_furnace_lit", true, 16.0f, 2.0f); registerBlock(demoniteFurnaceLit);
-		
-		//Golem heads
+	}
+	
+	private static void initGolemHeads() {
 		copperGolemHead = new GolemHead("copper_head", EnumGolemType.COPPER, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(copperGolemHead);
 		sapphireGolemHead = new GolemHead("sapphire_head", EnumGolemType.SAPPHIRE, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(sapphireGolemHead);
 		adamiteGolemHead = new GolemHead("adamite_head", EnumGolemType.ADAMITE, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f, 0.7f); registerBlock(adamiteGolemHead);
@@ -187,18 +193,11 @@ public class CoreBlocks {
 		
 		demoniteGolemHead = new GolemHead("demonite_head", EnumGolemType.DEMONITE, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(demoniteGolemHead);
 		enderGolemHead = new GolemHead("ender_head", EnumGolemType.ENDER, Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeMetal, 3.0f, 5.0f); registerBlock(enderGolemHead);
+	}
 	
-		chocolateCake = new BlockCake("chocolate_cake", "chocolate", 8); registerBlock(chocolateCake);
-		strawberryCake = new BlockCake("strawberry_cake", "strawberry", 10); registerBlock(strawberryCake);
-		birthdayCake = new BlockCake("birthday_cake", "birthday", 12); registerBlock(birthdayCake);
-		
-		greatWhiteSharkSpawner = new CoreSpawner("great_white_shark_spawner", "great_white_shark", CoreTabList.coreMobsTab, Block.soundTypePiston, 6.0f, 5.0f); registerBlock(greatWhiteSharkSpawner);
-		zectiumProtectorSpawner = new CoreSpawner("zectium_protector_spawner", "zectium_protector", CoreTabList.coreMobsTab, Block.soundTypePiston, 10.0f, 100f); registerBlock(zectiumProtectorSpawner);
-		adamiteSharkSpawner = new CoreSpawner("adamite_shark_spawner", "adamite_shark", CoreTabList.coreMobsTab, Block.soundTypePiston, 6.0f, 5.0f, 0.7f); registerBlock(adamiteSharkSpawner);
-		
+	private static void initDecorationBlocks() {
 		reinforcedGlass = new CoreGlass("reinforced_glass", true, 1.0f, 100.0f); registerBlock(reinforcedGlass);
 		smoothReinforcedGlass = new CoreGlass("smooth_reinforced_glass", true, 1.0f, 100.0f); registerBlock(smoothReinforcedGlass);
-		
 		
 		reinforcedBrick = new CoreBlock("reinforced_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 4.0f, 100.0f); registerBlock(reinforcedBrick);
 		reinforcedBrickStairs = new CoreStairs("reinforced_brick_stairs", reinforcedBrick, 4.0f, 100.0f); registerBlock(reinforcedBrickStairs);
@@ -226,8 +225,20 @@ public class CoreBlocks {
 		darkstoneBrickStairs = new CoreStairs("darkstone_brick_stairs", darkstoneBrick, 3.0f, 10.0f); registerBlock(darkstoneBrickStairs);
 		diagonalDarkstoneBrickStairs = new CoreStairs("diagonal_darkstone_brick_stairs", diagonalDarkstoneBrick, 3.0f, 10.0f); registerBlock(diagonalDarkstoneBrickStairs);
 		
-		luminiteStorageBlock = new BlockLuminiteStorage("luminite_block", 3.0f, 9.0f); registerBlock(luminiteStorageBlock, ItemBlockLuminiteStorage.class);
 		luminiteDiscoBlock = new BlockLuminiteDisco("luminite_disco", 3.0f, 9.0f, 0.8f); registerBlock(luminiteDiscoBlock, ItemBlockLuminiteDisco.class);
+	}
+	
+	private static void initMisc() {
+		demoniteFurnace = new BlockDemoniteFurnace("demonite_furnace", false, 16.0f, 2.0f); registerBlock(demoniteFurnace);
+		demoniteFurnaceLit = new BlockDemoniteFurnace("demonite_furnace_lit", true, 16.0f, 2.0f); registerBlock(demoniteFurnaceLit);
+		
+		strawberryCake = new BlockCake("strawberry_cake", "strawberry", 8); registerBlock(strawberryCake);
+		chocolateCake = new BlockCake("chocolate_cake", "chocolate", 10); registerBlock(chocolateCake);
+		birthdayCake = new BlockCake("birthday_cake", "birthday", 12); registerBlock(birthdayCake);
+		
+		greatWhiteSharkSpawner = new CoreSpawner("great_white_shark_spawner", "great_white_shark", CoreTabList.coreMobsTab, Block.soundTypePiston, 6.0f, 5.0f); registerBlock(greatWhiteSharkSpawner);
+		zectiumProtectorSpawner = new CoreSpawner("zectium_protector_spawner", "zectium_protector", CoreTabList.coreMobsTab, Block.soundTypePiston, 10.0f, 100f); registerBlock(zectiumProtectorSpawner);
+		adamiteSharkSpawner = new CoreSpawner("adamite_shark_spawner", "adamite_shark", CoreTabList.coreMobsTab, Block.soundTypePiston, 6.0f, 5.0f, 0.7f); registerBlock(adamiteSharkSpawner);
 	}
 	
 	/**

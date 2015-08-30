@@ -16,6 +16,7 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -23,11 +24,11 @@ import net.minecraft.world.World;
 public class EntityStarconiumGolem extends EntityGolems {
 
 	public EntityStarconiumGolem(World world) {
-		super(world, 3.0f, 5.0f, EnumGolemType.STARCONIUM);
+		super(world, 2.6f, 4.8f, EnumGolemType.STARCONIUM);
 	}
 	
 	public EntityStarconiumGolem(World world, float scale) {
-		super(world, 3.0f, 5.0f, scale, EnumGolemType.STARCONIUM);
+		super(world, 2.6f, 4.8f, scale, EnumGolemType.STARCONIUM);
 	}
 	
 	@Override
@@ -51,5 +52,26 @@ public class EntityStarconiumGolem extends EntityGolems {
         this.targetTasks.addTask(1, new CoreEntityAIDefendVillage(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false));
         this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, new GolemTargets(EnumGolemType.STARCONIUM).mobSelector));
+	}
+	
+	@Override
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		
+		if (!this.worldObj.isRemote) {
+			if (this.onGround && this.groundPound) {
+				System.out.println("GROUND POUND FALSE");
+				this.worldObj.newExplosion(this, this.posX, this.posY, this.posZ, 5.0f, false, false);
+				this.groundPound = false;
+			}
+		
+			if (this.getAttackTarget() != null) {
+				if (rand.nextInt(5) == 0 && !this.groundPound && this.getDistanceToEntity(this.getAttackTarget()) < 10.0f) {
+					this.groundPound = true;
+					System.out.println("GROUND POUND TRUE!!");
+					this.motionY = 1.0f;
+				}
+			}
+		}
 	}
 }

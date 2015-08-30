@@ -1,30 +1,16 @@
 package crazyores.packs.core.render;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
-import crazyores.packs.core.entity.ai.CoreEntityAILookAtVillager;
-import crazyores.packs.core.entity.golem.EntityAdamiteGolem;
-import crazyores.packs.core.entity.golem.EntityCopperGolem;
-import crazyores.packs.core.entity.golem.EntityDemoniteGolem;
-import crazyores.packs.core.entity.golem.EntityEnderGolem;
-import crazyores.packs.core.entity.golem.EntityFoolsRubyGolem;
-import crazyores.packs.core.entity.golem.EntityOsmoniumGolem;
-import crazyores.packs.core.entity.golem.EntityRubyGolem;
-import crazyores.packs.core.entity.golem.EntitySapphireGolem;
-import crazyores.packs.core.entity.golem.EntityStarconiumGolem;
-import crazyores.packs.core.entity.golem.EntityZectiumGolem;
-import crazyores.packs.core.entity.mob.EntityShark;
-import crazyores.packs.core.util.CoreResourceHandler;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
+
+import org.lwjgl.opengl.GL11;
+
+import crazyores.packs.core.entity.mob.EntityShark;
+import crazyores.packs.core.util.CoreResourceHandler;
 
 public class RenderSharks extends RenderLiving {
 

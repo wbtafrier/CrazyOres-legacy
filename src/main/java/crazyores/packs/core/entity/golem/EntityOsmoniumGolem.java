@@ -16,6 +16,8 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -51,5 +53,16 @@ public class EntityOsmoniumGolem extends EntityGolems {
         this.targetTasks.addTask(1, new CoreEntityAIDefendVillage(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false));
         this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, true, new GolemTargets(EnumGolemType.OSMONIUM).mobSelector));
+	}
+	
+	@Override
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		
+		if (this != null && !this.worldObj.isRemote) {
+			if (this.getActivePotionEffect(Potion.moveSpeed) == null || this.getActivePotionEffect(Potion.moveSpeed).getDuration() < 2) {
+				this.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 2, -1));
+			}
+		}
 	}
 }

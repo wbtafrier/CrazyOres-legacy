@@ -176,16 +176,16 @@ public class EntityZectiumProtector extends EntityFlying implements IMob {
             }
         }
 
-        if (!this.worldObj.isRemote)
-        {
-            byte b1 = this.dataWatcher.getWatchableObjectByte(16);
+//        if (!this.worldObj.isRemote)
+//        {
+//            byte b1 = this.dataWatcher.getWatchableObjectByte(16);
 //            byte b0 = (byte)(this.attackCounter > 10 ? 1 : 0);
-
+//
 //            if (b1 != b0)
 //            {
 //                this.dataWatcher.updateObject(16, Byte.valueOf(b0));
 //            }
-        }
+//        }
     }
 
     /**
@@ -323,7 +323,7 @@ public class EntityZectiumProtector extends EntityFlying implements IMob {
 	
 	@Override
 	public boolean getCanSpawnHere() {
-        return this.rand.nextInt(20) == 0 && super.getCanSpawnHere() && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL;
+        return this.rand.nextInt(20) == 0 && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && super.getCanSpawnHere();
     }
 	
 	@Override
