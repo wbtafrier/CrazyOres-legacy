@@ -36,7 +36,7 @@ public class CoreArmor extends ItemArmor {
 	public static ItemArmor.ArmorMaterial ZECTIUM_ARMOR = 			EnumHelper.addArmorMaterial("ZECTIUM", 			38, new int[]	{4,  9,  7, 4}, 	 9);//Is Blast resistant, but makes you walk slower
 	public static ItemArmor.ArmorMaterial TAPAZITE_ARMOR = 			EnumHelper.addArmorMaterial("TAPAZITE", 		42, new int[]	{5, 10,  8, 5}, 	 8);
 	public static ItemArmor.ArmorMaterial OSMONIUM_ARMOR = 			EnumHelper.addArmorMaterial("OSMONIUM", 		48, new int[]	{3,  6,  5, 3}, 	 7);//Makes you faster, but is not as protective
-	public static ItemArmor.ArmorMaterial ENDER_ARMOR = 			EnumHelper.addArmorMaterial("ENDER", 			43, new int[]	{2,  4,  3, 2}, 	 6);//Is fall damage proof
+	public static ItemArmor.ArmorMaterial ENDER_ARMOR = 			EnumHelper.addArmorMaterial("ENDER", 			43, new int[]	{8,  9,  6, 5}, 	 6);//Is fall damage proof
 	public static ItemArmor.ArmorMaterial STARCONIUM_ARMOR = 		EnumHelper.addArmorMaterial("STARCONIUM", 		53, new int[]	{12, 13, 11, 8}, 	 6);
 	
 	private String itemUnlocalizedName;

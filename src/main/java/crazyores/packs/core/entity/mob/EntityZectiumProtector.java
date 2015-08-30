@@ -153,8 +153,10 @@ public class EntityZectiumProtector extends EntityFlying implements IMob {
                 	if (rand.nextInt(2) == 0) d7 += rand.nextDouble() * 2.0;
                 	else d7 -= rand.nextDouble() * 2.0;
                     
-                    zectiumCore.setVelocity(d5 / 5.0f, d6 / 5.0f, d7 / 5.0f);
-                    
+                    zectiumCore.motionX = (d5 / 5.0f);
+                    zectiumCore.motionY = (d6 / 5.0f);
+                    zectiumCore.motionZ = (d7 / 5.0f);
+                   
                     this.worldObj.spawnEntityInWorld(zectiumCore);
                     this.attackCounter = -40;
                 }
