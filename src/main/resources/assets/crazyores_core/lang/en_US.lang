@@ -344,20 +344,17 @@ swift_bow.name=Swift Bow
 dual_shot_bow.name=Dual Shot Bow
 confusion_bow.name=Confusion Bow
 
-
-copper_bow.name=Copper Bow
-sapphire_bow.name=Sapphire Bow
-adamite_bow.name=Adamite Bow
-ruby_bow.name=Ruby Bow
-zectium_bow.name=Zectium Bow
-tapazite_bow.name=Tapazite Bow
-starconium_bow.name=Starconium Bow
-
 # ARROW LIST 
 flaming_arrow.name=Flaming Arrow
+<<<<<<< HEAD
 lightning_arrow.name=Lightning Arrow
 frozen_arrow.name=Freezing Arrow
 explosive_arrow.name=Explosive Arrow
+=======
+adamite_arrow.name=Lightning Arrow (needs texture)
+osmonium_arrow.name=Freezing Arrow (needs texture)
+zectium_arrow.name=Explosive Arrow (needs texture)
+>>>>>>> 17ee5653d9274bbfaec0fc39596347f717acdae9
 
 flaming_arrow_head.name=Flaming Arrowhead
 lightning_arrow_head.name=Lightning Arrowhead
@@ -377,8 +374,6 @@ itemGroup.crazyOresMobs=CrazyOres Mobs
 config.category.loadPacks=Load Packs
 config.category.oreGeneration=Ore Generation
 config.category.miscSettings=Miscellaneous Settings
-
-config.node.installFoodsPack=Foods Pack
 
 config.node.generateCopperOre=Generate Copper Ore
 config.node.generateMeteoriteOre=Generate Meteorite Ore
@@ -400,3 +395,7 @@ config.node.generateLuminiteOre=Generate Luminite Ore
 config.node.generateEnderOre=Generate Ender Ore
 
 config.node.zectiumCoreExplodes=Zectium Core Explodes When Thrown
+config.node.explosiveArrowExplodes=Explosive Arrow Explodes When Shot
+config.node.fireSpreadsArrow=Flaming and Firey Explosive Arrows Spread Fire When Shot
+
+config.node.foolsRubyGolemMaxHeight=Maximum Fools Ruby Golem Height

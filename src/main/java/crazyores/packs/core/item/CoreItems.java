@@ -219,7 +219,7 @@ public class CoreItems {
 	public static Item freezingArrow;
 	public static Item lightningArrow;
 	
-	/** Arrowhead List **/
+	/** ArrowHead List **/
 	
 	public static Item flamingArrowHead;
 	public static Item explosiveArrowHead;
