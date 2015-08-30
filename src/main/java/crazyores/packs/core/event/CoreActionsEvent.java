@@ -15,7 +15,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
-import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -97,11 +96,7 @@ public class CoreActionsEvent {
 						}
 					}
 					
-//					player.setInvisible(invisiumEffect);
-					
-					if (player != null && !player.worldObj.isRemote && player instanceof EntityPlayerMP) {
-						 ((EntityPlayerMP)player).getServerForPlayer().getPlayerEntityByName(player.getDisplayName()).setInvisible(invisiumEffect);
-					}
+					player.setInvisible(invisiumEffect);
 //					System.out.println("Invisible: " + player.isInvisible());
 				}
 				else if (armor[0].getItem().equals(CoreItems.adamiteBoots) && armor[1].getItem().equals(CoreItems.adamiteLeggings) && armor[2].getItem().equals(CoreItems.adamiteChestplate) && armor[3].getItem().equals(CoreItems.adamiteHelmet)) {
@@ -205,22 +200,7 @@ public class CoreActionsEvent {
 					CoreArmor slot = (CoreArmor)armor[i].getItem();
 					slot.setInvisiumEffect(false);
 				}
-				
-				if (player != null && !player.worldObj.isRemote && player instanceof EntityPlayerMP) {
-					((EntityPlayerMP)player).getServerForPlayer().getPlayerEntityByName(player.getDisplayName()).setInvisible(player.isPotionActive(Potion.invisibility));
-//					 ((EntityPlayerMP)player).setInvisible(player.isPotionActive(Potion.invisibility));
-				}
-				
-//				player.setInvisible(player.isPotionActive(Potion.invisibility));
-				
-//				boolean invisiumEffect = true;
-//				for (int i = 0; i < armor.length; i++) {
-//					CoreArmor slot = (CoreArmor)armor[i].getItem();
-//					if (!slot.getInvisiumEffect()) {
-//						invisiumEffect = false;
-//						break;
-//					}
-//				}
+				player.setInvisible(player.isPotionActive(Potion.invisibility));
 				
 //				if (invisiumEffect) {
 //					if (player.getActivePotionEffect(Potion.invisibility) == null)
