@@ -222,7 +222,7 @@ public class CoreBlocks {
 		diagonalLightenedBrickStairs = new CoreStairs("diagonal_lightened_brick_stairs", diagonalLightenedBrick, 2.0f, 10.0f); registerBlock(diagonalLightenedBrickStairs);
 	
 		luminiteStorageBlock = new BlockLuminiteStorage("luminite_block", 3.0f, 9.0f); registerBlock(luminiteStorageBlock, ItemBlockLuminiteStorage.class);
-		luminiteDiscoBlock = new BlockLuminiteDisco("luminite_disco", 3.0f, 9.0f, 0.8f); registerBlock(luminiteDiscoBlock);
+		luminiteDiscoBlock = new BlockLuminiteDisco("luminite_disco", 3.0f, 9.0f, 0.8f); registerBlock(luminiteDiscoBlock, ItemBlockLuminiteDisco.class);
 	}
 	
 	/**

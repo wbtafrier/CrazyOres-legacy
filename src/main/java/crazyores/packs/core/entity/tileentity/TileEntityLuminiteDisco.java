@@ -4,6 +4,7 @@ import java.util.Random;
 
 import crazyores.packs.core.block.BlockLuminiteDisco;
 import crazyores.packs.core.block.BlockLuminiteStorage;
+import crazyores.packs.core.block.CoreBlocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -40,7 +41,7 @@ public class TileEntityLuminiteDisco extends TileEntity {
 		boolean update = false;
 		
 		if (!this.worldObj.isRemote) {
-			if (rand.nextInt(30) == 0) {
+			if (rand.nextInt(30) == 0 && this.worldObj.getBlock(xCoord, yCoord, zCoord).isAssociatedBlock(CoreBlocks.luminiteDiscoBlock)) {
 				updateType();
 				BlockLuminiteDisco.updateBlockState(this.worldObj, this.xCoord, this.yCoord, this.zCoord, luminiteType);
 				update = true;
@@ -67,8 +68,7 @@ public class TileEntityLuminiteDisco extends TileEntity {
 	
 	public void updateType() {
 		if (this.worldObj != null && !this.worldObj.isRemote) {
-			luminiteType = (short)(rand.nextInt(BlockLuminiteStorage.LUMINITE_STORAGE_BLOCK_SUBTYPES.length - 2) + 1);
-			System.out.println("changing color to " + luminiteType + "!");
+			luminiteType = (short)(rand.nextInt(BlockLuminiteDisco.LUMINITE_DISCO_BLOCK_SUBTYPES.length) + 1);
 		}
 	}
 	
