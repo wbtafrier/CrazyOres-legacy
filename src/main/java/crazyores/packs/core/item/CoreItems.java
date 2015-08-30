@@ -257,7 +257,7 @@ public class CoreItems {
 		foolsRubyMush = new CoreOre("fools_ruby_mush", "mushFoolsRuby"); registerItem(foolsRubyMush);
 		zectiumIngot = new CoreOre("zectium_ingot", "ingotZectium"); registerItem(zectiumIngot);
 		tapaziteObelisk = new CoreOre("tapazite_obelisk", "obeliskTapazite"); registerItem(tapaziteObelisk);
-		/** TODO: ADD TEXTURE **/ tapaziteDust = new CoreOre("tapazite_dust", "dustTapazite"); registerItem(tapaziteDust);
+		tapaziteDust = new CoreOre("tapazite_dust", "dustTapazite"); registerItem(tapaziteDust);
 		osmoniumIngot = new CoreOre("osmonium_ingot", "ingotOsmonium"); registerItem(osmoniumIngot);
 		starconiumGem = new CoreOre("starconium_gem", "gemStarconium"); registerItem(starconiumGem);
 		starconiumShard = new CoreOre("starconium_shard", "shardStarconium"); registerItem(starconiumShard);
