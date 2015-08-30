@@ -41,6 +41,6 @@ public class CoreResourceHandler {
 	
 	public static final ResourceLocation FLAMING_ARROW_TEXTURE = new ResourceLocation(arrowPath + "flaming_arrow.png");
 	public static final ResourceLocation EXPLOSIVE_ARROW_TEXTURE = new ResourceLocation(arrowPath + "explosive_arrow.png");
-	public static final ResourceLocation ELECTRIC_ARROW_TEXTURE = new ResourceLocation(arrowPath + "electric_arrow.png");
-	public static final ResourceLocation FREEZING_ARROW_TEXTURE = new ResourceLocation(arrowPath + "freezing_arrow.png");
+	public static final ResourceLocation ELECTRIC_ARROW_TEXTURE = new ResourceLocation(arrowPath + "lightning_arrow.png");
+	public static final ResourceLocation FREEZING_ARROW_TEXTURE = new ResourceLocation(arrowPath + "frozen_arrow.png");
 }

@@ -62,8 +62,6 @@ public class CoreItem extends Item implements IName {
 	@Override
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-		
         this.itemIcon = iconRegister.registerIcon(String.format("%s%s%s", COPackManager.corePack.getPackID(), ":", this.getUnlocalizedName()));
-        System.out.println(this.itemIcon);
     }
 }

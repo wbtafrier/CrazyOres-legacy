@@ -98,7 +98,7 @@ public abstract class EntityShark extends EntityMob {
 
         this.despawnEntity();
         
-        if (this.isInWater() && this.inWater) {
+        if (this.inWater) {
         	
 //        	System.out.println(posX + " " + posY + " " + posZ);
         	

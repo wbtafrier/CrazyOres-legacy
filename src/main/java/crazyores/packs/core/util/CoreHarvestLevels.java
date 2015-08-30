@@ -138,6 +138,9 @@ public class CoreHarvestLevels {
 		CoreBlocks.demoniteFurnaceLit.setHarvestLevel(PICKAXE, 9);
 		
 		CoreBlocks.luminiteOre.setHarvestLevel(PICKAXE, 6);
+		CoreBlocks.luminiteDiscoBlock.setHarvestLevel(PICKAXE, 6);
+		CoreBlocks.luminiteStorageBlock.setHarvestLevel(PICKAXE, 6);
+		
 		CoreBlocks.darkstoneOre.setHarvestLevel(PICKAXE, 6);
 	}
 }

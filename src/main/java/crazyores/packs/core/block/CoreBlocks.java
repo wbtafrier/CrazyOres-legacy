@@ -118,6 +118,11 @@ public class CoreBlocks {
 	public static Block diagonalLightenedBrick;
 	public static Block diagonalLightenedBrickStairs;
 	
+	public static Block darkstoneBrick;
+	public static Block diagonalDarkstoneBrick;
+	public static Block darkstoneBrickStairs;
+	public static Block diagonalDarkstoneBrickStairs;
+	
 	//Luminite Blocks
 	public static Block luminiteStorageBlock;
 	public static Block luminiteDiscoBlock;
@@ -214,13 +219,17 @@ public class CoreBlocks {
 		diagonalAdamiteBrick = new CoreBlock("diagonal_adamite_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 3.0f, 10.0f, 0.7f); registerBlock(diagonalAdamiteBrick);
 		diagonalAdamiteBrickStairs = new CoreStairs("diagonal_adamite_brick_stairs", diagonalAdamiteBrick, 3.0f, 10.0f, 0.7f); registerBlock(diagonalAdamiteBrickStairs);
 		
-		
 		lightenedBrick = new CoreBlock("lightened_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 2.0f, 10.0f); registerBlock(lightenedBrick);
 		lightenedBrickStairs = new CoreStairs("lightened_brick_stairs", lightenedBrick, 2.0f, 10.0f); registerBlock(lightenedBrickStairs);
 		
 		diagonalLightenedBrick = new CoreBlock("diagonal_lightened_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 2.0f, 10.0f); registerBlock(diagonalLightenedBrick);
 		diagonalLightenedBrickStairs = new CoreStairs("diagonal_lightened_brick_stairs", diagonalLightenedBrick, 2.0f, 10.0f); registerBlock(diagonalLightenedBrickStairs);
 	
+		darkstoneBrick = new CoreBlock("darkstone_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 3.0f, 10.0f); registerBlock(darkstoneBrick);
+		diagonalDarkstoneBrick = new CoreBlock("diagonal_darkstone_brick", Material.rock, COTabList.crazyOresBlocksTab, Block.soundTypePiston, 3.0f, 10.0f); registerBlock(diagonalDarkstoneBrick);
+		darkstoneBrickStairs = new CoreStairs("darkstone_brick_stairs", darkstoneBrick, 3.0f, 10.0f); registerBlock(darkstoneBrickStairs);
+		diagonalDarkstoneBrickStairs = new CoreStairs("diagonal_darkstone_brick_stairs", diagonalDarkstoneBrick, 3.0f, 10.0f); registerBlock(diagonalDarkstoneBrickStairs);
+		
 		luminiteStorageBlock = new BlockLuminiteStorage("luminite_block", 3.0f, 9.0f); registerBlock(luminiteStorageBlock, ItemBlockLuminiteStorage.class);
 		luminiteDiscoBlock = new BlockLuminiteDisco("luminite_disco", 3.0f, 9.0f, 0.8f); registerBlock(luminiteDiscoBlock);
 	}
