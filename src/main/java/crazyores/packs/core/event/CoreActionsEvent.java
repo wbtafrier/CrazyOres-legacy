@@ -15,6 +15,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
+import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -99,7 +100,7 @@ public class CoreActionsEvent {
 //					player.setInvisible(invisiumEffect);
 					
 					if (player != null && !player.worldObj.isRemote && player instanceof EntityPlayerMP) {
-						 ((EntityPlayerMP)player).setInvisible(invisiumEffect);
+						 ((EntityPlayerMP)player).getServerForPlayer().getPlayerEntityByName(player.getDisplayName()).setInvisible(invisiumEffect);
 					}
 //					System.out.println("Invisible: " + player.isInvisible());
 				}
@@ -206,7 +207,8 @@ public class CoreActionsEvent {
 				}
 				
 				if (player != null && !player.worldObj.isRemote && player instanceof EntityPlayerMP) {
-					 ((EntityPlayerMP)player).setInvisible(player.isPotionActive(Potion.invisibility));
+					((EntityPlayerMP)player).getServerForPlayer().getPlayerEntityByName(player.getDisplayName()).setInvisible(player.isPotionActive(Potion.invisibility));
+//					 ((EntityPlayerMP)player).setInvisible(player.isPotionActive(Potion.invisibility));
 				}
 				
 //				player.setInvisible(player.isPotionActive(Potion.invisibility));
