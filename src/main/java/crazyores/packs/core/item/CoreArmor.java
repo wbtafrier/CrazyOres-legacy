@@ -21,6 +21,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.manager.pack.COPackManager;
+import crazyores.packs.core.event.CoreActionsEvent;
 import crazyores.packs.core.tabs.CoreTabList;
 
 public class CoreArmor extends ItemArmor {
@@ -39,7 +40,6 @@ public class CoreArmor extends ItemArmor {
 	public static ItemArmor.ArmorMaterial STARCONIUM_ARMOR = 		EnumHelper.addArmorMaterial("STARCONIUM", 		53, new int[]	{12, 13, 11, 8}, 	 6);
 	
 	private String itemUnlocalizedName;
-	private boolean invisium = false;
 	
 	//Default armor index ends at 4. So next armor should start at 5 and so on.
 	public CoreArmor(String unlocalizedName, ItemArmor.ArmorMaterial material, int armorIndex, int armorType) {
@@ -47,21 +47,6 @@ public class CoreArmor extends ItemArmor {
 		this.setUnlocalizedName(unlocalizedName);
 		this.setCreativeTab(CoreTabList.coreArmorTab);
 	}
-	
-	/**
-     * Called to tick armor in the armor slot. Override to do something
-     *
-     * @param world
-     * @param player
-     * @param itemStack
-     */
-	@Override
-    public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
-    {
-		if ((itemStack.getItem() == CoreItems.invisiumHelmet || itemStack.getItem() == CoreItems.invisiumChestplate || itemStack.getItem() == CoreItems.invisiumLeggings || itemStack.getItem() == CoreItems.invisiumBoots) && !player.isInvisible() && this.getInvisiumEffect()) {
-			this.setInvisiumEffect(false);
-		}
-    }
 	
 	@Override
 	public String getArmorTexture(ItemStack itemstack, Entity entity, int slot, String type) {
@@ -83,17 +68,8 @@ public class CoreArmor extends ItemArmor {
 		if (itemstack.getItem() == CoreItems.sapphireLeggings) {
 			return COPackManager.corePack.getPackID() + ":" + "textures/armor/Sapphire_2.png";
 		}
-		if (itemstack.getItem() == CoreItems.invisiumHelmet || itemstack.getItem() == CoreItems.invisiumChestplate || itemstack.getItem() == CoreItems.invisiumBoots) {
-			if (!this.invisium)
-				return COPackManager.corePack.getPackID() + ":" + "textures/armor/Invisium_1.png";
-			else if (invisium)
-				return COPackManager.corePack.getPackID() + ":" + "textures/armor/Invisium_3.png";
-		}
-		if (itemstack.getItem() == CoreItems.invisiumLeggings) {
-			if (!this.invisium)
-				return COPackManager.corePack.getPackID() + ":" + "textures/armor/Invisium_2.png";
-			else if (invisium)
-				return COPackManager.corePack.getPackID() + ":" + "textures/armor/Invisium_3.png";
+		if (itemstack.getItem() == CoreItems.invisiumHelmet || itemstack.getItem() == CoreItems.invisiumChestplate || itemstack.getItem() == CoreItems.invisiumLeggings || itemstack.getItem() == CoreItems.invisiumBoots) {
+			return COPackManager.corePack.getPackID() + ":" + "textures/armor/Invisium.png";
 		}
 		if (itemstack.getItem() == CoreItems.adamiteHelmet || itemstack.getItem() == CoreItems.adamiteChestplate || itemstack.getItem() == CoreItems.adamiteBoots) {
 			return COPackManager.corePack.getPackID() + ":" + "textures/armor/Adamite_1.png";
@@ -161,25 +137,4 @@ public class CoreArmor extends ItemArmor {
     public void registerIcons(IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon(String.format("%s%s%s", COPackManager.corePack.getPackID(), ":", this.getUnlocalizedName()));
     }
-	
-	private int counter = 0;
-	public void updateCounter() {
-//		System.out.println("INCREMENTING TO: " + counter);
-		counter = counter == 60 ? 60 : counter + 1;
-	}
-	
-	public void setInvisiumEffect(boolean effect) {
-		
-		if (counter != 60) {
-			return;
-		}
-		else {
-			invisium = effect;
-			counter = 0;
-		}
-	}
-
-	public boolean getInvisiumEffect() {
-		return this.invisium;
-	}
 }
