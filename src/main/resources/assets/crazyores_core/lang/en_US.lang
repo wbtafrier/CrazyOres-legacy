@@ -63,14 +63,13 @@ smooth_reinforced_glass.name=Smooth Reinforced Glass
 reinforced_brick.name=Reinforced Brick
 reinforced_brick_stairs.name=Reinforced Brick Stairs
 
-reinforced_brick_slabs.name=Reinforced Brick Slab
-double_reinforced_brick_slabs.name=Reinforced Brick Slab
+darkstone_brick.name=Darkstone Brick
+diagonal_darkstone_brick.name=Diagonal Darkstone Brick
+darkstone_brick_stairs.name=Darkstone Brick Stairs
+diagonal_darkstone_brick_stairs.name=Diagonal Darkstone Brick Stairs
 
 diagonal_reinforced_brick.name=Diagonal Reinforced Brick
 diagonal_reinforced_brick_stairs.name=Diagonal Reinforced Brick Stairs
-
-reinforced_brick_slab.name=Reinforced Brick Slab
-double_reinforced_brick_slab.name=Reinforced Brick Slab
 
 diagonal_brick.name=Diagonal Brick
 diagonal_brick_stairs.name=Diagonal Brick Stairs
@@ -86,6 +85,20 @@ adamite_brick_stairs.name=Adamite Brick Stairs
 
 diagonal_adamite_brick.name=Diagonal Adamite Brick
 diagonal_adamite_brick_stairs.name=Diagonal Adamite Brick Stairs
+
+luminite_block_white.name=White Luminite Block
+luminite_block_red.name=Red Luminite Block
+luminite_block_orange.name=Orange Luminite Block
+luminite_block_yellow.name=Yellow Luminite Block
+luminite_block_green.name=Green Luminite Block
+luminite_block_cyan.name=Cyan Luminite Block
+luminite_block_blue.name=Blue Luminite Block
+luminite_block_purple.name=Purple Luminite Block
+luminite_block_pink.name=Pink Luminite Block
+luminite_block_black.name=Black Luminite Block
+
+luminite_disco_block.name=Luminite Disco Block
+
 
 # GUI LOCALIZATION
 container.demonite_furnace=Demonite Furnace
@@ -157,7 +170,7 @@ fools_ruby_mush.name=Fool's Ruby Mush
 demonite_orb.name=Demonite Orb
 experium_orb.name=Experium Orb
 ender_gem.name=Ender Gem
-darkstone_ingot.name=Darkstone Ingot
+darkstone_bar.name=Darkstone Bar
 invisium_ingot.name=Invisium Ingot
 ultra_gem.name=Ultra Gem
 white_luminite_crystal.name=White Luminite Crystal
@@ -301,6 +314,17 @@ birthday_cake_placer.name=Birthday Cake
 raw_shark_meat.name=Raw Shark Meat
 cooked_shark_meat.name=Cooked Shark Meat
 
+luminite_crystal_white.name=White Luminite Crystal
+luminite_crystal_red.name=Red Luminite Crystal
+luminite_crystal_orange.name=Orange Luminite Crystal
+luminite_crystal_yellow.name=Yellow Luminite Crystal
+luminite_crystal_green.name=Green Luminite Crystal
+luminite_crystal_cyan.name=Cyan Luminite Crystal
+luminite_crystal_blue.name=Blue Luminite Crystal
+luminite_crystal_purple.name=Purple Luminite Crystal
+luminite_crystal_pink.name=Pink Luminite Crystal
+luminite_crystal_black.name=Black Luminite Crystal
+
 # ROD LIST 
 copper_rod.name=Copper Rod
 sapphire_rod.name=Sapphire Rod
@@ -322,11 +346,20 @@ confusion_bow.name=Confusion Bow
 
 # ARROW LIST 
 flaming_arrow.name=Flaming Arrow
+<<<<<<< HEAD
+lightning_arrow.name=Lightning Arrow
+frozen_arrow.name=Freezing Arrow
+explosive_arrow.name=Explosive Arrow
+=======
 adamite_arrow.name=Lightning Arrow (needs texture)
 osmonium_arrow.name=Freezing Arrow (needs texture)
 zectium_arrow.name=Explosive Arrow (needs texture)
+>>>>>>> 17ee5653d9274bbfaec0fc39596347f717acdae9
 
 flaming_arrow_head.name=Flaming Arrowhead
+lightning_arrow_head.name=Lightning Arrowhead
+frozen_arrow_head.name=Frozen Arrowhead
+explosive_arrow_head.name=Explosive Arrowhead
 
 # TAB LOCALIZATION
 itemGroup.crazyOresBlocks=CrazyOres Blocks

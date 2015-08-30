@@ -49,10 +49,11 @@ public class Generate implements IWorldGenerator {
 		}
 		
 		if (COCoreConfigSettings.generateDarkstoneOre) {
+			generateOre(CoreBlocks.darkstoneOre, Blocks.netherrack, world, rand, x, z, 8, 36, 0, 255);
 		}
 		
 		if (COCoreConfigSettings.generateLuminiteOre) {
-			generateOre(CoreBlocks.luminiteOre, Blocks.netherrack, world, rand, x, z, 4, 15, 0, 255);
+			generateOre(CoreBlocks.luminiteOre, Blocks.netherrack, world, rand, x, z, 4, 30, 0, 255);
 		}
 	}
 	

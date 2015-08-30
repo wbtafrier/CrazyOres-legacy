@@ -38,7 +38,6 @@ public class CoreItems {
 	public static Item invisiumIngot;
 	
 	public static Item darkstoneIngot;
-	public static Item whiteLuminiteCrystal;
 	
 	//Ender ore drops
 	public static Item enderGem;
@@ -230,6 +229,8 @@ public class CoreItems {
 	public static Item rawSharkMeat;
 	public static Item cookedSharkMeat;
 	
+	public static Item luminiteCrystal;
+	
 	public static void initItems() {
 		initOreDrops();
 //		initRods();
@@ -267,12 +268,13 @@ public class CoreItems {
 		invisiumIngot = new CoreOre("invisium_ingot", "ingotInvisium"); registerItem(invisiumIngot);
 		
 		//Should be in the decorations pack
-		darkstoneIngot = new CoreOre("darkstone_ingot", "ingotDarkstone"); registerItem(darkstoneIngot);
-		whiteLuminiteCrystal = new CoreOre("white_luminite_crystal", "crystalWhiteLuminite"); registerItem(whiteLuminiteCrystal);
+		darkstoneIngot = new CoreOre("darkstone_bar", "ingotDarkstone"); registerItem(darkstoneIngot);
 		
 		//Ender ore drops
 		enderGem = new CoreOre("ender_gem", "gemEnder"); registerItem(enderGem);
 		ultraGem = new CoreOre("ultra_gem", "gemUltra"); registerItem(ultraGem);
+		
+		luminiteCrystal = new ItemLuminiteCrystal("luminite_crystal"); registerItem(luminiteCrystal);
 	}
 	
 //	private static void initRods() {
@@ -295,16 +297,15 @@ public class CoreItems {
 		dualShotBow = new DualBow("dual_shot_bow", 410, 10); registerItem(dualShotBow);
 		confusionBow = new ConfusionBow("confusion_bow", 300, 10); registerItem(confusionBow);
 		
-		//TODO: MAKE TEXTURES!!!!!1
 		flamingArrow = new CoreItem("flaming_arrow", CoreTabList.coreWeaponsTab); registerItem(flamingArrow);
-		explosiveArrow = new CoreItem("zectium_arrow", CoreTabList.coreWeaponsTab); registerItem(explosiveArrow);
-		lightningArrow = new CoreItem("adamite_arrow", CoreTabList.coreWeaponsTab); registerItem(lightningArrow);
-		freezingArrow = new CoreItem("osmonium_arrow", CoreTabList.coreWeaponsTab); registerItem(freezingArrow);
+		explosiveArrow = new CoreItem("explosive_arrow", CoreTabList.coreWeaponsTab); registerItem(explosiveArrow);
+		lightningArrow = new CoreItem("lightning_arrow", CoreTabList.coreWeaponsTab); registerItem(lightningArrow);
+		freezingArrow = new CoreItem("frozen_arrow", CoreTabList.coreWeaponsTab); registerItem(freezingArrow);
 		
 		flamingArrowHead = new CoreItem("flaming_arrow_head", CoreTabList.coreWeaponsTab); registerItem(flamingArrowHead);
-//		explosiveArrowHead;
-//		freezingArrowHead;
-//		electricArrowHead;
+		explosiveArrowHead = new CoreItem("explosive_arrow_head", CoreTabList.coreWeaponsTab); registerItem(explosiveArrowHead);
+		freezingArrowHead = new CoreItem("frozen_arrow_head", CoreTabList.coreWeaponsTab); registerItem(freezingArrowHead);
+		lightningArrowHead = new CoreItem("lightning_arrow_head", CoreTabList.coreWeaponsTab); registerItem(lightningArrowHead);
 	}
 	
 	private static void initTools() {

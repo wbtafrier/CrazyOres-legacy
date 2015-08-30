@@ -98,7 +98,7 @@ public abstract class EntityShark extends EntityMob {
 
         this.despawnEntity();
         
-        if (this.isInWater() && this.inWater) {
+        if (this.inWater) {
 	        if (this.entityToAttack != null && (this.entityToAttack.isInWater() || this.entityToAttack.isRiding()) && this.entityToAttack.getDistanceSqToEntity(this) < radius * radius) {
 	        	attacking = true;
 	            double d5 = this.entityToAttack.posX - this.posX;
