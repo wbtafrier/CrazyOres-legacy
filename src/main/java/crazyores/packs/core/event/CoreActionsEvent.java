@@ -98,7 +98,7 @@ public class CoreActionsEvent {
 					
 //					player.setInvisible(invisiumEffect);
 					
-					if (player != null && player instanceof EntityPlayerMP) {
+					if (player != null && !player.worldObj.isRemote && player instanceof EntityPlayerMP) {
 						 ((EntityPlayerMP)player).setInvisible(invisiumEffect);
 					}
 //					System.out.println("Invisible: " + player.isInvisible());
@@ -205,7 +205,7 @@ public class CoreActionsEvent {
 					slot.setInvisiumEffect(false);
 				}
 				
-				if (player != null && player instanceof EntityPlayerMP) {
+				if (player != null && !player.worldObj.isRemote && player instanceof EntityPlayerMP) {
 					 ((EntityPlayerMP)player).setInvisible(player.isPotionActive(Potion.invisibility));
 				}
 				
