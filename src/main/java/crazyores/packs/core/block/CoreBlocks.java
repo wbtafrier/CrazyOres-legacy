@@ -169,10 +169,6 @@ public class CoreBlocks {
 		demoniteBlock = (new CoreBlock("demonite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockDemonite"); registerBlock(demoniteBlock);
 		invisiumBlock = (new CoreBlock("invisium_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockInvisium"); registerBlock(invisiumBlock);
 		
-		//Should be in the decorations pack
-//		darkstoneBlock = (new CoreBlock("darkstone_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockDarkstone"); registerBlock(darkstoneBlock);
-//		luminiteBlock = (new CoreBlock("luminite_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockLuminite"); registerBlock(luminiteBlock);
-		
 		enderBlock = (new CoreBlock("ender_block", Material.iron, COTabList.crazyOresBlocksTab, Block.soundTypeStone, 3.0f, 5.0f)).setOreDictionaryName("blockEnder"); registerBlock(enderBlock);
 		
 		demoniteFurnace = new BlockDemoniteFurnace("demonite_furnace", false, 16.0f, 2.0f); registerBlock(demoniteFurnace);

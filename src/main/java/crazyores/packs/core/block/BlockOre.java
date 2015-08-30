@@ -5,6 +5,7 @@ import java.util.Random;
 import cpw.mods.fml.common.Loader;
 import crazyores.manager.pack.COPackManager;
 import crazyores.packs.core.item.CoreItems;
+import crazyores.packs.core.item.ItemLuminiteCrystal;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -64,6 +65,9 @@ public class BlockOre extends CoreBlock {
 			else if (this == CoreBlocks.demoniteOre) {
 				return CoreItems.demoniteOrb;
 			}
+			else if (this == CoreBlocks.luminiteOre) {
+				return CoreItems.luminiteCrystal;
+			}
 		}
 		return Item.getItemFromBlock(this);
     }
@@ -79,6 +83,9 @@ public class BlockOre extends CoreBlock {
 			}
 			else if (this == CoreBlocks.demoniteOre) {
 				return rand.nextInt(3) + 1;
+			}
+			else if (this == CoreBlocks.luminiteOre) {
+				return rand.nextInt(4) + 1;
 			}
 		}
 		return 1;
@@ -127,6 +134,7 @@ public class BlockOre extends CoreBlock {
             	else if (this == CoreBlocks.starconiumOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 5, 9);
             	else if (this == CoreBlocks.experiumOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 8, 16);
             	else if (this == CoreBlocks.demoniteOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 3, 6);
+            	else if (this == CoreBlocks.luminiteOre) 	exp = MathHelper.getRandomIntegerInRange(rand, 4, 7);
             }
             return exp;
         }
@@ -138,6 +146,6 @@ public class BlockOre extends CoreBlock {
      */
     @Override
     public int damageDropped(int damage) {
-        return this == Blocks.lapis_ore ? 4 : 0;
+        return this == CoreBlocks.luminiteOre ? rand.nextInt(ItemLuminiteCrystal.LUMINITE_CRYSTAL_SUBTYPES.length): 0;
     }
 }

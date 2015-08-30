@@ -314,6 +314,8 @@ birthday_cake_placer.name=Birthday Cake
 raw_shark_meat.name=Raw Shark Meat
 cooked_shark_meat.name=Cooked Shark Meat
 
+lightened_brick.name=Lightened Brick
+
 luminite_crystal_white.name=White Luminite Crystal
 luminite_crystal_red.name=Red Luminite Crystal
 luminite_crystal_orange.name=Orange Luminite Crystal
@@ -324,19 +326,6 @@ luminite_crystal_blue.name=Blue Luminite Crystal
 luminite_crystal_purple.name=Purple Luminite Crystal
 luminite_crystal_pink.name=Pink Luminite Crystal
 luminite_crystal_black.name=Black Luminite Crystal
-
-# ROD LIST 
-copper_rod.name=Copper Rod
-sapphire_rod.name=Sapphire Rod
-adamite_rod.name=Adamite Rod
-meteorite_rod.name=Meteorite Rod
-ruby_rod.name=Ruby Rod
-zectium_rod.name=Zectium Rod
-tapazite_rod.name=Tapazite Rod
-osmonium_rod.name=Osmonium Rod
-starconium_rod.name=Starconium Rod
-invisium_rod.name=Invisium Rod
-ender_rod.name=Ender Rod
 
 # BOW LIST 
 hell_bow.name=Hell Bow

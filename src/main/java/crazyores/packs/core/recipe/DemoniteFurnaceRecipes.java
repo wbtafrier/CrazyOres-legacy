@@ -54,6 +54,7 @@ public class DemoniteFurnaceRecipes {
 		addRecipe(new ItemStack(CoreBlocks.enderOre), new ItemStack(CoreItems.enderGem, STACK_SIZE), 1.8f);
 		
 		addRecipe(new ItemStack(Blocks.sand), new ItemStack(Blocks.glass, STACK_SIZE), 0.4f);
+		addRecipe(new ItemStack(CoreBlocks.reinforcedGlass), new ItemStack(CoreBlocks.smoothReinforcedGlass, STACK_SIZE), 0.2f);
 		
 		addRecipe(new ItemStack(CoreItems.rawSharkMeat), new ItemStack(CoreItems.cookedSharkMeat, STACK_SIZE - 1), 0.5f);
 		addRecipe(new ItemStack(Items.potato), new ItemStack(Items.baked_potato, STACK_SIZE - 1), 0.2f);
@@ -62,6 +63,11 @@ public class DemoniteFurnaceRecipes {
 		addRecipe(new ItemStack(Items.chicken), new ItemStack(Items.cooked_chicken, STACK_SIZE - 1), 0.3f);
 		addRecipe(new ItemStack(Items.fish), new ItemStack(Items.cooked_fished, STACK_SIZE - 1), 0.3f);
 		addRecipe(new ItemStack(Items.fish, 1, 1), new ItemStack(Items.cooked_fished, STACK_SIZE - 1, 1), 0.3f);
+		
+		addRecipe(new ItemStack(CoreItems.meteoriteGem), new ItemStack(Items.flint), new ItemStack(CoreItems.flamingArrowHead, 1), 0.5f);
+		addRecipe(new ItemStack(CoreItems.zectiumIngot), new ItemStack(Items.flint), new ItemStack(CoreItems.explosiveArrowHead, 1), 0.9f);
+		
+		addRecipe(new ItemStack(Blocks.glass), new ItemStack(CoreItems.zectiumIngot), new ItemStack(CoreBlocks.reinforcedGlass, STACK_SIZE - 2), 0.5f);
 		
 		//TODO:ADD MORE RECIPES!!
 	}
