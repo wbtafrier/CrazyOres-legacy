@@ -96,10 +96,10 @@ public class CoreActionsEvent {
 						}
 					}
 					
-					player.setInvisible(invisiumEffect);
+//					player.setInvisible(invisiumEffect);
 					
 					if (player != null && player instanceof EntityPlayerMP) {
-						((EntityPlayerMP)player).playerNetServerHandler.sendPacket(new S2BPacketChangeGameState(6, 0.0F));
+						 ((EntityPlayerMP)player).setInvisible(invisiumEffect);
 					}
 //					System.out.println("Invisible: " + player.isInvisible());
 				}
@@ -204,7 +204,12 @@ public class CoreActionsEvent {
 					CoreArmor slot = (CoreArmor)armor[i].getItem();
 					slot.setInvisiumEffect(false);
 				}
-				player.setInvisible(player.isPotionActive(Potion.invisibility));
+				
+				if (player != null && player instanceof EntityPlayerMP) {
+					 ((EntityPlayerMP)player).setInvisible(player.isPotionActive(Potion.invisibility));
+				}
+				
+//				player.setInvisible(player.isPotionActive(Potion.invisibility));
 				
 //				boolean invisiumEffect = true;
 //				for (int i = 0; i < armor.length; i++) {
