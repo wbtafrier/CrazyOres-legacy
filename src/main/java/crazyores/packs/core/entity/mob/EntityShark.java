@@ -3,6 +3,7 @@ package crazyores.packs.core.entity.mob;
 import java.util.List;
 import java.util.Random;
 
+import crazyores.packs.core.entity.golem.EnumGolemType;
 import crazyores.packs.core.item.CoreItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -28,7 +29,7 @@ import net.minecraft.world.World;
 
 public abstract class EntityShark extends EntityMob {
 	protected static Random rand = new Random();
-	protected EnumSharkType type = EnumSharkType.GREAT_WHITE;
+	protected EnumSharkType type = EnumSharkType.NONE;
 	
 	private double topJawRotation;
 	private double bottomJawRotation;
@@ -45,6 +46,10 @@ public abstract class EntityShark extends EntityMob {
     private float radius;
     
 	private int courseChangeCooldown;
+	
+	public EntityShark(World world) {
+		this(world, EnumSharkType.NONE, 1.0f, 32f, 0.07f);
+	}
 	
 	public EntityShark(World world, EnumSharkType sharkType, float scale, float r, float s) {
 		super(world);
