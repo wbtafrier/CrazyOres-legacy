@@ -65,7 +65,7 @@ public class BlockDemoniteFurnace extends BlockContainer implements IName {
 	
 	@Override
     public int quantityDropped(Random rand) {
-		return rand.nextInt(4) + 1;
+		return rand.nextInt(5) + 2;
     }
 	
 	@Override

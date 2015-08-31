@@ -66,7 +66,7 @@ public class EntityStarconiumGolem extends EntityGolems {
 			}
 		
 			if (this.getAttackTarget() != null) {
-				if (rand.nextInt(5) == 0 && !this.groundPound && this.getDistanceToEntity(this.getAttackTarget()) < 10.0f) {
+				if (rand.nextInt(10) == 0 && !this.groundPound && this.getDistanceToEntity(this.getAttackTarget()) < 10.0f) {
 					this.groundPound = true;
 					System.out.println("GROUND POUND TRUE!!");
 					this.motionY = 1.0f;

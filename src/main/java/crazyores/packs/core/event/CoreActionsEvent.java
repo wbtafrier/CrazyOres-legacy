@@ -32,19 +32,21 @@ public class CoreActionsEvent {
 	
 	@SubscribeEvent
 	public void armorEvent(LivingEvent event) {
-		if (event instanceof LivingAttackEvent && (event.entity instanceof EntityZectiumProtector || event.entity instanceof EntityZectiumGolem || event.entity instanceof EntityGolems)) {
+		if (event instanceof LivingAttackEvent) {
 			LivingAttackEvent hurtEvent = (LivingAttackEvent)event;
 			DamageSource damage = hurtEvent.source;
 			
 			if (damage.isExplosion()) {
-				if (event.entity instanceof EntityGolems) {
-					if (((EntityGolems)event.entity).groundPound()) {
+				if ((event.entity instanceof EntityZectiumProtector)) {
+					event.setCanceled(true);
+					return;
+				}
+				else if (event.entity instanceof EntityGolems) {
+					if (((EntityGolems)event.entity).groundPound() || event.entity instanceof EntityZectiumGolem) {
 						event.setCanceled(true);
 						return;
 					}
 				}
-				event.setCanceled(true);
-				return;
 			}
 		}
 		else if (event.entity instanceof EntityPlayer) {
