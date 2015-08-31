@@ -10,6 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import crazyores.packs.core.entity.mob.EntityShark;
+import crazyores.packs.core.entity.mob.EnumSharkType;
 import crazyores.packs.core.util.CoreResourceHandler;
 
 public class RenderSharks extends RenderLiving {
@@ -26,9 +27,9 @@ public class RenderSharks extends RenderLiving {
 	protected ResourceLocation getEntityTexture(Entity entity) {
 		EntityShark s = (EntityShark)entity;
 		
-		if (s.getType().equals(EntityShark.EnumSharkType.GREAT_WHITE))
+		if (s.getType().equals(EnumSharkType.GREAT_WHITE))
 			return CoreResourceHandler.GREAT_WHITE_SHARK_TEXTURE;
-		else if (s.getType().equals(EntityShark.EnumSharkType.ADAMITE))
+		else if (s.getType().equals(EnumSharkType.ADAMITE))
 			return CoreResourceHandler.ADAMITE_SHARK_TEXTURE;
 		else
 			return CoreResourceHandler.UNKNOWN_TEXTURE;
