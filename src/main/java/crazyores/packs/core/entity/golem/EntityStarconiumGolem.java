@@ -58,19 +58,17 @@ public class EntityStarconiumGolem extends EntityGolems {
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 		
-		if (!this.worldObj.isRemote) {
-			if (this.onGround && this.groundPound) {
-				System.out.println("GROUND POUND FALSE");
-				this.worldObj.newExplosion(this, this.posX, this.posY, this.posZ, 5.0f, false, false);
-				this.groundPound = false;
-			}
-		
-			if (this.getAttackTarget() != null) {
-				if (rand.nextInt(10) == 0 && !this.groundPound && this.getDistanceToEntity(this.getAttackTarget()) < 10.0f) {
-					this.groundPound = true;
-					System.out.println("GROUND POUND TRUE!!");
-					this.motionY = 1.0f;
-				}
+		if (this.onGround && this.groundPound) {
+			System.out.println("GROUND POUND FALSE");
+			this.worldObj.newExplosion(this, this.posX, this.posY, this.posZ, 5.0f, false, false);
+			this.groundPound = false;
+		}
+	
+		if (this.getAttackTarget() != null) {
+			if (rand.nextInt(10) == 0 && !this.groundPound && this.getDistanceToEntity(this.getAttackTarget()) < 10.0f) {
+				this.groundPound = true;
+				System.out.println("GROUND POUND TRUE!!");
+				this.motionY = 1.0f;
 			}
 		}
 	}
