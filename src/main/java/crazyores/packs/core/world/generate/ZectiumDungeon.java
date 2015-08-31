@@ -29,7 +29,7 @@ public class ZectiumDungeon extends CoreDungeon {
 			return false;
 		}
 		
-		System.out.println("GENERATING ZECTIUM DUNGEON: " + x + " " + y + " " + z);
+//		System.out.println("GENERATING ZECTIUM DUNGEON: " + x + " " + y + " " + z);
 		
 		for (int xChunk = 0; xChunk < DEFAULT_WIDTH; xChunk++) {
 			for (int yChunk = 0; yChunk < DEFAULT_HEIGHT; yChunk++) {

@@ -41,7 +41,7 @@ public class AdamiteDungeon extends CoreDungeon {
 		int zWidth = DEFAULT_WIDTH + rand.nextInt(10);
 		
 		if (!isGoodAreaToSpawn(world, x, y, z, xWidth, zWidth)) return debugFalse(world, x, y, z);
-		System.out.println("SPAWNING ADAMITE DUNGEON AT: " + x + " " + y + " " + z);
+//		System.out.println("SPAWNING ADAMITE DUNGEON AT: " + x + " " + y + " " + z);
 		
 		fillGround(world, rand, x, y, z, xWidth, zWidth);
 		

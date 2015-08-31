@@ -59,7 +59,7 @@ public class EntityStarconiumGolem extends EntityGolems {
 		super.onLivingUpdate();
 		
 		if (this.onGround && this.groundPound) {
-			System.out.println("GROUND POUND FALSE");
+//			System.out.println("GROUND POUND FALSE");
 			this.worldObj.newExplosion(this, this.posX, this.posY, this.posZ, 5.0f, false, false);
 			this.groundPound = false;
 		}
@@ -67,7 +67,7 @@ public class EntityStarconiumGolem extends EntityGolems {
 		if (this.getAttackTarget() != null) {
 			if (rand.nextInt(10) == 0 && !this.groundPound && this.getDistanceToEntity(this.getAttackTarget()) < 10.0f) {
 				this.groundPound = true;
-				System.out.println("GROUND POUND TRUE!!");
+//				System.out.println("GROUND POUND TRUE!!");
 				this.motionY = 1.0f;
 			}
 		}

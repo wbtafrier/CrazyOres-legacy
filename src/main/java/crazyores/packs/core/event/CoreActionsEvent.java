@@ -113,10 +113,6 @@ public class CoreActionsEvent {
 							
 							for (int i = 0; i < armor.length; i++) {
 								
-								if (i == 0) {
-									System.out.println(armor[i].getItemDamage());
-								}
-								
 								if (eventRand.nextInt(1000) == 0) {
 									player.inventory.damageArmor(armorDamage);
 								}
