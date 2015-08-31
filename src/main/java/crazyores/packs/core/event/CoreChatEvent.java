@@ -26,7 +26,8 @@ public class CoreChatEvent {
 						String pickaxe = player.getCurrentEquippedItem().getDisplayName();
 						String block = (new ItemStack(e.block)).getDisplayName();
 						player.addChatMessage(new ChatComponentText(EnumChatFormatting.AQUA + COPackManager.corePack.getFullPackName() + EnumChatFormatting.RESET + " Uh oh! " + isAorAn(true, pickaxe) + " " + pickaxe
-								+ " is unable to mine " + isAorAn(false, block) + " " + block + ". To learn more about the mining system, go to the minecraft forum post!"));
+								+ " is unable to mine " + isAorAn(false, block) + " " + block + ". To learn more about the mining system, go to:"));
+						player.addChatMessage(new ChatComponentText("http://tinyurl.com/nvgxgya"));
 					}
 				}
 			}

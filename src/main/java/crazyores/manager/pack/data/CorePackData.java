@@ -14,6 +14,6 @@ public class CorePackData extends AbstractPack {
 	 * @param color is the color of the pack that will be displayed in the chat window.
 	 */
 	public CorePackData() {
-		super(CrazyOresData.COPrefix + " Core", "Core", "2.0.0", "crazyores_core", EnumChatFormatting.AQUA);
+		super(CrazyOresData.COPrefix, "CrazyOres", "2.0.0", "crazyores", EnumChatFormatting.AQUA);
 	}
 }

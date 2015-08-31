@@ -11,14 +11,14 @@ public class CrazyOresData {
 	/** Should only be used when first creating a new pack for the Mod annotation. **/
 	
 	//Pack Names
-	public static final String coreModsListName = "CrazyOres Core";
-	public static final String foodsModsListName = "CrazyOres Foods";
+	public static final String coreModsListName = "CrazyOres";
+//	public static final String foodsModsListName = "CrazyOres Foods";
 	
 	//Pack IDs
-	public static final String corePackID = "crazyores_core";
-	public static final String foodsPackID = "crazyores_foods";
+	public static final String corePackID = "crazyores";
+//	public static final String foodsPackID = "crazyores_foods";
 	
 	//Pack Versions
 	public static final String corePackVersion = "2.0.0";
-	public static final String foodsPackVersion = "1.0.0";
+//	public static final String foodsPackVersion = "1.0.0";
 }

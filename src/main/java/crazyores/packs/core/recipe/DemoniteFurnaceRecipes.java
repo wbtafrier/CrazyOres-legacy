@@ -53,6 +53,7 @@ public class DemoniteFurnaceRecipes {
 		addRecipe(new ItemStack(CoreBlocks.invisiumOre), new ItemStack(CoreItems.invisiumIngot, STACK_SIZE), 0.7f);
 		addRecipe(new ItemStack(CoreBlocks.enderOre), new ItemStack(CoreItems.enderGem, STACK_SIZE), 1.8f);
 		
+		addRecipe(new ItemStack(Blocks.netherrack), new ItemStack(Items.netherbrick, STACK_SIZE), 0.1f);
 		addRecipe(new ItemStack(Blocks.sand), new ItemStack(Blocks.glass, STACK_SIZE), 0.4f);
 		addRecipe(new ItemStack(CoreBlocks.reinforcedGlass), new ItemStack(CoreBlocks.smoothReinforcedGlass, STACK_SIZE), 0.2f);
 		
