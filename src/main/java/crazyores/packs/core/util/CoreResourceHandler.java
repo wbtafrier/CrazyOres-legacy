@@ -13,6 +13,7 @@ public class CoreResourceHandler {
 	private static final String modelsPath = texturesPath + "models" + sep;
 	private static final String golemPath = modelsPath + "mobs" + sep + "golems" + sep;
 	private static final String evilPath = modelsPath + "mobs" + sep + "evil" + sep;
+	private static final String chestsPath = modelsPath + "chests" + sep;
 	
 	private static final String guiPath = texturesPath + "gui" + sep;
 	
@@ -43,4 +44,7 @@ public class CoreResourceHandler {
 	public static final ResourceLocation EXPLOSIVE_ARROW_TEXTURE = new ResourceLocation(arrowPath + "explosive_arrow.png");
 	public static final ResourceLocation ELECTRIC_ARROW_TEXTURE = new ResourceLocation(arrowPath + "lightning_arrow.png");
 	public static final ResourceLocation FREEZING_ARROW_TEXTURE = new ResourceLocation(arrowPath + "frozen_arrow.png");
+	
+	public static final ResourceLocation REINFORCED_SINGLE_CHEST = new ResourceLocation(chestsPath + "reinforced_single_chest.png");
+	public static final ResourceLocation REINFORCED_DOUBLE_CHEST = new ResourceLocation(chestsPath + "reinforced_double_chest.png");
 }

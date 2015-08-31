@@ -5,6 +5,7 @@ import crazyores.packs.core.item.CoreItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public abstract class CrazyOresTabs {
 	
@@ -24,7 +25,7 @@ public abstract class CrazyOresTabs {
 			public Item getTabIconItem() {
 				
 				//TODO: Replace with a cool block from the core pack
-				return Item.getItemFromBlock(CoreBlocks.luminiteOre);
+				return Item.getItemFromBlock(CoreBlocks.luminiteDiscoBlock);
 			}
 		};
 	}

@@ -85,7 +85,7 @@ public class BlockOre extends CoreBlock {
 				return rand.nextInt(3) + 1;
 			}
 			else if (this == CoreBlocks.luminiteOre) {
-				return rand.nextInt(4) + 1;
+				return rand.nextInt(6) + 3;
 			}
 		}
 		return 1;
@@ -146,6 +146,6 @@ public class BlockOre extends CoreBlock {
      */
     @Override
     public int damageDropped(int damage) {
-        return this == CoreBlocks.luminiteOre ? rand.nextInt(ItemLuminiteCrystal.LUMINITE_CRYSTAL_SUBTYPES.length): 0;
+        return this == CoreBlocks.luminiteOre ? rand.nextInt(ItemLuminiteCrystal.LUMINITE_CRYSTAL_SUBTYPES.length) : 0;
     }
 }

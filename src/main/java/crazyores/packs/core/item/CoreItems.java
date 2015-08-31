@@ -262,10 +262,10 @@ public class CoreItems {
 	}
 	
 	private static void initBowsArrows() {
-		swiftBow = new SwiftBow("swift_bow", 540, 10); registerItem(swiftBow);
-		hellBow = new HellBow("hell_bow", 366, 10); registerItem(hellBow);
-		dualShotBow = new DualBow("dual_shot_bow", 410, 10); registerItem(dualShotBow);
-		confusionBow = new ConfusionBow("confusion_bow", 300, 10); registerItem(confusionBow);
+		swiftBow = new SwiftBow("swift_bow", 2271, 10); registerItem(swiftBow);
+		hellBow = new HellBow("hell_bow", 322, 10); registerItem(hellBow);
+		dualShotBow = new DualBow("dual_shot_bow", 1009, 10); registerItem(dualShotBow);
+		confusionBow = new ConfusionBow("confusion_bow", 2231, 10); registerItem(confusionBow);
 		
 		flamingArrow = new CoreItem("flaming_arrow", CoreTabList.coreWeaponsTab); registerItem(flamingArrow);
 		explosiveArrow = new CoreItem("explosive_arrow", CoreTabList.coreWeaponsTab); registerItem(explosiveArrow);

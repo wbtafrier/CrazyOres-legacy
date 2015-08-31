@@ -9,6 +9,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import crazyores.manager.pack.COPackManager;
+import crazyores.packs.core.block.CoreGlass;
 
 public class CoreChatEvent {
 
@@ -16,15 +17,17 @@ public class CoreChatEvent {
 	public void onBadMineEvent(BreakEvent e) {
 		
 		EntityPlayer player = e.getPlayer();
-		if (player != null && player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() != null) {
+		if (player != null && !player.capabilities.isCreativeMode && player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() != null) {
 			Item item = player.getCurrentEquippedItem().getItem();
 			if (item instanceof ItemPickaxe) {
-				if (item.getHarvestLevel(player.getCurrentEquippedItem(), "pickaxe") < e.block.getHarvestLevel(0)) {
-					
-					String pickaxe = player.getCurrentEquippedItem().getDisplayName();
-					String block = (new ItemStack(e.block)).getDisplayName();
-					player.addChatMessage(new ChatComponentText(EnumChatFormatting.AQUA + COPackManager.corePack.getFullPackName() + EnumChatFormatting.RESET + " Uh oh! " + isAorAn(true, pickaxe) + " " + pickaxe
-							+ " is unable to mine " + isAorAn(false, block) + " " + block + ". To learn more about the mining system, go to: http://www.ascottwebdesign.com/dreamstone/"));
+				if (!(e.block instanceof CoreGlass)) {
+					if (item.getHarvestLevel(player.getCurrentEquippedItem(), "pickaxe") < e.block.getHarvestLevel(0)) {
+						
+						String pickaxe = player.getCurrentEquippedItem().getDisplayName();
+						String block = (new ItemStack(e.block)).getDisplayName();
+						player.addChatMessage(new ChatComponentText(EnumChatFormatting.AQUA + COPackManager.corePack.getFullPackName() + EnumChatFormatting.RESET + " Uh oh! " + isAorAn(true, pickaxe) + " " + pickaxe
+								+ " is unable to mine " + isAorAn(false, block) + " " + block + ". To learn more about the mining system, go to the minecraft forum post!"));
+					}
 				}
 			}
 		}
@@ -34,8 +37,7 @@ public class CoreChatEvent {
 	private String isAorAn(boolean uppercase, String nextWord) {
 		for (int i = 0; i < vowels.length; i++) {
 			if (nextWord.substring(0, 1).equalsIgnoreCase(vowels[i])) {
-				return uppercase ? "An" : "an";
-			}
+				return uppercase ? "An" : "an";			}
 		}
 		return uppercase ? "A" : "a";
 	}

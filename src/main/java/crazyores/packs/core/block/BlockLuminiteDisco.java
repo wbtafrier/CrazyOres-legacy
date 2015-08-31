@@ -3,11 +3,13 @@ package crazyores.packs.core.block;
 import java.util.List;
 import java.util.Random;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.manager.pack.COPackManager;
 import crazyores.packs.core.entity.tileentity.TileEntityDemoniteFurnace;
 import crazyores.packs.core.entity.tileentity.TileEntityLuminiteDisco;
+import crazyores.packs.core.item.CoreItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -103,17 +105,26 @@ public class BlockLuminiteDisco extends CoreGlass implements ITileEntityProvider
         }
         super.breakBlock(world, x, y, z, block, metadata);
     }
+
+	@Override
+	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+        return Item.getItemFromBlock(this);
+    }
 	
-	/**
-	 * Adds the luminite blocks to the game.
-	 */
-//	@Override
-//    @SideOnly(Side.CLIENT)
-//    public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
-//		for (int metadata = 0; metadata < LUMINITE_DISCO_BLOCK_SUBTYPES.length; metadata++) {
-//			list.add(new ItemStack(item, 1, metadata));
-//		}
-//	}
+	@Override
+	public int damageDropped(int p_149692_1_) {
+        return 0;
+    }
+	
+	@Override
+	public int quantityDropped(Random rand) {
+        return 1;
+    }
+	
+	@Override
+    protected boolean canSilkHarvest() {
+        return false;
+    }
 	
 	@Override
 	@SideOnly(Side.CLIENT)

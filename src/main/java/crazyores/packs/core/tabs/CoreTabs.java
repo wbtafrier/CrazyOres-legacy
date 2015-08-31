@@ -26,7 +26,7 @@ public class CoreTabs {
 			
 			@Override
 			public Item getTabIconItem() {
-				return CoreItems.starconiumPickaxe;
+				return CoreItems.adamitePickaxe;
 			}
 		};
 	}
@@ -36,7 +36,7 @@ public class CoreTabs {
 			
 			@Override
 			public Item getTabIconItem() {
-				return CoreItems.enderChestplate;
+				return CoreItems.zectiumChestplate;
 			}
 		};
 	}
@@ -66,7 +66,7 @@ public class CoreTabs {
 			
 			@Override
 			public Item getTabIconItem() {
-				return CoreItems.zectiumProtectorEgg;
+				return CoreItems.adamiteSharkEgg;
 			}
 		};
 	}

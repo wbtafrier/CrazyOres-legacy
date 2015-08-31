@@ -7,7 +7,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 import com.google.common.base.Predicates;
 import com.google.common.collect.FluentIterable;
-import com.google.common.collect.Iterators;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -31,6 +30,7 @@ import crazyores.packs.core.entity.mob.EntityGreatWhiteShark;
 import crazyores.packs.core.entity.mob.EntityZectiumProtector;
 import crazyores.packs.core.entity.tileentity.TileEntityDemoniteFurnace;
 import crazyores.packs.core.entity.tileentity.TileEntityLuminiteDisco;
+import crazyores.packs.core.entity.tileentity.TileEntityReinforcedChest;
 import crazyores.packs.core.entity.tileentity.TileEntityTapaziteCrystal;
 import crazyores.packs.core.main.CrazyOresCore;
 
@@ -73,5 +73,6 @@ public class CoreEntityRegistry {
 		GameRegistry.registerTileEntity(TileEntityTapaziteCrystal.class, "tapazite_crystal");
 		GameRegistry.registerTileEntity(TileEntityDemoniteFurnace.class, "demonite_furnace");
 		GameRegistry.registerTileEntity(TileEntityLuminiteDisco.class, "luminite_disco");
+		GameRegistry.registerTileEntity(TileEntityReinforcedChest.class, "reinforced_chest");
 	}
 }

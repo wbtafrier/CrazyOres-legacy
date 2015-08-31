@@ -99,9 +99,12 @@ luminite_block_black.name=Black Luminite Block
 
 luminite_disco.name=Luminite Disco Block
 
+reinforced_chest.name=Reinforced Chest
 
 # GUI LOCALIZATION
 container.demonite_furnace=Demonite Furnace
+container.reinforced_chest=Reinforced Chest
+container.reinforcedChestDouble=Reinforced Chest
 
 # ITEM LOCALIZATION
 tapazite_stalagmite_0.name=Tapazite Stalagmite Phase 1

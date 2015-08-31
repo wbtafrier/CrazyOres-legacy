@@ -23,6 +23,7 @@ import crazyores.packs.core.entity.golem.EnumGolemType;
 import crazyores.packs.core.entity.mob.EntityAdamiteShark;
 import crazyores.packs.core.entity.mob.EntityGreatWhiteShark;
 import crazyores.packs.core.entity.mob.EntityZectiumProtector;
+import crazyores.packs.core.entity.tileentity.TileEntityReinforcedChest;
 import crazyores.packs.core.entity.tileentity.TileEntityTapaziteCrystal;
 import crazyores.packs.core.item.CoreItems;
 import crazyores.packs.core.model.ModelAdamiteGolem;
@@ -70,5 +71,6 @@ public class CoreRenderRegistry {
 	
 	public static void renderCoreTileEntities() {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTapaziteCrystal.class, new RenderTapaziteCrystal());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityReinforcedChest.class, new RenderReinforcedChest());
 	}
 }

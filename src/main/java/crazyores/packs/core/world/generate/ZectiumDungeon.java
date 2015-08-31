@@ -1,21 +1,16 @@
 package crazyores.packs.core.world.generate;
 
-import static net.minecraftforge.common.ChestGenHooks.DUNGEON_CHEST;
-
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ChestGenHooks;
-import crazyores.manager.pack.data.CrazyOresData;
 import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.block.CoreSpawner;
-import crazyores.packs.core.entity.mob.EntityZectiumProtector;
+import crazyores.packs.core.entity.tileentity.TileEntityReinforcedChest;
 
 public class ZectiumDungeon extends CoreDungeon {
 
@@ -89,8 +84,8 @@ public class ZectiumDungeon extends CoreDungeon {
 			if (world.getBlock(xPos + x, y, zPos + z).getMaterial().isSolid() && rand.nextInt(4) == 0) {
 				chestCounter++;
 				
-				world.setBlock(xPos + x, y + 1, zPos + z, Blocks.chest, 0, 2);
-				TileEntityChest tileEntityChest = (TileEntityChest)world.getTileEntity(xPos + x, y + 1, zPos + z);
+				world.setBlock(xPos + x, y + 1, zPos + z, CoreBlocks.reinforcedChest, 0, 2);
+				TileEntityReinforcedChest tileEntityChest = (TileEntityReinforcedChest)world.getTileEntity(xPos + x, y + 1, zPos + z);
 			
 				if (tileEntityChest != null) {
 					 WeightedRandomChestContent.generateChestContents(rand, ChestGenHooks.getItems(CoreLootHandler.ZECTIUM_DUNGEON, rand), tileEntityChest, ChestGenHooks.getCount(CoreLootHandler.ZECTIUM_DUNGEON, rand));

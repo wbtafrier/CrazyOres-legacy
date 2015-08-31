@@ -99,7 +99,7 @@ public class Generate implements IWorldGenerator {
 	
 	private void generateCoreEndOres(World world, Random rand, int x, int z) {
 		if (COCoreConfigSettings.generateEnderOre)
-			generateOre(CoreBlocks.enderOre, Blocks.end_stone, world, rand, x, z, 8, 8, 0, 200);
+			generateOre(CoreBlocks.enderOre, Blocks.end_stone, world, rand, x, z, 8, 40, 0, 255);
 	}
 	
 	/**

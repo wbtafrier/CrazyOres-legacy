@@ -395,6 +395,7 @@ public class TileEntityDemoniteFurnace extends TileEntity implements ISidedInven
     
     private int getAmount(Block b) {
     	if (b.isAssociatedBlock(CoreBlocks.demoniteFurnaceLit)) return -40;
+    	else if (b.isAssociatedBlock(Blocks.lit_furnace)) return -20;
     	else if (b.isAssociatedBlock(Blocks.lava) || b.isAssociatedBlock(Blocks.flowing_lava)) return -20;
     	else if (b.isAssociatedBlock(Blocks.fire)) return -10;
     	else if (b.isAssociatedBlock(Blocks.water) || b.isAssociatedBlock(Blocks.flowing_water) || b.isAssociatedBlock(Blocks.snow_layer)) return 2;

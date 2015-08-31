@@ -3,6 +3,7 @@ package crazyores.packs.core.recipe;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -266,8 +267,8 @@ public class CoreRecipes {
 	
 	private static void initBowArrowRecipes() {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.swiftBow, 1), true, new Object[] {"SO ", "SFO", "SO ", 'S', Items.string, 'F', Items.feather, 'O', "ingotOsmonium"}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.hellBow, 1), true, new Object[] {"SM ", "SBM", "SM ", 'S', Items.string, 'B', Items.lava_bucket, 'O', "gemMeteorite"}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.hellBow, 1), true, new Object[] {"SM ", "SBM", "SM ", 'S', Items.string, 'B', CoreItems.copperBucketLava, 'O', "gemMeteorite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.hellBow, 1), true, new Object[] {"SM ", "SBM", "SM ", 'S', Items.string, 'B', Items.lava_bucket, 'M', "gemMeteorite"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.hellBow, 1), true, new Object[] {"SM ", "SBM", "SM ", 'S', Items.string, 'B', CoreItems.copperBucketLava, 'M', "gemMeteorite"}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.dualShotBow, 1), true, new Object[] {"SRR", "S R", "SRR", 'S', Items.string, 'R', "gemRuby"}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.confusionBow, 1), true, new Object[] {"SE ", "SPE", "SEE", 'S', Items.string, 'P', Items.ender_pearl, 'E', "gemEnder"}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.confusionBow, 1), true, new Object[] {"SEE", "SPE", "SE ", 'S', Items.string, 'P', Items.ender_pearl, 'E', "gemEnder"}));
@@ -286,7 +287,7 @@ public class CoreRecipes {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Items.experience_bottle, 1), new Object[] {"orbExperium", Items.glass_bottle}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.torch, 16), new Object[] {"#", "S", '#', "coalMeteorite", 'S', Items.stick}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.torch, 32), new Object[] {"#", "S", '#', "gemMeteorite", 'S', Items.stick}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.starconiumShard, 1), new Object[] {"###", "#C#", "###", '#', "gemStarconium", 'C', CoreItems.luminiteCrystal}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.starconiumShard, 1), new Object[] {"###", "#C#", "###", 'C', "gemStarconium", '#', new ItemStack(CoreItems.luminiteCrystal, 1, OreDictionary.WILDCARD_VALUE)}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.starconiumSledgehammer, 1), new Object[] {"###", "#S#", " S ", '#', "shardStarconium", 'S', Items.stick}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(CoreItems.copperBucketEmpty, 1), new Object[] {"# #", " # ", '#', "ingotCopper"}));
 		
