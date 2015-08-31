@@ -1,9 +1,7 @@
 package crazyores.packs.core.entity.mob;
 
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
-import crazyores.packs.core.entity.mob.EntityShark.EnumSharkType;
 import crazyores.packs.core.item.CoreItems;
 
 public class EntityAdamiteShark extends EntityShark {

@@ -1,15 +1,8 @@
 package crazyores.packs.core.entity.mob;
 
-import crazyores.packs.core.entity.mob.EntityShark.EnumSharkType;
-import crazyores.packs.core.item.CoreItems;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.passive.EntityVillager;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
+import crazyores.packs.core.item.CoreItems;
 
 public class EntityGreatWhiteShark extends EntityShark {
 

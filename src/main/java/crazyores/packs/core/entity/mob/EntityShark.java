@@ -72,11 +72,6 @@ public abstract class EntityShark extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(16.0D);
     }
 	
-	public static enum EnumSharkType {
-		GREAT_WHITE,
-		ADAMITE;
-	}
-	
 	public EnumSharkType getType() {
 		return type;
 	}
