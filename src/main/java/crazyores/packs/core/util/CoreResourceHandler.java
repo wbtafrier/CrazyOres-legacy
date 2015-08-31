@@ -9,7 +9,7 @@ public class CoreResourceHandler {
 	
 	private static String sep = File.separator;
 	
-	private static final String texturesPath = COPackManager.corePack.getPackID() + ":textures" + sep;
+	private static final String texturesPath = COPackManager.corePack.getPackID() + ":" + "textures" + sep;
 	private static final String modelsPath = texturesPath + "models" + sep;
 	private static final String golemPath = modelsPath + "mobs" + sep + "golems" + sep;
 	private static final String evilPath = modelsPath + "mobs" + sep + "evil" + sep;
