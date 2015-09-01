@@ -22,7 +22,6 @@ import crazyores.packs.core.item.CoreItems;
 
 public class EntityZectiumProtector extends EntityFlying implements IMob {
 
-	private static Random rand = new Random();
     public int courseChangeCooldown;
     public double waypointX;
     public double waypointY;

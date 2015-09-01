@@ -28,7 +28,6 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public abstract class EntityShark extends EntityMob {
-	protected static Random rand = new Random();
 	protected EnumSharkType type = EnumSharkType.NONE;
 	
 	private double topJawRotation;
@@ -43,13 +42,9 @@ public abstract class EntityShark extends EntityMob {
     private boolean attacking;
     private float speed;
     
-    private float radius;
+    protected float radius;
     
 	private int courseChangeCooldown;
-	
-	public EntityShark(World world) {
-		this(world, EnumSharkType.NONE, 1.0f, 32f, 0.07f);
-	}
 	
 	public EntityShark(World world, EnumSharkType sharkType, float scale, float r, float s) {
 		super(world);

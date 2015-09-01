@@ -7,7 +7,6 @@
   "url": "http://tinyurl.com/nvgxgya",
   "updateUrl": "",
   "authorList": ["Andy608", "ISQUISHALL"],
-  "credits": "Created by Andy608. ISQUISHALL: helping as CrazyOres grew.",
   "logoFile": "/crazyores/textures/crazyores_core_logo.png",
   "screenshots": [],
   "dependencies": ["mod_MinecraftForge"]

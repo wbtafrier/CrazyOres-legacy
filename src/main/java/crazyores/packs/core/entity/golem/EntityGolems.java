@@ -84,7 +84,6 @@ public abstract class EntityGolems extends EntityGolem {
         super.updateAITick();
     }
 	
-	//TODO:OVERRIDE THIS IN ALL GOLEM CLASSES
 	@Override
 	protected void applyEntityAttributes() {
         super.applyEntityAttributes();
