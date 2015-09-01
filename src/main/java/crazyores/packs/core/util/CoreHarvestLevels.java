@@ -21,8 +21,8 @@ public class CoreHarvestLevels {
 	public static final ItemTool.ToolMaterial COPPER = 				EnumHelper.addToolMaterial("COPPER", 		 2,  446,  5.0f, 1.0f, 14);
 	public static final ItemTool.ToolMaterial METEORITE = 			EnumHelper.addToolMaterial("METEORITE", 	 2,  331,  4.0f, 1.0f, 20);
   /*public static final ItemTool.ToolMaterial ironEnum = 			EnumHelper.addToolMaterial("IRON", 			 3, 250,   6.0f, 2.0f, 14);*/
-	public static final ItemTool.ToolMaterial ADAMITE = 			EnumHelper.addToolMaterial("ADAMITE", 		 4,  861,  8.0f, 2.0f, 12);
-	public static final ItemTool.ToolMaterial SAPPHIRE = 			EnumHelper.addToolMaterial("SAPPHIRE", 		 5,  601,  7.0f, 2.0f, 13);
+	public static final ItemTool.ToolMaterial ADAMITE = 			EnumHelper.addToolMaterial("ADAMITE", 		 4,  601,  7.0f, 2.0f, 13);
+	public static final ItemTool.ToolMaterial SAPPHIRE = 			EnumHelper.addToolMaterial("SAPPHIRE", 		 5,  861,  8.0f, 2.0f, 12);
 	public static final ItemTool.ToolMaterial RUBY = 				EnumHelper.addToolMaterial("RUBY", 			 6, 1011,  8.5f, 3.0f, 12);
 	/*public static final ItemTool.ToolMaterial diamondEnum = 		EnumHelper.addToolMaterial("EMERALD", 		 7, 1561,  8.0f, 3.0f, 10);*/
 	public static final ItemTool.ToolMaterial INVISIUM = 			EnumHelper.addToolMaterial("INVISIUM", 		 8,  538,  6.0f, 0.0f, 12);
@@ -31,9 +31,9 @@ public class CoreHarvestLevels {
 	public static final ItemTool.ToolMaterial OSMONIUM = 			EnumHelper.addToolMaterial("OSMONIUM", 		10, 2381, 20.0f, 4.0f,  7);
 	
 	public static final ItemTool.ToolMaterial STARCONIUM = 			EnumHelper.addToolMaterial("STARCONIUM", 	11, 3001, 16.0f, 8.0f,  6);
-	public static final ItemTool.ToolMaterial STARCONIUM_HAMMER =	EnumHelper.addToolMaterial("STARHAMMER", 	12, 1066, 65.0f, 8.0f,  6);
+	public static final ItemTool.ToolMaterial STARCONIUM_HAMMER =	EnumHelper.addToolMaterial("STARHAMMER", 	11, 1066, 65.0f, 8.0f,  6);
 	
-	public static final ItemTool.ToolMaterial ENDER = 				EnumHelper.addToolMaterial("ENDER", 		13, 2239, 15.0f, 7.0f,  6);
+	public static final ItemTool.ToolMaterial ENDER = 				EnumHelper.addToolMaterial("ENDER", 		12, 2239, 15.0f, 7.0f,  6);
 	
 	public static void setHarvestLevels() {
 		
@@ -140,9 +140,9 @@ public class CoreHarvestLevels {
 		CoreBlocks.starconiumBlock.setHarvestLevel(PICKAXE, 10);
 		CoreBlocks.starconiumGolemHead.setHarvestLevel(PICKAXE, 10);
 		
-		CoreBlocks.enderOre.setHarvestLevel(PICKAXE, 12);
-		CoreBlocks.enderBlock.setHarvestLevel(PICKAXE, 12);
-		CoreBlocks.enderGolemHead.setHarvestLevel(PICKAXE, 12);
+		CoreBlocks.enderOre.setHarvestLevel(PICKAXE, 11);
+		CoreBlocks.enderBlock.setHarvestLevel(PICKAXE, 11);
+		CoreBlocks.enderGolemHead.setHarvestLevel(PICKAXE, 11);
 		
 		CoreBlocks.demoniteOre.setHarvestLevel(PICKAXE, 9);
 		CoreBlocks.demoniteBlock.setHarvestLevel(PICKAXE, 9);
