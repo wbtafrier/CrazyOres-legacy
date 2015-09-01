@@ -21,8 +21,8 @@ public class CoreHarvestLevels {
 	public static final ItemTool.ToolMaterial COPPER = 				EnumHelper.addToolMaterial("COPPER", 		 2,  446,  5.0f, 1.0f, 14);
 	public static final ItemTool.ToolMaterial METEORITE = 			EnumHelper.addToolMaterial("METEORITE", 	 2,  331,  4.0f, 1.0f, 20);
   /*public static final ItemTool.ToolMaterial ironEnum = 			EnumHelper.addToolMaterial("IRON", 			 3, 250,   6.0f, 2.0f, 14);*/
-	public static final ItemTool.ToolMaterial ADAMITE = 			EnumHelper.addToolMaterial("ADAMITE", 		 4,  861,  8.0f, 2.0f, 12);
-	public static final ItemTool.ToolMaterial SAPPHIRE = 			EnumHelper.addToolMaterial("SAPPHIRE", 		 5,  601,  7.0f, 2.0f, 13);
+	public static final ItemTool.ToolMaterial ADAMITE = 			EnumHelper.addToolMaterial("ADAMITE", 		 4,  601,  7.0f, 2.0f, 13);
+	public static final ItemTool.ToolMaterial SAPPHIRE = 			EnumHelper.addToolMaterial("SAPPHIRE", 		 5,  861,  8.0f, 2.0f, 12);
 	public static final ItemTool.ToolMaterial RUBY = 				EnumHelper.addToolMaterial("RUBY", 			 6, 1011,  8.5f, 3.0f, 12);
 	/*public static final ItemTool.ToolMaterial diamondEnum = 		EnumHelper.addToolMaterial("EMERALD", 		 7, 1561,  8.0f, 3.0f, 10);*/
 	public static final ItemTool.ToolMaterial INVISIUM = 			EnumHelper.addToolMaterial("INVISIUM", 		 8,  538,  6.0f, 0.0f, 12);
