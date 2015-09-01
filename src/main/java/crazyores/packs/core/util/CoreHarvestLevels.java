@@ -52,14 +52,6 @@ public class CoreHarvestLevels {
 		Blocks.coal_block.setHarvestLevel(PICKAXE, 0);
 		Blocks.coal_ore.setHarvestLevel(PICKAXE, 0);
 		
-		CoreBlocks.diagonalBrick.setHarvestLevel(PICKAXE, 0);
-		CoreBlocks.diagonalBrickStairs.setHarvestLevel(PICKAXE, 0);
-		
-		CoreBlocks.lightenedBrick.setHarvestLevel(PICKAXE, 0);
-		CoreBlocks.lightenedBrickStairs.setHarvestLevel(PICKAXE, 0);
-		CoreBlocks.diagonalLightenedBrick.setHarvestLevel(PICKAXE, 0);
-		CoreBlocks.diagonalLightenedBrickStairs.setHarvestLevel(PICKAXE, 0);
-		
 		Blocks.gold_block.setHarvestLevel(PICKAXE, 2);
 		Blocks.gold_ore.setHarvestLevel(PICKAXE, 2);
 		
@@ -85,7 +77,16 @@ public class CoreHarvestLevels {
 		Blocks.quartz_ore.setHarvestLevel(PICKAXE, 3);
 		Blocks.quartz_stairs.setHarvestLevel(PICKAXE, 3);
 		
-//		//CrazyOres Harvest Levels
+		//CrazyOres Harvest Levels
+
+		CoreBlocks.diagonalBrick.setHarvestLevel(PICKAXE, 0);
+		CoreBlocks.diagonalBrickStairs.setHarvestLevel(PICKAXE, 0);
+		
+		CoreBlocks.lightenedBrick.setHarvestLevel(PICKAXE, 0);
+		CoreBlocks.lightenedBrickStairs.setHarvestLevel(PICKAXE, 0);
+		CoreBlocks.diagonalLightenedBrick.setHarvestLevel(PICKAXE, 0);
+		CoreBlocks.diagonalLightenedBrickStairs.setHarvestLevel(PICKAXE, 0);
+		
 		CoreBlocks.copperOre.setHarvestLevel(PICKAXE, 1);
 		CoreBlocks.copperBlock.setHarvestLevel(PICKAXE, 1);
 		CoreBlocks.copperGolemHead.setHarvestLevel(PICKAXE, 1);
@@ -113,6 +114,18 @@ public class CoreHarvestLevels {
 		CoreBlocks.rubyBlock.setHarvestLevel(PICKAXE, 5);
 		CoreBlocks.rubyGolemHead.setHarvestLevel(PICKAXE, 5);
 		
+		CoreBlocks.luminiteOre.setHarvestLevel(PICKAXE, 6);
+		CoreBlocks.luminiteDiscoBlock.setHarvestLevel(PICKAXE, 6);
+		CoreBlocks.luminiteStorageBlock.setHarvestLevel(PICKAXE, 6);
+		CoreBlocks.experiumOre.setHarvestLevel(PICKAXE, 6);
+		CoreBlocks.experiumBlock.setHarvestLevel(PICKAXE, 6);
+		
+		CoreBlocks.darkstoneOre.setHarvestLevel(PICKAXE, 6);
+		CoreBlocks.darkstoneBrick.setHarvestLevel(PICKAXE, 6);
+		CoreBlocks.darkstoneBrickStairs.setHarvestLevel(PICKAXE, 6);
+		CoreBlocks.diagonalDarkstoneBrick.setHarvestLevel(PICKAXE, 6);
+		CoreBlocks.diagonalDarkstoneBrickStairs.setHarvestLevel(PICKAXE, 6);
+		
 		CoreBlocks.invisiumOre.setHarvestLevel(PICKAXE, 7);
 		CoreBlocks.invisiumBlock.setHarvestLevel(PICKAXE, 7);
 		
@@ -136,6 +149,12 @@ public class CoreHarvestLevels {
 		CoreBlocks.osmoniumBlock.setHarvestLevel(PICKAXE, 9);
 		CoreBlocks.osmoniumGolemHead.setHarvestLevel(PICKAXE, 9);
 		
+		CoreBlocks.demoniteOre.setHarvestLevel(PICKAXE, 9);
+		CoreBlocks.demoniteBlock.setHarvestLevel(PICKAXE, 9);
+		CoreBlocks.demoniteFurnace.setHarvestLevel(PICKAXE, 9);
+		CoreBlocks.demoniteFurnaceLit.setHarvestLevel(PICKAXE, 9);
+		CoreBlocks.demoniteGolemHead.setHarvestLevel(PICKAXE, 9);
+		
 		CoreBlocks.starconiumOre.setHarvestLevel(PICKAXE, 10);
 		CoreBlocks.starconiumBlock.setHarvestLevel(PICKAXE, 10);
 		CoreBlocks.starconiumGolemHead.setHarvestLevel(PICKAXE, 10);
@@ -143,23 +162,5 @@ public class CoreHarvestLevels {
 		CoreBlocks.enderOre.setHarvestLevel(PICKAXE, 11);
 		CoreBlocks.enderBlock.setHarvestLevel(PICKAXE, 11);
 		CoreBlocks.enderGolemHead.setHarvestLevel(PICKAXE, 11);
-		
-		CoreBlocks.demoniteOre.setHarvestLevel(PICKAXE, 9);
-		CoreBlocks.demoniteBlock.setHarvestLevel(PICKAXE, 9);
-		CoreBlocks.demoniteFurnace.setHarvestLevel(PICKAXE, 9);
-		CoreBlocks.demoniteFurnaceLit.setHarvestLevel(PICKAXE, 9);
-		CoreBlocks.demoniteGolemHead.setHarvestLevel(PICKAXE, 9);
-		
-		CoreBlocks.luminiteOre.setHarvestLevel(PICKAXE, 6);
-		CoreBlocks.luminiteDiscoBlock.setHarvestLevel(PICKAXE, 6);
-		CoreBlocks.luminiteStorageBlock.setHarvestLevel(PICKAXE, 6);
-		CoreBlocks.experiumOre.setHarvestLevel(PICKAXE, 6);
-		CoreBlocks.experiumBlock.setHarvestLevel(PICKAXE, 6);
-		
-		CoreBlocks.darkstoneOre.setHarvestLevel(PICKAXE, 6);
-		CoreBlocks.darkstoneBrick.setHarvestLevel(PICKAXE, 6);
-		CoreBlocks.darkstoneBrickStairs.setHarvestLevel(PICKAXE, 6);
-		CoreBlocks.diagonalDarkstoneBrick.setHarvestLevel(PICKAXE, 6);
-		CoreBlocks.diagonalDarkstoneBrickStairs.setHarvestLevel(PICKAXE, 6);
 	}
 }
