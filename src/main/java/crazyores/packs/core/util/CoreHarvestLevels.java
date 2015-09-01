@@ -31,9 +31,9 @@ public class CoreHarvestLevels {
 	public static final ItemTool.ToolMaterial OSMONIUM = 			EnumHelper.addToolMaterial("OSMONIUM", 		10, 2381, 20.0f, 4.0f,  7);
 	
 	public static final ItemTool.ToolMaterial STARCONIUM = 			EnumHelper.addToolMaterial("STARCONIUM", 	11, 3001, 16.0f, 8.0f,  6);
-	public static final ItemTool.ToolMaterial STARCONIUM_HAMMER =	EnumHelper.addToolMaterial("STARHAMMER", 	12, 1066, 65.0f, 8.0f,  6);
+	public static final ItemTool.ToolMaterial STARCONIUM_HAMMER =	EnumHelper.addToolMaterial("STARHAMMER", 	11, 1066, 65.0f, 8.0f,  6);
 	
-	public static final ItemTool.ToolMaterial ENDER = 				EnumHelper.addToolMaterial("ENDER", 		13, 2239, 15.0f, 7.0f,  6);
+	public static final ItemTool.ToolMaterial ENDER = 				EnumHelper.addToolMaterial("ENDER", 		12, 2239, 15.0f, 7.0f,  6);
 	
 	public static void setHarvestLevels() {
 		
@@ -140,9 +140,9 @@ public class CoreHarvestLevels {
 		CoreBlocks.starconiumBlock.setHarvestLevel(PICKAXE, 10);
 		CoreBlocks.starconiumGolemHead.setHarvestLevel(PICKAXE, 10);
 		
-		CoreBlocks.enderOre.setHarvestLevel(PICKAXE, 12);
-		CoreBlocks.enderBlock.setHarvestLevel(PICKAXE, 12);
-		CoreBlocks.enderGolemHead.setHarvestLevel(PICKAXE, 12);
+		CoreBlocks.enderOre.setHarvestLevel(PICKAXE, 11);
+		CoreBlocks.enderBlock.setHarvestLevel(PICKAXE, 11);
+		CoreBlocks.enderGolemHead.setHarvestLevel(PICKAXE, 11);
 		
 		CoreBlocks.demoniteOre.setHarvestLevel(PICKAXE, 9);
 		CoreBlocks.demoniteBlock.setHarvestLevel(PICKAXE, 9);
