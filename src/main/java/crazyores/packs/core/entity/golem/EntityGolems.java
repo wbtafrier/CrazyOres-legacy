@@ -7,7 +7,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityGolem;
-import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -20,6 +19,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.packs.core.block.CoreBlocks;
+import crazyores.packs.core.entity.ai.GolemTargets;
 import crazyores.packs.core.item.CoreItems;
 
 public abstract class EntityGolems extends EntityGolem {
@@ -96,10 +96,11 @@ public abstract class EntityGolems extends EntityGolem {
         return amount;
     }
 	
-	//TODO:OVERRIDE THIS IN ALL GOLEM CLASSES
 	@Override
-	protected void collideWithEntity(Entity entity) {
-        if (entity instanceof IMob && this.getRNG().nextInt(20) == 0) {
+	protected void collideWithEntity(Entity entity)
+    {
+        if ((new GolemTargets(type).mobSelector.isEntityApplicable(entity)) && this.getRNG().nextInt(20) == 0)
+        {
             this.setAttackTarget((EntityLivingBase)entity);
         }
 
@@ -141,9 +142,9 @@ public abstract class EntityGolems extends EntityGolem {
      */
 	@Override
 	public boolean canAttackClass(Class c) {
-		if (this.type.equals(EnumGolemType.ENDER))
-			return c == EntityPlayer.class;
-		else if (this.type.equals(EnumGolemType.COPPER))
+//		if (this.type.equals(EnumGolemType.ENDER))
+//			return EntityPlayer.class.isAssignableFrom(c);
+		if (this.type.equals(EnumGolemType.COPPER))
 			return this.isPlayerCreated() && EntityPlayer.class.isAssignableFrom(c) ? false : super.canAttackClass(c);
 		else if (this.type.equals(EnumGolemType.ZECTIUM))
 			return EntityGhast.class != c;
@@ -215,12 +216,17 @@ public abstract class EntityGolems extends EntityGolem {
         	damage = 50 + rand.nextInt(15);
         }
         else if (this.type.equals(EnumGolemType.ENDER)) {
-        	damage = 60 + rand.nextInt(15);
+        	damage = 1;
         }
         
 		boolean flag = entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
 		if (flag) {
 			entity.motionY += 0.4000000059604645D * (1 + type.ordinal() * 0.2);
+			if (this.type.equals(EnumGolemType.ENDER)) {
+				EntityEnderGolem ender = (EntityEnderGolem)this;
+				ender.teleportEntity((EntityLivingBase)entity);
+				entity.motionY += 3;
+			}
 		}
 		
 		this.playSound("mob.irongolem.throw", 1.0F, 1.0F);

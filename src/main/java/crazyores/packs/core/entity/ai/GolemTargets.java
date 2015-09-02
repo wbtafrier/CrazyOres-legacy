@@ -32,9 +32,6 @@ public class GolemTargets implements IAnimals {
 			if (golemType.equals(EnumGolemType.DEMONITE)) {
 				return !(target instanceof EntityDemoniteGolem || target instanceof EntityGhast || target instanceof EntityMagmaCube || target instanceof EntityPigZombie || target instanceof EntityZectiumProtector) && (target instanceof IMob || target instanceof EntityGolem);
 			}
-			else if (golemType.equals(EnumGolemType.ENDER)) {
-				return !(target instanceof IMob || target instanceof EntityZectiumProtector || target instanceof EntityCreeper) && target instanceof EntityLivingBase;
-			}
             return target instanceof IMob && !(target instanceof EntityZectiumProtector);
         }
     };
