@@ -7,7 +7,7 @@
   "url": "http://tinyurl.com/nvgxgya",
   "updateUrl": "",
   "authorList": ["Andy608", "ISQUISHALL"],
-  "logoFile": "/crazyores/textures/crazyores_core_logo.png",
+  "logoFile": "/crazyores/textures/crazyores_ingame_logo.png",
   "screenshots": [],
   "dependencies": ["mod_MinecraftForge"]
 }

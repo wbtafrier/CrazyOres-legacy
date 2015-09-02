@@ -30,8 +30,6 @@ public class CoreRecipes {
 	}
 	
 	private static void initFurnaceRecipes() {
-		GameRegistry.addSmelting(Blocks.obsidian, new ItemStack(Items.diamond, 2), 1F);
-		
 		GameRegistry.addSmelting(CoreBlocks.meteoriteOre, new ItemStack(CoreItems.meteoriteCoal), 0.6f);
 		GameRegistry.addSmelting(CoreBlocks.copperOre, new ItemStack(CoreItems.copperIngot), 0.4f);
 		GameRegistry.addSmelting(CoreBlocks.adamiteOre, new ItemStack(CoreItems.adamiteShard), 0.7f);
