@@ -68,7 +68,7 @@ public class EntityAdamiteGolem extends EntityGolems {
 			
 			if (this != null && !this.worldObj.isRemote) {
 				if (this.getActivePotionEffect(Potion.moveSpeed) == null || this.getActivePotionEffect(Potion.moveSpeed).getDuration() < 2) {
-					this.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 2, -1));
+					this.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 2, 2));
 				}
 			}
 		}

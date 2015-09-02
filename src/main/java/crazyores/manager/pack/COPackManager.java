@@ -64,6 +64,7 @@ public class COPackManager {
 	
 	public static void init() {
 		CoreEntityRegistry.registerCoreEntities();
+		CoreEntityRegistry.registerDispenserBehaviors();
 		CoreEntityRegistry.registerCoreTileEntities();
 		CoreLootHandler.initLoot();
 		GameRegistry.registerWorldGenerator(new Generate(), 0);

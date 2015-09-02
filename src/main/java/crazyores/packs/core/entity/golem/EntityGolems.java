@@ -141,7 +141,9 @@ public abstract class EntityGolems extends EntityGolem {
      */
 	@Override
 	public boolean canAttackClass(Class c) {
-		if (this.type.equals(EnumGolemType.COPPER))
+		if (this.type.equals(EnumGolemType.ENDER))
+			return c == EntityPlayer.class;
+		else if (this.type.equals(EnumGolemType.COPPER))
 			return this.isPlayerCreated() && EntityPlayer.class.isAssignableFrom(c) ? false : super.canAttackClass(c);
 		else if (this.type.equals(EnumGolemType.ZECTIUM))
 			return EntityGhast.class != c;

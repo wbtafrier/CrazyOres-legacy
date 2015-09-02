@@ -36,7 +36,7 @@ public class EntityOsmoniumGolem extends EntityGolems {
 	protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(200.0d);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25d);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.4d);
     }
 
 	@Override
@@ -59,10 +59,10 @@ public class EntityOsmoniumGolem extends EntityGolems {
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 		
-		if (this != null && !this.worldObj.isRemote) {
-			if (this.getActivePotionEffect(Potion.moveSpeed) == null || this.getActivePotionEffect(Potion.moveSpeed).getDuration() < 2) {
-				this.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 2, -1));
-			}
-		}
+//		if (this != null && !this.worldObj.isRemote) {
+//			if (this.getActivePotionEffect(Potion.moveSpeed) == null || this.getActivePotionEffect(Potion.moveSpeed).getDuration() < 2) {
+//				this.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 2, 3));
+//			}
+//		}
 	}
 }
