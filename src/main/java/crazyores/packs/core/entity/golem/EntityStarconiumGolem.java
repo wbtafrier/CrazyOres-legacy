@@ -24,11 +24,11 @@ import net.minecraft.world.World;
 public class EntityStarconiumGolem extends EntityGolems {
 
 	public EntityStarconiumGolem(World world) {
-		super(world, 2.6f, 4.8f, EnumGolemType.STARCONIUM);
+		super(world, 2.0f, 4.8f, EnumGolemType.STARCONIUM);
 	}
 	
 	public EntityStarconiumGolem(World world, float scale) {
-		super(world, 2.6f, 4.8f, scale, EnumGolemType.STARCONIUM);
+		super(world, 2.0f, 4.8f, scale, EnumGolemType.STARCONIUM);
 	}
 	
 	@Override

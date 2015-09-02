@@ -43,6 +43,7 @@ public class CoreRecipes {
 		GameRegistry.addSmelting(CoreBlocks.starconiumOre, new ItemStack(CoreItems.starconiumGem), 1.4f);
 		GameRegistry.addSmelting(CoreBlocks.experiumOre, new ItemStack(CoreItems.experiumOrb), 2.0f);
 		
+		GameRegistry.addSmelting(CoreBlocks.darkstoneOre, new ItemStack(CoreItems.darkstoneIngot), 0.4f);
 		GameRegistry.addSmelting(CoreBlocks.demoniteOre, new ItemStack(CoreItems.demoniteOrb), 0.6f);
 		GameRegistry.addSmelting(CoreBlocks.invisiumOre, new ItemStack(CoreItems.invisiumIngot), 0.7f);
 		GameRegistry.addSmelting(CoreBlocks.enderOre, new ItemStack(CoreItems.enderGem), 1.8f);

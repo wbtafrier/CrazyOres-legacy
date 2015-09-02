@@ -49,6 +49,7 @@ public class DemoniteFurnaceRecipes {
 		addRecipe(new ItemStack(CoreBlocks.starconiumOre), new ItemStack(CoreItems.starconiumGem, STACK_SIZE), 1.4f);
 		addRecipe(new ItemStack(CoreBlocks.experiumOre), new ItemStack(CoreItems.experiumOrb, STACK_SIZE), 2.2f);
 		
+		addRecipe(new ItemStack(CoreBlocks.darkstoneOre), new ItemStack(CoreItems.darkstoneIngot, STACK_SIZE), 0.4f);
 		addRecipe(new ItemStack(CoreBlocks.demoniteOre), new ItemStack(CoreItems.demoniteOrb, STACK_SIZE), 0.6f);
 		addRecipe(new ItemStack(CoreBlocks.invisiumOre), new ItemStack(CoreItems.invisiumIngot, STACK_SIZE), 0.7f);
 		addRecipe(new ItemStack(CoreBlocks.enderOre), new ItemStack(CoreItems.enderGem, STACK_SIZE), 1.8f);
