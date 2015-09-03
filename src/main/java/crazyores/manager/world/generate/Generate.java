@@ -94,7 +94,7 @@ public class Generate implements IWorldGenerator {
 			generateOre(CoreBlocks.starconiumOre, Blocks.stone, world, rand, x, z, 4, 1, 0, 12);
 		
 		if (COCoreConfigSettings.generateExperiumOre)
-			generateOre(CoreBlocks.osmoniumOre, Blocks.stone, world, rand, x, z, 1, 4, 0, 30);
+			generateOre(CoreBlocks.experiumOre, Blocks.stone, world, rand, x, z, 2, 4, 0, 30);
 	}
 	
 	private void generateCoreEndOres(World world, Random rand, int x, int z) {
