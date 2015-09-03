@@ -1,10 +1,12 @@
 package crazyores.packs.core.block;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -13,9 +15,23 @@ import net.minecraft.world.World;
 
 import org.apache.logging.log4j.Level;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import crazyores.manager.pack.COPackManager;
 import crazyores.manager.util.CrazyOresLogger;
+import crazyores.packs.core.entity.golem.EntityAdamiteGolem;
+import crazyores.packs.core.entity.golem.EntityCopperGolem;
+import crazyores.packs.core.entity.golem.EntityDemoniteGolem;
+import crazyores.packs.core.entity.golem.EntityEnderGolem;
+import crazyores.packs.core.entity.golem.EntityFoolsRubyGolem;
+import crazyores.packs.core.entity.golem.EntityOsmoniumGolem;
+import crazyores.packs.core.entity.golem.EntityRubyGolem;
+import crazyores.packs.core.entity.golem.EntitySapphireGolem;
+import crazyores.packs.core.entity.golem.EntityStarconiumGolem;
+import crazyores.packs.core.entity.golem.EntityTapaziteGolem;
+import crazyores.packs.core.entity.golem.EntityZectiumGolem;
+import crazyores.packs.core.item.CoreItems;
 
 public class BlockTapaziteStalactite extends BlockTapaziteCrystal {
 	

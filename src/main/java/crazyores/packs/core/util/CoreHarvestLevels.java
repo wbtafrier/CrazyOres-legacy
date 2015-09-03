@@ -141,6 +141,8 @@ public class CoreHarvestLevels {
 		
 		CoreBlocks.zectiumProtectorSpawner.setHarvestLevel(PICKAXE, 7);
 		
+		CoreBlocks.tapaziteStalactite.setHarvestLevel(PICKAXE, 8);
+		CoreBlocks.tapaziteStalagmite.setHarvestLevel(PICKAXE, 8);
 		CoreBlocks.tapaziteBlock.setHarvestLevel(PICKAXE, 8);
 		CoreBlocks.tapaziteGolemHead.setHarvestLevel(PICKAXE, 8);
 		CoreBlocks.tapaziteGolemHead.setHarvestLevel(PICKAXE, 8);
