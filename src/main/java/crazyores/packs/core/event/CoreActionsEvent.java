@@ -32,7 +32,7 @@ public class CoreActionsEvent {
 	
 	@SubscribeEvent
 	public void armorEvent(LivingEvent event) {
-		if (event instanceof LivingAttackEvent) {
+		if (event instanceof LivingAttackEvent && (event.entity instanceof EntityZectiumProtector || event.entity instanceof EntityGolems)) {
 			LivingAttackEvent hurtEvent = (LivingAttackEvent)event;
 			DamageSource damage = hurtEvent.source;
 			
