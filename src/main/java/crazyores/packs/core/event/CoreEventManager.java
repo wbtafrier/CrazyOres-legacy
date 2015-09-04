@@ -8,6 +8,7 @@ public class CoreEventManager {
 	public static void registerEvents() {
 		MinecraftForge.EVENT_BUS.register(new CoreActionsEvent());
 		MinecraftForge.EVENT_BUS.register(new CoreChatEvent());
+		MinecraftForge.EVENT_BUS.register(new TapaziteCrystalEvent());
 		MinecraftForge.EVENT_BUS.register(new TapaziteObeliskEvent());
 		FMLCommonHandler.instance().bus().register(new FreezeEvent());
 		MinecraftForge.EVENT_BUS.register(new FreezeEvent());

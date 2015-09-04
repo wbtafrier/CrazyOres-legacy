@@ -49,7 +49,7 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 	 * @param resistance
 	 */
 	protected BlockTapaziteCrystal(String unlocalizedName, SoundType soundType, float hardness, float resistance) {
-		super(Material.glass);
+		super(Material.rock);
 
 		this.isBlockContainer = true;
 		this.setTickRandomly(true);
@@ -168,16 +168,6 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 	}
 
 	@Override
-	protected void checkAndDropBlock(World world, int x, int y, int z) {
-
-		if (!this.canBlockStay(world, x, y, z)) {
-//			this.dropObelisks(world, x, y, z, world.getBlockMetadata(x, y, z), 1.0F, 0);
-			this.getDustDrops(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-			world.setBlock(x, y, z, getBlockById(0), 0, 2);
-		}
-	}
-
-	@Override
 	public abstract boolean canBlockStay(World world, int x, int y, int z);
 
 	//Will be used to spawn particles
@@ -205,111 +195,122 @@ public abstract class BlockTapaziteCrystal extends BlockBush implements ITileEnt
 	public Item getItem(World world, int x, int y, int z) {
 		return Item.getItemFromBlock(this);
 	}
+	
+	@Override
+	protected void checkAndDropBlock(World world, int x, int y, int z) {
 
-//	public ArrayList<ItemStack> getObeliskDrops(World world, int x, int y, int z, int metadata, int fortune) {
+		if (!this.canBlockStay(world, x, y, z)) {
+			ArrayList<ItemStack> drops = this.getDustDrops(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+			for (int i = 0; i < drops.size(); i++) {
+				this.dropBlockAsItem(world, x, y, z, drops.get(i));
+			}
+			world.setBlock(x, y, z, getBlockById(0), 0, 2);
+		}
+	}
+	
+	public void dropItems(World world, int x, int y, int z, ArrayList<ItemStack> items) {
+		if (items != null && items.size() > 0) {
+			for (int i = 0; i < items.size(); i++) {
+				this.dropBlockAsItem(world, x, y, z, items.get(i));
+			}
+		}
+	}
+
+//	public void dropItems(World world, int x, int y, int z, int p_149690_5_, float p_149690_6_, int p_149690_7_) {
 //
-//		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-//		Random rand = new Random();
+//		if (!world.isRemote) {
+//			ArrayList<ItemStack> items = this.getDrops(world, x, y, z, p_149690_5_, p_149690_7_);
+//			p_149690_6_ = ForgeEventFactory.fireBlockHarvesting(items, world, this, x, y, z, p_149690_5_, p_149690_7_, p_149690_6_, false, harvesters.get());
 //
-//		switch (metadata) {
-//		case 1:
-//			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(2) + 1, 0));
-//			break;
-//		case 2:
-//			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(3) + 1, 0));
-//			break;
-//		case 3:
-//			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(4) + 2, 0));
-//			break;
-//		case 4:
-//			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(5) + 2, 0));
-//			break;
-//		case 5:
-//			ret.add(new ItemStack(this.tapaziteObelisk(), rand.nextInt(2) + 1, 0));
-//			break;
-//		case 6:
-//			ret.add(new ItemStack(this.tapaziteObelisk(), rand.nextInt(3) + 2, 0));
-//			break;
-//		case 0: default:
-//			ret.add(new ItemStack(this.tapaziteObelisk(), 0, 0));
+//			for (ItemStack item : items) {
+//				if (world.rand.nextFloat() <= p_149690_6_) {
+//					this.dropBlockAsItem(world, x, y, z, item);
+//				}
+//			}
 //		}
-//		return ret;
+//	}
+
+//	@Override
+//	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int p_149690_5_, float p_149690_6_, int p_149690_7_) {
+//
+//		if (!world.isRemote) {
+//			System.out.println("Dust drops");
+//			ArrayList<ItemStack> items = this.getDustDrops(world, x, y, z, p_149690_5_, p_149690_7_);
+//			p_149690_6_ = ForgeEventFactory.fireBlockHarvesting(items, world, this, x, y, z, p_149690_5_, p_149690_7_, p_149690_6_, false, harvesters.get());
+//
+//			for (ItemStack item : items) {
+//				if (world.rand.nextFloat() <= p_149690_6_) {
+//					this.dropBlockAsItem(world, x, y, z, item);
+//				}
+//			}
+//		}
 //	}
 
 	public ArrayList<ItemStack> getDustDrops(World world, int x, int y, int z, int metadata, int fortune) {
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 		Random rand = new Random();
-
+		int j = rand.nextInt(fortune + 2) - 1;
+        if (j < 0) j = 0;
+		
 		switch (metadata) {
 		case 1:
-			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(3) + 1, 0));
+			ret.add(new ItemStack(this.tapaziteDust(), (rand.nextInt(2) + 2) * (j + 1), 0));
 			break;
 		case 2:
-			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(4) + 2, 0));
+			ret.add(new ItemStack(this.tapaziteDust(), (rand.nextInt(3) + 2) * (j + 1), 0));
 			break;
 		case 3:
-			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(5) + 3, 0));
+			ret.add(new ItemStack(this.tapaziteDust(), (rand.nextInt(4) + 2) * (j + 1), 0));
 			break;
 		case 4:
-			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(6) + 4, 0));
+			ret.add(new ItemStack(this.tapaziteDust(), (rand.nextInt(4) + 3) * (j + 1), 0));
 			break;
 		case 5:
-			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(7) + 5, 0));
+			ret.add(new ItemStack(this.tapaziteDust(), (rand.nextInt(5) + 2) * (j + 1), 0));
 			break;
 		case 6:
-			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(8)  + 6, 0));
+			ret.add(new ItemStack(this.tapaziteDust(), (rand.nextInt(5) + 3) * (j + 1), 0));
 			break;
 		case 0: default:
-			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(9) + 7, 0));
+			ret.add(new ItemStack(this.tapaziteDust(), (rand.nextInt(2) + 1) * (j + 1), 0));
 		}
 		return ret;
 	}
 
 	@Override
 	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-//		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-//		Random rand = new Random();
-//		int r;
-//
-//		switch (metadata) {
-//		case 1:
-//			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(3) + 2, 0));
-//			break;
-//		case 2:
-//			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(2) + 2, 0));
-//			break;
-//		case 3:
-//			ret.add(new ItemStack(this.tapaziteObelisk(), rand.nextInt(2), 0));
-//			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(3) + 1, 0));
-//			break;
-//		case 4:
-//			ret.add(new ItemStack(this.tapaziteObelisk(), rand.nextInt(3), 0));
-//			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(2) + 1, 0));
-//			break;
-//		case 5:
-//			ret.add(new ItemStack(this.tapaziteObelisk(), rand.nextInt(2) + 2, 0));
-//			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(2), 0));
-//			break;
-//		case 6:
-//			ret.add(new ItemStack(this.tapaziteObelisk(), rand.nextInt(2) + 3, 0));
-//			break;
-//		case 0: default:
-//			ret.add(new ItemStack(this.tapaziteDust(), rand.nextInt(3) + 3, 0));
-//		}
-//		return ret;
-		return super.getDrops(world, x, y, z, metadata, fortune);
-	}
-	
-	@Override
-	public Item getItemDropped(int metadata, Random rand, int fortune) {
+		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+		Random rand = new Random();
+		int j = rand.nextInt(fortune + 2) - 1;
+        if (j < 0) j = 0;
 		switch (metadata) {
-		default: case 0: case 1: case 2: case 3: case 4:
-			return this.tapaziteDust();
-		case 5: case 6:
-			return this.tapaziteObelisk();
+		case 1:
+			ret.add(new ItemStack(this.tapaziteDust(), (rand.nextInt(3) + 2) * (j + 1), 0));
+			break;
+		case 2:
+			ret.add(new ItemStack(this.tapaziteDust(), (rand.nextInt(2) + 2) * (j + 1), 0));
+			break;
+		case 3:
+			ret.add(new ItemStack(this.tapaziteObelisk(), (rand.nextInt(2)) * (j + 1), 0));
+			ret.add(new ItemStack(this.tapaziteDust(), (rand.nextInt(3) + 1) * (j + 1), 0));
+			break;
+		case 4:
+			ret.add(new ItemStack(this.tapaziteObelisk(), (rand.nextInt(3)) * (j + 1), 0));
+			ret.add(new ItemStack(this.tapaziteDust(), (rand.nextInt(2) + 1) * (j + 1), 0));
+			break;
+		case 5:
+			ret.add(new ItemStack(this.tapaziteObelisk(), (rand.nextInt(2) + 2) * (j + 1), 0));
+			ret.add(new ItemStack(this.tapaziteDust(), (rand.nextInt(2)) * (j + 1), 0));
+			break;
+		case 6:
+			ret.add(new ItemStack(this.tapaziteObelisk(), (rand.nextInt(2) + 3) * (j + 1), 0));
+			break;
+		case 0: default:
+			ret.add(new ItemStack(this.tapaziteDust(), (rand.nextInt(3) + 3) * (j + 1), 0));
 		}
+		return ret;
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World world, int metadata) {
 		return new TileEntityTapaziteCrystal();
