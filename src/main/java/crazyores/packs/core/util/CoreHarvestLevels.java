@@ -1,8 +1,10 @@
 package crazyores.packs.core.util;
 
+import java.util.Iterator;
+
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemTool;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.util.EnumHelper;
@@ -47,7 +49,18 @@ public class CoreHarvestLevels {
 		ReflectionHelper.setPrivateValue(ToolMaterial.class, ToolMaterial.EMERALD, 7, 5);
 		
 		//Update block harvest levels
-		Blocks.obsidian.setHarvestLevel(PICKAXE, 7);
+//		Blocks.obsidian.setHarvestLevel(PICKAXE, 7);
+		Iterator i = Block.blockRegistry.iterator();
+		while (i.hasNext()) {
+			Block b = (Block)i.next();
+			int level = b.getHarvestLevel(0);
+			if (level == 2) {
+				b.setHarvestLevel(b.getHarvestTool(0), 3);
+			}
+			else if (level == 3) {
+				b.setHarvestLevel(b.getHarvestTool(0), 7);
+			}
+		}
 		
 		Blocks.coal_block.setHarvestLevel(PICKAXE, 0);
 		Blocks.coal_ore.setHarvestLevel(PICKAXE, 0);
@@ -60,22 +73,22 @@ public class CoreHarvestLevels {
 		Blocks.iron_door.setHarvestLevel(PICKAXE, 2);
 		Blocks.iron_ore.setHarvestLevel(PICKAXE, 2);
 		
-		Blocks.emerald_block.setHarvestLevel(PICKAXE, 3);
-		Blocks.emerald_ore.setHarvestLevel(PICKAXE, 3);
-		
-		Blocks.redstone_block.setHarvestLevel(PICKAXE, 3);
-		Blocks.redstone_ore.setHarvestLevel(PICKAXE, 3);
-		Blocks.lit_redstone_ore.setHarvestLevel(PICKAXE, 3);
-		
-		Blocks.lapis_block.setHarvestLevel(PICKAXE, 3);
-		Blocks.lapis_ore.setHarvestLevel(PICKAXE, 3);
+//		Blocks.emerald_block.setHarvestLevel(PICKAXE, 3);
+//		Blocks.emerald_ore.setHarvestLevel(PICKAXE, 3);
+//		
+//		Blocks.redstone_block.setHarvestLevel(PICKAXE, 3);
+//		Blocks.redstone_ore.setHarvestLevel(PICKAXE, 3);
+//		Blocks.lit_redstone_ore.setHarvestLevel(PICKAXE, 3);
+//		
+//		Blocks.lapis_block.setHarvestLevel(PICKAXE, 3);
+//		Blocks.lapis_ore.setHarvestLevel(PICKAXE, 3);
 		
 		Blocks.diamond_block.setHarvestLevel(PICKAXE, 6);
 		Blocks.diamond_ore.setHarvestLevel(PICKAXE, 6);
 		
-		Blocks.quartz_block.setHarvestLevel(PICKAXE, 3);
-		Blocks.quartz_ore.setHarvestLevel(PICKAXE, 3);
-		Blocks.quartz_stairs.setHarvestLevel(PICKAXE, 3);
+//		Blocks.quartz_block.setHarvestLevel(PICKAXE, 3);
+//		Blocks.quartz_ore.setHarvestLevel(PICKAXE, 3);
+//		Blocks.quartz_stairs.setHarvestLevel(PICKAXE, 3);
 		
 		//CrazyOres Harvest Levels
 

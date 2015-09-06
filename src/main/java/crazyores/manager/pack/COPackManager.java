@@ -53,7 +53,6 @@ public class COPackManager {
 			CoreBlocks.initBlocks();
 			CoreItems.initItems();
 			CoreFuelHandler.initFuels();
-			CoreHarvestLevels.setHarvestLevels();
 			CoreEventManager.registerEvents();
 			NetworkRegistry.INSTANCE.registerGuiHandler(corePack.getPackID(), new CoreGuiRegistry());
 			CoreFluidContainerRegistry.registerFluidContainers();
@@ -73,6 +72,7 @@ public class COPackManager {
 	
 	public static void postInit() {
 		if (Loader.isModLoaded(corePack.getPackID())) {
+			CoreHarvestLevels.setHarvestLevels();
 		}
 	}
 	
