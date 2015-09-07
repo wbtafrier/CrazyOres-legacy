@@ -19,6 +19,6 @@ public class CrazyOresData {
 //	public static final String foodsPackID = "crazyores_foods";
 	
 	//Pack Versions
-	public static final String corePackVersion = "2.0.0";
+	public static final String corePackVersion = "2.0.4";
 //	public static final String foodsPackVersion = "1.0.0";
 }
