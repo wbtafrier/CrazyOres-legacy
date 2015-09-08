@@ -16,6 +16,7 @@ import org.apache.logging.log4j.Level;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import crazyores.manager.util.CrazyOresLogger;
+import crazyores.packs.core.config.COCoreConfigSettings;
 
 public class BlockTapaziteStalagmite extends BlockTapaziteCrystal {
 
@@ -26,7 +27,6 @@ public class BlockTapaziteStalagmite extends BlockTapaziteCrystal {
 
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z) {
-		
 		return world.getBlock(x, y - 1, z).isAssociatedBlock(Blocks.stone);
 	}
 
@@ -37,7 +37,6 @@ public class BlockTapaziteStalagmite extends BlockTapaziteCrystal {
 
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand) {
-
 //		CrazyOresLogger.write(Level.INFO, "BLOCK LIGHT LEVEL: " + world.getBlockLightValue(x, y + 1, z));
 		if (super.correctLightingForGrowth(world, x, y, z)) {
 
@@ -62,9 +61,11 @@ public class BlockTapaziteStalagmite extends BlockTapaziteCrystal {
 						super.growCrystal(world, x, y, z, metadata);
 					}
 				}
-
-				if (rand.nextInt((int)(30F / f) + 1) == 0) {
-					super.spawnRandomCrystal(world, x, y, z, rand, metadata);
+				
+				if (COCoreConfigSettings.spreadTapazite) {
+					if (rand.nextInt((int)(30F / f) + 1) == 0 && (rand.nextInt(1000) == 0)) {
+						super.spawnRandomCrystal(world, x, y, z, rand, metadata);
+					}
 				}
 			}
 		}

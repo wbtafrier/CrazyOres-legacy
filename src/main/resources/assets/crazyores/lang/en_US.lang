@@ -383,5 +383,6 @@ config.node.generateEnderOre=Generate Ender Ore
 config.node.zectiumCoreExplodes=Zectium Core Explodes When Thrown
 config.node.explosiveArrowExplodes=Explosive Arrow Explodes When Shot
 config.node.fireSpreadsArrow=Flaming and Firey Explosive Arrows Spread Fire When Shot
+config.node.spreadTapazite=Tapazite Spread more Crystals(Laggy after a while)
 
 config.node.foolsRubyGolemMaxHeight=Maximum Fools Ruby Golem Height

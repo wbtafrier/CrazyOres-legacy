@@ -25,5 +25,7 @@ public class COCoreConfigSettings {
 	public static boolean explosiveArrowExplodes = true;
 	public static boolean fireSpreadsArrow = true;
 	
+	public static boolean spreadTapazite = true;
+	
 	public static int foolsRubyGolemMaxHeight = 50;
 }

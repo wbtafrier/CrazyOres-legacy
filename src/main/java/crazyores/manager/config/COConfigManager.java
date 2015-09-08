@@ -19,22 +19,22 @@ public abstract class COConfigManager {
 	
 	public static void init(FMLPreInitializationEvent event) {
 		
-		config = new Configuration(new File(event.getSuggestedConfigurationFile().getParentFile() + fileLocation + "crazyores_main.cfg"));
-		CrazyOresLogger.write(null, Level.INFO, "Loading Main CrazyOres Configuration file.");
-		
-		try {	
-			config.load();
-			
-			CrazyOresLogger.write(null, Level.INFO, "CrazyOres Main config file loaded successfully.");
-		} 
-		catch(Exception e) {
-			CrazyOresLogger.write(null, Level.WARN, "Uh oh, something went wrong with the config file. Saving any changes...");
-		}
-		finally {
-			if (config.hasChanged()) {
-				config.save();
-			}
-		}
+//		config = new Configuration(new File(event.getSuggestedConfigurationFile().getParentFile() + fileLocation + "crazyores_main.cfg"));
+//		CrazyOresLogger.write(null, Level.INFO, "Loading Main CrazyOres Configuration file.");
+//		
+//		try {	
+//			config.load();
+//			
+//			CrazyOresLogger.write(null, Level.INFO, "CrazyOres Main config file loaded successfully.");
+//		} 
+//		catch(Exception e) {
+//			CrazyOresLogger.write(null, Level.WARN, "Uh oh, something went wrong with the config file. Saving any changes...");
+//		}
+//		finally {
+//			if (config.hasChanged()) {
+//				config.save();
+//			}
+//		}
 		
 		if (Loader.isModLoaded(CrazyOresData.corePackID)) {
 			COCoreConfigLoader.initCore(event);

@@ -53,6 +53,8 @@ public class COCoreConfigLoader extends COConfigManager {
 			COCoreConfigSettings.explosiveArrowExplodes = config.get(LOAD_MISC_CATEGORY, StatCollector.translateToLocal("config.node.explosiveArrowExplodes"), true).getBoolean(true);
 			COCoreConfigSettings.fireSpreadsArrow = config.get(LOAD_MISC_CATEGORY, StatCollector.translateToLocal("config.node.fireSpreadsArrow"), true).getBoolean(true);
 			
+			COCoreConfigSettings.spreadTapazite = config.get(LOAD_MISC_CATEGORY, StatCollector.translateToLocal("config.node.spreadTapazite"), false).getBoolean(false);
+			
 			COCoreConfigSettings.foolsRubyGolemMaxHeight = config.get(LOAD_MISC_CATEGORY, StatCollector.translateToLocal("config.node.foolsRubyGolemMaxHeight"), 50).getInt(50);
 			
 			CrazyOresLogger.write(null, Level.INFO, "CrazyOres Core config file loaded successfully.");

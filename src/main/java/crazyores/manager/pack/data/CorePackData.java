@@ -15,7 +15,5 @@ public class CorePackData extends AbstractPack {
 	 */
 	public CorePackData() {
 		super(CrazyOresData.COPrefix, CrazyOresData.COPrefix, CrazyOresData.corePackVersion, CrazyOresData.corePackID, EnumChatFormatting.AQUA);
-		
-		
 	}
 }
