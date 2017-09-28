@@ -2,13 +2,13 @@ package crazyores.manager.proxy;
 
 import java.io.File;
 
-import net.minecraft.client.renderer.tileentity.TileEntityRendererChestHelper;
-import net.minecraftforge.common.MinecraftForge;
-import cpw.mods.fml.common.Loader;
 import crazyores.manager.pack.COPackManager;
 import crazyores.packs.core.event.CoreBowEvent;
 import crazyores.packs.core.render.CoreRenderRegistry;
 import crazyores.packs.core.render.ReinforcedChestItemRenderer;
+import net.minecraft.client.renderer.tileentity.TileEntityRendererChestHelper;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 
 public class ClientProxy implements IProxy {
 

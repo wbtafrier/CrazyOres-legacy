@@ -2,8 +2,8 @@ package crazyores.packs.core.block;
 
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import crazyores.manager.pack.COPackManager;
 import crazyores.packs.core.item.CoreItems;
 import crazyores.packs.core.tabs.CoreTabList;
@@ -32,7 +32,7 @@ public class BlockCake extends CoreBlock {
     private int slices;
     
 	protected BlockCake(String unlocalizedName, String type, int slices) {
-		super(unlocalizedName, Material.cake);
+		super(unlocalizedName, Material.CAKE);
 		this.setHardness(0.5f);
 		this.setStepSound(soundTypeCloth);
 		blockName = type + "_cake";

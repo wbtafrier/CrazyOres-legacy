@@ -1,6 +1,6 @@
 package crazyores.manager.pack.data;
 
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.text.TextFormatting;
 import crazyores.manager.support.AbstractPack;
 
 public class CorePackData extends AbstractPack {
@@ -14,6 +14,6 @@ public class CorePackData extends AbstractPack {
 	 * @param color is the color of the pack that will be displayed in the chat window.
 	 */
 	public CorePackData() {
-		super(CrazyOresData.COPrefix, CrazyOresData.COPrefix, CrazyOresData.corePackVersion, CrazyOresData.corePackID, EnumChatFormatting.AQUA);
+		super(CrazyOresData.COPrefix, CrazyOresData.COPrefix, CrazyOresData.corePackVersion, CrazyOresData.corePackID, TextFormatting.AQUA);
 	}
 }

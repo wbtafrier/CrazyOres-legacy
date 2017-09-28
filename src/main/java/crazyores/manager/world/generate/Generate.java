@@ -2,23 +2,28 @@ package crazyores.manager.world.generate;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.feature.WorldGenMinable;
-import cpw.mods.fml.common.IWorldGenerator;
-import cpw.mods.fml.common.Loader;
+import com.google.common.base.Predicate;
+
 import crazyores.manager.pack.COPackManager;
 import crazyores.packs.core.block.CoreBlocks;
 import crazyores.packs.core.config.COCoreConfigSettings;
 import crazyores.packs.core.world.generate.GenerateStructures;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockStone;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraftforge.fml.common.IWorldGenerator;
+import net.minecraftforge.fml.common.Loader;
 
 public class Generate implements IWorldGenerator {
 
 	@Override
-	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		
+	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		this.generateCoreOres(world, rand, chunkX * 16, chunkZ * 16);
 		
 		if (Loader.isModLoaded(COPackManager.foodsPack.getPackID())) {
@@ -28,7 +33,7 @@ public class Generate implements IWorldGenerator {
 	
 	public void generateCoreOres(World world, Random rand, int x, int z) {
 		
-		switch(world.provider.dimensionId) {
+		switch(world.provider.getDimension()) {
 		case -1: generateCoreNetherOres(world, rand, x, z); break;
 		case 0: {
 			generateCoreSurfaceOres(world, rand, x, z);
@@ -41,65 +46,65 @@ public class Generate implements IWorldGenerator {
 	
 	private void generateCoreNetherOres(World world, Random rand, int x, int z) {
 		if (COCoreConfigSettings.generateDemoniteOre) {
-			generateOre(CoreBlocks.demoniteOre, Blocks.netherrack, world, rand, x, z, 8, 20, 0, 255);
+			generateOre(CoreBlocks.demoniteOre, new Generate.NetherPredicate(), world, rand, x, z, 8, 20, 0, 255);
 		}
 		
 		if (COCoreConfigSettings.generateInvisiumOre) {
-			generateOre(CoreBlocks.invisiumOre, Blocks.netherrack, world, rand, x, z, 8, 18, 0, 255);
+			generateOre(CoreBlocks.invisiumOre, new Generate.NetherPredicate(), world, rand, x, z, 8, 18, 0, 255);
 		}
 		
 		if (COCoreConfigSettings.generateDarkstoneOre) {
-			generateOre(CoreBlocks.darkstoneOre, Blocks.netherrack, world, rand, x, z, 8, 36, 0, 255);
+			generateOre(CoreBlocks.darkstoneOre, new Generate.NetherPredicate(), world, rand, x, z, 8, 36, 0, 255);
 		}
 		
 		if (COCoreConfigSettings.generateLuminiteOre) {
-			generateOre(CoreBlocks.luminiteOre, Blocks.netherrack, world, rand, x, z, 4, 30, 0, 255);
+			generateOre(CoreBlocks.luminiteOre, new Generate.NetherPredicate(), world, rand, x, z, 4, 30, 0, 255);
 		}
 	}
 	
 	private void generateCoreSurfaceOres(World world, Random rand, int x, int z) {
 		
 		if (COCoreConfigSettings.generateTapaziteOre) {
-			generateTapazite(CoreBlocks.tapaziteStalagmite, Blocks.air, world, rand, x, z);
-			generateTapazite(CoreBlocks.tapaziteStalactite, Blocks.air, world, rand, x, z);
+			generateTapazite(CoreBlocks.tapaziteStalagmite, Blocks.AIR, world, rand, x, z);
+			generateTapazite(CoreBlocks.tapaziteStalactite, Blocks.AIR, world, rand, x, z);
 		}
 		
 		//vein size, chances to spawn, minY, maxY
 		
 		if (COCoreConfigSettings.generateCopperOre)
-			generateOre(CoreBlocks.copperOre, Blocks.stone, world, rand, x, z, 8, 18, 0, 86);
+			generateOre(CoreBlocks.copperOre, world, rand, x, z, 8, 18, 0, 86);
 		
 		if (COCoreConfigSettings.generateMeteoriteOre)
-			generateOre(CoreBlocks.meteoriteOre, Blocks.stone, world, rand, x, z, 6, 16, 70, 255);
+			generateOre(CoreBlocks.meteoriteOre, world, rand, x, z, 6, 16, 70, 255);
 		
 		if (COCoreConfigSettings.generateAdamiteOre)
 			generateWaterOre(CoreBlocks.adamiteOre, world, rand, x, z, 2, 10, 0, 255);
 		
 		if (COCoreConfigSettings.generateSapphireOre)
-			generateOre(CoreBlocks.sapphireOre, Blocks.stone, world, rand, x, z, 6, 10, 0, 49);
+			generateOre(CoreBlocks.sapphireOre, world, rand, x, z, 6, 10, 0, 49);
 		
 		if (COCoreConfigSettings.generateRubyOre)
-			generateOre(CoreBlocks.rubyOre, Blocks.stone, world, rand, x, z, 6, 8, 0, 41);
+			generateOre(CoreBlocks.rubyOre, world, rand, x, z, 6, 8, 0, 41);
 		
 		if (COCoreConfigSettings.generateFoolsRubyOre)
-			generateOre(CoreBlocks.foolsRubyOre, Blocks.stone, world, rand, x, z, 4, 20, 0, 50);
+			generateOre(CoreBlocks.foolsRubyOre, world, rand, x, z, 4, 20, 0, 50);
 		
 		if (COCoreConfigSettings.generateZectiumOre)
-			generateOre(CoreBlocks.zectiumOre, Blocks.stone, world, rand, x, z, 6, 2, 0, 14);
+			generateOre(CoreBlocks.zectiumOre, world, rand, x, z, 6, 2, 0, 14);
 		
 		if (COCoreConfigSettings.generateOsmoniumOre)
-			generateOre(CoreBlocks.osmoniumOre, Blocks.stone, world, rand, x, z, 4, 3, 95, 255);
+			generateOre(CoreBlocks.osmoniumOre, world, rand, x, z, 4, 3, 95, 255);
 		
 		if (COCoreConfigSettings.generateStarconiumOre)
-			generateOre(CoreBlocks.starconiumOre, Blocks.stone, world, rand, x, z, 4, 1, 0, 12);
+			generateOre(CoreBlocks.starconiumOre, world, rand, x, z, 4, 1, 0, 12);
 		
 		if (COCoreConfigSettings.generateExperiumOre)
-			generateOre(CoreBlocks.experiumOre, Blocks.stone, world, rand, x, z, 2, 4, 0, 30);
+			generateOre(CoreBlocks.experiumOre, world, rand, x, z, 2, 4, 0, 30);
 	}
 	
 	private void generateCoreEndOres(World world, Random rand, int x, int z) {
 		if (COCoreConfigSettings.generateEnderOre)
-			generateOre(CoreBlocks.enderOre, Blocks.end_stone, world, rand, x, z, 8, 40, 0, 255);
+			generateOre(CoreBlocks.enderOre, new Generate.EnderPredicate(), world, rand, x, z, 8, 40, 0, 255);
 	}
 	
 	/**
@@ -117,14 +122,25 @@ public class Generate implements IWorldGenerator {
 	* @param An int for the minimum Y-Coordinate height at which this block may spawn
 	* @param An int for the maximum Y-Coordinate height at which this block may spawn
 	**/
-	private void generateOre(Block block, Block spawnInBlock, World world, Random rand, int blockXPos, int blockZPos, int maxVeinSize, int chancesToSpawn, int minY, int maxY) {
+	private void generateOre(Block block, Predicate<IBlockState> predicate, World world, Random rand, int blockXPos, int blockZPos, int maxVeinSize, int chancesToSpawn, int minY, int maxY) {
 		
 		int diffMinMax = maxY - minY;
 		for (int x = 0; x < chancesToSpawn; x++) {
 			int posX = blockXPos + rand.nextInt(16);
 			int posY = minY + rand.nextInt(diffMinMax);
 			int posZ = blockZPos + rand.nextInt(16);
-			(new WorldGenMinable(block, maxVeinSize, spawnInBlock)).generate(world, rand, posX, posY, posZ);
+			(new WorldGenMinable(block.getBlockState().getBaseState(), maxVeinSize, predicate)).generate(world, rand, new BlockPos(posX, posY, posZ));
+		}
+	}
+	
+	private void generateOre(Block block, World world, Random rand, int blockXPos, int blockZPos, int maxVeinSize, int chancesToSpawn, int minY, int maxY) {
+		
+		int diffMinMax = maxY - minY;
+		for (int x = 0; x < chancesToSpawn; x++) {
+			int posX = blockXPos + rand.nextInt(16);
+			int posY = minY + rand.nextInt(diffMinMax);
+			int posZ = blockZPos + rand.nextInt(16);
+			(new WorldGenMinable(block.getBlockState().getBaseState(), maxVeinSize)).generate(world, rand, new BlockPos(posX, posY, posZ));
 		}
 	}
 	
@@ -135,7 +151,7 @@ public class Generate implements IWorldGenerator {
 			int posX = blockXPos + rand.nextInt(16);
 			int posY = minY + rand.nextInt(diffMinMax);
 			int posZ = blockZPos + rand.nextInt(16);
-			(new WorldGenNearWater(spawnedBlock, maxVeinSize)).generate(world, rand, posX, posY, posZ);
+			(new WorldGenNearWater(spawnedBlock, maxVeinSize)).generate(world, rand, new BlockPos(posX, posY, posZ));
 		}
 	}
 	
@@ -148,15 +164,64 @@ public class Generate implements IWorldGenerator {
 			int posZ = blockZPos + rand.nextInt(16);
 			
 			if (rand.nextInt(6) == 0) {
-				if (spawnedBlock.equals(CoreBlocks.tapaziteStalagmite) && world.getBlock(posX, posY, posZ).isAir(world, posX, posY, posZ) && world.getBlock(posX, posY - 1, posZ).isAssociatedBlock(Blocks.stone) && world.getBlock(posX, posY + 1, posZ).isAir(world, posX, posY + 1, posZ)) {
-					world.setBlock(posX, posY, posZ, CoreBlocks.tapaziteStalagmite);
+				BlockPos currentBlockPos = new BlockPos(posX, posY, posZ);
+				BlockPos aboveBlockPos = new BlockPos(posX, posY + 1, posZ);
+				BlockPos belowBlockPos = new BlockPos(posX, posY - 1, posZ);
+				
+				
+				if (spawnedBlock.equals(CoreBlocks.tapaziteStalagmite) 
+						&& world.getBlockState(currentBlockPos).getBlock().isAir(world.getBlockState(currentBlockPos), world, currentBlockPos) 
+						&& world.getBlockState(belowBlockPos).getBlock().isAssociatedBlock(Blocks.STONE) 
+						&& world.getBlockState(aboveBlockPos).getBlock().isAir(world.getBlockState(aboveBlockPos), world, aboveBlockPos)) {
+					world.setBlockState(currentBlockPos, CoreBlocks.tapaziteStalagmite.getDefaultState());
 					break;
 				}
-				else if (spawnedBlock.equals(CoreBlocks.tapaziteStalactite) && world.getBlock(posX, posY, posZ).isAir(world, posX, posY, posZ) && world.getBlock(posX, posY + 1, posZ).isAssociatedBlock(Blocks.stone) && world.getBlock(posX, posY - 1, posZ).isAir(world, posX, posY - 1, posZ)) {
-					world.setBlock(posX, posY, posZ, CoreBlocks.tapaziteStalactite);
+				else if (spawnedBlock.equals(CoreBlocks.tapaziteStalactite) 
+						&& world.getBlockState(currentBlockPos).getBlock().isAir(world.getBlockState(currentBlockPos), world, currentBlockPos)
+						&& world.getBlockState(aboveBlockPos).getBlock().isAssociatedBlock(Blocks.STONE) 
+						&& world.getBlockState(belowBlockPos).getBlock().isAir(world.getBlockState(aboveBlockPos), world, belowBlockPos)) {
+					world.setBlockState(currentBlockPos, CoreBlocks.tapaziteStalactite.getDefaultState());
 					break;
 				}
 			}
 		}
 	}
+	
+	static class NetherPredicate implements Predicate<IBlockState>
+    {
+        private NetherPredicate()
+        {
+        }
+
+        public boolean apply(IBlockState p_apply_1_)
+        {
+        	if (p_apply_1_ != null && p_apply_1_.getBlock() == Blocks.NETHERRACK)
+            {
+                return true;
+            }
+        	else
+        	{
+        		return false;
+        	}
+        }
+    }
+	
+	static class EnderPredicate implements Predicate<IBlockState>
+    {
+        private EnderPredicate()
+        {
+        }
+
+        public boolean apply(IBlockState p_apply_1_)
+        {
+        	if (p_apply_1_ != null && p_apply_1_.getBlock() == Blocks.END_STONE)
+            {
+                return true;
+            }
+        	else
+        	{
+        		return false;
+        	}
+        }
+    }
 }

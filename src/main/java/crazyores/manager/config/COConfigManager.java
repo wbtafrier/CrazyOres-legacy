@@ -6,8 +6,8 @@ import net.minecraftforge.common.config.Configuration;
 
 import org.apache.logging.log4j.Level;
 
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import crazyores.manager.pack.data.CrazyOresData;
 import crazyores.manager.util.CrazyOresLogger;
 import crazyores.packs.core.config.COCoreConfigLoader;

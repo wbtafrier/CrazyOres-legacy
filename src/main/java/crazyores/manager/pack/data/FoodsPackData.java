@@ -1,7 +1,7 @@
 package crazyores.manager.pack.data;
 
-import net.minecraft.util.EnumChatFormatting;
 import crazyores.manager.support.AbstractPack;
+import net.minecraft.util.text.TextFormatting;
 
 public class FoodsPackData extends AbstractPack {
 	
@@ -14,6 +14,6 @@ public class FoodsPackData extends AbstractPack {
 	 * @param color is the color of the pack that will be displayed in the chat window.
 	 */
 	public FoodsPackData() {
-		super(CrazyOresData.COPrefix + " Foods", "Foods", "1.0", "crazyores_core", EnumChatFormatting.GOLD);
+		super(CrazyOresData.COPrefix + " Foods", "Foods", "1.0", "crazyores_core", TextFormatting.GOLD);
 	}
 }

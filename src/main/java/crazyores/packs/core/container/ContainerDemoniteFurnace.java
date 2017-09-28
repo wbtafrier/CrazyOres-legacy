@@ -1,18 +1,16 @@
 package crazyores.packs.core.container;
 
+import crazyores.packs.core.entity.tileentity.TileEntityDemoniteFurnace;
+import crazyores.packs.core.recipe.DemoniteFurnaceRecipes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraft.tileentity.TileEntityFurnace;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import crazyores.packs.core.entity.tileentity.TileEntityDemoniteFurnace;
-import crazyores.packs.core.recipe.DemoniteFurnaceRecipes;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ContainerDemoniteFurnace extends Container {
 
@@ -46,9 +44,10 @@ public class ContainerDemoniteFurnace extends Container {
         }
     }
 
-    public void addCraftingToCrafters(ICrafting crafting) {
-        super.addCraftingToCrafters(crafting);
-        crafting.sendProgressBarUpdate(this, 0, this.tileFurnace.furnaceCookTime);
+    @Override
+    public void addListener(IContainerListener listener) {
+        super.addListener(listener);
+        listener.sendAllWindowProperties(this, this.tileFurnace.furnaceCookTime);
         crafting.sendProgressBarUpdate(this, 1, this.tileFurnace.furnaceBurnTime);
         crafting.sendProgressBarUpdate(this, 2, this.tileFurnace.currentItemBurnTime);
         crafting.sendProgressBarUpdate(this, 3, this.tileFurnace.overHeat);
@@ -63,35 +62,35 @@ public class ContainerDemoniteFurnace extends Container {
     public void detectAndSendChanges() {
         super.detectAndSendChanges();
 
-        for (int i = 0; i < this.crafters.size(); ++i) {
-            ICrafting icrafting = (ICrafting)this.crafters.get(i);
+        for (int i = 0; i < this.listeners.size(); ++i) {
+        	IContainerListener icontainerlistener = this.listeners.get(i);
 
             if (this.lastCookTime != this.tileFurnace.furnaceCookTime) {
-                icrafting.sendProgressBarUpdate(this, 0, this.tileFurnace.furnaceCookTime);
+            	icontainerlistener.sendWindowProperty(this, 0, this.tileFurnace.furnaceCookTime);
             }
 
             if (this.lastBurnTime != this.tileFurnace.furnaceBurnTime) {
-                icrafting.sendProgressBarUpdate(this, 1, this.tileFurnace.furnaceBurnTime);
+            	icontainerlistener.sendWindowProperty(this, 1, this.tileFurnace.furnaceBurnTime);
             }
 
             if (this.lastItemBurnTime != this.tileFurnace.currentItemBurnTime) {
-                icrafting.sendProgressBarUpdate(this, 2, this.tileFurnace.currentItemBurnTime);
+            	icontainerlistener.sendWindowProperty(this, 2, this.tileFurnace.currentItemBurnTime);
             }
             
             if (this.lastOverHeat != this.tileFurnace.overHeat) {
-                icrafting.sendProgressBarUpdate(this, 3, this.tileFurnace.overHeat);
+            	icontainerlistener.sendWindowProperty(this, 3, this.tileFurnace.overHeat);
             }
             
             if (this.lastTimeAlive != this.tileFurnace.timeAlive) {
-                icrafting.sendProgressBarUpdate(this, 4, this.tileFurnace.timeAlive);
+            	icontainerlistener.sendWindowProperty(this, 4, this.tileFurnace.timeAlive);
             }
             
             if (this.lastHeatUpAmount != this.tileFurnace.heatUpAmount) {
-                icrafting.sendProgressBarUpdate(this, 5, this.tileFurnace.heatUpAmount);
+            	icontainerlistener.sendWindowProperty(this, 5, this.tileFurnace.heatUpAmount);
             }
             
             if (this.lastSmeltingSpeed != this.tileFurnace.smeltingSpeed) {
-                icrafting.sendProgressBarUpdate(this, 6, this.tileFurnace.smeltingSpeed);
+            	icontainerlistener.sendWindowProperty(this, 6, this.tileFurnace.smeltingSpeed);
             }
         }
 
@@ -182,18 +181,21 @@ public class ContainerDemoniteFurnace extends Container {
             	return null;
             }
 
-            if (stackFromSlot.stackSize == 0) {
-                slot.putStack((ItemStack)null);
+            if (stackFromSlot.isEmpty())
+            {
+                slot.putStack(ItemStack.EMPTY);
             }
-            else {
+            else
+            {
                 slot.onSlotChanged();
             }
 
-            if (stackFromSlot.stackSize == itemstack.stackSize) {
-                return null;
+            if (stackFromSlot.getCount() == itemstack.getCount())
+            {
+                return ItemStack.EMPTY;
             }
 
-            slot.onPickupFromSlot(player, stackFromSlot);
+            slot.onTake(player, stackFromSlot);
         }
 
         return itemstack;

@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.apache.logging.log4j.Level;
 
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import crazyores.manager.pack.data.CorePackData;
 import crazyores.manager.pack.data.FoodsPackData;
 import crazyores.manager.support.AbstractPack;

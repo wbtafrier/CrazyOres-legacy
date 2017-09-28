@@ -22,10 +22,10 @@ public abstract class CrazyOresTabs {
 		COTabList.crazyOresBlocksTab = new CreativeTabs(crazyOresBlocks) {
 			
 			@Override
-			public Item getTabIconItem() {
+			public ItemStack getTabIconItem() {
 				
 				//TODO: Replace with a cool block from the core pack
-				return Item.getItemFromBlock(CoreBlocks.luminiteDiscoBlock);
+				return new ItemStack(Item.getItemFromBlock(CoreBlocks.luminiteDiscoBlock));
 			}
 		};
 	}
@@ -34,10 +34,10 @@ public abstract class CrazyOresTabs {
 		COTabList.crazyOresItemsTab = new CreativeTabs(crazyOresItems) {
 			
 			@Override
-			public Item getTabIconItem() {
+			public ItemStack getTabIconItem() {
 				
 				//TODO: Replace with a cool block from the core pack
-				return CoreItems.starconiumShard;
+				return new ItemStack(CoreItems.starconiumShard);
 			}
 		};
 	}
